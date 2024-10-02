@@ -1,0 +1,2322 @@
+Package: armbian-noble-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-cinnamon/armbian-noble-desktop-cinnamon_24.8.4_all__1-V1220-Bed17-R448a.deb
+Size: 16641696
+MD5sum: 777ad69f8ecc7ab103ec99d21458a717
+SHA1: bafd9a763adda36d88a5ac9bd2adc06ba35a9a05
+SHA256: c96a756af051df279787b50650f55fa599c4a984556d7e903e2b764117e83cba
+SHA512: 283dd2260f0c48e610097ac203f84ef246c600fb60fb5cdeed1077e80f0bb0fa5eabd045b54651a924664d077244b942c21d001b1fdc782db3ff5dfea9627b9a
+Description: Armbian desktop for Ubuntu noble cinnamon
+Armbian-Original-Hash: 1-V1220-Bed17-R448a
+
+Package: armbian-noble-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-cinnamon/armbian-noble-desktop-cinnamon_24.8.3_all__1-V1220-Bed17-R448a.deb
+Size: 16641696
+MD5sum: ab99e71b639ece4232bf34c3e9322dcd
+SHA1: 0d5719daf2342cf54223462c9fbee46aa004960c
+SHA256: f4d00aea2a9ef52332ac84f9ba22111131ad8eeb6e52431c5170019be8e2c1ac
+SHA512: 4ea36d551b4c947e101c64b5f1d88ae1fa37b8ba204261818ca33bcf5bcb2e6f22890aee71db649709846f7bcce97db8855d613365289bcd5b4aa1f6be6e8337
+Description: Armbian desktop for Ubuntu noble cinnamon
+Armbian-Original-Hash: 1-V1220-Bed17-R448a
+
+Package: armbian-noble-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-cinnamon/armbian-noble-desktop-cinnamon_24.8.2_all__1-V1220-Bed17-R448a.deb
+Size: 16641696
+MD5sum: 0e89a3b5a405cd4f7907199cbe573666
+SHA1: 7e508657a89d0f6bb68c81fdc6aae4034734d079
+SHA256: 893306ff98399e22de769ac27b33302bae89f6bf2be185f8de669db52dcaf776
+SHA512: af8a4aceeed555748d0f8f68e67df91c5e79b4a182c02d76f75d3dfcbfa37a21bda6cbe5c3d896d485ae838a29ddf9a583614a4564da1e66d2b6baa0db6a78f3
+Description: Armbian desktop for Ubuntu noble cinnamon
+Armbian-Original-Hash: 1-V1220-Bed17-R448a
+
+Package: armbian-noble-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-cinnamon/armbian-noble-desktop-cinnamon_24.5.1_all__1-Ve6ff-Bcfc4-R448a.deb
+Size: 16641584
+MD5sum: c63deb2e29abf66ea53268eae649a426
+SHA1: a4b12b00c47cfeb50616ded0371da76b60b348de
+SHA256: 0a309d4e740bad749c3fbb6f4e3d3714db585f8102ee74b362792695070cf153
+SHA512: 16f45b821b614f084b4c797df5473ae42732282ee3a3989e1e6de25bf01e2c889b43a1377320b838cadde2eeb4225012f3da432371493543dcaf4196d75c7896
+Description: Armbian desktop for Ubuntu noble cinnamon
+Armbian-Original-Hash: 1-Ve6ff-Bcfc4-R448a
+
+Package: armbian-noble-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-cinnamon/armbian-noble-desktop-cinnamon_24.2.1_all__1-Vb886-Bcfc4-R448a.deb
+Size: 16641756
+MD5sum: 3d55a1700571a2372272359254ab7012
+SHA1: 372bc40944002cf28e14a24c2253683611ed7fb7
+SHA256: 9340ff18ceead21f1446ac6e4b29dbda86ef6ed88f4ffda21fb0ee0b4aeaac58
+SHA512: b5ad68fe7ba9677f5e274799e6c410caadb121fdc04e055a588cd28aa744d0a00f64fb31691f632f1cb062ab2e87d423a40da83b75880fdc95762dfdfad3f465
+Description: Armbian desktop for Ubuntu noble cinnamon
+Armbian-Original-Hash: 1-Vb886-Bcfc4-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.8.4_all__1-V5493-Bed17-R448a.deb
+Size: 16640536
+MD5sum: 00a5bf2058e52b4838d47ffe5d7d9f1a
+SHA1: 013d6b57c4f84c0ab4b7c97474b82961f9e19f89
+SHA256: 27dd0deb24c2998bc0e70c7fcfaa1d3fe0c9c4c9456f0d5e8a558ad03618de17
+SHA512: cbe90715257f8a40542d212fca3b9b67f9a5b3675cd634d8565b399403b740f02cdfbd5070052af70c96863dc6cc1d6adf464811a9510b492d64c1943bf3b5d9
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V5493-Bed17-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.8.3_all__1-V5493-Bed17-R448a.deb
+Size: 16640540
+MD5sum: 83ce1ece9b2bc64674da5621726d4d9e
+SHA1: c30aba752d64e6eb8b2457697719686eb49ca518
+SHA256: 92c7c93e5d38c00ccac21609669021fe3ddf3f30a71ebb58494a9af21300aa01
+SHA512: 4a599ce60f4ef6e8d3939434fa189444486bcb685ed84065bdb0ecf221894913fcd00a6a33a51412e4041e9ec404151d6bb0dab512b6b48431b3b4cab1021f09
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V5493-Bed17-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.8.2_all__1-V5493-Bed17-R448a.deb
+Size: 16640536
+MD5sum: 91170dc7b8d1663af1b092a1a5e17dd0
+SHA1: b02db0a1833c8a1838aa7897f10d17afb06c3998
+SHA256: e1856f7630eeaeeda768217c478dad6fe02b065516caaf9cd5abc9bf10b82a56
+SHA512: 576281b5ceaf150d5a4e1d355df3af307271d87689dbc788226cd273c2f4a5b8874a35f58a03024612e763d791db9bd1d501a9b6e12a4161e38a03c551707e97
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V5493-Bed17-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18081
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.5
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.5.5_all__1-V927b-Bed17-R448a.deb
+Size: 16644128
+MD5sum: b0425beae62ac2b4c5d89c79ebbb541b
+SHA1: f4fe24ae653d4730ea73828bba524174472f2ffc
+SHA256: 868f4b16ebc1ff9cedf372a5271beefb6de2b6c59c41dad8167a51a9c4c6af23
+SHA512: 85b15f01e03281029236bcfd1b7e51a19f2466845c0819ac3ad8d9668390c7ea48f3a5ff054a178720205d82fa19009108e1aaea2448fe4b4508ba6ec5363d45
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V927b-Bed17-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18081
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.4
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.5.4_all__1-V927b-Bed17-R448a.deb
+Size: 16644124
+MD5sum: d6e7f8ee60517160e49d9ae8d6669508
+SHA1: 3bfc59419340a8274d67bc0eb301cf25143deb69
+SHA256: c3c8331da9b7d1e4c770d8d2a6dd4fb22672d8aeaac3a89ff0fba0bedfe21525
+SHA512: 3df053ed71d815c95bc3203da8c3b4aae5f6596679070cad7dc0f3afd8e08cc5b7f83a18ac5c4a9313fa9c134a6f780f2c65a1b3cb8561be591b1c6a2c141633
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V927b-Bed17-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18085
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.3
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.5.3_all__1-V927b-Bcfc4-R448a.deb
+Size: 16644196
+MD5sum: 0c2ac49beb6c17088cfdcb4a759e4fd7
+SHA1: 4fe7d96b4882ac0e9ceef190cd6d243fab799b03
+SHA256: 63c499695a5fde5794bc509a61c661ca00bbed47eb24af664645cc4b0b73962e
+SHA512: 40dac3800bcf05e6d1ad76dcb847cf173085278eecf869935dfae5d36db2e1df4703bf4fb9da80a52903fbe45f07839612a3e9710c0216f0c3837514581ca969
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V927b-Bcfc4-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18085
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.2
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.5.2_all__1-V927b-Bcfc4-R448a.deb
+Size: 16644196
+MD5sum: 0ab86e225d6ec2decfc0bb7f41c75815
+SHA1: a8ab3451efe0ac30ea99587b4751a2b2c1272c87
+SHA256: 9c9fb9b7e57610743c6fad9368fada1ed672e85a6cd9878fb3264664aedc4b36
+SHA512: b23f37f0ba0c1b9a447b1999a20db4f1dfa750bfbda10cb1a44e6c405d92724e77681fabd66d5b8465ec963514397193ea5e0fbebb03fd9d014ecf9601b9503f
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V927b-Bcfc4-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libnotify-bin, gdm3, lm-sensors, nautilus, network-manager-gnome, network-manager-openvpn-gnome, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.5.1_all__1-V8b8a-Bcfc4-R448a.deb
+Size: 16640280
+MD5sum: 4f840779a71666bff8250b8933bf8523
+SHA1: bcff3c478c8d2cfaa3da9284c5e9be2d0e4af7e5
+SHA256: 1a47002cce06ee6233b35e2287c7b2519c5e0282222be8af0d89a379246e940f
+SHA512: 57c9f081fd45b69cd24e90c0f460bdbca752aea2f7c688aa21ceb01a8d5f4c3af411afbc395cd1ea6d20e15279edca1abd27ebc5a6337aa01b6542d716127c3e
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V8b8a-Bcfc4-R448a
+
+Package: armbian-noble-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, network-manager-gnome, network-manager-openvpn-gnome, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-gnome/armbian-noble-desktop-gnome_24.2.1_all__1-V55ce-Bcfc4-R448a.deb
+Size: 16640404
+MD5sum: 07c6482c790972f099ce253990ea43a3
+SHA1: 5df3f641c4252cbccf0d2591558045ff4cee8682
+SHA256: 79fe968f135fb4df50f7678c4eb66cf911520fc4cc8ad3f9b7a2b46fff5ec9da
+SHA512: 5a5ac4d5efbddb11f056b9ee678d570db8f21783057839fdd377f160072d1525b1f74f44f9f646b28c7a0fd4f1cf3548e6870427e8b86650f5edc949c79c4209
+Description: Armbian desktop for Ubuntu noble gnome
+Armbian-Original-Hash: 1-V55ce-Bcfc4-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.8.4_all__1-Va2ce-Bed17-R448a.deb
+Size: 16640184
+MD5sum: b3a261c06fb6b8ebd223cbce4f480290
+SHA1: 0d369c3df1cef7543a93036ffb9aead83a969be1
+SHA256: b35dbf7899a2d73517c6467ff0bf4edec2f17ea877ca0aff2aad32f695d851eb
+SHA512: da0af74a0a428e325784a405f259dd6a0a5c567e223944e1be7339a61e3beb315856693d438aeb0e5006a30bc547150aa39d43b13ca7a47d585a960905917755
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-Va2ce-Bed17-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.8.3_all__1-Va2ce-Bed17-R448a.deb
+Size: 16640180
+MD5sum: eec1491ce03b5b9fc3ced434c7b5802a
+SHA1: 69d760d36467e2c07cd446cc9594a2464d1edd80
+SHA256: 973419430125058e78caaa09521849c1819173e14caea8e72006a462a5c2c269
+SHA512: 6c7e08c6f7754175fcf195893f0750f056afd48735ad778ac06168495c58b9b4c867fc839e1d5dc9729bb611731090d89c958a249951c0512fea4796ea0251c1
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-Va2ce-Bed17-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.8.2_all__1-Va2ce-Bed17-R448a.deb
+Size: 16640180
+MD5sum: c114bcb32387c830e2171b818580d94e
+SHA1: afe2d219d5b4c3854357e874ed2e97849f1a39cd
+SHA256: d8225f11b54aa21cb27a9febe6ed62a0e100c61f86734fb590a56b8e237cf283
+SHA512: fddbeba58b721c9a427845eabfac337b0a6459bc9f93264194a75831824985d55cc87b8b90ab2d9b20a9526088f4d1018b41b894905f65f6638403c178c53b11
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-Va2ce-Bed17-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18081
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.5
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, gnome-builder, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.5.5_all__1-V8898-Bed17-R448a.deb
+Size: 16644248
+MD5sum: 7ad1f4f2cabbdb27554e7773a6dbab6e
+SHA1: 75a96e13eb4dae87c5806baac355892dcc673205
+SHA256: 142bcd418ea1fdcd8a72dba54f7a0c1b6df949765b934ab8e4890414f2cb93c3
+SHA512: 1f5e9a6617620dedc85efa2fb5b314dd2cfa2e627b1f27e9c2a4008b4030768b3dc55ca924f52c72537bd4217b22b278a60598913e2f42e0fa0afd6a81e81ae5
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-V8898-Bed17-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18077
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.4
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, gnome-builder, code, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.5.4_all__1-Vbe1a-Bed17-R448a.deb
+Size: 16643968
+MD5sum: 665d8dea2c919220b0df44cda54d8cd0
+SHA1: 6ecf5ae69c7edb7abd08db407b45a9f1c5dd1dcb
+SHA256: 2db55dd2b2d59309e512ed36ff645eb9442c1f180dbc81532a8b8601534cacf2
+SHA512: 38b27e63e16b4342be573e92226cf3de46ac43bbc6a96dc8f224ec67612b57b6fb337de03b1330689556319c77eefce3e30a9312256d9097a8e2bf28c58a3460
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-Vbe1a-Bed17-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18081
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.3
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, gnome-builder, code, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.5.3_all__1-Vbe1a-Bcfc4-R448a.deb
+Size: 16644308
+MD5sum: 601afbe2990d40aadfb9134554a7255b
+SHA1: b6be2bd76e443b78b942f0238dc1cbfdc56805c2
+SHA256: d6ae50e1cdd5c9702877242f0998e34c5acc2b670e5fe8cd98c9f8b22464f5f8
+SHA512: cd26952994e2fa589ffefb521332075f9241bf32515f39c21fc50db0bbdebef3b83934d9e6422563c687ec9b57c683b541658f87dba16ff4373e973d48d68b21
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-Vbe1a-Bcfc4-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18081
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.2
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, gnome-builder, code, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.5.2_all__1-Vbe1a-Bcfc4-R448a.deb
+Size: 16644308
+MD5sum: 9f2eda7a7f50d38182a2359c82e17515
+SHA1: d549bae99d907ca0aee03e86ee8288387d847311
+SHA256: 0e7f0346fae9737db862b13f28620047deca8508ca0ad2c77039053421579148
+SHA512: 47649d9e5a798709b85098dd08993a9d3c42f72b90b8151de18641bdfeb865ba40467655da308fb9abc4ef099873d0fed806fb74e637d397488aa6ad0720c058
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-Vbe1a-Bcfc4-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.5.1_all__1-Vd978-Bcfc4-R448a.deb
+Size: 16640124
+MD5sum: f60b555a8ba51de8531c6726d0018229
+SHA1: 6ce8d1756ce6027e14270784d13537b1d013ee8c
+SHA256: 79cbbf8ddfeaa57da5a6ab654117c7cd026be004548e2c8f66bd890547e89888
+SHA512: d4be449a5322cc5d1eeb1f638152027dc4a8211e72b041e0ff5bb872ade5091449dca48a7c958626f085899d05b38e9119447b6a1835954de2bb72433ab2d3b3
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-Vd978-Bcfc4-R448a
+
+Package: armbian-noble-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-noble-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/noble-desktop/a/armbian-noble-desktop-xfce/armbian-noble-desktop-xfce_24.2.1_all__1-V636b-Bcfc4-R448a.deb
+Size: 16640240
+MD5sum: cffd12d8d40fe1b7e199b8b9f6d2d1df
+SHA1: 25e4aed714cccacfab98a4152aa1b746daee20fe
+SHA256: bf3ffc02088144be0f575f005bd9562a6d0219081a6b5d9d9b293144bf26d447
+SHA512: 9c107fb3c9ae13ece262cfd1e0e0e6d6f3ffab94c0ebf42536b07bab3d23fc47d18191e8024d80c5cd74e674360dbe8b1302e8db6b966ce65bb1348ba479a377
+Description: Armbian desktop for Ubuntu noble xfce
+Armbian-Original-Hash: 1-V636b-Bcfc4-R448a
+
+Package: brave-keyring
+Priority: optional
+Maintainer: Brave Software <support@brave.com>
+Architecture: all
+Version: 1.16
+Filename: pool/noble-desktop/b/brave-keyring/brave-keyring_1.16-1.deb
+Size: 7664
+MD5sum: 9fee0ba4c3ffcdc58a0ee195c136c99e
+SHA1: 24195e216c5bfa1d86f2dc172c52e2e134091d22
+SHA256: 52c9246c692f8515e9fa1700272c1086794f6499bbbcb79202e8b39e5c31ffd4
+SHA512: e79aaca8f80a41d904877fc123c904c1495435056068e709b0b09394d323feb0ef8da1fd52f243cab5f9deef4cee9d30c5f58d40b6a0712bee9df63c36455ad8
+Description: Brave Browser keyring and repository files
+
+Package: chromium-l10n
+Priority: optional
+Section: localization
+Installed-Size: 97477
+Maintainer: Debian Chromium Team <chromium@packages.debian.org>
+Architecture: all
+Source: chromium
+Version: 126.0.6478.182-1~deb12u1+n
+Depends: chromium (>= 126.0.6478.182-1~deb12u1+n), chromium (<< 126.0.6478.182-1~deb12u1+n.1~)
+Filename: pool/noble-desktop/c/chromium/chromium-l10n_126.0.6478.182-1~deb12u1+n_all.deb
+Size: 7644736
+MD5sum: 64d0c01890d1c17ae23bcec59e66e128
+SHA1: ac401f11bdd7c2e225f9d92d4745d89f666010f7
+SHA256: 5fe453cf8df7ded4805b971626d79f664ad7e1e54a453bd93ec99b90a3746dc0
+SHA512: ff9e4fc9c967dbd760a7a1c7be09078ba2b7811269ae24376e7ad9695bccc0acf7d00afe7f00ba3bcbd6d6196695841d1f36c9a32336441b82dc4e4aa89c2530
+Description: web browser - language packs
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains language packages for:
+ am, ar, bg, bn, ca, cs, da, de, el, en-GB, es-419, es, et, fi, fil, fr, gu, he,
+ hi, hr, hu, id, it, ja, kn, ko, lt, lv, ml, mr, nb, nl, pl, pt-BR, pt-PT,
+ ro, ru, sk, sl, sr, sv, sw, ta, te, th, tr, uk, vi, zh-CN, zh-TW
+Homepage: http://www.chromium.org/Home
+
+Package: chromium-l10n
+Priority: optional
+Section: localization
+Installed-Size: 95573
+Maintainer: Debian Chromium Team <chromium@packages.debian.org>
+Architecture: all
+Source: chromium
+Version: 125.0.6422.60-1+noble
+Depends: chromium (>= 125.0.6422.60-1+noble), chromium (<< 125.0.6422.60-1+noble.1~)
+Filename: pool/noble-desktop/c/chromium/chromium-l10n_125.0.6422.60-1+noble_all.deb
+Size: 7524864
+MD5sum: b631c2653dad9e632dad89356b809b38
+SHA1: 1af85b6480f1509a76420e4ca215606b58b67c0b
+SHA256: 05fbe703ded7299882a02a977c34ffc64bc36afb206c2259779f53b06f8e986c
+SHA512: 68cefeaec52958aa76cd3ebc692c648bade6703b7b80dab45c80d9a802c457af56e419654d0bec82c13a59cfcd26ef421d3c65437092e657505f9fdc8cc3812b
+Description: web browser - language packs
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains language packages for:
+ am, ar, bg, bn, ca, cs, da, de, el, en-GB, es-419, es, et, fi, fil, fr, gu, he,
+ hi, hr, hu, id, it, ja, kn, ko, lt, lv, ml, mr, nb, nl, pl, pt-BR, pt-PT,
+ ro, ru, sk, sl, sr, sv, sw, ta, te, th, tr, uk, vi, zh-CN, zh-TW
+Homepage: http://www.chromium.org/Home
+
+Package: howdy
+Priority: optional
+Section: misc
+Installed-Size: 162
+Maintainer: boltgolt <boltgolt@gmail.com>
+Architecture: all
+Version: 2.6.1
+Depends: curl | wget, python3, python3-pip, python3-dev, python3-setuptools, libpam-python, libopencv-dev, cmake
+Recommends: libatlas-base-dev | libopenblas-dev | liblapack-dev, streamer
+Suggests: nvidia-cuda-dev (>= 7.5)
+Filename: pool/noble-desktop/h/howdy/howdy_2.6.1_all.deb
+Size: 38912
+MD5sum: b3b67e38359aba3860e4931d5dd3340b
+SHA1: bf1193c0744a758ffae04f8e19ad8bd05bbc0598
+SHA256: c104329d8c7f54508b317ac7fb9782eae4104187bac657ee8a80aeeeb406c84f
+SHA512: fe3a66761a577bddc0cdfec9656786019f88a86340941ea41f422bf82f09d8654f19dc7528eaef10b4d3bfe9f15f804d72098d6f9212e1b5815f481de049e2ab
+Description: Howdy: Windows Hello style authentication for Linux.
+ Use your built-in IR emitters and camera in combination with face recognition
+ to prove who you are.
+Homepage: https://github.com/boltgolt/howdy
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18058
+MD5sum: 6d640580edf0dfa5f3ed86be96e5680e
+SHA1: 407869ffb5a167f341e8ca3c5aee9bee04acffff
+SHA256: 0f52243c139208ffe982a18d3f9188c3dcbe6226a22c14ecfbf954dd650f9d6f
+SHA512: 175debe3d95f7d6ffe93fde30fa64327c885ecd01f66424067e1e84b94c58818df659e83fcd6603e5d3a6d43323af7dbdbb4a8a95c3360d9eb37748bf6107ca2
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18028
+MD5sum: c0e06d6063bbfaadd3a8cf1cd6f8dbc9
+SHA1: c8e87c48f516813fcf5e89028317423446876972
+SHA256: 858093fbbd16ef8dc8d280427d88358cc0a4280ea02d69bf767dd9fefd70628c
+SHA512: 86467a9f0f31d128d665449579c53fe488c2d4ccac0aaee2d6659c8f5078cbfc1461297358155bfcb296903c93860cdb23ea768d0e674f8df2f4b3d2255ecef7
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18010
+MD5sum: 32e0feadd920af15fa6defdf0802895f
+SHA1: 65e76e538b4e633b9a4b2b0ea508a3f72fc07230
+SHA256: 6c670d452fff7223879b1273a59cab7fae11e3aa44bda51d406901f3fdbb39b9
+SHA512: 7d1e0dbc35af726af4b17551bab78ee55bea8ef2c416cdda5a3ce4ca188342f453e74638b529d2d97dcede00466790d5b406de92729d585fbdcc322cd029973d
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17962
+MD5sum: 765147e725c9d792ecc883cb4ca4060f
+SHA1: 0fc074b1d5d20e306e538c706a5b3ddc99270674
+SHA256: 11c83e4061671aaecbcd2e4c937b18b0e9427f58e7a37ca6b4eaaadd61396918
+SHA512: 9b682773a4126297b23ef4b7ec02d40ed1b61b81432e50cab093be28007f2222232ed5ff155a631d7548624750a2bd4ca1c12ee53319f4d4b3e5490c9a3f1ddd
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17936
+MD5sum: 5b5adf99deab38981488af09de2f7b4b
+SHA1: 75d686e3f7468b9b1cf17c9505beeee37dc5e532
+SHA256: bfb28b36a599f2bd87dbba217a8cbefc60e613100f92b9d17d3dbaa5c8b8a8ea
+SHA512: a9b60e4f5ca20e914a7ad451fd72cb217daf20aa38a066e7a5506919594c437e30a5141a00884bfd368c3958d9277ff36ab4c2cb2d73cebb8a2449f868599196
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17924
+MD5sum: 1635a2fac1937732f1453975941e5902
+SHA1: ea990dee6d19a4a17a28c51b72ce23af9d718065
+SHA256: 415debef0def2c1a60bb9d99cd34c70878e55a00281ac4644dd52f2b0cbb652e
+SHA512: a70b37dce1f197f1eb72d43e41126f459c0459e690d743d66438c555db04941f27cb4ca11d7e7c9eda58ddacb3b1fdcf2b5e5b9dd8bf1c4bd4588551cd5f2407
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-gb_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18062
+MD5sum: bc0b5c44959351365f188e1c712ad2f2
+SHA1: 3b8fa7d14d1132c0176b160d6866b60fe5998fd5
+SHA256: 827f0af325b6906f32d53d37b3e7b7bb529d11417ffa0b689aef33b8ee8a91bd
+SHA512: c3b2cf090f2eb761ce22866ad01afbab5511eb9c5938e398dbc4cb48f8eabd325e264c07dde1f55bb58e8c6a8aa181412ee3795d41cc76cba91db1f0a73ebcb0
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-gb_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18034
+MD5sum: f68a5962d2df6c7af17a38462ddd3bbc
+SHA1: b35daa3f949c9edb39ceb6d47e39b09281402f01
+SHA256: 6270ac2ccc4a015bf9e5689f9e13f01b2da19cb0bd959014c9726bf785703a09
+SHA512: f5f2efeab44ccc1fb8178a7783504531957b9f8d66467e214187806745b09126649259d5a14d326c8d0d53a423005115a98dffcef56a5de5c455bd7850d7caff
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-gb_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18008
+MD5sum: 491a10a69af2dd4b61013db412b02791
+SHA1: 33c7b6edf881b80c9797b07dac3aa35d3c9e92b3
+SHA256: b54a158206e0cb20a4fa582073ad9c08dc3bbd08c0559f43c88b2ac655bb3e99
+SHA512: 1d99ba024b0e4eba6eba7b7b31d36196b90e426ccf5b2f8265d303e647b8d46b14c18bbe291b63ce8224ae035b1c866abdce76fd906e7cc3e27403e86756f46d
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-gb_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17966
+MD5sum: 3fcad147213ca22a01227acb7d178395
+SHA1: 1e4010f0ca30e347b4f1dc50cd3c7816211bf67a
+SHA256: 98f5d8a0fe64d05c14c5f8d0f9941797d5881b1189aa3bd57e75ba1cae58a8a6
+SHA512: 38e9da834fa87cefaf236cbda876b8d7322da18b12b842dae5838295ed02ad4e916df209b465363f5f58924a030386878f06a1f202fe8850dd4af63c3e261ab3
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-gb_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17930
+MD5sum: 6cd74174b6ae87505707ec645bfa6bd9
+SHA1: 5b65dbb5ea9e6da12f1a1533f9885944adb31ed8
+SHA256: b65185fd5ed77ad94b6b454d4783790c67b4ca4179896b532fb9ba0775d50320
+SHA512: 7323ad569266de775c0b873f945bced84a7c4376a6ad3dc745f041ea44a8ec33ba084e45dc572b73a5744484189d9a03a045f3fdd56a1750c6613d02d7c8f651
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-gb_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17912
+MD5sum: de2dd121583dc19e9d23163083359a58
+SHA1: f8bfd6424677efd462542a24ee5b36e473076e36
+SHA256: e68cccae8542a6ee45a9b426b7f3ca3fe2b02b0bf713a9e2aa951adbbf580948
+SHA512: 7da3f9be9bc3b73dbf6e8365819d89a6a797838eef487c78366013d2469e3333e8380cb293c8be5f392b3a01fd6b68a7a60d4b5241f97efc88e6ba1891faaad4
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-us_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18056
+MD5sum: e75bd7734a64106005cd6a49923ab095
+SHA1: e17c82753e16d8ab2dcf460552a3f9081d3057e9
+SHA256: 5882c41d6fbdf0918fe87b0c269d9eb1e37209ef524dffb2754d071f4b408778
+SHA512: 6ce089d69167cc60c0236c08ac552bb66d5791ddd4cc844f9d65ec74617edc419f950a98eada32d4b15764a7bb3aa35096e60de129ff665fc3ea8e20c8071923
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-us_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18032
+MD5sum: 47bb509cf5b2daaac729cd6a3747b23a
+SHA1: 99e4fbc466210561ce338de82a7c7a6e0cbc70bd
+SHA256: 1a44a2d74d3338a3bc0882cec90349bd20eb2eb18aea80c21804a579a8092426
+SHA512: 281af8d4e3bbc21694ca45fce041c0a72c980136ae040ab0dd407958051ada7f96d4f71150d5793a140d977da1b62a30a961ce54a9aab45e32f8d4c3e46eab6d
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-us_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18002
+MD5sum: 6ec532f016bb96df0ec0b82a311025bb
+SHA1: 226669b089c8082978cd19b26a208348d8781df7
+SHA256: eb980918135eded0f7e7fb12d57adb51151f1151cf1341a9b4212ff829e84243
+SHA512: 445b5f370475680c529f33aa06f6e8ec8186262c232000d912b611ca5f72e6f3cf0b30a5fd3d2b242e035ac77c532a61a7e07db2224b28e6f0befa85024c9c00
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-us_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17956
+MD5sum: a734f2f5dfb18015e3c5e5ed04ee1017
+SHA1: faf3d528cb415706b23af971fc35f5002d58786d
+SHA256: 07979eae8b4b4f09f9a0f4f4cc336bf863b6103ddad4cdeb8b2ab40254e5a9e4
+SHA512: a9099caa55d8898b1bce563a259155a736b34c31cfef85e959ac079fd613ca0d6d2394d10c207f57636116e26207edaabcd77d5a88f2a4f43be4bf11d548b9bd
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-us_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17938
+MD5sum: 38117b6af7ff4f037f9c4aa3f215d203
+SHA1: 287e4c97e030c6a60a2d046c7151a6ae4f4821de
+SHA256: 150bb7e8313df72b24de5c84d6205820d7e1e346f66bc1dd9dc69e9375361294
+SHA512: d96e5c7a4f6fcdab53b3085f453f8df9c811481260a93fd6099313107d38a9d00ecc7f090ff8aa803454abd1f58c703685f874663213ab13a1b87b8067e9f1a0
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-en-us_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17930
+MD5sum: 437025c618a245a070b515dfe34adc17
+SHA1: ec4ee6d09fd85b9b7869567701e13056d88f4ebb
+SHA256: a7facc90aa8801d54e1b05c391369da6aa352be29a892509582cea394401c26f
+SHA512: 3bd6ba1ffd20cd518346f5e7c4a6e1900ef35a9dcf5824faa535ccb67f61ba054317a568e6340133154ce73176a9e9bffaa8332e7168dcfbdf471d1e8d074f2e
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-ar_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18052
+MD5sum: 4d24719d012f3208ce623e19ba957907
+SHA1: a1f01a3125082625f21fb8a41f50b84cb0cca316
+SHA256: 87e7ff74ba6ce7d17c9c5077c2f558976e1b9f4ac4dc2701dc9dffa5e85c2c9c
+SHA512: b4763249fc5f83bcee786f12a35d26d63271468f4fe18cf833a9946272f60a99ede9f07b38b9578801cd88e240e6f3decc6d1184a4893201b4c86fdfcfbc982e
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-ar_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18032
+MD5sum: 8e6798cfb2cc017f4fffdf231e3d3281
+SHA1: c751511a6b6086ac21eb62a3981556fa4b549a0a
+SHA256: 6ff1b696e9f7e5f87a0f7acd9866db4431b765be5b3f6febf25432d614f625dd
+SHA512: 477bfeab9f6a376b72ce7999585118b8522021dacde7d30d899baf2c36c932dd9129ef299cd90604e006b1a9ddad583b6517f429818fc3a798b02747386f9d59
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-ar_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18018
+MD5sum: ac232f75b19a1c38c13347c10ed1be90
+SHA1: 83835750141c6ab70548b92a1f46f7e7b45dc143
+SHA256: a049fb3959946af4a00237d542ef49cfa9bd17eea9e9288cf8496cf995927b11
+SHA512: b0c117dee9ff5c237fd9611be7a3f9674ef8ca3c02e1a6a8edf3547bdede0da17efe6c92b88360927344830440ee1a40d84767ca460cc7b133fbab33b98bb7cd
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-ar_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17968
+MD5sum: c276d6a97036bf8a5d53faf88d4b2303
+SHA1: bdb712c41bdd27029e4bfc5588d9e1637246a54d
+SHA256: 414091015337ea1f2d4eb466b7c835d44d6bbf61f5af9eb485eea13b07b2c4f7
+SHA512: be49b2c2e727cdd45c26b8a4f7e23cfdf18758dc4e2ada1314df90995ef01d81fc3107a7645ade8f1d9492acf6a52aecb038e89b32ea772734f43aaccc511bf7
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-ar_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17926
+MD5sum: f22b897b3d6b9a95ef48972e39f2a88c
+SHA1: 463754ff84ee52135cb62aff12066c322bb4c4ed
+SHA256: 992dc46314677cb9eedd7bd925cb83134765b940550f237a18d73e347ebc7496
+SHA512: 43fc9bd3e80ff147265eac673070644b6a45ce3e00ed4c2f634c6c3dfcc5cc3e49921b79d6808a12c692d3fcec4b41a7443d3422c01168c087868055303ddbbc
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-ar_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17916
+MD5sum: 3e7f8f6674138fd27512198bec68d834
+SHA1: 9b975595d49fe562f2626a4e5f8bd2ff8127d81a
+SHA256: a79c3ae6621644070226e37c49877410b438f7d7d8da05551f463979ae54918a
+SHA512: cd43b06fb31da8d4bd61cd3165790e1e4c9f79ea56a4132be69a91af6f363367bd1de963a6d962b523f8284d3925c61ab72e921b627b090c9bfbf4f78ca30ab0
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-es_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18056
+MD5sum: a9c28f851678027e3ed379d5a30d9392
+SHA1: a64f25452d8a1bbe76b0db114895da6460762d09
+SHA256: a586720ef50910ec3a561e232841375d9ac317995b54b3f2e2aa3e1a4cf169eb
+SHA512: 02e8168b55b9d292880b8164c75e88ff5a93e8dd03b8519379de94f6608fe2b6a5e317749b60d960ca91ab0da31172b06eedf8a1b35ae85ffecfa95dab3668ed
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-es_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18032
+MD5sum: 22bdc1167f43fc13fb28587a7b035f39
+SHA1: 187afacdfa4e86996082b439aef2ff1116214836
+SHA256: 9d5e757a91fb835c62d00b72c3b473f58c58b7752f40d2c5a8bc2ab8c9ea427b
+SHA512: 5e5633f284381aff494891079bc2cac898b5ccb5e312e9b479934a6d8c74699d528f6e26f5347aa5505b51549e39152017b7d213dc7f5120e935baa6871a9213
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-es_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18006
+MD5sum: b0dccb87d4ad22dbd81a1a2f44653c9d
+SHA1: ed8cec30278da797369a9f792469d52efa31f2e6
+SHA256: 572dc9624c141388eb830be0b5f92d106b30b738372db4a240b0a826c44d5eee
+SHA512: 70dc0cc9111714df221331fb06084a0665f00ab7a64268e8e8dba3a6ea8a8a07b21f43500ff4e372d190a0b76534d577495693b4640b94ac578bf8c7d6269990
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-es_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17960
+MD5sum: f28edb5190bfeb6e48d4fc7f8e48247a
+SHA1: 611e6292605a2f99ebf023ebb909428ee1fbcc9d
+SHA256: d16071192c02dcf5aa2bf78a13541359f0e6a73e8f65a1eaf33c38674d3b8399
+SHA512: e9b3fe0a7d04147f9092bc944186f638004b40deef1ac7f5a874beca92f2d17c48797f574e33b436c82f5a2c4a41cdcc207bee01b5c4030d8c19d107b9824a6c
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-es_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17942
+MD5sum: edde201f53455e35dfbcc9777b7a55f1
+SHA1: 3b7024d2246570189286c28cdfbe839efc0bf412
+SHA256: 62f47d8701abac55900b10908713a3c12ff8f835f4901372bf96130f4ce65785
+SHA512: 6eb1d9e4974e0f76a9b89dd1a8b1919fc0c8da6a71e34d7d2fb5cfc44829c69ba7a5b7ffd56df185683d472345e332f88bc234a5b6acf2b522c769223447dfeb
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-es-es_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17914
+MD5sum: 57554e42676a81fc062f7e0d41565442
+SHA1: cd3795a04a0c52667691e59c9d34a14722b8ff6d
+SHA256: 203e60592deb94cc69af37b6715cfc7ee979897b6ccf9a351f46f8170fc27d44
+SHA512: 5414a7f47149b0144678bd3ff1098847db71da77356c91454f444a7b167840118c0b38802196e02191aab69eaf311bd52d3fd2b351ac7463334ffe874c6d6d76
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18048
+MD5sum: f23e000acc811132f87e3ee598ca83ae
+SHA1: 82aaa453406ec97e52b5f7699bfbfa53a469927a
+SHA256: 1351a7e578709daa4194ef43b3b4fdaf7c9a60e6e1c5ee786dff24374df7c843
+SHA512: 7190a5ef0c574b2304897ee019f7fd11dce89634b0b4174ffeb1b1df5627470546a91fb42cc90ced008ffefe6ee6c0140871eef901cdc792344bbd4d58111606
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18030
+MD5sum: 3577662862d06417f2166b582731fa11
+SHA1: 8cd1f27be80e8c9fd5162c2ee2dcbd4b6130fa75
+SHA256: d860e22fb447a8d9e52b62470c5c6e92778b5121c38e311df287710e7c4341ce
+SHA512: 5699a813a85bcc5c2f4d1a7f032aa64b2c1857a8a68063627ed00c27f3f8ac5b9d883388f55bd72f5d958c3d442d66ad2f1ef3c6ab50b2f4c8695acbe62bf197
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18002
+MD5sum: d8c72447b269aeaec941d59da07d34f7
+SHA1: 4447123a90cf54f0d52b8f87532813d69ff36ad3
+SHA256: bc816f929308df0286fb37f5dd2133606e1d90abdf12969e233980d7c740c85f
+SHA512: 97e4c1a073208bb829f332603370605ea3c175fa540eea1d73283862525a5a4a0f715fcc5cc63df50a20d48d31dae1327ce43f5da8f21929f9fd28ba561df178
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17960
+MD5sum: dd9f5a003c7e7b64244f27b3c329b55d
+SHA1: 6afdbb086b8f083a148dcecad9a4d65ec1f23a42
+SHA256: f64e3f295b96440219090225b8e5e833f0949be49955aadec1321422a7aa3d86
+SHA512: f8a61f0bca3b4a9231b1f9e48d4244b843563230b224a9f459a8df392edb4b63b60879a080a495020534ffb35e307a6fc2d50d763388be251cf748059856f581
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17934
+MD5sum: ceaf1f6c38ea50ad3763c0dc637310ec
+SHA1: 4cdc0b8f43231fdd518447c903d1ea047a9b5262
+SHA256: 828f6e77b6e59d333da16a396b747b931781e41710b87faae23e44fd6625eb89
+SHA512: 26e57708031100937c5f9e0c531419e4b6d6f89a18562fd9dbec9e6733c6622e6563768374bf09e2012044fbbc203466c6bae417e6408bae61b148f7c5424483
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17928
+MD5sum: eb0ffe5b09ac70900f60a177aa516c83
+SHA1: 69cd111cfb93dbe1a501b4782caabe9bb73dd3b6
+SHA256: 390cbe8c94e466000e129be40323f90a04c47ac5e652cb32337a63e71303a782
+SHA512: a577c109d6505b84996d85c18ee783eb11efb764f191ba5f7d5425af1647119a9586d896d98ab9d10f3b49165be152c0eb087294c92bde4021e180e20ab08f60
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18058
+MD5sum: 91ffa02847a89e94671e5d008fecb554
+SHA1: 9c15fb6296b710ed57caebe071d9fdb2de1c6222
+SHA256: 7dc2ee4f3eb50e29471304de4c2fc07b5fb89f97de04a130505471d5cda1631e
+SHA512: 5c27218c375ab181ae0cecdc0388e0492e4e838da83596689358850215768c447fec732d34f554c38d896f9a3f0f36dbb75934a70db9022339d25161bd91b670
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18042
+MD5sum: b7db765da6083d5ea93627273bdcebbb
+SHA1: 8950322a50bc7bd1035178fad09222460fcea3c7
+SHA256: a9338770da7d118fa4abbf188d19713429d9ce7520f3b26d332443c34f2d33d4
+SHA512: 8eb488813460be05183d7fcb824539b97da26c9db338d49dc51c032a77a70bb14cb3c72561ad0ef74f8eac493dcd5285fb930bf2dd05d461c710d45ff8dd9fdd
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17996
+MD5sum: 1eb5a0cb02b85fdc6875ac5cdf3f6693
+SHA1: f5de2bd523342ea8c6bddb455e21723656440a34
+SHA256: 6344de31b00b7240f94758fa797242bcac9594ab93e08d87a35548c9ebe8d675
+SHA512: 77f42ce0c251dddf2078afc50caa295d7cebe88f31340764cb586c94b84d7f00bde78155c8aa871c835825b155f3e9f3913749379021aa980c73300784a81ac6
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17972
+MD5sum: 81fe8a8357073882218011ad0ea74aa6
+SHA1: 1cb55496d2c421afae1b85004dbd28485d7f2f94
+SHA256: 9b5e917c288fdc55f9e26f7fb79f31721fcf29104e9d6084416e5de81763dad6
+SHA512: 88e0ca582ee0e7aa912e53777b411e274213f412a18a60f67409d344ab9a60b37cd969ac1bd689cce86aad0a12e641bacb45fab6b8df38475f93116f924e20d2
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17946
+MD5sum: ec79ae6e0224cbfa0a2bfd6df92001f3
+SHA1: 1ef80309c030b83e74abe5e01ae1efce8715e92e
+SHA256: 308087aa3580a97ef96d0ca39e8abe39d313173391f7ecd9015dcad0cdd37a80
+SHA512: 75582d8120b782cdecdb987ee2465aaf41731d7ea486624c16843ec77b67ab03670e76094fa76decd97927ee2f4e980b641bc0cc4ad5bbd9452b800440e4085f
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17920
+MD5sum: fc129601841c71fa1e13cad0f290074f
+SHA1: 11d60fa8847e7edfa3ef377264fa625cc4b374fa
+SHA256: 45198c7b05e0e154d712580bf174f2dd09578583e198c0e70d8425bb0621193c
+SHA512: 0abbdd1f622c96ae0af3024ef6fc6d428a10d546af22ab8c89ec98e85cb9b0c0f6932c575f8114e767bb18b169d35726581e01b0e0c3d242b511724c85cb60f4
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nb-no_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18056
+MD5sum: 918b6b33d993f3d7179898b62022d609
+SHA1: d15f5db4792cab8d0ddf6e86445ef71f52340596
+SHA256: 037adf3e286e546ae5f5bd9452de932bcefe88845b70f765288f5f1d6406af7d
+SHA512: fc802f27fd781024ba273736699d1f7bbc3124085f1dc379de18f4039898af50f4d6b10c1cac65ee43cb1c0deab738a19be0a019231e60d6978d1d3f70a75e51
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nb-no_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18034
+MD5sum: 336c2d221843003a030a0b37f12bea30
+SHA1: b1ddd295f5331b21132762512104a32c700fe833
+SHA256: c641111b5695e73e2af92199b7e8f3fa36e2299b2658fbc2cc329c82fea3c6c8
+SHA512: 55bf5189ff729b7ef6c842d00e7f2f28c52bab8e9718d8c2f3094255ac068650308f1bb4636ecfa133716243af041a8d1e2177af310cadbf1881a14a8a919c8c
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nb-no_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18006
+MD5sum: cfffe4371df590bae25654da64df0497
+SHA1: 050dba04c75e2de79acfe8a585b1b5bd80b88c87
+SHA256: b58fee3b0913adb0eba0d9b9f8ba2f3c2263c66a4df2e4f1f465645e1a55e3da
+SHA512: 5feb1c3212ccc10b06800b626cb073e53d615ebfe406d1ab81aefa9cf072038c070063d391bd7f0f6870a0634e86dc505d75c290b42fb8b973c3bf66f623ff8a
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nb-no_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17954
+MD5sum: 64a0f166bc268c500b7154a31c439389
+SHA1: 9b3eb880ad1d299a289c72c665042d33256f81c7
+SHA256: aa8a0cafad1c48f6c3b036fc0aead0f1acd084071079d89809981de25843fc3d
+SHA512: 1646350655dc58255267b04d379bcf627626baeeec52c656cc6717313410bfdf7f53138e72cd132ffd50b98cf0ce49f9baafee559447a4c8bf5e12df449f2618
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nb-no_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17930
+MD5sum: 8880b31a477a6a56386f012794a7f227
+SHA1: 190b42df769109c004cae07db026a6d9170a5dbf
+SHA256: 130bb7aad02d7f2b69989f9792d539448eb19b4fe7bf5a218d4543d97fea3406
+SHA512: f7fc2546b9e673e56efcf14367b85e446b46ae159f633b1d1fc4e48756ca94c84575f5ed8926fb089193165f27fb682e38cd4467fdda4f0195fc8ae12b80e494
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nb-no_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17924
+MD5sum: b9cdcbe0ac994035637deae3a9e37ff3
+SHA1: 5f4d452278fa7d59f5a392737ec2ac8a10b9b793
+SHA256: dad5342fadd5fcbf2440a9bcd8c985568e18bb25459ad1a537dd55b72760337d
+SHA512: f68f82951b4c917b9d2d0fb0ad360e4a8ce359d3c561b5ffecd96998d9aaf1c016ee08293de8667fcce0253d73d5dfb82c848789ca98891ef1a7a51e2d44a4cb
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nn-no_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18056
+MD5sum: 1b06e0128987e9b50746e3756b97d69e
+SHA1: 74f116ab19f15ebdc73658b62d3bbaa055986063
+SHA256: c80221ec63a95f750832373ffee9d2b7e11213de526e89a659808a097f6ae65b
+SHA512: 4039cf0173d46161386b1da8a02453e87b257dc3dc35313b2eeced59178e28722f351059e38632cbcb0c4518406d972a3d1320f02413ad1d9ee63f7bcf390d84
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nn-no_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18034
+MD5sum: 53a696c065830c6a48b4ae88503cf153
+SHA1: 41dd548e4b13a25c16a406692c347026e4afb28c
+SHA256: 8aba26a257e541359c39a356b684cc086b5311ea13fe92b5daee926360684e52
+SHA512: f320c9e8de79fa7a98d99a2338aa58a79eb0319e179f8a91949ca1969753e107aa2f339a701e264e072462f286e1de7c6a2e073369b50421a19b8169c9368281
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nn-no_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18000
+MD5sum: 327939b3731c3ac60bd37a656ffd82dc
+SHA1: 93fa79304c5eb48433c7337c64dc6667f9d9d305
+SHA256: 5ffe3c35ee505448ad928acaa60c082e0f5c6d60c34a87b72bd008d2a7f865a8
+SHA512: 0f99e60f74c2c6655012acc2afa74f81204a4d6ba7cd5833b9be18389011cb4f3ad6f186534cbd70531074e56abdb2dd0e359194a7723a725a56781ccdd290ae
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nn-no_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17962
+MD5sum: 562d4102acd588c26b0a49214705828f
+SHA1: 5a3892624faccbd2e649c766172a6bc8737b1fed
+SHA256: 7d69b6a39e482855aca4b09bdf656d5979b3968d71ec4149facd0304f000b1bb
+SHA512: 9aa64f0d4c085e0d7458fe2e2682a3a2dddfb738b66a766304a48ec6f550d45272f58b6ebd02fa3671fe853659fcf453ed7aab81cc1f2b78196a2a093fe70555
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nn-no_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17936
+MD5sum: e07c70c54b1b2755c6a9f81312d52a06
+SHA1: 82cea0ba8ecb391fc067aa7d26f8d516234e9871
+SHA256: 4ed90a1e4373f1c7a04c256359c4db90f3b76c90c458dd7791675846e34eead8
+SHA512: 50fbde2440f548895fd36456647176917298d06c832e0183e143633d4147f7af7b72da08af86c481308f046d2dd8d1d82dc84a0e4a7e967171cd5933cf5a2618
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-nn-no_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17914
+MD5sum: d07eadd20f775754a684b1cf49c93cfa
+SHA1: 45756c918a20c5de4818640a2a67c5a2a5b351f7
+SHA256: dc2788d448ab06eba53ebb675c141ac80c3350c62a8fd50ffc2469a824bc6b75
+SHA512: af8d629187e5edfbb19b03575f62be3e297a78038bb55e5c7b06852799835240a734fd955407f12e152c65b2616e1dd1a13df3b0aa43b809cb943cce317ca9a2
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pa-in_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18056
+MD5sum: 8bb6a570ab57e2b92d71c74c09abb6c8
+SHA1: e126b62a1537b02861847512942d0c9a65905729
+SHA256: 57f293a107989da37ca5afdae9e31f9b8bb25ff9004b88bbc0410cf18b963470
+SHA512: f81ad8439c270e2aa1543b2b43a71e6a6cd96f11faeeded4bb1136416a48afc5d62b3e436be915cb068088938cbad8a507f50b8555f997e257e47bccfffed342
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pa-in_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18034
+MD5sum: 81286245a6a68f59a7ff3da63d83970e
+SHA1: 060f269adac21a26e0531a8b2336452a7ca7e2ec
+SHA256: a9f10ccc1d806854698b575d596af6a4a184aa7d7553e05426afe15e77ba9664
+SHA512: 32a001eb40ed7cc1ba99bfe0eb6560648574cc4272c9a82ff41e7ee0b0a7adae7f09ab230c08b95aa04ab32b52275d09d7f2d39b18144948793da433b663ad60
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pa-in_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18000
+MD5sum: 662d77015416ab71827a2e9c22ce7dc3
+SHA1: e055be791226620af0b2237e2c9ca67701cdf46e
+SHA256: 8f2dec98c4ec65d9267e1807f919d211a13ce9253666dc1f4419038212f587d6
+SHA512: 5c41b582d6cd904375209bbaa29b9b1b304f797b7f07b99025f0684a8b1c9be6ed6f24144bc8f04d4f7cbfba122d683c30ef05a6272e97336d40fec18ac1e18e
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pa-in_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17970
+MD5sum: aad8eb1754dd74bccf7a9dd0daa9268b
+SHA1: 1049b6f9602aa6eb17de5e5fd7b2c856896da938
+SHA256: 8dad6b66a68925e26307a4cfbfd23ffbd1ede30d65c2291e320dccc0ec37623e
+SHA512: 8ef55e3b524121ecded7103f1423b26a96b4eac68195643acdd75ec24115d183c7659d9093728c703f1c0dbd7e2d0e974727156d3ce37e8c154c1a1cf299e46f
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pa-in_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17940
+MD5sum: 0a6c0c9c31098d7b447b605d769e8a18
+SHA1: 3f4e53b1685066e22fb77b8795ce20ff0e0beb91
+SHA256: d9b59fac21ba0bed332e3cee89fc3bf771575d4ced67b8429f844f4c2b733c54
+SHA512: 2334a1cba76766bd1245b76c0b3195bee89f0478867b6b0de380bc03e2c1819f639182d9df4aa6ec661b581b627ac74d1c3801eb6d512544c9ed5838dcb7efcf
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pa-in_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17922
+MD5sum: b23c15299edde2ef3039c5c75de0375d
+SHA1: f40a97963fe9b7ce2345fa160214203dff8f71fb
+SHA256: 4ebeec875b2478b139b709b54027d57646f99f4cced10c01a68c48ec60cc8d44
+SHA512: 06166ef4b21c1cec3c42c7a2a4e7b5adb87db59caa810cab6452891fbadd1877e2e9b8d8e48d775e7327628624fd27ff8fef6ccc3529c0424e5710160144ecbb
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-br_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18064
+MD5sum: 7e46819d8a78ee36d0ae8aa2745ddc16
+SHA1: f5855f5f41e0a66d4e205dfc32d2b51ac0640d6d
+SHA256: 3f46188b07bda803e4e0b03ca0375f15fd2bd8f661e3c2990f2747d3a0b93726
+SHA512: e540a1cd5c8c46d349534ead2772ceb59856532418567a75d7af5054023b0d195a30096df4e3c655983921de9d1c2907bf12fe2efe02558e099c3361b6637eec
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-br_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18030
+MD5sum: d5ec36772661b9d4e599ae380b289b81
+SHA1: a880531159e5230c043214fa8d6503c160ba11d3
+SHA256: 2fe7b3d90c7d362a5e469892a424b0cf7fa982fe24a8765d516dec9cffcf2565
+SHA512: 4bf30ef544058ba722bd7f031338c377852c33ead9fd9413a9ed5d697acce45b22c6a37bcc2ee934d0c0aa2718df0cb34b467467d00c26f71d8471ecd8bf2576
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-br_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18002
+MD5sum: bbd6a49a64facda9ae0db5795b61187c
+SHA1: b15ddb2c51ba1153b632fd316f0b3586a3859395
+SHA256: ea253e7f89d878987a467ace2cfa28345dd4d98f60a1ce29201622fe9231cd6d
+SHA512: 1b9fecb23d695dadc96d816641ba3c8440a265a478b5a85de37537f9750a1bc2317fb8372bddda1f57b0872bca69b5b8a27095cc0dfd2270fa00305096aff3bc
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-br_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17964
+MD5sum: 28729e55ef970a1b6f2a8725df279014
+SHA1: b1b12f267ebb41ba19e9cc335ae5c5eac8dff033
+SHA256: 70ca35a7a31ef3c85ae08b479e141f5076718162cb2fbe07d688490b6eada203
+SHA512: c0848aca7505ee6ed193de7973fe0432edf7181e9bf34d30d98aa410e2e48c0519fb9a5862599e6bd84455c5054538465b958d9d34d2e1757309e8385bd1c5d2
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-br_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17944
+MD5sum: 7010b8f89fd44b354643a2b300a21c11
+SHA1: b7b30aee654ee8e9e2682e1c4534b9c2a23250f5
+SHA256: 7075ffbdd33b8dea6e715ccc65c70643c2329f5cca4f1c793f4fbc0a46021d97
+SHA512: 7b3ea49ec9b1fee1819ba2af1690ca1ca0e08c9dff90bae820de02c09a5871ee68cd4da584dcb1649311e010f0cdb03d907267bda5d68c3387a6bd5f251cf3fd
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-br_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17918
+MD5sum: 48187d9f0acb17345461e9732ad291cf
+SHA1: a91f50b696c448fdcc1809b6cba6bd654377e40f
+SHA256: cf5ddd686944587de19308ae3325ead9724a902e0d39a3571208cd4eea35aa4f
+SHA512: 793b42d6c2d0011243bb798335ac116aa14054361f5e1d38398d4df6ce84e01af30176b949577ad1935c4ff08179f67284b6e20c27d90a4c27f5855ae8ef7018
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18062
+MD5sum: 8160855765fd944acd9c7e57650eaeaa
+SHA1: 9011114605c3974aea76e71a13ad4a7b23d279e3
+SHA256: 75ed318e140025814722109475763d60d697dcef68e0edeadf4cd72981de2646
+SHA512: 2f3cad247c714771bec694d168bf0c61f17d9cf513739c6b9cccbcd482ef90efb28e57d94283ce3c926bc5e249e669b6fc226715bc734690ed12ec730f8c0b78
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18032
+MD5sum: be27261de6749ea6e9af7ed7bc293514
+SHA1: ee5c4de3a6593b09d2477b0886ae409d0e2da3bd
+SHA256: 309e5599c8ea557c16538cadcdd95e2d87afde81e18fa4374b2eaf53a2bd7a84
+SHA512: 5635e266e21d63b3e9852fd43ab73d5df5631f21f1390fe20a2bd797a24c0aa2067c1cbbadd5f1eefcf0e5cf9931d300968abd290edf8beab7d31600d4531c85
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18014
+MD5sum: 3d5abeed2b3a7e661d374064cb034864
+SHA1: b19dc4253147677648d60c810d9611214c9e82cf
+SHA256: b888e173f654a454c17e9ac2d057308d9e909d5cc0a62facd99b7452e5c3c409
+SHA512: acc9abd8f4603e82152512d6572669afab7ff06e94a5fceb1f296cdcee5238e955ab6ff530222a9ce39a54fcbb3ce1b38ac25ae4d7fd29da28876665256d42b4
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17956
+MD5sum: 23c04ada6c2ee3a7feb5359de714cac1
+SHA1: 6bc2072854ab0c11c9142d645c3659896789ae36
+SHA256: 736ceb98acef664718f762ac47237815cf27c783dff8335d34db0d1ec6c069e5
+SHA512: b184e01e37069d64aacc0aead0e6864293abfaef3091505ce740a29b600391e91fe9d7d6fda637c5060c04f2aecd7cad2abbce58b2351cb44bd822a66382d50c
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17932
+MD5sum: 639e467fac3b41c483a86dec2c2e56a9
+SHA1: 47a263c089a7586131d28ecd24d8b1b72b7ad45d
+SHA256: 7631a54abe187f716ecd1bb8927bb7bb478ef5023dcddc73620779906e3b791d
+SHA512: 4542236ee4c796f5796b6edc287da650c47145eac2309c453cc0a551f7c426f3689593848c7f9589ddd672ad811510486ca2ad5ad79bb0cdd49a2742071e60a8
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17928
+MD5sum: 83d8a4c09cd77188fbcbd551b521eef4
+SHA1: 967a830705dacce6d0817f9bf5bc2380e4c73cad
+SHA256: 66b7eda09d7be137f9f51591699d47463c361be6cb255ab222c5ab38d1493bcb
+SHA512: b46585d4a48ba791648862d036dd93537e79d1777d2f95c291481df47fd016ebb58e1e993f8f2a4f3575a60287933b3afc94b59a3e8f10e4dfc09b96fb2a4ab1
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-sv-se_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18062
+MD5sum: 28f3b49513e3d1c5462994cad2a88411
+SHA1: 2c5a7762b3454b3f863aa6d618510ba4db16f19e
+SHA256: 3e02121f510f264464eba13908f8f260857f3497494dc7788173d4ff81150151
+SHA512: b90e90994a75753a7061cbf144b22d2e79e3e3ed4929181df9cf86538965029ee65fc7f26075bbd2e56f48817e52a70a052c11b71719290d93a6a5935b32e8a7
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-sv-se_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18028
+MD5sum: e800e67bad27271c91177b20f915d94c
+SHA1: ca8d046c4c4a2ab775281c4b5eaf16b5f28fd8eb
+SHA256: d133dfb73f9e7bd1ad81d4b4114d40185788c7eea8d832452b9fd3127ec1a51f
+SHA512: 1aab90ede42bd48f52e25fc2a9f729722f25213509e9b23973993eb295b6cebfde25276e6e77e77ef88a045fc205880b545baff661b0ac4e22a1171612c9f898
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-sv-se_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18000
+MD5sum: ac4de98f0f953fee0e9c96afb056a0cf
+SHA1: 4d5db74aff4967061efa1dcfb519bd8dea4a7c58
+SHA256: 06226624abf1ffc2a007603e824ae16b3dd483726a204915145e72ab3cb2d1fb
+SHA512: a164c125bdf0768148fbfc67e790ca14035201f4640e8e75a612d068561e350f8689a85797798c4dc60fae0f79905d6f64efecc23685bbd30840561e08c07fd7
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-sv-se_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17962
+MD5sum: 1c8d388e0616e7e5a4a3c75575b50ad2
+SHA1: 78f8fcd1dc37134c79992ba26f2a1e1913978a98
+SHA256: ca1cdfb9031fd1f38ad88b86f401e92bf765aacb5e03ac8daffc10351867ce28
+SHA512: c32c4328a68f98798f3b4c4ff60bd58d9f001b6f0a80636325997a00d32e4f71e273623aa316a598b355407f739bc0ba71a2f11ac4bf41b72d966c7f55d7e318
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-sv-se_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17936
+MD5sum: 28792772cba05136af426dd6ca2a107d
+SHA1: 95fef757e30f57e16c49d5ea21b7bf5a673fd3c8
+SHA256: ba06b6cd87e10ee503c55c1cea568cf7386e3867b1d6e7bf7c0fbe2caa8bcbbb
+SHA512: 10e9f2873ae5e750b962906581e8aabfc6100d9cf75ace7ada409350cb837889c858b0361c86d08184a4536a12d68ed95df20516cf07d3be9107aed65eebdb3a
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-sv-se_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17908
+MD5sum: 7ed3644e4481a81dacd454e0f420baac
+SHA1: ded384cbc732da543db95e9927a9c1190f20d2d5
+SHA256: 90555b181167d7c6470f1b2378f1e8bcab6dc2dea672bc207bee26ede22bae3b
+SHA512: fb18465213d070504b68e71270cb555cc7665a668bc7c09f5f7c2a811ebaa6e9a8a46f5af152a60b6703dcab5ab5a2f8d995f11b017252c643e9ab164733d7c2
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18050
+MD5sum: e46ffb890ed4f89117d566937a423162
+SHA1: 689e5acf26daf532a5f0ce1134828874dcc5467a
+SHA256: cd03eb121a08b1b77d5f707ce023bf04a362cfcde4e4089d4194734c61856204
+SHA512: 54f1f902c9a939c4352f54b3e3964fd8dbb68fffb96a82db4ce4b7fe361f4b5b21579afb025e4350ebcf4336cedd5c67452b95f0cb45cf2753061d0d642153b4
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18024
+MD5sum: 915efe190ad4a375c308e3add121daeb
+SHA1: e116853e68549a673f407472133c0a583949a7f6
+SHA256: 9277c7061b44f4e62f57cb1d7667855bf5bae5c50f045f16f22abe7e5e12bbbf
+SHA512: 4248f73216877afdf7c4b2056e89599935aa6a24414b2404b253948aa10abdef9a79a61dcd286424291352901e96d8bdbc2cdf9311dd7d56c57a8e184c6ba9f6
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17994
+MD5sum: d35f6958bff7cae719daeb51100d7237
+SHA1: 80b26c2ae103c9b3bbb569c977cf28bf17eea59a
+SHA256: 32a557d2d4f0a42aa641379e414d4b87a8c56f0cc6378c1d6ab32e51c15e6b5c
+SHA512: 56122a70385e955bb57c7ea7f47815be383c2863a7ff52389de9ba3c1ec4b430cb8d677aed91a77502351ee200768fd343558eac64191da2ee5d1f90a0e97390
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17962
+MD5sum: 3c4ea1f343a52083c16ec64087502cbe
+SHA1: 4d891db6809d82b9deb0b47f5fe8515354c5b096
+SHA256: acd2faf3b273486655469ace2c791802553322ec57bc5655dd19f45b733d7b2b
+SHA512: d52734c45992ef6fdb9b71aa60686a0bd28a3b90d7f646a9042279be8f78f8e18af81585e66400262d81d3df829cf5c70cd72ca370fcb6bfed61149ccdc45866
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17942
+MD5sum: be1cc1efec8158c375d83946226096e8
+SHA1: 5c62dfe14020bdfd37b51b3e732adf44eb3b265c
+SHA256: 39e0c292c74a3ce4c8a462f848d479dae830ee82745bd3b4addb66bc22181281
+SHA512: 9f24700e6a3d72e160eb40487b117462cd39eea52f9bcb18a11d74d4e691d4bc105c7bd28aa8818d8712e9dce45e8062392b71979d4fc925dbc62326b1aba1b1
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17930
+MD5sum: ad5dda474b6494db07b5ff7fab36a1b3
+SHA1: 6d521ef845d125ad94822f0dfe78a522ce578094
+SHA256: 92e696daef07ff4c3e64da04225d0bcd450a01acb1fb0b96bf4353c2b4c8ae2e
+SHA512: 78ab7a35100cf23e952ceca6392b8c8a301c0a96f9793d1b68f34a50fccee01d9e33a32abb68e2266896f9bc1f0ef6fcb3c5650573f62cfb2e23c5f39c2a6c22
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18076
+MD5sum: 6d98d1defa2688b2386c8eb8a0fc64dd
+SHA1: cda84225c463e4fa5e8889b24e2fa559e14f6efa
+SHA256: 9187537506672b27d1ea1b5bbe9cdeb291b1d951bd0e5231eff3fa35c4543421
+SHA512: 5c98fd68e0de817fe6fcefece75fcf77258e4c5419d8199392694c60378710ff2214147efd34747f6247a989c3194924c2a9c510902c327ac492f1e49f8ec7e4
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18050
+MD5sum: 822da51927ad16329f85e40a7d154ff9
+SHA1: 9cac00818767e0dbc62ee80b5c8f8a471347d72c
+SHA256: 06354ed5bf436e407962014d514fcbf91aa48e9a035d9323170cf6193bb84333
+SHA512: a056206b0d494d66f6749b2f40d93aa003c6de9558d5ebdbabd2862d1194c4c130a0f6a4ce601c89a1c9e50cb76da5b6a63dbb287b2b33de1eda616c82a6489b
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18030
+MD5sum: 26a8fa6a1923fc7b02f8315bbde3c9ee
+SHA1: ed884f5890c541a6c0ac57d33c3065624e168ced
+SHA256: 9c8807fd7417091aeeb2907c732d38e6ea9d1b9a64684db8c5ace233647eb4de
+SHA512: fd12ca8a3f9316de4131ac3ca4aaf27eb4c20ec10fa009a1414f078cd81ac3ea77952dbc97adf58883937a8acaabef068834f22439811d3daf39e729f616988b
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17974
+MD5sum: ea17634953fe84971f1940bb86d56260
+SHA1: 0a82b9b94ccca90ae6b38ea7836d70697600d322
+SHA256: 3ec205f13e3a646dcfc9d0aa28d3db484e18a9ab4fd7c798e673053bdcc81c1c
+SHA512: 154c96443efd418bab5662cc0c0a80b51123ea84ee06b52e6e404b22d465be1632e6984770aa787558ebcc6d5c3ed1b51fbdf8e5621188dd0995dfc46bdbec73
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17958
+MD5sum: c455ac35dc930f780fe1e3d490955943
+SHA1: 1745d8427a9d75c12a171bf181caf2c64d78a1ef
+SHA256: 1aa94a59e0227378d30441dc9f599abbeffafc7c040450de5221b04a532a9898
+SHA512: ed5c96709264c7abc875a37058243f23de7022b4ccdd5e41fadd8e8d211662f0785c750090e55d7a57e646e6fa467dad7161e85da852c8ef5e5e3467a9abe98b
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17944
+MD5sum: 68d269bb22a5946778041dd9125269f7
+SHA1: c530b497333d5223771fa93f5fcb8bb641ce76ac
+SHA256: b2815ae472dbbbdb959bc0ff99c9d3d88b6958556aeda32be0beb88d066106c9
+SHA512: f4862dd3a530da73620efdff3aa41c556ca5894937efa9116c984e62a642ae2b9f3ed976a2d78c73add1d6b48905b9f20f4f123d8d3e6fc5079e84abcffcad7b
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.15.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18070
+MD5sum: 8f9222f6118c9e951107a23a8e7e781d
+SHA1: 188d3d0b5ad9f5113d96c310ab3e4318bc3fb690
+SHA256: c019912ec314e9273ddaeb0d4540d3fb2269a447cb0db69a2e5cca1cfd349e9a
+SHA512: 560309670bab05dd16fb065dfa3555d47ab2c9c30f139de683afb6601c561a1380236cf0007ec7aeb21eff5bb3aab47b2c17fe4743d11808ef93bcd1c579b195
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.14.0+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18038
+MD5sum: 79cf6e0b3e607b52692c7ae87a471953
+SHA1: fdb0432464c28fed704bc507d2a9809805982326
+SHA256: 17905f311880fe6a2bbd6a08be355b8cfd8feef0cedb4678c475c1c1af6bb3d4
+SHA512: 2c32ca9d6e03ffd13499e1593ba5b2f786c3c3ea06f73a127d1f57d5814d8b20866987dbc8821748e2669e20d278c1a54f4ad5eee5206dd78e74c13dbafed40d
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.13.0+build5-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 18002
+MD5sum: da2ea6ab5c18b3ab68f7c7d7f6e856cf
+SHA1: b3a6fbe98847909315b7e4816179c6419176595c
+SHA256: 381474410837d550fd2166ae2c9f7e798c63010ffb2e9427564da1b64beb4ecc
+SHA512: 1c47ee019dbb81af9240d4c032e7ead49de2c645e4ac995e52e0ee3de8ca0df48e339981967b187e6eee71f65dd1e7eb10c1f41b918973ee6e9f6dc42af3484a
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.12.2+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17970
+MD5sum: ea042eb18ca6e92953c0eedd19b539c6
+SHA1: f730068c64637dc4bfd06c641aa37d367006d7cd
+SHA256: e8a86301d73b9850e0cfa758d0b6ae43bf898ca390ab1033f53dfe5b936e8230
+SHA512: b3b5a1928bc1f98dd90b0053af091fc45e67065c1e18c756e203e04d68769e6c047b5461023b1465305960df4718297f3317c2c665d716796458e66d0f95dc9c
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.12.1+build1-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17942
+MD5sum: 43475d6e393843074721b5dbbe551cf3
+SHA1: c1ba08becf0d4dc5b129ca5f0494761fbbe5733b
+SHA256: a0ec906b0d9c7bca2bc7802669caae20dd2dd851f469d7b6b6417695331399b3
+SHA512: b1df540e616220362181809bdea853f5a67b182cb1ff56e7b6fac7a87aa399b13f3183a6ad950f207906e699f8dbbf1f6d97eed4de49d5f6b559c1347722c23a
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 47
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/noble-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.12.0+build3-0ubuntu0.24.04.1~mt1armbian1_all.deb
+Size: 17922
+MD5sum: 64d546d0506bda10eba788bd4ca1cc87
+SHA1: 4b3f88c6df13d7019dafa74fd66a9b43b5d86391
+SHA256: d44257deab96bccb8222fff44e54ce30f8fe6d9f4ceb114efcb86216a32247eb
+SHA512: c68eddad437c93fa6eaeea5774c514b9a888349e883a66b4c559b2adf03bc60bcdcf4545b1006c2407eea8772be0082207d243093e6e95809dbfa5306ea65975
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+

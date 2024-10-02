@@ -1,0 +1,2322 @@
+Package: armbian-jammy-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-cinnamon/armbian-jammy-desktop-cinnamon_24.8.4_all__1-V92d2-Bed17-R448a.deb
+Size: 16641828
+MD5sum: 57954ad0081372d9e2c4ff5dd1529a43
+SHA1: 00a63bdf6732ad6466746e5b7e9c55b9298bbe52
+SHA256: 54d3362461ae829c59837d109e6af0d6216474a644febfabcedd1480ff8acf07
+SHA512: cf00c95cf540adfd7799a7c5a7e6adfc0ae0abd98422a43c762eebfc53796c063601c2b917fcc93b66501f4f2e6304af73fc35077152f03089bfef58ba23576a
+Description: Armbian desktop for Ubuntu jammy cinnamon
+Armbian-Original-Hash: 1-V92d2-Bed17-R448a
+
+Package: armbian-jammy-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-cinnamon/armbian-jammy-desktop-cinnamon_24.8.3_all__1-V92d2-Bed17-R448a.deb
+Size: 16641824
+MD5sum: 5b9dec35b14d0db1f4c5ec9d5ea57a13
+SHA1: cd8842868994c51a642e2477ee4bcb8c0d685348
+SHA256: 26d3a1b4cfd112fdaa3b371cf112f4d54ac893f649ffcc98c9c88b45c29419e1
+SHA512: fda1d0fb26fc7719f4ebb6bba41a97aeac53a14fc840aedbf7c24c72ee8fdc9ed5b30cd285fba8426a3fec5cd93a97237661ababf938b62650b1189d0d887233
+Description: Armbian desktop for Ubuntu jammy cinnamon
+Armbian-Original-Hash: 1-V92d2-Bed17-R448a
+
+Package: armbian-jammy-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-cinnamon/armbian-jammy-desktop-cinnamon_24.8.2_all__1-V92d2-Bed17-R448a.deb
+Size: 16641824
+MD5sum: 6e6b6965e6a2f5f242e3ec5b669d3442
+SHA1: a9ae2a718f8ed6e39793cc25a00284b48280826b
+SHA256: e4946b7ef08bdf0a0189de93dd1bfbe687742ce89703f76ee7ce0a7401d00da3
+SHA512: 5e5899fe0d9bf520f82443996e04d312494fb642abad00aea4302316198e32d6fecb99552c8ec5e99e111bef383095e2d99c1b86f6aa8edfcd68c88121ad759c
+Description: Armbian desktop for Ubuntu jammy cinnamon
+Armbian-Original-Hash: 1-V92d2-Bed17-R448a
+
+Package: armbian-jammy-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-cinnamon/armbian-jammy-desktop-cinnamon_24.5.1_all__1-V06a5-Bcfc4-R448a.deb
+Size: 16641612
+MD5sum: b28c4a25c5726c163468c1d089d7be0f
+SHA1: 074b5cca299031fe9c679dd1545a17ffd72114f0
+SHA256: acb83341d8a1fe42eb0a10a8d182c7551bf30e4265cc560f10e7520e6b8b0a7a
+SHA512: d247feee63fee9d12c8dc6ddcefc918706f6fbac27eb17207e673eb578a6f2b01b2f07db93a8b6a9659556bc3b0e032e118327dcd1fabab47d293a1cbd8c56c8
+Description: Armbian desktop for Ubuntu jammy cinnamon
+Armbian-Original-Hash: 1-V06a5-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 17558
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inxi, inputattach, keyutils, language-pack-gnome-de, language-pack-gnome-en, language-pack-gnome-ru, language-pack-gnome-sl, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-cinnamon/armbian-jammy-desktop-cinnamon_24.2.1_all__1-V2bb1-Bcfc4-R448a.deb
+Size: 16226652
+MD5sum: 6bdfd97eb30210983b313d1b2be81bcd
+SHA1: 59ab24df2932070c71039c6386ea834e307678ed
+SHA256: cf3fe2a3aa90debc2ac4544ce7531af104acef75ff64195186afeef678206482
+SHA512: fa47eb88f17c1faea4405f06cae146d93aa7d337b4b7e30cc145a1f502b5d6ab07d0ef5427271d912229f3bb0994992e95cde9c871601e00d5f30671103251e2
+Description: Armbian desktop for Ubuntu jammy cinnamon
+Armbian-Original-Hash: 1-V2bb1-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-gnome/armbian-jammy-desktop-gnome_24.8.4_all__1-V53dc-Bed17-R448a.deb
+Size: 16640572
+MD5sum: 7d67b3ef8530b2c1c88cde4640181055
+SHA1: 082e620151989f90b0db73eb12f9771273a52b2a
+SHA256: c7c63560efe1a7c013ccb7a2fbfbe3fac44117911021d4f49e822413c0a26c74
+SHA512: dffa96881803dda25d9e16e554f16d2edafea517f375650b124894d3e4ce0715cd485fe7fa8c351b3a6973b43cb4dba642d40c9d1141d4742e152b9289001539
+Description: Armbian desktop for Ubuntu jammy gnome
+Armbian-Original-Hash: 1-V53dc-Bed17-R448a
+
+Package: armbian-jammy-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-gnome/armbian-jammy-desktop-gnome_24.8.3_all__1-V53dc-Bed17-R448a.deb
+Size: 16640572
+MD5sum: d26e6868d8f2e671ab872a1276e53c15
+SHA1: 2885a57c32b836efc17ded36425800a8a46e4c37
+SHA256: fac4201dd1792dd5e47ea81332a277b5707068fa38c1f6d4dcd622a32e2be7d7
+SHA512: 1aca261a470443e53f82e1c1857e800ab43cb491d38ef53a57c60ddaf2d91a7123129c324e046d4a46097243f61c4730387f2b715239dd819c940c084f90023a
+Description: Armbian desktop for Ubuntu jammy gnome
+Armbian-Original-Hash: 1-V53dc-Bed17-R448a
+
+Package: armbian-jammy-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-gnome/armbian-jammy-desktop-gnome_24.8.2_all__1-V53dc-Bed17-R448a.deb
+Size: 16640568
+MD5sum: 4932e37a1711b2a7cb5853c8b1662eba
+SHA1: ef2f15040a7f02696f871494799e7a6ffa7dd0ed
+SHA256: 5f9d9ad4cbbeed2c6d8f0445edcf29c0551b761d57f2e5b42e2427429d7e43c4
+SHA512: 9ad0e42754464c197830f2efccc18d4054923fe7959200ed880ac5a715cf91a214dae5858b8eb14faa510fcc657f17e9a272c2a7e3a273d0b53c4577b36e3b60
+Description: Armbian desktop for Ubuntu jammy gnome
+Armbian-Original-Hash: 1-V53dc-Bed17-R448a
+
+Package: armbian-jammy-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, network-manager-gnome, network-manager-openvpn-gnome, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-gnome/armbian-jammy-desktop-gnome_24.5.1_all__1-Vd38e-Bcfc4-R448a.deb
+Size: 16640412
+MD5sum: 5c096a4fd56f073f7bc77172884ade77
+SHA1: 7af138588da25de2dfdb44b18076211827e9b916
+SHA256: 7d5a72a67a6ee1fabe5dd007e63b1afcf51cd5ccbd3c7cb3c6172f3c6fa0c93f
+SHA512: 2119fd22cf972560bfe796c3e1e268e97690f1ff678d0dba5005d3fb8d9042cc7078906289b59c3007632b299285a1a8b016b62ca55f1057e9ec71a034679fb8
+Description: Armbian desktop for Ubuntu jammy gnome
+Armbian-Original-Hash: 1-Vd38e-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-packagekit, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, network-manager-gnome, network-manager-openvpn-gnome, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-gnome/armbian-jammy-desktop-gnome_24.2.1_all__1-V6f0c-Bcfc4-R448a.deb
+Size: 16640260
+MD5sum: 2b27b1aa0a5cad3bb72525321a20ec4a
+SHA1: 8656234c1f6e428e583ca84b79ec536716bd37d1
+SHA256: abb5741693b4c20ee7c9d9264b6a8200c19bee9a426e40631035bb7914855d90
+SHA512: 33506e7d1daeb7c605f80e0a724aa4424c24391f126236f165ca60771262f96ca6a3d4ae849db8ff22c77d975d42161ac645621b922388df90ee82e2e06217fc
+Description: Armbian desktop for Ubuntu jammy gnome
+Armbian-Original-Hash: 1-V6f0c-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-i3-wm
+Priority: optional
+Section: xorg
+Installed-Size: 14303
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apport-gtk, apt-xapian-index, arandr, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, caffeine, cifs-utils, compton, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dictionaries-common, dmz-cursor-theme, doc-base, dunst, evince, evince-common, feh, fontconfig, fontconfig-config, fonts-arphic-ukai, fonts-arphic-uming, fonts-dejavu-core, fonts-freefont-ttf, fonts-guru, fonts-guru-extra, fonts-khmeros-core, fonts-liberation, fonts-nanum, fonts-opensymbol, fonts-stix, fonts-symbola, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-bluetooth, gnome-disk-utility, gnome-font-viewer, gnome-orca, gnome-power-manager, gnome-system-monitor, gromit, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gvfs-backends, hplip, i3, i3lock, i3status, i3-wm, suckless-tools, indicator-printers, inputattach, kerneloops, keyutils, language-pack-en, laptop-detect, libanyevent-i3-perl, libatk-adaptor, libev4, libfont-afm-perl, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgnome-bluetooth13, libgsettings-qt1, libjson-xs-perl, libnotify-bin, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcb-cursor0, libxcursor1, lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings, lightdm-settings, lxappearance, mousetweaks, network-manager-openvpn-gnome, network-manager-vpnc, nitrogen, numix-gtk-theme, openprinting-ppds, overlay-scrollbar, overlay-scrollbar-gtk2, p7zip-full, pamix, pasystray, pavucontrol, pavucontrol-qt, pavumeter, policykit-1, policykit-1-gnome, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, rofi, samba, slick-greeter, smbclient, software-properties-gtk, speech-dispatcher, spice-vdagent, system-config-printer, system-config-printer-common, terminator, thunar, totem, totem-common, totem-plugins, ubuntu-docs, ubuntu-drivers-common, ubuntu-wallpapers, update-inetd, update-manager, update-manager-core, update-notifier, update-notifier-common, vifm, x11-apps, x11-xserver-utils, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs, xorg-docs-core, xscreensaver, xserver-xorg, xserver-xorg-video-fbdev, xauth, xtitle, xttitle, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-i3-wm/armbian-jammy-desktop-i3-wm_24.5.1_all__1-V1745-Bcfc4-R448a.deb
+Size: 13483544
+MD5sum: 3c136af701f8c80e9f361ceee182dab5
+SHA1: cec90fac3b965281e337cf9ad92fddffd82222d3
+SHA256: a1544859c1aa5e40b77193cb58b2ed724ff7c27a2d1d6a6be4563c52eeed11c7
+SHA512: 795ac3ce11fafa3c5f3661f4e62ebf8de68aeb22fdd42a5826fb887b505d14f144e30be40e92ecaecb005242d2cfaca23be47312834ca33598262ba070302ffc
+Description: Armbian desktop for Ubuntu jammy i3-wm
+Armbian-Original-Hash: 1-V1745-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-i3-wm
+Priority: optional
+Section: xorg
+Installed-Size: 13795
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apport-gtk, apt-xapian-index, arandr, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, caffeine, cifs-utils, compton, conky, conky-all, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dictionaries-common, dmz-cursor-theme, doc-base, dunst, evince, evince-common, feh, fontconfig, fontconfig-config, fonts-arphic-ukai, fonts-arphic-uming, fonts-dejavu-core, fonts-freefont-ttf, fonts-guru, fonts-guru-extra, fonts-kacst, fonts-kacst-one, fonts-khmeros-core, fonts-liberation, fonts-nanum, fonts-opensymbol, fonts-stix, fonts-symbola, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-bluetooth, gnome-disk-utility, gnome-font-viewer, gnome-orca, gnome-power-manager, gnome-system-monitor, gnome-system-tools, gromit, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gvfs-backends, hplip, i3, i3lock, i3status, i3-wm, suckless-tools, indicator-printers, inputattach, kerneloops, keyutils, language-pack-en, laptop-detect, libanyevent-i3-perl, libatk-adaptor, libev4, libfont-afm-perl, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgnome-bluetooth13, libgsettings-qt1, libjson-xs-perl, libnotify-bin, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcb-cursor0, libxcursor1, lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings, lightdm-settings, lxappearance, mousetweaks, network-manager-openvpn-gnome, network-manager-vpnc, nitrogen, numix-gtk-theme, openprinting-ppds, overlay-scrollbar, overlay-scrollbar-gtk2, p7zip-full, pamix, pasystray, pavucontrol, pavucontrol-qt, pavumeter, policykit-1, policykit-1-gnome, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, rofi, samba, slick-greeter, smbclient, software-properties-gtk, speech-dispatcher, spice-vdagent, system-config-printer, system-config-printer-common, terminator, thunar, totem, totem-common, totem-plugins, ubuntu-docs, ubuntu-drivers-common, ubuntu-wallpapers, update-inetd, update-manager, update-manager-core, update-notifier, update-notifier-common, vifm, x11-apps, x11-xserver-utils, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs, xorg-docs-core, xscreensaver, xserver-xorg, xserver-xorg-video-fbdev, xauth, xtitle, xttitle, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-i3-wm/armbian-jammy-desktop-i3-wm_24.2.1_all__1-Ve381-Bcfc4-R448a.deb
+Size: 13070100
+MD5sum: d2e8454fea0534047600ef81f6c199ad
+SHA1: cb4ae4c434428415d23c50b23381e953d43075cb
+SHA256: 71d7c5f19811c4c1817cd710cd32d658ad66ddbb9728f5a83c121ee9a17d17ec
+SHA512: 79a60b6ebafff6150e2ceb8cdb3a3b57626fdb575d69f07b26f4fcccb71df694d73c9e0c9bd179d82e963b3a063b849dedaf2c2703dd7ec0bc93ffbd4f04f5ca
+Description: Armbian desktop for Ubuntu jammy i3-wm
+Armbian-Original-Hash: 1-Ve381-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-kde-neon
+Priority: optional
+Section: xorg
+Installed-Size: 15059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-jammy-desktop
+Recommends: neon-desktop, kde-standard, sddm, plasma-nm, plasma-pa, plasma-discover, plasma-vault, scdaemon, kscreen, bluedevil, gh, chromium-browser, firefox, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, thunderbird, filezilla, putty, transmission, transmission-remote-gtk, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, google-chrome-stable, code, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-kde-neon/armbian-jammy-desktop-kde-neon_24.8.3_all__1-V5583-Bed17-R448a.deb
+Size: 13955312
+MD5sum: b6b1b40873d63f54daf5a77377f33617
+SHA1: 47d3ce0c7263531407fbeaac588d9ee4d66648bc
+SHA256: e9e77feb4a119366e53c284ea981d70e0e1ef3beffb04e570c26530bb651492d
+SHA512: fcc476653a7580fb21a38bf6dee878cb88f21afeda4223f2b44e1b6abdb7d6f6106f47de3cfb91b3c69a263805a512e55a10e388d10e065744e616bd9d14604a
+Description: Armbian desktop for Ubuntu jammy kde-neon
+Armbian-Original-Hash: 1-V5583-Bed17-R448a
+
+Package: armbian-jammy-desktop-kde-neon
+Priority: optional
+Section: xorg
+Installed-Size: 15055
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.5
+Provides: armbian-jammy-desktop
+Recommends: neon-desktop, kde-standard, sddm, plasma-nm, plasma-pa, plasma-discover, plasma-vault, scdaemon, kscreen, bluedevil, gh, chromium-browser, firefox, thunderbird, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-kde-neon/armbian-jammy-desktop-kde-neon_24.5.5_all__1-V901a-Bed17-R448a.deb
+Size: 13955144
+MD5sum: 5d94b44521a9cd034480359cd7510cf0
+SHA1: b81d76fb0ae6351d27077c78f620457ec38ade11
+SHA256: 79cf2d97d536fa5eb957b581a6591e8e038cedb2902ea9fd9fdb1418605c0bf1
+SHA512: 382d2998c992f5f98a3dd084d54a6289545ecdd19e2d75e2a77c58517cc8d8b1b2a44535be573f410720f4ffa665a03f606d32a405aedc3ad75695f1144834d8
+Description: Armbian desktop for Ubuntu jammy kde-neon
+Armbian-Original-Hash: 1-V901a-Bed17-R448a
+
+Package: armbian-jammy-desktop-kde-neon
+Priority: optional
+Section: xorg
+Installed-Size: 15055
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.4
+Provides: armbian-jammy-desktop
+Recommends: neon-desktop, kde-standard, sddm, plasma-nm, plasma-pa, plasma-discover, plasma-vault, scdaemon, kscreen, bluedevil, gh, chromium-browser, firefox, thunderbird, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-kde-neon/armbian-jammy-desktop-kde-neon_24.5.4_all__1-V901a-Bed17-R448a.deb
+Size: 13955140
+MD5sum: bd5bfdb281d7a581e9bbde29cc4a1769
+SHA1: 0e9257cace21fe4a112752be59de73b4a73b0c2f
+SHA256: e0501a632c3013e7935866cff1a3dabac3d4c2401ad8d16a1e7866172e15ddfa
+SHA512: e6af0337269ad2ffa0ae50ad331ccb7c7c211dd3ea119f310d4be69221ccddbebb938be3ea596cb392d66dd2d2b052caee3af1630218ccb6cbdb24c93af49ac1
+Description: Armbian desktop for Ubuntu jammy kde-neon
+Armbian-Original-Hash: 1-V901a-Bed17-R448a
+
+Package: armbian-jammy-desktop-kde-neon
+Priority: optional
+Section: xorg
+Installed-Size: 15059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.3
+Provides: armbian-jammy-desktop
+Recommends: neon-desktop, kde-standard, sddm, plasma-nm, plasma-pa, plasma-discover, plasma-vault, scdaemon, kscreen, bluedevil, gh, chromium-browser, firefox, thunderbird, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-kde-neon/armbian-jammy-desktop-kde-neon_24.5.3_all__1-V901a-Bcfc4-R448a.deb
+Size: 13955408
+MD5sum: 0e639ec6e100d301498c61070a8df3cb
+SHA1: 5b047647562acc8738e64056e86ca8ce4bfbc962
+SHA256: 7cc8615f5d882e774882d7a944a4279cbe300a355d07ee4e3ea6f45e7feb466e
+SHA512: 46be67da96bdfd3278faf473488028bbd70c640a991b27d8c1bc97a767fd9f6ce9b2ada5330fb39d1523fd6d7093caeaff01f3376960ac4774eb7210697715cb
+Description: Armbian desktop for Ubuntu jammy kde-neon
+Armbian-Original-Hash: 1-V901a-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-kde-neon
+Priority: optional
+Section: xorg
+Installed-Size: 15059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.2
+Provides: armbian-jammy-desktop
+Recommends: neon-desktop, kde-standard, sddm, plasma-nm, plasma-pa, plasma-discover, plasma-vault, scdaemon, kscreen, bluedevil, gh, chromium-browser, firefox, thunderbird, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, code, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-kde-neon/armbian-jammy-desktop-kde-neon_24.5.2_all__1-V901a-Bcfc4-R448a.deb
+Size: 13955408
+MD5sum: c545a50748258202370387b5f5b33987
+SHA1: 3720f1433c86534e108cfb51ce95946d6977e4c2
+SHA256: 794b2b0e28722457b0ae30af32724b043573d49a9ddfca3e9335d15ec2d3b695
+SHA512: 5a0a92e7de7136dd0484f5bd8a2a13061ecf8478c53693b5d13d0917765730c33602eeb1b2ae120eb9184727985b47a1d8bfdd706b0e87a8bb7d1ba2763c8429
+Description: Armbian desktop for Ubuntu jammy kde-neon
+Armbian-Original-Hash: 1-V901a-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-kde-neon
+Priority: optional
+Section: xorg
+Installed-Size: 15037
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-jammy-desktop
+Recommends: neon-desktop, kde-standard, sddm, plasma-nm, plasma-pa, plasma-discover, plasma-vault, scdaemon, kscreen, bluedevil, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-kde-neon/armbian-jammy-desktop-kde-neon_24.5.1_all__1-V9f72-Bcfc4-R448a.deb
+Size: 13951224
+MD5sum: 8416139d76c62a7351b2c2067be54185
+SHA1: 9cdb0d1ef4517e50a263a33a095b182737e2d400
+SHA256: 8c23fefcc6259916d9531f5c23e8921e5d1c82f5ef585af22141a8aedd357ba6
+SHA512: c6f1a99189c5cea08b01a5ff895befd966d1dfbc5882f1c3f285cb0cd74a7289e9bcacadf7349895485fbe6ddceaf6a686c70d71b1e20c324854b44edfd1d131
+Description: Armbian desktop for Ubuntu jammy kde-neon
+Armbian-Original-Hash: 1-V9f72-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-xfce/armbian-jammy-desktop-xfce_24.8.4_all__1-V2712-Bed17-R448a.deb
+Size: 16640300
+MD5sum: 55c689f9f16ce3b5ef23cf39508b462d
+SHA1: d8fb3ab958c902cd3464fa64552807a9aa2a9153
+SHA256: 51336d477066717f2c2f45e14ddeb8cc714b43cb2d04f51b116fc088d5c6efc0
+SHA512: 32a3572f0f1e5f80c23ac45312561c528e107bc2fb2dfab3569e0ce1f810d71e0fec51a120bb106ab97addc41f05f9f207ea803b71d0fced687c8f0cb3b4e5ab
+Description: Armbian desktop for Ubuntu jammy xfce
+Armbian-Original-Hash: 1-V2712-Bed17-R448a
+
+Package: armbian-jammy-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-xfce/armbian-jammy-desktop-xfce_24.8.3_all__1-V2712-Bed17-R448a.deb
+Size: 16640300
+MD5sum: 7750786046cfc7b288b3ce41daf4a3ba
+SHA1: 19c5257d0ff57b91fb34bd1e8c9dc7590a4d56cc
+SHA256: 130f5c9ac44a2aef12fafc71353846a6055223d93e04051b8b72044396bb0016
+SHA512: 7d571b840976aef32c8c6f9d8b2cdcae96eb9054ce152af01d0bad438b858b2d46440f8ed856b6ba3d39d4cd91cf87f1f6926fbe114426a84dff3559f7d69a25
+Description: Armbian desktop for Ubuntu jammy xfce
+Armbian-Original-Hash: 1-V2712-Bed17-R448a
+
+Package: armbian-jammy-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-xfce/armbian-jammy-desktop-xfce_24.8.2_all__1-V2712-Bed17-R448a.deb
+Size: 16640296
+MD5sum: 0a7f11717c0c9715b5dcea0615093482
+SHA1: 55c869c767992ff7104856bddced5fc464c1812c
+SHA256: ee28af652e1978ff9fe2c4d6f8c769675f0a0b8a812b411ef0d2f7847f62591e
+SHA512: 9bdcf4d7a635f7a1a54d3a1feaa0c599200444d5e35b93fa56f0fa02bf8c874a134a62a95726129aee38f7a2abc13c0d1f0c0d0effbd1e8a5b8790a2db03930e
+Description: Armbian desktop for Ubuntu jammy xfce
+Armbian-Original-Hash: 1-V2712-Bed17-R448a
+
+Package: armbian-jammy-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18059
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-xfce/armbian-jammy-desktop-xfce_24.5.1_all__1-Vfe96-Bcfc4-R448a.deb
+Size: 16640160
+MD5sum: 4d93235f14c9763db3dcf319a2f66308
+SHA1: 5572dee872e05106ade9050594dec97740388880
+SHA256: 282ca7b3c5460d7e168cb9c9415debdf6324f69d18e686581c4ccc87003dbc5c
+SHA512: 4f407c7e70a80d8bf3299e4000ffc55a4717de4465dbdef565a4025e424b7345c65f413e8ea4fd67d13726c70de0fce61ea1b72346c9a6dda21a71077d158b0c
+Description: Armbian desktop for Ubuntu jammy xfce
+Armbian-Original-Hash: 1-Vfe96-Bcfc4-R448a
+
+Package: armbian-jammy-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 17551
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-jammy-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, indicator-printers, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, policykit-desktop-privileges, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, update-manager, update-manager-core, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/jammy-desktop/a/armbian-jammy-desktop-xfce/armbian-jammy-desktop-xfce_24.2.1_all__1-V845b-Bcfc4-R448a.deb
+Size: 16225032
+MD5sum: 2aee657f6cc474a84ed8fbb9e4edd98b
+SHA1: 1a179e92009a6d704c33b747e630adbf55a3f786
+SHA256: 1465e854709538b6e9548da4c666a4bb944c860d4e596dafe18686ce0efdc1eb
+SHA512: 8c80d38343185e9046fe791d8a577eb4301e7f5d978b15b48072a26d1a76ec90a5716dd6e42397354ad3bd3e5e9aaf1a8d91607e2d43ac36582209ba31bb7bfa
+Description: Armbian desktop for Ubuntu jammy xfce
+Armbian-Original-Hash: 1-V845b-Bcfc4-R448a
+
+Package: brave-keyring
+Priority: optional
+Maintainer: Brave Software <support@brave.com>
+Architecture: all
+Version: 1.16
+Filename: pool/jammy-desktop/b/brave-keyring/brave-keyring_1.16-1.deb
+Size: 7664
+MD5sum: 9fee0ba4c3ffcdc58a0ee195c136c99e
+SHA1: 24195e216c5bfa1d86f2dc172c52e2e134091d22
+SHA256: 52c9246c692f8515e9fa1700272c1086794f6499bbbcb79202e8b39e5c31ffd4
+SHA512: e79aaca8f80a41d904877fc123c904c1495435056068e709b0b09394d323feb0ef8da1fd52f243cab5f9deef4cee9d30c5f58d40b6a0712bee9df63c36455ad8
+Description: Brave Browser keyring and repository files
+
+Package: chromium-l10n
+Priority: optional
+Section: localization
+Installed-Size: 97531
+Maintainer: Debian Chromium Team <chromium@packages.debian.org>
+Architecture: all
+Source: chromium
+Version: 126.0.6478.182-1~deb12u1+j1
+Depends: chromium (>= 126.0.6478.182-1~deb12u1+j1), chromium (<< 126.0.6478.182-1~deb12u1+j1.1~)
+Filename: pool/jammy-desktop/c/chromium/chromium-l10n_126.0.6478.182-1~deb12u1+j1_all.deb
+Size: 8204308
+MD5sum: 1751f62de78a08b814dbb03a6e9a60a5
+SHA1: 259ea20cead8ae52bb18d0f36b4212c0cb9ac0be
+SHA256: a53123cc5f506e7a721f045824936548aab18984068f75b809411671fc711690
+SHA512: e9b19b9e121d7580023365b5284f003f729802c98d5bfc537bf7f5554580304376f7b8062e02d4f0e1aa5706e01139edab0d8946be54193b63184ec10608f00b
+Description: web browser - language packs
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains language packages for:
+ am, ar, bg, bn, ca, cs, da, de, el, en-GB, es-419, es, et, fi, fil, fr, gu, he,
+ hi, hr, hu, id, it, ja, kn, ko, lt, lv, ml, mr, nb, nl, pl, pt-BR, pt-PT,
+ ro, ru, sk, sl, sr, sv, sw, ta, te, th, tr, uk, vi, zh-CN, zh-TW
+Homepage: http://www.chromium.org/Home
+
+Package: chromium-l10n
+Priority: optional
+Section: localization
+Installed-Size: 95627
+Maintainer: Debian Chromium Team <chromium@packages.debian.org>
+Architecture: all
+Source: chromium
+Version: 125.0.6422.60-1+j1
+Depends: chromium (>= 125.0.6422.60-1+j1), chromium (<< 125.0.6422.60-1+j1.1~)
+Filename: pool/jammy-desktop/c/chromium/chromium-l10n_125.0.6422.60-1+j1_all.deb
+Size: 8107328
+MD5sum: 741ece1e25c971f04d4e0601d33d7bd2
+SHA1: 1936c29ccfb821e69d3d4db60b0c8dcdd505ebdf
+SHA256: 39777e4e91e958102b5e916a2db3ecb697a5f4cc889878f71cf3b4d115646449
+SHA512: 9199078ebd7e3ff16fa4be199373400692a4aaa3e86502a0a56c649b90720c6927c3506badc7ff38063695c6c6794f45296ca9a2283c7d8c1c6fe1e9b3f0ef22
+Description: web browser - language packs
+ Web browser that aims to build a safer, faster, and more stable internet
+ browsing experience.
+ .
+ This package contains language packages for:
+ am, ar, bg, bn, ca, cs, da, de, el, en-GB, es-419, es, et, fi, fil, fr, gu, he,
+ hi, hr, hu, id, it, ja, kn, ko, lt, lv, ml, mr, nb, nl, pl, pt-BR, pt-PT,
+ ro, ru, sk, sl, sr, sv, sw, ta, te, th, tr, uk, vi, zh-CN, zh-TW
+Homepage: http://www.chromium.org/Home
+
+Package: howdy
+Priority: optional
+Section: misc
+Installed-Size: 162
+Maintainer: boltgolt <boltgolt@gmail.com>
+Architecture: all
+Version: 2.6.1
+Depends: curl | wget, python3, python3-pip, python3-dev, python3-setuptools, libpam-python, libopencv-dev, cmake
+Recommends: libatlas-base-dev | libopenblas-dev | liblapack-dev, streamer
+Suggests: nvidia-cuda-dev (>= 7.5)
+Filename: pool/jammy-desktop/h/howdy/howdy_2.6.1_all.deb
+Size: 38912
+MD5sum: b3b67e38359aba3860e4931d5dd3340b
+SHA1: bf1193c0744a758ffae04f8e19ad8bd05bbc0598
+SHA256: c104329d8c7f54508b317ac7fb9782eae4104187bac657ee8a80aeeeb406c84f
+SHA512: fe3a66761a577bddc0cdfec9656786019f88a86340941ea41f422bf82f09d8654f19dc7528eaef10b4d3bfe9f15f804d72098d6f9212e1b5815f481de049e2ab
+Description: Howdy: Windows Hello style authentication for Linux.
+ Use your built-in IR emitters and camera in combination with face recognition
+ to prove who you are.
+Homepage: https://github.com/boltgolt/howdy
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101462
+MD5sum: f70b682663ddb45cbb575f254349ad6c
+SHA1: 28e66bfa40dddefe86b7aa4093e38957e6840cab
+SHA256: e1fc078088873581303c3d4d9676c93bcdae76df8254a5adbcdc48fd6a87b45b
+SHA512: 12b6776d9026e40c913aded145ea27aaae10f3fd05b1f4c6a584e4d8b7996caba4cffdf5582f1228e7b1cae34a553521d9a5cb7f0c958a35664334bd2120310b
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101424
+MD5sum: cb610bbe7855db6857ad39b4ffc96e95
+SHA1: 9a9c6f63bbda2fe270b57ee766e6ed33e30c3685
+SHA256: 251a1c8d5ab93568a1c0c49bdb811a5d4a518726e80d3b95501592bb08228a7f
+SHA512: f9520b7abb10f902dbee6c82df39c6c8f19122fdfc044fe1405bc747892d58cda949e8a4bc0cb25c929e885d45f94a7e24c183e863ff30f8e5cf1ad9d8bea121
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101506
+MD5sum: fb69417cbc35c2b924c1decbf5706e7f
+SHA1: 0d194cf2a098595e08602286d98fe300a3426a98
+SHA256: d5d618de55d22f2767003f35b2cc5d9470a2947f46f8e51f91a3e0ff0fd017dd
+SHA512: 5e5edd9fb27e1945590a802b6db9b286e21cfe9f06607259f93e087fe77b469fdbab6c9b52e696dd4f5fb47a3b21c73b9af0c2eb73ad209147be7e3bf98d4392
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101438
+MD5sum: 3961e034104f8d19450b15a2ab6ee594
+SHA1: 026092fd86c3e6235e12ce6c94a37c49ec5e1504
+SHA256: eac6dde1f25be956a44420ae93ccede62134efb1132f903631f00d7eb19702e1
+SHA512: a30a0a836144e5f7f522b6842781866a8d21c9174e28226e4617626eae936ca3596fdecd0fa3b2d704566467a8923b0cf8351290dc3b08127146fd7b45010210
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101408
+MD5sum: e91aec6c1edbff2ac20a33bc0d79c37d
+SHA1: 552c810cbaf86b30af4a9398fd06ae024014cc84
+SHA256: 22d08580555ecd9d2b074da487eaf82a4eaeb95af6e2f82ad27a9a19ddfb7b3d
+SHA512: 2cfe59cc1752cd54095f19870efaad0b0742109dace6ecfb1e6696cdbd66cb1715ad4dae51cf2bd1e3cbbe95d67c02df2ae5be6fefb8dd73993bc6590cc9a753
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-bn-bd
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-bn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-bn-bd_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101500
+MD5sum: d691ffbf51fd0476adc1bbc0607b9163
+SHA1: efc132016f9239202d8f20abebaada632034812a
+SHA256: b7c33f533817b473fd746505438b83380532de0353e5aa6924e6dec8be7d9014
+SHA512: d25ea1b3b754096b1f7e50be4066e0d2c8b8836820144bf8a8fb8541d89bec60a8ac7a0e3747b9506f9f4dea8f4a2403a3fd0eace9b85b711ffc834e56c11b1d
+Description: Transitional Bengali language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-gb_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101478
+MD5sum: 5e8ecc2ed620f143a367bd49684f9b4d
+SHA1: 2ad53c06ec13de69a4bd78bff4b7fcd5bb0ec063
+SHA256: 095952038f14d0d8efdc14e54887afb1dfcd3bb419788fd1a7bf77ee03881127
+SHA512: 5b6fc0f2e0464dbc0eb369d4216bc954b919f203664de43d7fc628df923a2e1237eb5f479e3d300c03d41da254694f43e845f9d21cad660f8cb35cff2b7ccd4a
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-gb_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101444
+MD5sum: 9a8f8f772b1d38823bc8fcce70631413
+SHA1: ee973f7e19a8bf6fda1da52fdc90d58ca539d010
+SHA256: cb20f67359506f4732f20626a9cdbf794753fb4d2f8e1cb557bc488889fd2cae
+SHA512: 5194890eefc54ff48ef54dfa9acbc702117fa7d3b681a5bc176b920447339a4b992569769accdbae72a5dba0babba95915c65d3db70a6975a768daff16221e9f
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-gb_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101498
+MD5sum: 5e5d34de7a3ba3f7370f344b8eee6007
+SHA1: 2f0868cbac50c5bb3eff251d37cc85ab2a4ad51f
+SHA256: be401fdea2ae6ff988edd10908455cc7c52963f707ac39901953d0196e5beed8
+SHA512: e8673f61208cd25fd36f9e749963cfe0c6c01d91685be42a39ac916ac8291042738a1911c8a8c22d074a2da5e21accebfa7f8d054c254501fa615f64796b6067
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-gb_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101434
+MD5sum: 4fa8a88d1e99853c73ff9956ddd42f00
+SHA1: 853265689c1a06cb42bd1f5a25264badaf70bde2
+SHA256: 95e9b425b0be4c508d7a685441e958fc45327420fe16d0fb499f3e9a43e328fa
+SHA512: 8fad68c7f6b0385c0d9f5abd7bef0b33170da8b6a0632608f1af239236055ae62f4c1107dc6fe4302abb541f370b06138fec249be3c19e7fbed5c496fe6b7c04
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-gb_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101416
+MD5sum: c1915e0900667362f8f8b2fc03b69104
+SHA1: be1fa75a75fbe4c31563cb39301cb9b07aa43520
+SHA256: 7dc9681836793cf530e4e27bc977330479abca65938d1a4415ff765f1f579dba
+SHA512: de0314d11475ca07ea251a27d01246ac33474db68131bc6ce930b3fa2596cc01a98395add9ce0b621155b476707c6cc4037fdae52bc494bf35744a10f6593b8f
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-gb
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-gb_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101514
+MD5sum: 54164376bd9e6fce8c4084595338d465
+SHA1: 373572d07e17067c4dd2ebac47eb01ae439ccf72
+SHA256: 58306b2963e4f7c01e07b60a5a6ee70d95d2d0d920855130bf05365815febfb3
+SHA512: aee136a33dcabcd19e2d2382a638d91d2b3881540ba3bc9e1a8533187c09410006c10296d0dd820757870db1769028083df77858e492f6d93534f29c2dfd3599
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-us_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101470
+MD5sum: a0d4e19f7b9c78a7645eb8372b2d8501
+SHA1: fb850758effd9e9515672efd119ef39e5d6b3a9e
+SHA256: 2bed18bb1a333e0b2208ff9ae3ef614d250a339d692593a0cd13a3ffcd59cd65
+SHA512: edc2f2967dafc57e0695d52d5d2cf27b7123ad7aeed2870e28b65d496383b061a91e1a8195afad7358ad383c8d41b8c3b8f6eb4d5f94d0a9754ba5bf28900aa4
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-us_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101444
+MD5sum: 2e111e5d14e2ea90e96b8618e8898a33
+SHA1: 8c5530eca760a37b2d29ca4a34a0c410c3a0ada0
+SHA256: 5db3e7042863eac15de2d869294f052a5274d893298978e116bd40bcf75c1629
+SHA512: f745744378dea1425476914e20ccab73b0983e5700172cbf8a3c6f42e1e2b01f26c30a5ea6c0994843f8da26feb6d12ed30773341cc9c7e2ca4aec98e293a69c
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-us_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101494
+MD5sum: bf7daa752aa7daa070b3406750bc9664
+SHA1: 98eb6fd09f3ce451af5009f14a415fe2fa7b7e5a
+SHA256: 4254cd5f1b17c42ceaa6e61e69b7f8babe4e123f88fe2fba439d692347e03844
+SHA512: 80dab03bbac95f10542b9ae2af093878f9d71ea80d60a61710861fa53fd606defbfc74ef7b34723aad18b542794979a47d0499e84ef3fd0361a8fb783b9cab55
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-us_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101438
+MD5sum: 27292f0cae8826d20f37549845af6761
+SHA1: a2e13bd46c1ab69857a55b15a34e7d3a21233871
+SHA256: 6da84beb4a2c3c9179628bd8d480e82c46f2141d96a4e55a7a15fcb02dd7a2f0
+SHA512: 5069363cef4622e26842e9ec5fd1a4981d2139583da9e10471b1ab78c1d71123069ba2a5f0776d8f3e0202267e084d47bae43725720c312e79b0ec6f60a369bf
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-us_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101406
+MD5sum: 777aee3855c17264004c0de7c538a6ec
+SHA1: 68ba9cf0ba15c122ce9fca9ef35bab4f52527869
+SHA256: 07d63604e696d6bffe40c4e5e5bb59492a95a8531c591356f98311a29e0ce94a
+SHA512: e83c7d2ffa01d6686815148afc6c37b2779691a3983b4daaa6d5382352a7daef7ac7fdb5c95001c8ad6e57fd6fce1ec37501278b78aa5a4ae0baefd59b2e6812
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-en-us
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-en
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-en-us_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101496
+MD5sum: 8bbc7796319e500158048b4e461cc677
+SHA1: 5a409ba59d75a0aa8b5fe1b970c86b5b0d8ac8bf
+SHA256: 8c79b7db6a256b10f73a9bb6f83a9ff7c6285f696b1c36d8c22b8168ef0a30bc
+SHA512: 663c51f18bd7e1b64d099e261e2176ce63d2e828d5abf0db09438d886504215253e23eef30a06f9ec21a3527cfcfe54214805ff8dd833147bdf633a82ffac133
+Description: Transitional English language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-ar_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101484
+MD5sum: deb8d1fafff7fa29e776b1e2c6dd56db
+SHA1: a3ea219efde656ed865d60b9883d583d1d4c244f
+SHA256: 40669f95247ed8a366972dc53b10d3fd253922dd7caafa9ec573f855110a206b
+SHA512: 8e541aa1fca434dd5b282380a410d6445bb57ea0e9780fd2751fab57d45dc491fcb16eaff075fd1a60ac5b4c7aa8fd45169ec4d5293717aae9b332b80c61c264
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-ar_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101460
+MD5sum: 6deb7358584682eba633096b887db765
+SHA1: ed33e849c0db81b77914e8b2ae4477d971559aa2
+SHA256: 31f4bdbc84dac3d69587ebf04f1b927fc4f8fe5dc0017b25d260336dfa5453cc
+SHA512: b596a648458d1e59beee8b6c4af39207943a71e42d0ef1f28269888ab8fefa30457f2c597d8a4343304c15cb01c58c19f1fb4d00d0f4862274b81263638f3f0b
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-ar_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101490
+MD5sum: e7a3d5582de89aa703eb738120f5381c
+SHA1: 4f52e0875b06c10e8c551894526a3a7bbee6c79d
+SHA256: 8eb931209958f0cf5951c88ff467f62e2c1c69f9859505c453d4129f1931f2da
+SHA512: fa2d5619460a0018c8ccbf0eb4d2c3143cee7823fdc089ecb4f5676ad845995202c7f64e583f1cad1e4c78b56d698e1d55b2220497050f0c8ce747dd288dc746
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-ar_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101432
+MD5sum: 8055347c9ca5cb1a9ced7524ab8359ba
+SHA1: 027e686c079f0b2413fc0a54e46f6d6dd828a697
+SHA256: a426ec218149a61527903a2ff6faacf0f274b950a94d346800dd8f6692228415
+SHA512: a70882fd6ed57fcae3e59b4902c8a525af58166556c50046a2fdd0c15f1d5d72f6a16cc8376ef565297a4c8476ddbf9adf82511048a109bf78a3a1903b8de058
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-ar_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101412
+MD5sum: 6b880c210f2cbc1287085bbf3e28fa5f
+SHA1: 51e745af16c8b908c9a2c86b92d7cdfc7e299609
+SHA256: 9c8843778b619c1c090b5cdd59b28480ae5000500e679e1e31cc297f91f685a5
+SHA512: a81d7edfbed8765b0fdb73f0554f49f84d24f852a348227e60565ac91347e216d5a6d2282b237362e8bbe306347f66fb58205943b91231a4ba2178fafbb4b2a1
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-ar
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-ar_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101498
+MD5sum: 46f8c5366b8fcc220c66b29582435408
+SHA1: 195f86c185d64e718d9eff9f56ba7ef82293fe62
+SHA256: 496a827e8603385b6d1c7e384e2b4a8adde78911320a47a06cf2db11e75b9290
+SHA512: a22bc57850c352e6c04d8cd6a2c84f03097e2767a54567401ced9905b451551afdd28524d77dd3d66e8642638e5dbf96c58d3d1fb2365a52ee6483e2c007cd6f
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-es_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101464
+MD5sum: cf12aef13bf5116a35fed601d5ec8c46
+SHA1: 3394e8a25fcd27eac9be95b1a60fe38e15f4a129
+SHA256: f7f3be05bc3a15f85b94320b77404ce055bfb5b69ac90d00a8b48b828904c357
+SHA512: b3504626df56458f83cc6262e4bc6d242c9718cdbf8df6d404c541591a1ef56903214dbf4cd96336db3f4c345153197d63ca496bb5e94d2355806a1bf6137884
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-es_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101464
+MD5sum: 49b26dc49b217420306db63c541ef017
+SHA1: baa8e228d9cd122176bddccb5fb63112b2df4041
+SHA256: 3fe10796b8de0dbc7763207bb639a8fd6ec971eb697f523a4a0db489fac5821a
+SHA512: e0593e44d0dd617d975db4af09bcdd6cf8201ad048fbe8fdf0dc5ba303f6994412d8ac1eaefdf0b70cf7c1645db3f593ed66958cdb74b248fb54c565d2c36e75
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-es_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101516
+MD5sum: 309228d55a0e7c374545efd80fbd7039
+SHA1: 5be17685ea63a52bc20eb77e4acad055825b8fb7
+SHA256: a81af2f1906d5a4c34c855503eab144e6c2d3b1d12453ba0d6b71c8e9aedc458
+SHA512: 69c9ac11d55f967a4c4d18defb442dee9e49ceef28e279922bbd0c5aa44f2c0779fe33cdff4a06582c9efadfc1ab5a551fbb749ff711ac70872d04a99631b203
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-es_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101430
+MD5sum: e6d4506aeaf009efb6ce3454761689a1
+SHA1: 95ab9b040dd79595eb1fd878dba8cf84434b9a4c
+SHA256: af00411b55709686aad4ae2d3a860eadb16702792aea18c321b45887a2937ea1
+SHA512: 3ec4c64e4067039211752405d0d09b1acb1808c55b536b8a0d1a430bdf1fe27f40657ecae9d6b8a89dbcb705836b8e22c618dbe05befa7f3e9a5ec39d8d39e82
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-es_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101412
+MD5sum: 8bd3e437604b827c1e941586319cadb7
+SHA1: d25f81cf8bdf253fbff2dd9ffc4752d72625140a
+SHA256: d2056132422ebee4d8c61f4ce1c1caeeeb31b7aa572183ca9b79c642f4021dac
+SHA512: 99038b8cc8970df1fcd24ebd91590338b2645c6b67be7c85b431d266a504832475950869735d4e24764de4879e5a9f0dc9b8d4acb27db4e598925cd9022f26b3
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-es-es
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-es
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-es-es_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101510
+MD5sum: e0e1c81148b455a888b8a5af6b5027af
+SHA1: 742c797a34a0a0db4123fe8cb168c6ea73260d3f
+SHA256: 0095eaa42749a01eb3ec3a1dbdb2fe4ba97f28950285aab91d9c72f9a2bb072e
+SHA512: 39f8c6eb773a98f794072cbf3c883f177bf241c105dc4ff107bc5e42bfbc303d99d9e677ae2cad91309cff20bdf720595c7854d5401fb04b624c34cc28df5f95
+Description: Transitional Spanish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101474
+MD5sum: a16e6144e82d6ea8a2ccafe404fba76c
+SHA1: 272a5dedadb410e6b7a0d1de3f93c297527f2d1a
+SHA256: 64ad228fe67c4975eb0d15a445b063c350825a4a026f068708fcb7d669c0a04b
+SHA512: 9d4cadb585d421b5c2a62c5fee631461f7bee6edca19c9199b36a6b3cb7bfb7492d572786520b6fee20f2c9ac9c902a961162722b616aa3ae732a37b16c3592a
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101454
+MD5sum: 1d266ef3c5bccda666986f6800d8ca1b
+SHA1: ba96ee8090ca6816c3ca51a10e99640e6e9ea301
+SHA256: 0791e6f5b38f4c2cfbe3545813093c80e27de2842ee1b7c79940467aee4e755e
+SHA512: a7a693b609a8374fa44f72c55d9b178c547b82a17b65c58770e6a644f2e647a930a0d48e00c37b619ac8f070da02903a937aee63a21db35564494e8c9d55f37f
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101508
+MD5sum: 81c0ac08c42b3d10e2fe4ef15a9b36d7
+SHA1: d7e24ecff9399cc7e0eb5481370290607f922b21
+SHA256: ae4a15b2ceddbf9802239719c1f84b61c7c8557d697c1087bcb60932e3274979
+SHA512: 87eca8ead53d3f7267f76a75459bac01ade14c4f70b693d58707c92d325fe2a6f0d8e7ddaaa0c51bc09db5bd601449d30c00cd6f1a8eeb5a47c816a5939a0b41
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101452
+MD5sum: db1944c2979373fdd8d1ef36e223a8f6
+SHA1: da51bd2c0eb4b35812e7310593939c1e5e3fd0e3
+SHA256: 4ef44af1ca4ea6cf99d673b0219906c2873910a4fd372c604fde2b77a7cc5d73
+SHA512: 563be28f827cbd3a7543665873f5a71c1f3b41f543f0d39ed60db856a75b71ea709c1ecb09d7a23148065842be65fa256bcdbdbb7d5b8f8cd743645d57e29389
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101420
+MD5sum: 7270afb741bb46e87f781f089d225195
+SHA1: d8f1bfb3c3cfd51f8acad785c78684b861c3cab3
+SHA256: 136daaa7a04411f37639afe06afa04725a4c8aae9f63ff4f33283867d1fd61bb
+SHA512: f41fcc55a09ef8e7b79d5ce5875f136548a77e5f366a32acc0645af7b261651c473a41ad23292c06b5a6227257410cf40d9e41fdb26513ca2b05faf8b54c6a39
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-fy-nl
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-fy
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-fy-nl_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101514
+MD5sum: 1357177cb15ed58cb682e5dd8f987799
+SHA1: 76110c7e58ec3c031de1b2faab63d9f2e4aedb58
+SHA256: 509f6d762df13cc51ef1346d0a1d7df186947a57e88b2237dcac38919af0597b
+SHA512: 08c75b3e69e9d17f21c57722cfd788886a539acba3e2e6fabd0964e9d9211d9930e80856699419e4cb16cdbc25ade9ca5e0a2704860a40a8e99b5187447d945e
+Description: Transitional Western Frisian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101468
+MD5sum: 6c25d0eed608ffab14da18858528cc5b
+SHA1: 765b2d1aae63b63d05aed50b8ad8daa1b6a4a399
+SHA256: 943013c8de8676b0d5aa97190a36423f5cce8bb98393fc2675c98b121c720a3d
+SHA512: 765ced392b2789cef2d4cc66c44aa8287fb210c0f10765d0b4086f4a50e5c89499f11706f304f87c253be5c09198a35fb41b31e6936b7a17acb3dccfaee39a19
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101444
+MD5sum: 224700ac63a96ce7bd783876cb5995d7
+SHA1: 9b66ec0a7831acf3381c82bb60b061609b9ed04c
+SHA256: 8b2210bad26906ea5a01ac5afd8e04e0e5034112f65c10213b924f7d23f4899d
+SHA512: cdb98d2a7d089fe34ee9d249c189b344a193e2d75e3ae31d86530cc8057d64395c3bf74d76a8606790ecbdbfd59f6857e59589d1e89c443bb54dfe9115c76f6b
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101502
+MD5sum: 3c125425ed05bf54fcfd3547a31ed972
+SHA1: 195930f6af9cc1b607d3f668d991ef7e022e147a
+SHA256: cfc432cecc184fad144784cd28d4745aa7702fd00441cb4eb36ef3b993d0212f
+SHA512: 761c52ca015031b577e4a9905c40ef5ffbf278d39a1c698c320634ddcc5287b692eca77e20ac3fdbc9c7acb4ff5553c30cdceabbbc5935cf0ba43bc2c9d78cba
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101452
+MD5sum: 9241b932c6dd0d8f66ce482d9efbb888
+SHA1: b539feee379466df5a89bc26bbfbc6137914f84e
+SHA256: 2746903e639909aeeab6410a0d0d1dbdcc54955d3908ce653e2518cd2d849e72
+SHA512: e1d74420c040d31d77b91dff2706939f0e620389f2ba508a13aa90a942b48162f7232911bc1edd8bb07972e8e15b3658fd3506fe89ce0114206d7f107d4b5480
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101406
+MD5sum: 7580003c108239b577ded8cee510ae27
+SHA1: 2791e807e9affaa43d9c31db03cd85e590d14740
+SHA256: 60cd5f36cb2b883e3d077fc407df054ce735580b7a6a00e97ced34c8b1cbb619
+SHA512: 2506ea980870922339f95ffa4130dacdee91bf7947e22b855b0e7a9e0054f3ae3d467f443d8bd1208f271997aa5e515aee810524ff0f245f4442baf239880c8d
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ga-ie
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ga
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ga-ie_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101510
+MD5sum: 4ccf8a562d460e727d1f939534c6c193
+SHA1: 7cfff139007afdaa80267f7b7bfc9425f4b2c391
+SHA256: 2971b2dd55264e5168d82f021c200108a82001929dd4814594e5fe45a53c9258
+SHA512: 5bdc39a3fedd78c4a6c51227ad767caff0337fb7d3cc9e231429acee87577b3080c7523725080fdaba8a364fe74151dd9b67ebcb463ef54fb42e1a52b7db2d35
+Description: Transitional Irish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nb-no_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101478
+MD5sum: 7ad07cbcfc7291f209a346ab9d62d069
+SHA1: 404e75f9772cf71517c3c3ed2685777b4c7834d0
+SHA256: 5545edae2f440e92a09588f08015ed181dd5c535cda83b0d786aceda95d6c25e
+SHA512: 3bad3c13d97aa0b65a7b19a34a5c40ad8b53461d30e4e110eb7c6a5e705eff1ec1c267b5dbe64282563d67adac70087d58f98da99ad82edcdcf835095190ad63
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nb-no_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101444
+MD5sum: db46392fc2b26d489fef44fba5f69c94
+SHA1: 49013d08cb088d700917c10ccc0b65e73c7cdbc5
+SHA256: fa5f749907a4e589966d38220f56ac1ad64c7afc5d6ae70ee439747617cb6f32
+SHA512: dbb3cf2524bea3aeea993b47f4bed952e26715918227aa36e594c898a68b42554db273a9ca132747bdbfb888091f6305571bcf97885c2dcf3479f2465552666d
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nb-no_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101504
+MD5sum: 2ce2845b11114538e8479a307ea4ac06
+SHA1: 529fc1acefad2b75e42772d52dff2784f51e5eb3
+SHA256: e4a20b619037518f42bbffba493f70eadd485bb8bd732879b474b8335bcfc99d
+SHA512: 4610c3b68ad933214dc1ca70c093a65d492294e88e00ee98eec6d8af84ff803d0eeecd0a24449108d0787fa47c283942ee48cf65f497d9b79c0f8b01b0e71623
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nb-no_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101442
+MD5sum: dd20e0853e5c2905a82979c1d9c58c47
+SHA1: 9f215707a3dc1b9dc0130c88a1e8639f9c33c365
+SHA256: 0fca63da713ce7986b8b61092bc19d3487380783be7d8c1d970ce6508dc3c85f
+SHA512: 2d02c9bc486439d6b436bab549a2656ebb4ecd661b4468a78b2ccf09200c8cca8cff55f540393d4400a9b069cd0968ad45e8b47a1d3d637ce612c5e4a370e0c6
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nb-no_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101414
+MD5sum: 239f3c03f31a2f0c21d6a09efaadee6e
+SHA1: 910d5f3f113acec032c9b19962abccc7cdf378c8
+SHA256: 6a16b0bf4fd9561d57b3c6ca5767ca4cbadec2769c39bc791793c114fc891739
+SHA512: b495e85983c7605235d16e49a3c31dab997650bc1058328a4d0e08c3975fda20ccc0f95ca67faac852f567d02ffafda8fb74d4a917d8b2ba0b1034a3c67addce
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nb-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nb
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nb-no_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101500
+MD5sum: e1c10ce7a0741ee74c2bd01eaa19839d
+SHA1: 73ffbcd699f42754ceed286c28f257c52f0d89b0
+SHA256: 68e1cc3fbcd449bfdc0d394bbf91440dfaf7b978db6484faeedb810eff99decb
+SHA512: 651b5308ac635a7d909e26d8423c23bed5ffd8f5f80bb80add443aeae604381c1df398b7e7cc4caaa8bdeee7d6d69d47d99f5caa85ddf86c9b0c2fc9e4133667
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nn-no_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101458
+MD5sum: 2aab357744ab13ff82f43f48788ff259
+SHA1: e9aa7daa647db4e9c6f9931576d88240919d6127
+SHA256: 65cdb17688fc7b0bc821ff837dba529a166804e2cee3d525a053d8640e0317c8
+SHA512: 4ecd6ad72e6548deb7f65276edd0e1b253edbc75b1e5be2dc0c339e672719e247190adf3d82d1bbdc0d3607f010cb509c6d7556082d936e700ca566cb2588600
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nn-no_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101452
+MD5sum: e9b3df01f4ab781559fa8bb4ab5a435c
+SHA1: 428a590fb3e5a02a3bc7a1f74fb8d3267536539e
+SHA256: 9a1d677632533f97ffaf910e88c8a08cfb0357e64c33ef53a227d72551cf3fa6
+SHA512: f58534ff1bc8cba84d7d74719e6eaf62706a93a9d71f67273c7609f1a0fa9c875b21388c4e590661ce0b4837120c40f6c3ad199de7c758ec62d604bcd40d3392
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nn-no_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101508
+MD5sum: 3cb67ff56d4e7cd55fa0df6a89d3cbc2
+SHA1: 6efd3442e3843632d5e92e8965d1827263633035
+SHA256: 57223de5a6ad02dd72f22a122884c83af07bbe2e84d16cdbaf2f2b3e40828d39
+SHA512: 5ff3fa2158d47f335b17292b7da090e5905ec2f58b144a4a2cc6f8591dc26c3cd7081c7ac7f7a4e3d9b200aa8e193a489628f824b30c49b662b59a62d5ca568e
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nn-no_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101446
+MD5sum: b9b9ae9aea31b2f36841e813acc9d34a
+SHA1: 95bed9f94417ae65c2096d177aa67a92b99d124b
+SHA256: e0a63d39a888344c2435ed3fe5e1120d0ae02a271d90c14e018a64e8e9cecab7
+SHA512: c75c4cd66e3ec3913643c6445d78daa19bce61d11980a9194138d6279b99e890b23a4b7ea71cfad333fb4cc6a0c5169a8b7a1b469da8a3401553231b0cf62fee
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nn-no_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101414
+MD5sum: a3c9d7637b60089b87697a9ac1a3a058
+SHA1: 17ebd6a65bbb1c9ce39b936e4b52265d31b67f12
+SHA256: 540dd991d87b30803b94284f6839388f65193150ccfcae0553ef3a44eb72448d
+SHA512: bd566da552d002f46f83ce137b0409ed8de34dba3c58fdd880f2a35a71d169001395de54cbb87945476f3358848f9e848d2428bd076fc18e886122a46dcb02eb
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-nn-no
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-nn
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-nn-no_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101508
+MD5sum: 4a05ef9d9bf5727b25e8b91605ecb37e
+SHA1: 182e829e36917271a008253243f25b42329008fb
+SHA256: 8a14024916cb41f064accef6855df3d85fd30fee5b99d308405528bc1ed7a908
+SHA512: 26bd3550264f3a648bf4e529ed3b4a9c92d321ef1cc24a7319cef807e61b562dd7fd34708d8f259de8d7d0ea086397bfb5508756705b2f566c9d9b6a763c4ec9
+Description: Transitional Norwegian language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pa-in_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101448
+MD5sum: d5479ed83efe5d05aa43fdfd051140a9
+SHA1: b0b33f5b25542f31752289ad26e282f2777cdfcc
+SHA256: 227a5ce67f64eb96a78d7f66d8031711dff238500e8d84542895d56cba9d0bf1
+SHA512: d2ab73765b59f188d5c9235b230a8b78ce450d082f1254c345eb74813dd57fb64d86200c63a48d7d853c24da4b4716f545d1053d0ccb0f159c184f5c8884ae20
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pa-in_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101444
+MD5sum: b8da83968e91531e8630cdecf6b40868
+SHA1: 8deec3c84ba4bc00a6dbf8f2d08a3a87a57fd73b
+SHA256: 731a3d05e2f6edac515b188c41d7b93127ca9203ea1f2a2329a8f270f7a23a76
+SHA512: 6052df79a60d3c8565fd4867133027d623a0f6ea7f665ebd5ddcd286b7ce1c61c16482f792c90a5fdee1524c50f35d74bc7c2dd3c76a399f67e91874c5b15854
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pa-in_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101486
+MD5sum: 7f399c2972b31f7932e25820842b797e
+SHA1: cfb2737dd9b2a70e8fbfe9028a3da1eb37c7b4b3
+SHA256: d14503cf4810bbaa731206a482bd0bb48f90e47553e2af31c291ad34f9f59bad
+SHA512: 32c6372b0634b9718df47a730ea9daecc853f20f76381fd4ea73cc0be82ae17921ea8fa71cbc9cc951498ef7916aac1eb006578f818e5e979e2b6830a9e0321e
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pa-in_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101432
+MD5sum: 979a21ca48de3e2b7b149683268e0ba7
+SHA1: 75743f98d91485761ffcfb3944321501b33a0f8a
+SHA256: 05723de7cedf9770ee44d5f22df4cd6f4db54524f0eda07839c3729fba36a3a4
+SHA512: b22a3e5e929d265cc3c915d3920ec74378a72f1760013394f64bbe71e0f0fe487c974a7890a7bd07d05920c5c581856c07485f9553a849bc08aa718d9a6dd107
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pa-in_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101434
+MD5sum: 2444b20796475f867d60a091aa89a8df
+SHA1: 552e46e65087729a365bcbbf6dd1867a896cf38a
+SHA256: 96f6e6020c3dcc856559d6e7d3ecc92083b0637525df8a2b1ba33d2cd82a0a77
+SHA512: 515e350ba87b22918015f0a2daf6e387fc3a6c6553e946be3da1f01346196056e896cace8c241e29e88f4435926389534d4968e4bd033fb34e8bceeeece148a0
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pa-in
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pa
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pa-in_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101510
+MD5sum: 523a59e5061390dea6412855510c423d
+SHA1: ba4ab4c3f7de94aca797279c4f04902188c0f224
+SHA256: 1618049261f24da16a6f61dc0283fff1d414eecaa1d256e9cc5a2d022659477b
+SHA512: e7b01a6cdb1f718514f1411940229e627b3a7d80849b8caf6aeaa6ca100b8fee15a60b974fc6473fb5e62b1e7571430c20777e5f07686cc02156773aea9d6a39
+Description: Transitional Punjabi language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-br_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101470
+MD5sum: 60f4e32c3eaf4b892f3c7401fd5c659e
+SHA1: 61b2b295dd3fe03615d1b39dc317a1fa797de768
+SHA256: 5999a9fee6e8cfdda2af66391c15ac7c8ef8e57192ddd35bb68e8d3e452f35bc
+SHA512: ee07f7ccf3b91fc8aedc3e67c9245699fc33e3f7901f28b77df78a859fab97fdd846bb0ff0deb0588502e8b046c80620f6ea0b8b724ad8235dc7ad0830a6e270
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-br_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101448
+MD5sum: 797a8f05dc7773debda169707fa533e2
+SHA1: 8681a1537266f7b097834ae8088e6bf983ddc349
+SHA256: 16d86952a01a188b9ceaaeeef703c7b67052706cfce43617c2a532b34b0d18c9
+SHA512: 6524bb0425109348b5f148d230572caeab6a6c2064818d40c9e5c44d8a268f3b848965859b81e2a16eb28526560d90b02eeb06a2c630e7608633d3674e4416b4
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-br_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101512
+MD5sum: 5d03e12ed1153364ed6673c3702b1aec
+SHA1: 9d02951bb8ce6e4e148faa907c3f025abda0c92d
+SHA256: 0f8f88bc0e3ae6e16b87cf445a4f9bd699a96a135d6dc3f38036382862bacca8
+SHA512: e5661469dcf9d34bb44b448d9b41aba78ee76346b11100e71e97e464ce916c9d8190f5cad9fc1beaae4ce765ec724763bbc8ca54aa54d9341dfbc738595af5ac
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-br_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101426
+MD5sum: 279490955b2c262d0ead94069eeb44ea
+SHA1: bc195f428521c3c9023006b83d9ee060cd64a9b6
+SHA256: 2dc1801ba8b9127ea31adad06e40554f6f931c5740e95d3e02071e7beeebedf7
+SHA512: 4a057907d0e31919fa05dbaa4593d46853f39f974fb8e9662dd5f3478661f51f2703b7490d8aa48d741572ae9d688ef12dc92ad8ad00cda6b82d8cf1c77c2305
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-br_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101416
+MD5sum: 12f46258a5aa3c4f1ee1a55a8ab24c56
+SHA1: afbb37732716aad2455c230b89aba41fa2c037da
+SHA256: e4efcb62594bf60a9d5b2f947b3f7ef5776ed03e00869f1e4998337a8f9fc193
+SHA512: f944627c8b0e53aaf7c4ddcd38769effcd7eb05cc3112c87e72702f19827bdbf93bc5067d8486fef30720187a87e21c5f0963b87240b252e23f659033676fa0e
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-br
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-br_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101508
+MD5sum: faabd44f508f414d6d12b9b44b916740
+SHA1: b6200398103cfd73b12c108ff79c11f23301dfe9
+SHA256: bbb0961e91aae2c953d4c267792df1b6a10d14a55dcaad2d59d6bdb18e141110
+SHA512: 39fb6cb8166649b69cf3362f30ed1781e7e657f6065b8ed5e45d9b0d64ed9346d127de400759c6e24f8770421faacab683c19418f060f5d042ce1d1b0eeea704
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101456
+MD5sum: 7e0ddab712705e786c2795643abcdd3f
+SHA1: 2e6f9a6ce47c6cc49d0f184c0538ca766b1f48a6
+SHA256: f6c96578a7c8658d039f43389d8955db6e2fa414684c8a84920c3c370a5e6ecf
+SHA512: 7e46ce885afb2d44cc346cc45992636da07ddf8a3f489f4bef028931bd2c638ee9152b5b8fcf4d8623f0fd2db2e3b5ebb9b312a9b6d5babca629bb53c1abe2de
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101468
+MD5sum: baab2927bdb80913014c7408c7d132b1
+SHA1: 89d9a66cff353b4afad72e8f12699f893146841b
+SHA256: c06e451c74c0ce9950d8ea443c76739b3bf2ac0ee36619594bfe92a8586113dc
+SHA512: 67a4d0ab7f3513c3d787eb3ce7ff80f377f055271e4a698b1d3b5135a22f4c8802c188886bc86629bf3ce7a56b8646a4d1f0ffcde3446ce79f993efd5a1e62a4
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101496
+MD5sum: 2e66ad149624bf4d9ad4287472168280
+SHA1: 92ef4cc8b4b24a72c91b234a0d915baee8508c62
+SHA256: 6af282153dfa2f27f39d7064a7ac1cca44f10aec09a4b02a8d3ea36d3f58d6af
+SHA512: 218b79fa7808a662980a17ab640a12c03f1c119c76a092119f437ab26e9d51bcb51563d548715e5197ba1e323419fe2d15c3356f1ce54555e0f708af37cbd129
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101438
+MD5sum: 83f21ce577fdb8e54b0a885f9e0a2ca8
+SHA1: 126547fa5895b392a3fc119e99728d9cdeb0c163
+SHA256: 632107394e491f6124bd5f3042bc85ef22a122ac85efbb315f6cb6b76968b540
+SHA512: bd54de1ee4bf7de0d421ad808ea23f8e29e1e4e02fd8a2b771ba245bea9fa364ba529fb80f3fda6f35ccae7f98a9174dbf01245d11ae8989c8120ea2a0907085
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101420
+MD5sum: a44152f3be2ed801edf00f8a29ab7d4c
+SHA1: 42ea2ef0ed38f9bf161b2948f9ce76ce2e72c466
+SHA256: d55b13916313b83c8612206e829d6402fe52d9133b8960d2dab382dacb6801a4
+SHA512: 90112527b7b838a71e8771e5a9eae11ecad687cd3875df9df632e5ec2c6ca353d37ea25c8665682df8dd4b7133cde85153cb05a8a3fa2ac88fd4ab3c1b53cd80
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-pt-pt
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-pt
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-pt-pt_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101510
+MD5sum: 6d3b7fa04bdf7d695cd435418fb43324
+SHA1: 913a4631bdbbc7ea48d42a45b10cf26b007f635b
+SHA256: 7202a4a15c0254f527b43fc8feb203a51630a0fe7de8e2d9308632fc06a6c7b7
+SHA512: 6fe2b03a7688c7c06660907fe5bcdebf9319350a8073304ed21e33eeab2cdcdfce63949ccafdab55fd36fb10e388d2700fe0c1416423aa4d13f010428370f22f
+Description: Transitional Portugese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-sv-se_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101460
+MD5sum: 17413a39984ddd80ea097cedb9212643
+SHA1: e319a6c50ddb37118ae893a71279483ccf84e1f4
+SHA256: 9723e072737e1e21be6bd49be838cdbaa1031320b765427ec117618346f786a9
+SHA512: 3aac852c0d8fd5bafc606744dae6407218e55d4abb7d7c3e6367891659bcdf3f7a2edf3b433e1f033b201719fb7425c252ea11d11e94e307191f11887eaac1bf
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-sv-se_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101428
+MD5sum: 6a263b43d2760193405cfc481a180f8f
+SHA1: a90a8641196e2f2054c4e05663e0d5996e597433
+SHA256: 8e81b0aad01ca1b7c89bad6c577d3ae39c0407323ebd546995b9437b5243fa0f
+SHA512: 835b5d36187a5e8010544ef9d36a1f72b965dd660b75cb7f0eb84b3f74a9ebd9a741bdd506ca3a68e3a374698054aa32650e6de1e7240baf1d621e306023fdb2
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-sv-se_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101510
+MD5sum: d31d2a98fcee31ed86140a92b1be16a3
+SHA1: 0f320eb395f563390dc7c13a5f7091ee83833df6
+SHA256: f95feb6b330eac8d4b37c1ff980b0f299b62c394e8490eb678dd9fa37589e3be
+SHA512: 7b5f91cb132aafe8d098075ef20cc8839308d874e71de54ae86775cbe90bac611dafaebd68a87449492f2fa242b6ca0cae6f4899bb8be334e3b3c12fc7671179
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-sv-se_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101438
+MD5sum: 76b6c40f2f882827831195022439e951
+SHA1: f34e5455d9f249dbff1c606a88730be12cb39b7f
+SHA256: 84c98b124030c5ce9e95453081f165a20d65786c2472b7a45ed32557e61d2da3
+SHA512: 9ddfc4f6f0b1b0ee45118418cbad5c8ca4fedfa9c7d12d4352ce999fbea5f4bd99fa809b81eb8414500d3b8ee804fa051093afcf2eb9bfe98b24a81c2f167d3a
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-sv-se_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101418
+MD5sum: 2b888a54a0b66c18c9b84270b7a9a13d
+SHA1: 033ec0b1498fb28762d94b7c4cd78a305214afa2
+SHA256: 406694dd415a9a7d0a5c42726ecbb66636c034eb090798368812b622ebf29ab4
+SHA512: 379a11abbbeb0cce442257eafa6b380ed187e73c4d6d3cdc5176c55b8b9fa8daa771af168282796a39c5254fbaee7dbe3528e6303a43dbce3c3104e8c94abab2
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-sv-se
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-sv
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-sv-se_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101506
+MD5sum: 2fb795327478b489c1490cb8896673ea
+SHA1: 316f646a883783955037dc4671827e8f2a59b36e
+SHA256: ae92a33ba4cc175cce65df76e40a8bf4c367b735a471262521fbe4feff703973
+SHA512: a2b98d5ad6fbfa70bedd9e975b262db3d56f35dab532143d6a19dad39aea2c4c6e8bd9514c03691382bba9d7cd242ad6499dc5818f2201540282ac7c77c2c276
+Description: Transitional Swedish language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101462
+MD5sum: 7318b7f8461985eba2e72744c5936157
+SHA1: fc3193851a94bc2dde4f1388ededccbb0df97f23
+SHA256: 3d7bf5eab6dffbb010d8e83a3e70388be400b8a51f8a6bd267df7fd14caa492e
+SHA512: 95b17fe3e4466c2d0ef918991c268c6aec73f0f3e827a01e4ee0d48ea0b2194e2a448e03f4285050eea130d35a524acf9af207076915a8f8348c26d629e610c7
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101440
+MD5sum: 5d37006d58c23331bf2dffb72e13b63b
+SHA1: 453941ba39df46f0566a6c93934ccdd065922503
+SHA256: 8d84b38c0447ca1cf1d1c0af183bfa4ceec2465ba068668efff9bbdc7d0c3588
+SHA512: 1740879a33c11f707f868515f947ccbdb5f207263b340c635b8e3742f17cc1e32a5004ad7ccda2d567e8a7404989dc9a736c23981347d60812616e01f690e98e
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101484
+MD5sum: 17ba2d55cc0ec6da08a1f869d61cfac9
+SHA1: 0853c7c390cc6737de4585c32712438c38eab0a8
+SHA256: 1be0efcd6723420e20bb22bf1de5111318b9a2cb9955e015e662fff7880114b4
+SHA512: 0dcf37f94374352263ab720eaf801c387bd4597589a3789568b768148d4fd443d0d1757db0e6a41526aa269f2aadbcb7333d73dc8e169f5df1e6b2380f863ffd
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101444
+MD5sum: ca6b6c8db46b71f403861c8f6149c53a
+SHA1: 03901b2976e60ca979ddc7a2448af19e2ea41f22
+SHA256: dbf597daf606e6446d41d4d978b904d651ab75a2923718790b27316556d2350f
+SHA512: 3aee968522527c921cb77ce1505d00a16bc6bcd2d32326d0fd0e1ccf588b734055bc087a3f8c89e2ec543a3f3ba21ffd68436fa2238d5601fd03f7b8f5144c98
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101404
+MD5sum: fadaacd76cf7ef05c8dcda1d8f2146cc
+SHA1: 89b68cc4eb4cf9e5ba1e34e59a25eab0f9e07040
+SHA256: 5fb4ae798fb84f207a0c67ad9464c5606c34de1df5a70820e61165d99a99b71f
+SHA512: eefb0f40d7aef7285e9885ad0e4b01d5d436f8a407f17554efa524c9cd81996b0a7f3b4a3ada5f0bc7fda8a41e4dbd73dc661748ec6edd454826363916649965
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-ta-lk
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-ta
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-ta-lk_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101504
+MD5sum: ff53724c7ab6a9d4bee109a3d1294fd4
+SHA1: 833ce5252e02e56a1ea802a43e5e3965cbff7191
+SHA256: 7847ed1e34a11877a3be838c55734009904527805e2a8c4ce9aac48eeabb1df0
+SHA512: e8dd12180be420bfa8351f43e1e9d38e0c8a4fc6e17672ce1e62e4dcfb00e3e07d867e214252bfdcc6e95ad8a3fed529998ef4b736a85fd04bfefbd19168a011
+Description: Transitional Tamil language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101486
+MD5sum: 0ed1e7069ef359048fccb206213d6d27
+SHA1: 4bb5d88c344326a46670e37289dcd4f2f8ebe6a7
+SHA256: e3b83dce39c2f4031c38b94ac777e9028aa0fd0830d308a99db9906f3aa82193
+SHA512: 8da16266d4101b05337647447cb58b5e1e76dae4638ac8a1689d0bbaf4061cbf59b40b3c809b3402e217e97a3eef18bea1d6ce0845b545848be97cd4f73bef4f
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101460
+MD5sum: 4fc8b2bbd2916207101eee6c285e4a89
+SHA1: 244eabfc855162c00dd2c803cfbb9e69021f0d21
+SHA256: 0324a39132ce3a8749ac2941c4a453f9e21e01981f60b6e305d6a3f050b519b0
+SHA512: 3b45df72f6d80f9f0316e7241bf1ebb046dd21026f61b196f8254a7969bae23f9218a4e88c001820bb23bf7cc91ef40830ef5bfc82aa6163b241e2457d4f5edf
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101504
+MD5sum: 8fe4d7b5253c91edcbbefdfa3777878b
+SHA1: 301c6d0f42aedd8a89b1e1cdd3e2b9e289a93cc7
+SHA256: 8301cb4809e774d771cb7ddd17b2d3be1b3118efece403d453b6da72f4c498b3
+SHA512: b37d529465e26d60d1ee530b6cb510422b788e5014f3a01c96d23982e6d455a7c123220c547fd08b4291ab4dd93fe27ab67949eda90c1c15042b6173b5d0b46f
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101456
+MD5sum: 5a316106aac51c982757fad35761808e
+SHA1: 3b33df564931c95e95d167b44ee3897fa88db72e
+SHA256: dd33155a78132c3426cbcd3999add391bf1c50314ed816e37c160b68b97fd410
+SHA512: bdf90fad5e3763376ec1471580f88b832bf258bbbaa0a726b2ff42f99d41eec27354056dffc4328d0dfe1785e962fbf9fe1c51f963e7a8a0c31880dc5f7d0081
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101428
+MD5sum: 54243db6dd56f2aae45491749b5822ab
+SHA1: d170dabfe9674604a78bb0f90f00c91fc4937cf1
+SHA256: f25db0d29730f07d1be94641ec58323b8c00d51028513eba42ba971dd90361a5
+SHA512: ee899ef94d497fbea9fff04fc6fc757152abe8bcdd531395b1315cfc4a283df2d4c63ca0a094d26b1dcd9893b02120b6b77f8e01a6750ed342523c0a66bb5600
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-cn
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-cn_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101516
+MD5sum: d37f16f92e3793b79b422faa97d49d89
+SHA1: f0b3fb1ad20eb5ab550af0a75ee576375c36d39a
+SHA256: decdd19e4509c30ce5779f748905f42265e7535a9754827270016c8da67d138c
+SHA512: bdbc0ff82ff10157168e9ec97876005f7f700cab8d05f090e2885ee4e5b45684123bbd90633f285068e3f6c65510aaf6e4f47cc28dff677ad0c5c4b25854c2c5
+Description: Transitional Simplified Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.15.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101480
+MD5sum: 65463fbdf2b96c63ae4dbf08c05a82a2
+SHA1: 76f48e911297128a0c78b6304753d1ef361afa6b
+SHA256: 148c9a317b4926e54bd247d93b27382d3cc295f542e735096e33519bea3ed74b
+SHA512: 0166386cf7abef9425f3b28842455b2fda5019d2d848f5ce856a2c0b3c83f4d91ed36b93757846d0436ebbf96f803e67aeb2e042c133d98d6aff52309ec6bf8e
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.14.0+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101470
+MD5sum: 56fc5628bb45b60b3e2fdf5e45117aaa
+SHA1: c128aec5f829776ca14f328047d581704bc38984
+SHA256: f6503a4bf4190614cb9d26099402d32a9c83e6ae31cba0ef683e057d63cd0f4e
+SHA512: 37d46c39a1baf0ec1c8057a3ed08e91f22d4fe0e3354697fd90d4873d9e65f09631b2f52206f4af83219c5492c6663a12f216dbb1d8271d7cd83712988440783
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.13.0+build5-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101492
+MD5sum: 78bb4a83b9304bbfc9cf07f7631620b1
+SHA1: 194ef8839a69d5b26f6ec089d9f7561d2c6d6ddf
+SHA256: 0509cc603661a791e09a6c939d3ce64584745e876da1bc649e4394469d51768e
+SHA512: 108df9c15f13f53c2a6b1607df60846d0afdedda4150acf2ed1a31b55360c9196e2bd13d0800b8bd2018ae7c393e0c5cf8074ab464a9ebfeb4da6ea1c9c7e910
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.12.2+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101464
+MD5sum: c3aa8e63e4d7619bf84cc37d97aa84dd
+SHA1: 5b9c3cf6f671cc990efab9eea98effb496c713f4
+SHA256: 5caf77a69543884034076e30512f0f9ae09ad1a63e6c0253016f18568bc25028
+SHA512: 5d6c4c629263e85c60f4bb1ece76f752bb4cfe356f3b26da1765b10165f83b9802f021e511c0bc03bf6c0ffea0f615695933c7f721c4e05d211346135e8d9023
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 128
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.12.1+build1-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101424
+MD5sum: 001f774b6536dc266f80d802e49a6096
+SHA1: eeb74ff912d1901954776bc2d10f37f9d58cd011
+SHA256: ae5487a5d85f5efb5818ba68e9fb21c9b3e8bd3567252368ef614cf1b8b0161b
+SHA512: d05948606ac00e0aa2f78a7a5b0fb20218ef27e20f75d6dff0929bf2b975b367800618b5f553327327142a688628bd6418595f2d5e59f24d7fa16e3201308d8f
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+
+Package: thunderbird-locale-zh-tw
+Priority: optional
+Section: web
+Installed-Size: 129
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Source: thunderbird
+Version: 9:115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/jammy-desktop/t/thunderbird/thunderbird-locale-zh-tw_115.12.0+build3-0ubuntu0.22.04.1~mt1armbian1_all.deb
+Size: 101516
+MD5sum: 6205c7e2a2859cf3839f13f77bc83eb0
+SHA1: 7a53618cb05df24b084b94f6674af115d219ad6b
+SHA256: 650740bf2ab7110f14700fbcbd972d406273d8356fed5d2721bca8d939460b0e
+SHA512: cee2fe6a4e94bff43d377f1c49e5c6481d9cd06a716a2ccdf885f9c9ba91f45dd4859406bc03856895b6278639486ff4eef047e9e6ba315bc0d52b6a093cf051
+Description: Transitional Traditional Chinese language pack for Thunderbird
+ This is a transitional package to ensure that upgrades work correctly.
+ It can be safely removed
+

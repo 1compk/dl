@@ -1,0 +1,327 @@
+Package: armbian-bookworm-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-cinnamon/armbian-bookworm-desktop-cinnamon_24.8.4_all__1-Vc438-Bed17-R448a.deb
+Size: 16641692
+MD5sum: 4cf27f1ab200ae69c13e8b3ac1ba5a35
+SHA1: e67263d4763207db7e28a3ef8e386aeb6c53440c
+SHA256: bd30101f0315bf73c4667f8298809679961928796f7461d480de77738bb4d05b
+SHA512: 6ec1d0a9bdb800df16fcbc3679a984b16569ca02f43bbb809f438a082d000642a332f0884ab0f0b9e8d8bd145ad849658f0549ddc734e63bef2ee7a4967a953b
+Description: Armbian desktop for Debian bookworm cinnamon
+Armbian-Original-Hash: 1-Vc438-Bed17-R448a
+
+Package: armbian-bookworm-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-cinnamon/armbian-bookworm-desktop-cinnamon_24.8.3_all__1-V21c4-Bed17-R448a.deb
+Size: 16641656
+MD5sum: 016226c112411da8da3853391664fe19
+SHA1: 5c8be713251f61cc7bedf4c3f7c966f816c33068
+SHA256: c224ba657619fa2de64426afd8bc3b4e7691e487adbdf521c22e2f0990f3993d
+SHA512: bcd353ccc7cc5fb6d50d588bdf3c5baf878c461308b723e0e0732504c9c417942ecceee2d3fec362517793deffad63b4ca458f1139d00b9d871bfc541df339bf
+Description: Armbian desktop for Debian bookworm cinnamon
+Armbian-Original-Hash: 1-V21c4-Bed17-R448a
+
+Package: armbian-bookworm-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-cinnamon/armbian-bookworm-desktop-cinnamon_24.8.2_all__1-V21c4-Bed17-R448a.deb
+Size: 16641656
+MD5sum: 9499f8b074f51e215c6b8dde0d401aaa
+SHA1: 6cea34c31d4c35becc623b4cf8a661fda8dc5f0e
+SHA256: e1b6bba03ff5cb64e76e34c3d7e8b5600cf1da7d9a1391901e62892661dedbb8
+SHA512: 8c8a01b5dad9d3bc0551ab6870cb2728734cdd9edcbaa3297a28559120407cc97f768b95b046949f66a6079976cf1a7f80463e6b9eea9e941a1cfd7dcfaf6b19
+Description: Armbian desktop for Debian bookworm cinnamon
+Armbian-Original-Hash: 1-V21c4-Bed17-R448a
+
+Package: armbian-bookworm-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18084
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.5
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, thunderbird, code, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-cinnamon/armbian-bookworm-desktop-cinnamon_24.5.5_all__1-Vbf22-Bed17-R448a.deb
+Size: 16645268
+MD5sum: a13b3b52ac179b8cd25531c45622e00a
+SHA1: 6026f8afb30ff7590c941acb03ea5c1fec7d945a
+SHA256: eb48f3369fabc5f2065f57004ea3db9a60e5c2ecd90f571bf14b360a24eac33c
+SHA512: bc98099b61e531a5059d9147ecdfcdcd8b713e098e7844ffbeb37f11c2f1dc6b0719813ebf37888de80ee55f7ed135439b0b6c1c2629ba8ef9d20b98eb5279d9
+Description: Armbian desktop for Debian bookworm cinnamon
+Armbian-Original-Hash: 1-Vbf22-Bed17-R448a
+
+Package: armbian-bookworm-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18084
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.4
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, thunderbird, code, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-cinnamon/armbian-bookworm-desktop-cinnamon_24.5.4_all__1-Vbf22-Bed17-R448a.deb
+Size: 16645272
+MD5sum: fc9d3b26f07acc25b4e75cec65c02c7d
+SHA1: 478d98ca2ec3daf055899cd28e60764ddd326b84
+SHA256: bbbd3524b7686584b45b5231338718e4ae4dd3f7df68a615bc83d0363f097103
+SHA512: b01656d9f63b6626e666b2ad56ee689dc795d4ee12b6379547efcc0316e17c8600a9274ec44d3709a72260d9a9815ceb8487c827abceb76123e916b838c7b540
+Description: Armbian desktop for Debian bookworm cinnamon
+Armbian-Original-Hash: 1-Vbf22-Bed17-R448a
+
+Package: armbian-bookworm-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18088
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.3
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, thunderbird, code, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-cinnamon/armbian-bookworm-desktop-cinnamon_24.5.3_all__1-Vbf22-Bcfc4-R448a.deb
+Size: 16645368
+MD5sum: 5ecb20168568d9dccecd813cc7dfb728
+SHA1: b058caa1c9463101f9e69e50d37205749211cf54
+SHA256: 54f2bcac35b334746b30f0220a70e47b4894f24e3f01f94ebd675281a1ebbc69
+SHA512: 491d7f79fd644ec96e15031ef131a990db77cf1c00b7de4fa8ff1ca74ff3b3a6fa6e81d967f8e9f2d32dd7bfc6b2e561163153d8a01ca867c74ed6a3918d0218
+Description: Armbian desktop for Debian bookworm cinnamon
+Armbian-Original-Hash: 1-Vbf22-Bcfc4-R448a
+
+Package: armbian-bookworm-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18088
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.2
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, thunderbird, code, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-cinnamon/armbian-bookworm-desktop-cinnamon_24.5.2_all__1-Vbf22-Bcfc4-R448a.deb
+Size: 16645372
+MD5sum: 79e10450484b2fe74cc939c8f5107425
+SHA1: f8e0622e10db2df84be4f911e13185b422a928db
+SHA256: 7441888bd7f4fa35e9191300578a2763d7d5f9463cb211489933b8444ece6aea
+SHA512: e37b104578b2bcb8ed343a844919ab0aea6fe0a0b1f2c7dfb92a278641e8be3ada4368fd34a8a7182134c933509e257855eb59582a83e0b01635b005b2b7dca8
+Description: Armbian desktop for Debian bookworm cinnamon
+Armbian-Original-Hash: 1-Vbf22-Bcfc4-R448a
+
+Package: armbian-bookworm-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-session, gnome-shell, inputattach, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-gnome/armbian-bookworm-desktop-gnome_24.8.4_all__1-Vf9c5-Bed17-R448a.deb
+Size: 16640192
+MD5sum: fe28577fc0dd672aef5380f273815661
+SHA1: e38c5c96e1fb4257af69f0bb20d644ff0cd50933
+SHA256: e051ce032675a40a26b6fa5d5b45697c63391a1624372a5a57f712417cf45a2d
+SHA512: ab06dec3df345596cf468fd21be4729ee7fb65bb90e93cd0cd60cd27e7189c8b375342ca3fb8d0df53e6ba667c5ff5adcc69ba575bfbae08d9e8a5ed2537a106
+Description: Armbian desktop for Debian bookworm gnome
+Armbian-Original-Hash: 1-Vf9c5-Bed17-R448a
+
+Package: armbian-bookworm-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-session, gnome-shell, inputattach, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-gnome/armbian-bookworm-desktop-gnome_24.8.3_all__1-Vf9c5-Bed17-R448a.deb
+Size: 16640192
+MD5sum: 382e84405d1d4cbb949365365d87e451
+SHA1: 6c9e57b04b0c4399bbc25ebae5fa9b5337c7db60
+SHA256: 6c5c3d94ad81084fcd65b1d9ccf66c3e4d0c25035a4e91fc878199d413f5301e
+SHA512: d3c16a140e03bcee6c3aa804332d712b0ae3cf6d2b13b05fa6af0a66044d108f710cde4d4106e9367a5653046ff2f2f63e300de7a9a7eaca967c2349324bcff1
+Description: Armbian desktop for Debian bookworm gnome
+Armbian-Original-Hash: 1-Vf9c5-Bed17-R448a
+
+Package: armbian-bookworm-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-session, gnome-shell, inputattach, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-gnome/armbian-bookworm-desktop-gnome_24.8.2_all__1-Vf9c5-Bed17-R448a.deb
+Size: 16640192
+MD5sum: c74603153b4a4265858e838b2ecc3aac
+SHA1: de641de6244a6bcdedf85079752a98eab282a8b4
+SHA256: d2c45a621b2cb1fc5e4e6efda4adf878a246095246a84adb92c8a9c80e1867e9
+SHA512: a0c36c03f60ed6b5216c41b797f93c930033530798390083c344caf7aa6185d7ebc16762ba03baa75f9faa9d3e06877fc975c1b028a9ff0d51d05412b3215b2b
+Description: Armbian desktop for Debian bookworm gnome
+Armbian-Original-Hash: 1-Vf9c5-Bed17-R448a
+
+Package: armbian-bookworm-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18058
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.4
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-xfce/armbian-bookworm-desktop-xfce_24.8.4_all__1-V39a3-Bed17-R448a.deb
+Size: 16640048
+MD5sum: 6c5abe8eab4caba0f17e57e4ceb90091
+SHA1: f2ca62e42bc5efea0e9bfb581debd704527a5aa0
+SHA256: dd9ff143445270705b3d5e6ea969405d0f8b41fb12c6a1293ae5edac6d355c6f
+SHA512: edd90aa7c6835c20ebf12012d7645d4041e236cdd404f70bfdeabf20668ca4ec5f670612422b6519ab5ef068d898d2916975ff5f19e7431ba33f16d8f39e4c67
+Description: Armbian desktop for Debian bookworm xfce
+Armbian-Original-Hash: 1-V39a3-Bed17-R448a
+
+Package: armbian-bookworm-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18058
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-xfce/armbian-bookworm-desktop-xfce_24.8.3_all__1-Ve918-Bed17-R448a.deb
+Size: 16640148
+MD5sum: 5484b3aad2a4b680bcd804e599b9996f
+SHA1: a98dcab5cc3408cde0655ba4a6d06f4f31999139
+SHA256: ad12f5fb5523e1f4353432bc6381a266e0a6428bb88159d6208b9a56762b4615
+SHA512: 42bbfa3de8f81f12400893a0712646c174bb0f8859061521b6924f4b73d7d87c332b1fbef3993dc13536b891bcb4f1c474c5dd9dc5b95f247a9a1bb528137a34
+Description: Armbian desktop for Debian bookworm xfce
+Armbian-Original-Hash: 1-Ve918-Bed17-R448a
+
+Package: armbian-bookworm-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18058
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-xfce/armbian-bookworm-desktop-xfce_24.8.2_all__1-Ve918-Bed17-R448a.deb
+Size: 16640148
+MD5sum: 16e56cc459ea374e0665ef69d8ceef96
+SHA1: 2ebd03f4b294d66fad11e2afff1c8123bbdf661c
+SHA256: 9a8a4c69cc79791732a359bd8aa8b378663ff88f3e26f100e51a49d5764a27da
+SHA512: 809802f7628f25b1e5806f9933423626617ab9338bc3b2bf1441c61dffdef253b5f473b1bf0f26abbbfd7c6b29fddbaaa06fb9bcb152e20628be9f9c6060345f
+Description: Armbian desktop for Debian bookworm xfce
+Armbian-Original-Hash: 1-Ve918-Bed17-R448a
+
+Package: armbian-bookworm-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18080
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.5
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-xfce/armbian-bookworm-desktop-xfce_24.5.5_all__1-V661e-Bed17-R448a.deb
+Size: 16643840
+MD5sum: 2f7e78dd9df63a271bc33184dc1cc5a4
+SHA1: 2c05be992bb2c0124f758f7bf168bb76d0791861
+SHA256: ffeb1209ea450b3db910140afe7aaa77a56ad30520f1f9aee1a9250b784bd230
+SHA512: 51020c58b4e1694b079968cd4dff9a62777501a96f361a9f18948c6f07b35d491233d265a1ea34f8c6721ad0ef52ce77d05c85cb69a3a76f8d7b9d20c6cb6296
+Description: Armbian desktop for Debian bookworm xfce
+Armbian-Original-Hash: 1-V661e-Bed17-R448a
+
+Package: armbian-bookworm-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18076
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.4
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, thunderbird, code, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-xfce/armbian-bookworm-desktop-xfce_24.5.4_all__1-V27c1-Bed17-R448a.deb
+Size: 16643852
+MD5sum: 1cdf0038362ca35d56b50f0e44dd7944
+SHA1: f9677fe29b65d52077f027b6acd34c0f140da064
+SHA256: 05bbc38a87fb2914047281be5caaa84657a74509fc0ae7a75e6568887b3dec4b
+SHA512: 752659d599cf988b4b148d7a2e518e4e9fe567f24eb1eddae2f90738b99b0481162ba30b94f54c2cfe79ebe6acaabf67afa3ec26e89061e9895b8b444bebb8c0
+Description: Armbian desktop for Debian bookworm xfce
+Armbian-Original-Hash: 1-V27c1-Bed17-R448a
+
+Package: armbian-bookworm-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18080
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.3
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, thunderbird, code, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-xfce/armbian-bookworm-desktop-xfce_24.5.3_all__1-V27c1-Bcfc4-R448a.deb
+Size: 16643944
+MD5sum: 98c83ea99025f63b2fcf75bece4c228d
+SHA1: b5b74a8a57e1676c17f21971fe50fe6942712011
+SHA256: bed37f5031084e00a2a78c299b9c880bc9c6fab1d4266d157ac1f5ad418f919c
+SHA512: 45c7906e29563f6fb45c37802232fac0812890fd66c4e4a65afba407e93e719176477dc9b05d57b8a083228d72b0586def64410332f3e62c80b2f3e30350e56d
+Description: Armbian desktop for Debian bookworm xfce
+Armbian-Original-Hash: 1-V27c1-Bcfc4-R448a
+
+Package: armbian-bookworm-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18080
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.2
+Provides: armbian-bookworm-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, gh, firefox-esr, chromium, hexchat, pidgin, purple-discord, purple-rocketchat, bleachbit, gparted, emacs, filezilla, putty, celluloid, eog, gimp, pithos, mpv, libreoffice, libreoffice-gtk3, libreoffice-style-elementary, simple-scan, build-essential, clang, meld, regexxer, remmina, remmina-plugin-vnc, remmina-plugin-rdp, thunderbird, code, armbian-bsp-desktop
+Filename: pool/bookworm-desktop/a/armbian-bookworm-desktop-xfce/armbian-bookworm-desktop-xfce_24.5.2_all__1-V27c1-Bcfc4-R448a.deb
+Size: 16643944
+MD5sum: 59e1ca0bbf0c91bc0bb5caf11bf82307
+SHA1: 9e4a22be868aaa661f5c8adda104fbc413f50c4d
+SHA256: 8939793dc11da0f977bf784a75282e75ccb29d4ee77de58dcb7b5a0b4f89ab96
+SHA512: 8760bb6a060d53d0227530da6376c0978d2f9a1deb5646619b0bd080c95f638a6dc55633b531a61850639cace6df5863d63cc3bbc9f273d95d32aad63c738dc8
+Description: Armbian desktop for Debian bookworm xfce
+Armbian-Original-Hash: 1-V27c1-Bcfc4-R448a
+
+Package: howdy
+Priority: optional
+Section: misc
+Installed-Size: 162
+Maintainer: boltgolt <boltgolt@gmail.com>
+Architecture: all
+Version: 2.6.1
+Depends: curl | wget, python3, python3-pip, python3-dev, python3-setuptools, libpam-python, libopencv-dev, cmake
+Recommends: libatlas-base-dev | libopenblas-dev | liblapack-dev, streamer
+Suggests: nvidia-cuda-dev (>= 7.5)
+Filename: pool/bookworm-desktop/h/howdy/howdy_2.6.1_all.deb
+Size: 38912
+MD5sum: b3b67e38359aba3860e4931d5dd3340b
+SHA1: bf1193c0744a758ffae04f8e19ad8bd05bbc0598
+SHA256: c104329d8c7f54508b317ac7fb9782eae4104187bac657ee8a80aeeeb406c84f
+SHA512: fe3a66761a577bddc0cdfec9656786019f88a86340941ea41f422bf82f09d8654f19dc7528eaef10b4d3bfe9f15f804d72098d6f9212e1b5815f481de049e2ab
+Description: Howdy: Windows Hello style authentication for Linux.
+ Use your built-in IR emitters and camera in combination with face recognition
+ to prove who you are.
+Homepage: https://github.com/boltgolt/howdy
+

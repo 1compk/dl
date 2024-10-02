@@ -1,0 +1,342 @@
+Package: armbian-trixie-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-cinnamon/armbian-trixie-desktop-cinnamon_24.8.3_all__1-V8ec3-Bed17-R448a.deb
+Size: 16641624
+MD5sum: ae32a58e078f549ba2c0aabebeeab2b5
+SHA1: 3c752555248c921426f0836a859983a4650e42d6
+SHA256: 8b6ceceadb4766fee3ef62ed5277295130be9f521e83e9d39fad3eca679b5e1d
+SHA512: 37395c41928dd5ad1266fe20b3ab39a57d40662bddbefeb433c613d2d45c582b8356d8e58480e6c53e181ecf72cc8011cf4782c742fb19f6eb3028189021914b
+Description: Armbian desktop for Debian trixie cinnamon
+Armbian-Original-Hash: 1-V8ec3-Bed17-R448a
+
+Package: armbian-trixie-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-cinnamon/armbian-trixie-desktop-cinnamon_24.8.2_all__1-V8ec3-Bed17-R448a.deb
+Size: 16641628
+MD5sum: 742060f36b328079a8e07f0866d922c2
+SHA1: b020d6a01d42cae1145eca030b0047694f51ae93
+SHA256: e14370cb5da99cc60cdf69147645e16a957d49b5ffac3b02ab06460cb9a3d10d
+SHA512: ef9bdb02eaffe71fab4cf9a1742c0220f83d4d826d44870a13352dfa2d6ce9dfc59f7f02bbd713617da82cfafde734abb1e0fb095303906f42d18cea3b4227c2
+Description: Armbian desktop for Debian trixie cinnamon
+Armbian-Original-Hash: 1-V8ec3-Bed17-R448a
+
+Package: armbian-trixie-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, ayatana-indicator-printers, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-cinnamon/armbian-trixie-desktop-cinnamon_24.5.1_all__1-Vce03-Bcfc4-R448a.deb
+Size: 16641560
+MD5sum: 3d34ee2812ee1b7c5f584267e57a8a2a
+SHA1: 78b3c173b35dec2df6f2e2fbaaf3becfc4b06041
+SHA256: 4012ab46e299776acb99f82b0a44ac63d05c531567df247e3a3f5fe21bc52b5c
+SHA512: bb7056ffbde75d7af878e783e230f5a1a595844cc8caa3f435f42d9fa9e1c2c048367a8849c80440befb4422af7604d9ba3fa6bd3854441ee20a69a47743266c
+Description: Armbian desktop for Debian trixie cinnamon
+Armbian-Original-Hash: 1-Vce03-Bcfc4-R448a
+
+Package: armbian-trixie-desktop-cinnamon
+Priority: optional
+Section: xorg
+Installed-Size: 18066
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, cinnamon, cinnamon-common, cinnamon-control-center, cinnamon-control-center-data, cinnamon-core, cinnamon-desktop-data, cinnamon-screensaver, cinnamon-session, cinnamon-session-common, cinnamon-settings-daemon, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dconf-cli, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, gir1.2-cinnamondesktop-3.0, gir1.2-cmenu-3.0, gir1.2-cvc-1.0, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gnome-terminal, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inxi, inputattach, keyutils, laptop-detect, libatk-adaptor, libcinnamon-desktop4, libcinnamon-menu-3-0, libcscreensaver0, libcvc0, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, nemo, nemo-data, nemo-fileroller, nemo-font-manager, nemo-gtkhash, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-cinnamon/armbian-trixie-desktop-cinnamon_24.2.1_all__1-V543f-Bcfc4-R448a.deb
+Size: 16641584
+MD5sum: cad15b54f13c56a42748c80c8bee4e04
+SHA1: f0848d2302de761cfe8824abd71f2d411f118acc
+SHA256: ff1fcee9161621c5b490d660e4ffc294fb7df2a6cb12f0bf99b1b6fb6cd53ec9
+SHA512: 1c01700ff91b4aa2d6582fb3f264ebfe64e7caaa7f062f41e0b1d141a0d584f2952be27646b184d90a87777e5b7b0c91a738e085d7957735973dbda99e32ba85
+Description: Armbian desktop for Debian trixie cinnamon
+Armbian-Original-Hash: 1-V543f-Bcfc4-R448a
+
+Package: armbian-trixie-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-session, gnome-shell, inputattach, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-gnome/armbian-trixie-desktop-gnome_24.8.3_all__1-V129a-Bed17-R448a.deb
+Size: 16640524
+MD5sum: ffc85b457a643538acd5d41ca092e12d
+SHA1: 7c98947165e159e8c35473d3701ce5d12a4d89c7
+SHA256: f6a45d8f31bfa268b7dc1aeae0145b98786dfbcbba2e148112698a7dabc6e3db
+SHA512: 1acaa0c4c2a96d1bc76892e1c40ba87fa0b8caf12053611b4f331009f06647c83e8326e3ce1bc3baedcf7ab249328600355fdb4459cf4190aa3542317fc280d3
+Description: Armbian desktop for Debian trixie gnome
+Armbian-Original-Hash: 1-V129a-Bed17-R448a
+
+Package: armbian-trixie-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-session, gnome-shell, inputattach, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, pavucontrol, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-gnome/armbian-trixie-desktop-gnome_24.8.2_all__1-V129a-Bed17-R448a.deb
+Size: 16640528
+MD5sum: c89f289e4fd45c9cad662091a1d9c1a4
+SHA1: 6e6cd829666fb1685bb23f0505d91b07cffe0a5e
+SHA256: e4831e7800887fb09e91a34b44bd985d0daa9ffd948ba6b0ba9febe4d26e2381
+SHA512: 89fbbc1ca2e117773bdfdd916d20180ba947349ee05ac407922015489dfe1e66ec7ef1339bba8bab93c92e9c94fdf74e6d16084a2c98e4f862b86f77f19c0cb7
+Description: Armbian desktop for Debian trixie gnome
+Armbian-Original-Hash: 1-V129a-Bed17-R448a
+
+Package: armbian-trixie-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, network-manager-gnome, network-manager-openvpn-gnome, pavucontrol, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-gnome/armbian-trixie-desktop-gnome_24.5.1_all__1-V0d71-Bcfc4-R448a.deb
+Size: 16640284
+MD5sum: 896a0a737e9477e494e470d9b8a51a40
+SHA1: 4a8ba4434237995a32ca726d62bb20f86f18ccfb
+SHA256: c7f8c65ebed519756738def689e165591c7c02c5eea3d6564e04f0e8bccb7443
+SHA512: 06f401f06aca33d51bb5e1a7485eb95bd02f3d4472b1a46d841549d90e9d0d72bc6a06fc8175f7cacdbe5688a7372dd842ed4aa1f071473d4e48d83d8b25ba7e
+Description: Armbian desktop for Debian trixie gnome
+Armbian-Original-Hash: 1-V0d71-Bcfc4-R448a
+
+Package: armbian-trixie-desktop-gnome
+Priority: optional
+Section: xorg
+Installed-Size: 18062
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, at-spi2-core, colord, cups, dbus-x11, dmz-cursor-theme, dconf-cli, eject, foomatic-db-compressed-ppds, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, gdebi, gnome-calculator, gnome-control-center, gnome-disk-utility, gnome-desktop3-data, gnome-keyring, gnome-menus, gnome-screenshot, gnome-system-monitor, gnome-terminal, gnome-session, gnome-shell, gnome-shell-extension-appindicator, inputattach, libasound2, libasound2-plugins, libnotify-bin, libpulsedsp, gdm3, lm-sensors, nautilus, network-manager-gnome, network-manager-openvpn-gnome, pavucontrol, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, software-properties-gtk, synaptic, system-config-printer, terminator, tracker, tracker-extract, tracker-miner-fs, upower, x11-apps, x11-session-utils, x11-utils, x11-xserver-utils, xarchiver, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-base, xserver-xorg, xwayland, zenity, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-gnome/armbian-trixie-desktop-gnome_24.2.1_all__1-V6c4f-Bcfc4-R448a.deb
+Size: 16640344
+MD5sum: f46db4ee5ac07f4c8fc3f95cb99fe981
+SHA1: 5ed27795142bc2fc049325cca71d5a958e7b0d73
+SHA256: 5aaa7403d349b8ab0598ab0b806c79b3ddcc96ab9d2cff5e72853311718a350b
+SHA512: 22df3ee2aa6a139ca5aa97b513812b9d93d7c857c57814b53b5060b391288c40f7d6418372bb0758928ea57d80081b2464f2740eb6d115f1c2fd0d004abb58fa
+Description: Armbian desktop for Debian trixie gnome
+Armbian-Original-Hash: 1-V6c4f-Bcfc4-R448a
+
+Package: armbian-trixie-desktop-i3-wm
+Priority: optional
+Section: xorg
+Installed-Size: 14303
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-config-auto-update, arandr, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, caffeine, cifs-utils, compton, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dictionaries-common, dmz-cursor-theme, doc-base, dunst, evince, evince-common, feh, fontconfig, fontconfig-config, fonts-arphic-ukai, fonts-arphic-uming, fonts-dejavu-core, fonts-freefont-ttf, fonts-guru, fonts-guru-extra, fonts-khmeros, fonts-liberation, fonts-nanum, fonts-opensymbol, fonts-stix, fonts-symbola, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-bluetooth, gnome-disk-utility, gnome-font-viewer, gnome-power-manager, gnome-system-monitor, gromit, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gvfs-backends, hplip, i3, i3lock, i3status, i3-wm, suckless-tools, ayatana-indicator-printers, inputattach, keyutils, locales, locales-all, laptop-detect, libanyevent-i3-perl, libatk-adaptor, libev4, libfont-afm-perl, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgnome-bluetooth13, libgsettings-qt1, libjson-xs-perl, libnotify-bin, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcb-cursor0, libxcursor1, lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings, lightdm-settings, lxappearance, mousetweaks, network-manager-openvpn-gnome, network-manager-vpnc, nitrogen, numix-gtk-theme, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavucontrol-qt, pavumeter, policykit-1, policykit-1-gnome, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, rofi, samba, slick-greeter, smbclient, software-properties-gtk, speech-dispatcher, spice-vdagent, system-config-printer, system-config-printer-common, terminator, thunar, totem, totem-common, totem-plugins, vifm, x11-apps, x11-xserver-utils, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs, xorg-docs-core, xscreensaver, xserver-xorg, xserver-xorg-video-fbdev, xauth, xtitle, xttitle, xwallpaper, apt-xapian-index, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-i3-wm/armbian-trixie-desktop-i3-wm_24.5.1_all__1-Vd203-Bcfc4-R448a.deb
+Size: 13483388
+MD5sum: 076adeb479e140bfe2860594cf2b883f
+SHA1: bb2bd5debf630239fb7aec295f7479b883fb39cf
+SHA256: 626c27cc202bed5fd30f6eb5458ebaf32f75ef179a764a28950d961c546db849
+SHA512: 56b2c15d2c235ce82d80dc9850bec43e01404b9fa8b530ba7ede90bf8b16a97addd48e75794e605bc42459d9c71ee2f61d86e8f6b70045ad67e30b8db5ea2c34
+Description: Armbian desktop for Debian trixie i3-wm
+Armbian-Original-Hash: 1-Vd203-Bcfc4-R448a
+
+Package: armbian-trixie-desktop-i3-wm
+Priority: optional
+Section: xorg
+Installed-Size: 14303
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-config-auto-update, arandr, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, caffeine, cifs-utils, compton, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dictionaries-common, dmz-cursor-theme, doc-base, dunst, evince, evince-common, feh, fontconfig, fontconfig-config, fonts-arphic-ukai, fonts-arphic-uming, fonts-dejavu-core, fonts-freefont-ttf, fonts-guru, fonts-guru-extra, fonts-kacst, fonts-kacst-one, fonts-khmeros, fonts-liberation, fonts-nanum, fonts-opensymbol, fonts-stix, fonts-symbola, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-bluetooth, gnome-disk-utility, gnome-font-viewer, gnome-power-manager, gnome-system-monitor, gnome-system-tools, gromit, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gvfs-backends, hplip, i3, i3lock, i3status, i3-wm, suckless-tools, inputattach, keyutils, locales, locales-all, laptop-detect, libanyevent-i3-perl, libatk-adaptor, libev4, libfont-afm-perl, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgnome-bluetooth13, libgsettings-qt1, libjson-xs-perl, libnotify-bin, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcb-cursor0, libxcursor1, lightdm, lightdm-gtk-greeter, lightdm-gtk-greeter-settings, lightdm-settings, lxappearance, mousetweaks, network-manager-openvpn-gnome, network-manager-vpnc, nitrogen, numix-gtk-theme, openprinting-ppds, p7zip-full, pamix, pasystray, pavucontrol, pavucontrol-qt, pavumeter, policykit-1, policykit-1-gnome, printer-driver-all, profile-sync-daemon, pulseaudio-module-bluetooth, redshift, rofi, samba, slick-greeter, smbclient, software-properties-gtk, speech-dispatcher, spice-vdagent, system-config-printer, system-config-printer-common, terminator, thunar, totem, totem-common, totem-plugins, vifm, x11-apps, x11-xserver-utils, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs, xorg-docs-core, xscreensaver, xserver-xorg, xserver-xorg-video-fbdev, xauth, xtitle, xttitle, xwallpaper, apt-xapian-index, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-i3-wm/armbian-trixie-desktop-i3-wm_24.2.1_all__1-Vcfca-Bcfc4-R448a.deb
+Size: 13483424
+MD5sum: 1d52615b394a984a448261805ffd2b86
+SHA1: 0182c0d91eb45168ac13e0d14c2eb8454b332e89
+SHA256: 8c34ba9704179c480880faf8ffb95e05d7c779f07b5dc1dcad8beb71ea18bbf6
+SHA512: 4b5ef2e0aa05bdee109de688f599424005b85322253e55e01bb503d1fbb4069601d2ace0d490cb21d036fb06430e37b01300deab6d746d5ce9a1d28eb3656984
+Description: Armbian desktop for Debian trixie i3-wm
+Armbian-Original-Hash: 1-Vcfca-Bcfc4-R448a
+
+Package: armbian-trixie-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18058
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.3
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-xfce/armbian-trixie-desktop-xfce_24.8.3_all__1-Vbdaa-Bed17-R448a.deb
+Size: 16640048
+MD5sum: 848b2fd4ae025486669122473655b21b
+SHA1: 0afe415ab1d4db4e49ea7adbc37c25f4b5b6e42e
+SHA256: d66cb929e01b3cad9c81b278eaa3a46c8a3081ee88b6b1403717b2e39d01873e
+SHA512: 23f872987fb51d75aba387f4b6972db07e5e819165a13e732fe19764292aff19f292dbffbd9288b74d8330309db48228edd1e7db4440765b4c60b4aeb61b0d2b
+Description: Armbian desktop for Debian trixie xfce
+Armbian-Original-Hash: 1-Vbdaa-Bed17-R448a
+
+Package: armbian-trixie-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18058
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.8.2
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, polkitd, pkexec, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-xfce/armbian-trixie-desktop-xfce_24.8.2_all__1-Vbdaa-Bed17-R448a.deb
+Size: 16640048
+MD5sum: 0a80668612c7aae70dc062873942d332
+SHA1: 3d1e3159ecab4e14fbc0bda6f05437375463010a
+SHA256: 548235a16ad586b3f53b656a8bc65e136fb256ccfe089f9ade420d5df7e49895
+SHA512: 30b1d12d92df9071aebc989ed46b2e0969e68df08ed6a9fdbd099e2e63a0445c2b50ab181977efe55b769ecdb0ab1103ffd376313a344c98e5c34962cdb581fa
+Description: Armbian desktop for Debian trixie xfce
+Armbian-Original-Hash: 1-Vbdaa-Bed17-R448a
+
+Package: armbian-trixie-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 18058
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.5.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-noto-cjk, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, ghostscript-x, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-xfce/armbian-trixie-desktop-xfce_24.5.1_all__1-Vc905-Bcfc4-R448a.deb
+Size: 16640044
+MD5sum: 87107fb2639dbeaf88473149142dfb19
+SHA1: 22f259ea5947d0e74a8f33221c7cfca05ec84be4
+SHA256: 949860868283789e9b15fd098c1a7bf7418deaed908b202dec06f7ad6c85197d
+SHA512: 2b6b51bc37bb56ef8592ad95a025f12362c3f4f1794c807cb172ceb9c8d697331601f774ddfe252143e5b0cde799d5376f3c45059a3c60d7abff09662b83f9d9
+Description: Armbian desktop for Debian trixie xfce
+Armbian-Original-Hash: 1-Vc905-Bcfc4-R448a
+
+Package: armbian-trixie-desktop-xfce
+Priority: optional
+Section: xorg
+Installed-Size: 16520
+Maintainer: Armbian Linux <info@armbian.com>
+Architecture: all
+Version: 24.2.1
+Provides: armbian-trixie-desktop
+Recommends: anacron, apt-xapian-index, blueman, bluez, bluez-cups, bluez-tools, brltty, brltty-x11, cifs-utils, colord, cups, cups-bsd, cups-client, cups-filters, dbus-x11, dmz-cursor-theme, evince, evince-common, fontconfig, fontconfig-config, fonts-ubuntu, fonts-ubuntu-console, foomatic-db-compressed-ppds, gdebi, gnome-calculator, gnome-font-viewer, gnome-disk-utility, gnome-screenshot, gnome-system-monitor, gstreamer1.0-packagekit, gstreamer1.0-plugins-base-apps, gstreamer1.0-pulseaudio, gtk2-engines, gtk2-engines-murrine, gtk2-engines-pixbuf, gvfs-backends, hplip, inputattach, inxi, keyutils, laptop-detect, libatk-adaptor, libfontconfig1, libfontembed1, libfontenc1, libgail-common, libgl1-mesa-dri, libgsettings-qt1, libgtk2.0-bin, libnotify-bin, libpam-gnome-keyring, libproxy1-plugin-gsettings, libproxy1-plugin-networkmanager, libu2f-udev, libwmf0.2-7-gtk, libxcursor1, lightdm, lm-sensors, lxtask, mesa-utils, mousepad, mousetweaks, network-manager-gnome, network-manager-openvpn, network-manager-ssh, network-manager-vpnc, numix-gtk-theme, numix-icon-theme, numix-icon-theme-circle, openprinting-ppds, orca, p7zip-full, pamix, pasystray, pavucontrol, pavumeter, policykit-1, printer-driver-all, profile-sync-daemon, pulseaudio, pulseaudio-module-bluetooth, qalculate-gtk, redshift, slick-greeter, smbclient, software-properties-gtk, spice-vdagent, synaptic, system-config-printer, system-config-printer-common, terminator, thunar-volman, update-inetd, viewnior, x11-apps, x11-utils, x11-xserver-utils, xapps-common, xarchiver, xbacklight, xcursor-themes, xdg-user-dirs, xdg-user-dirs-gtk, xfce4, xfce4-notifyd, xfce4-power-manager, xfce4-screenshooter, xfce4-terminal, xfonts-100dpi, xfonts-75dpi, xfonts-base, xfonts-encodings, xfonts-scalable, xfonts-utils, xorg-docs-core, xscreensaver, xsensors, xserver-xorg, xserver-xorg-video-fbdev, xauth, xwallpaper, armbian-bsp-desktop
+Filename: pool/trixie-desktop/a/armbian-trixie-desktop-xfce/armbian-trixie-desktop-xfce_24.2.1_all__1-Ve0af-Bcfc4-R448a.deb
+Size: 15226800
+MD5sum: 9b1c870d86bac26fe3737a0f9dda9b0c
+SHA1: 7a44c10fc30cecfe92ee02e563c58d2116f0b8a3
+SHA256: e0f29c06c6d39c71ed50674638f36c8f7792c336baa60cc283722147049d1666
+SHA512: a57214c547661798d0f2198b37476122f95ff489bec7a37b0a73d7549c9d0169de45d5c10b09106a9bfea4afdf8c5c4dfefc6a4f765d1201d0070415104d740c
+Description: Armbian desktop for Debian trixie xfce
+Armbian-Original-Hash: 1-Ve0af-Bcfc4-R448a
+
+Package: fonts-kacst
+Priority: optional
+Section: fonts
+Installed-Size: 978
+Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Architecture: all
+Version: 2.01+mry-15
+Pre-Depends: dpkg (>= 1.15.6~)
+Recommends: fonts-kacst-one
+Filename: pool/trixie-desktop/f/fonts-kacst/fonts-kacst_2.01+mry-15_all.deb
+Size: 305400
+MD5sum: 83c1f512ae068a0d146601ecf0897d20
+SHA1: ac721d9a1925369da5a0d302c6fc10543492e1e1
+SHA256: 1a83306b736dbc0a26a10d89b924f1aaaa6743ab5218b2b474be6bbb00b6fa89
+SHA512: 5b2ba38ac2e09a52ddba727ba0a0f886822fc6d5abe17bcd3f428767e43142124212101f21176d866390c409bea0c226a94138c9f7d704935b622bf91c1d944e
+Description: KACST free TrueType Arabic fonts
+ This is a set of TrueType Arabic fonts released by the King Abdulaziz
+ City for Science and Technology (KACST).
+Homepage: https://www.kacst.edu.sa/eng/Pages/default.aspx
+Multi-Arch: foreign
+
+Package: fonts-kacst-one
+Priority: optional
+Section: fonts
+Installed-Size: 122
+Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Architecture: all
+Version: 5.0+svn11846-10
+Pre-Depends: dpkg (>= 1.15.6~)
+Recommends: fonts-kacst
+Filename: pool/trixie-desktop/f/fonts-kacst-one/fonts-kacst-one_5.0+svn11846-10_all.deb
+Size: 51324
+MD5sum: c3e9726348db5a43c1f3a6021b07cb13
+SHA1: 9ed6e9bc2a326ce59fb794de419eaa1bea57aba9
+SHA256: 884a53f0aac4685e269ec953c4e865284209743e2394b01ddc0a3d2fbcd5c4b6
+SHA512: 32207af38428dd7a5c7b3404ee0bfb5ed1fef6f73229f124487c6ddf66500cd143977d2661341f255d2709df031b696f02712aa88d7e92381264acdb8899f1f2
+Description: TrueType font designed for Arabic language
+ This package provides a TrueType font designed for Arabic by the
+ King Abdulaziz City for Science and Technology (KACST), Saudi Arabia.
+Homepage: https://www.arabeyes.org/
+Multi-Arch: foreign
+
+Package: gnome-packagekit-common
+Priority: optional
+Section: gnome
+Installed-Size: 6586
+Maintainer: Matthias Klumpp <mak@debian.org>
+Architecture: all
+Source: gnome-packagekit
+Version: 43.0-1
+Replaces: gnome-packagekit (<< 3.32.0-4), gnome-packagekit-data (<< 3.32.0-4)
+Depends: dconf-gsettings-backend | gsettings-backend
+Breaks: gnome-packagekit (<< 3.32.0-4), gnome-packagekit-data (<< 3.32.0-4)
+Filename: pool/trixie-desktop/g/gnome-packagekit/gnome-packagekit-common_43.0-1_all.deb
+Size: 900460
+MD5sum: ff59847a6bd1f946e3e12b999a2f8006
+SHA1: 5e160d5ec3a911b81e19365e2a27d635f3458b97
+SHA256: 335e2648bd423f7dd6420d3065d7e40d75e74154ecfab3200b72255748f87536
+SHA512: 000f20643a995626b2d623faccbbe268f58bc13c265a7fcf4dcea3fcfe1f46258911e2a98c540e0a7d40eb42bd712502fea0a9deccf38f4c11ea7c8c7e60fafa
+Description: Common data files for GNOME PackageKit
+ PackageKit allows performing simple software management tasks over a DBus
+ interface  e.g. refreshing the cache, updating, installing and removing
+ software packages or searching for multimedia codecs and file handlers.
+ .
+ This package contains common shared files for all
+ GNOME PackageKit modules.
+Homepage: https://help.gnome.org/users/gnome-packagekit/stable/
+Multi-Arch: foreign
+
+Package: howdy
+Priority: optional
+Section: misc
+Installed-Size: 162
+Maintainer: boltgolt <boltgolt@gmail.com>
+Architecture: all
+Version: 2.6.1
+Depends: curl | wget, python3, python3-pip, python3-dev, python3-setuptools, libpam-python, libopencv-dev, cmake
+Recommends: libatlas-base-dev | libopenblas-dev | liblapack-dev, streamer
+Suggests: nvidia-cuda-dev (>= 7.5)
+Filename: pool/trixie-desktop/h/howdy/howdy_2.6.1_all.deb
+Size: 38912
+MD5sum: b3b67e38359aba3860e4931d5dd3340b
+SHA1: bf1193c0744a758ffae04f8e19ad8bd05bbc0598
+SHA256: c104329d8c7f54508b317ac7fb9782eae4104187bac657ee8a80aeeeb406c84f
+SHA512: fe3a66761a577bddc0cdfec9656786019f88a86340941ea41f422bf82f09d8654f19dc7528eaef10b4d3bfe9f15f804d72098d6f9212e1b5815f481de049e2ab
+Description: Howdy: Windows Hello style authentication for Linux.
+ Use your built-in IR emitters and camera in combination with face recognition
+ to prove who you are.
+Homepage: https://github.com/boltgolt/howdy
+
