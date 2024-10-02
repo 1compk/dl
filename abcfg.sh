@@ -1,5 +1,5 @@
-apt update -y && apt install nala -y && nala fetch
+sudo apt update -y && sudo apt install nala -y && sudo nala fetch
 
-nala update && nala upgrade -y
+sudo nala update && sudo nala upgrade -y
 
-nala install armbian-config -y && armbian-config
+sudo nala install armbian-config -y && sudo armbian-config
