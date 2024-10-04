@@ -8,7 +8,7 @@ sudo nala install anacron apt-xapian-index blueman bluez bluez-cups bluez-tools 
 
 sudo nala update
 
-sudo nala install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv binfmt-support libusb-1.0-0-dev zstd blueman bluez bluez-cups bluez-tools cmst fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex galculator gparted gnome-packagekit gnome-packagekit-common gnome-package-updater mousepad nemo nemo-data nemo-fileroller nemo-font-manager numix-icon-theme-circle viewnior btop gdm3 -y
+sudo nala install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv binfmt-support libusb-1.0-0-dev zstd blueman bluez bluez-cups bluez-tools cmst fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex galculator gparted gnome-packagekit gnome-packagekit-common gnome-package-updater mousepad nemo nemo-data nemo-fileroller nemo-font-manager papirus-icon-theme viewnior btop gdm3 -y
 
 sudo nala update
 
