@@ -1,8 +1,10 @@
-sudo apt update -y && sudo apt install nala -y && sudo nala fetch
+sudo apt update -y
+
+sudo apt install nala -y && sudo nala fetch
 
 sudo nala update && sudo nala upgrade -y
 
-sudo nala install papirus-icon-theme adwaita-icon-theme -y
+sudo nala install papirus-icon-theme adwaita-icon-theme sddm -y
 
 sudo nala update
 
@@ -10,7 +12,7 @@ sudo nala install anacron apt-xapian-index blueman bluez bluez-cups bluez-tools 
 
 sudo nala update
 
-sudo nala install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv zstd blueman bluez bluez-cups bluez-tools cmst fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex galculator gparted gnome-packagekit gnome-packagekit-common gnome-package-updater mousepad nemo nemo-data nemo-fileroller nemo-font-manager viewnior btop grub-customizer network-manager-gnome sddm -y
+sudo nala install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv zstd blueman bluez bluez-cups bluez-tools cmst fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex galculator gparted gnome-packagekit gnome-packagekit-common gnome-package-updater mousepad nemo nemo-data nemo-fileroller nemo-font-manager viewnior btop grub-customizer network-manager-gnome -y
 
 sudo nala update
 
