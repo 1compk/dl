@@ -22,4 +22,8 @@ sudo nala install anacron apt-xapian-index blueman bluez bluez-cups bluez-tools 
 
 sudo nala update
 
+sudo nala install sddm -y
+
+sudo nala update
+
 sudo nala clean
