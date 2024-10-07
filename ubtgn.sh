@@ -1,4 +1,6 @@
-sudo apt update -y && sudo apt install nala -y && sudo nala fetch
+sudo apt update -y
+
+sudo apt install nala -y && sudo nala fetch
 
 sudo nala update && sudo nala upgrade -y
 
