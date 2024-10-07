@@ -18,4 +18,8 @@ sudo nala install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv zstd blu
 
 sudo nala update
 
+sudo nala install sddm -y
+
+sudo nala update
+
 sudo nala clean
