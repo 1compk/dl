@@ -4,11 +4,11 @@ sudo apt install nala -y && sudo nala fetch
 
 sudo nala update && sudo nala upgrade -y
 
-sudo apt install papirus-icon-theme sddm lxterminal -y
+sudo apt install papirus-icon-theme sddm gnome-terminal -y
 
 sudo nala update
 
-sudo apt install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv zstd blueman bluez bluez-cups bluez-tools fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex galculator gparted mousepad nemo nemo-data nemo-fileroller nemo-font-manager viewnior btop network-manager-gnome -y
+sudo apt install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv zstd blueman bluez bluez-cups bluez-tools fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex gparted mousepad nemo nemo-data nemo-fileroller nemo-font-manager btop network-manager-gnome -y
 
 sudo nala update
 
