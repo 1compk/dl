@@ -4,11 +4,11 @@ sudo apt install nala -y
 
 sudo nala update && sudo nala upgrade -y
 
-sudo apt install papirus-icon-theme gdm3 lxterminal task-cinnamon-desktop -y
+sudo apt install papirus-icon-theme gdm3 gnome-terminal task-cinnamon-desktop -y
 
 sudo nala update
 
-sudo apt install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv zstd blueman bluez bluez-cups bluez-tools fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex galculator gparted nemo nemo-data nemo-fileroller nemo-font-manager btop network-manager-gnome gnome-tweaks grub-customizer gnome-packagekit gnome-packagekit-common -y
+sudo apt install 7zip exfatprogs ntfs-3g libqt5widgets5 lz4 mtools mmv zstd blueman bluez bluez-cups bluez-tools fonts-liberation fonts-nanum fonts-sawarabi-gothic fonts-tlwg-waree pcmanfm ghex gparted nemo nemo-data nemo-fileroller nemo-font-manager btop network-manager-gnome gnome-tweaks grub-customizer gnome-packagekit gnome-packagekit-common -y
 
 sudo nala update
 
