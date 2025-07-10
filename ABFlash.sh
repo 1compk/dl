@@ -69,7 +69,7 @@ main() {
     echo "Flashing completed!"
 
     # Wait before continuing
-    read -p "Press Enter to continue... : " wait
+    read -p "Press Enter to Continue or Press Ctrl + C to Exit... : " wait
     clear
 
     list_devices
