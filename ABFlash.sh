@@ -106,16 +106,16 @@ main() {
     sudo gnome-disks
 
     # Force resize (without action) and update partition label
-    sudo ntfsresize --force --force --no-action /dev/"$part2flash"
-    sudo ntfsresize --force --force /dev/"$part2flash"
+    sudo ntfsresize --force --no-action /dev/"$part2flash"
+    sudo ntfsresize --force /dev/"$part2flash"
     sudo ntfslabel --new-half-serial /dev/"$part2flash"
     sudo sync
 
     # Final checks
     echo "Checking Windows Partition : $part2flash"
     sudo ntfsresize -i -f -v /dev/"$part2flash"
-    sudo ntfsresize --force --force --no-action /dev/"$part2flash"
-    sudo ntfsresize --force --force /dev/"$part2flash"
+    sudo ntfsresize --force --no-action /dev/"$part2flash"
+    sudo ntfsresize --force /dev/"$part2flash"
     sudo sync
 
     echo "Done... Please re-check the partition and mount if necessary."
