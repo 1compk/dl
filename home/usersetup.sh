@@ -9,6 +9,10 @@ sudo nala update && sudo apt upgrade -y
 
 sudo nala clean
 
+sudo nala install freedownloadmanager neofetch
+
+sudo nala clean
+
 sudo dpkg-reconfigure sddm
 
 sudo dpkg-reconfigure tzdata
