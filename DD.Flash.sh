@@ -102,6 +102,12 @@ main() {
             flash_image "$image_file" "$target_path"
             echo "Linux image flashing process finished."
             echo "Linux image flashing completed!"
+
+            echo "Launching GParted for device setup: $target_path"
+            echo "==== Please use GParted to check the drive and Unmount necessary partitions. ===="
+            echo "Once done, close GParted to continue."
+            sudo gparted "$target_path"
+            echo "GParted session for device setup completed."
             ;;
 
         2) # Flash Windows Image
