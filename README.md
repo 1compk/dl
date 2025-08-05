@@ -2,6 +2,8 @@ Armbian AMD64 Downloads : https://dl.armbian.com/uefi-x86/
 
 Mirror : https://mirror.twds.com.tw/armbian-dl/uefi-x86/archive/?C=S&O=D
 
+Free Download Manager : https://debrepo.freedownloadmanager.org/pool/main/f/freedownloadmanager/
+
 ==================================================================
 
 Flash img :
