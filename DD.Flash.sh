@@ -56,10 +56,10 @@ flash_image() {
 
     if [[ "$image" == *.xz ]]; then
         echo "Flashing compressed image using xzcat..."
-        sudo xzcat "$image" | sudo dd of="$target_device" bs=4M status=progress conv=fsync 2>&1
+        sudo xzcat "$image" | sudo dd of="$target_device" bs=3M status=progress conv=fsync 2>&1
     elif [[ "$image" == *.img ]]; then
         echo "Flashing raw image using dd..."
-        sudo dd if="$image" of="$target_device" bs=4M status=progress conv=fsync 2>&1
+        sudo dd if="$image" of="$target_device" bs=3M status=progress conv=fsync 2>&1
     else
         echo "Unsupported image file type: $image"
         echo "Error: Unsupported file type. Please provide a .img or .xz file."
