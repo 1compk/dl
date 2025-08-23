@@ -11,15 +11,20 @@ Flash img :
     Find Target Drive : lsblk
     Use DD Command for X = target drive :
 
-sudo xzcat file.img.xz | sudo dd of=/dev/sdX status=progress bs=2M conv=fsync
+sudo xzcat file.img.xz | sudo dd of=/dev/sdX status=progress bs=3M conv=fsync
 
-dd if=xxx.img of=/dev/sdX status=progress bs=2M conv=fsync
+sudo dd if=xxx.img of=/dev/sdX status=progress bs=3M conv=fsync
 
 Decompress XZ : xz -dk xxx.img.xz
 
 Decompress 7Zip : 7z x xxx.img.xz
 
 ==================================================================
+
+Fast User Settings : sh /usersetup.sh
+
+==================================================================
+
 Install Grub bootloader :
 lsblk = /dev/sdX > mount = /mnt/sdX
 
@@ -45,11 +50,13 @@ apt update && apt install sudo nala -y
 
 usermod -aG sudo user
 
+for amd gpu : firmware-amd-graphics mesa-vulkan-drivers 
+
 ==================================================================
 
 #Gnome-Disks Mount Options :
 
-users,noatime,nodiratime,group,nodev,exec,async,comment=x-gvfs-show,x-gvfs-show,x-udisks-auth
+defaults,x-gvfs-show,noauto
 
 user,users,noatime,nodiratime,suid,dev,exec,async,comment=x-gvfs-show,x-gvfs-show,x-udisks-auth
 
@@ -64,3 +71,21 @@ libfontembed1
 libpulsedsp
 
 ==================================================================
+
+menuentry "Usb - SSTR Grub4Dos Boot Menu" {
+    echo Searching... /SSTR/grldr
+search --file --no-floppy --set=root /SSTR/grldr
+
+    echo Loading... kernel
+ntldr (${root})/SSTR/grldr
+
+    echo Booting... /SSTR/grldr
+boot
+}
+
+menuentry "Wimboot" {
+    linux16 /wimboot/wimboot gui pause
+    initrd16 newc:bcd:(loop)/boot/bcd \
+           newc:boot.sdi:(loop)/boot/boot.sdi \
+           newc:boot.wim:(loop)/sources/boot.wim
+}
