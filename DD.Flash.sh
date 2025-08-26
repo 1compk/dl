@@ -39,11 +39,11 @@ check_image_exists() {
 # Validates the user's device/partition input
 validate_device_input() {
     local input=$1
-    if [[ ! "$input" =~ ^sd[a-z]+([0-9]+)?$ ]]; then
-        echo "Invalid device/partition input: $input"
-        echo "Error: Invalid device or partition format. Please enter 'sdb', 'sdb4', etc."
-        exit 1
-    fi
+    #if [[ ! "$input" =~ ^sd[a-z]+([0-9]+)?$ ]]; then
+        #echo "Invalid device/partition input: $input"
+        #echo "Error: Invalid device or partition format. Please enter 'sdb', 'sdb4', etc."
+        #exit 1
+    #fi
     # Ensure the full path is used internally
     echo "/dev/$input"
 }
