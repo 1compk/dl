@@ -55,8 +55,10 @@ flash_image() {
     echo "Starting image flash: '$image' to '$target_device'"
 
     if [[ "$image" == *.xz ]]; then
-        echo "Flashing compressed image using xzcat..."
-        sudo xzcat "$image" | sudo dd of="$target_device" bs=3M status=progress conv=fsync 2>&1
+        #echo "Flashing compressed image using xzcat..."
+        #sudo xzcat "$image" | sudo dd of="$target_device" bs=3M status=progress conv=fsync 2>&1
+        echo "Flashing compressed image using 7zip..."
+        sudo 7z x -so "$image" | sudo dd of="$target_device" bs=3M status=progress conv=fsync 2>&1
     elif [[ "$image" == *.img ]]; then
         echo "Flashing raw image using dd..."
         sudo dd if="$image" of="$target_device" bs=3M status=progress conv=fsync 2>&1
