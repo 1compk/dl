@@ -11,6 +11,8 @@ Flash img :
     Find Target Drive : lsblk
     Use DD Command for X = target drive :
 
+sudo 7z x -so file.img.xz | sudo dd of=/dev/sdX status=progress bs=3M conv=fsync
+
 sudo xzcat file.img.xz | sudo dd of=/dev/sdX status=progress bs=3M conv=fsync
 
 sudo dd if=xxx.img of=/dev/sdX status=progress bs=3M conv=fsync
