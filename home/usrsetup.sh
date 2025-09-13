@@ -7,7 +7,7 @@ read -p "For Extract Setting Files : " inputuser
 echo "Your User is : $inputuser "
 
 echo "Extracting Setting Files..."
-sudo 7z x -y User.Settings.zip -o/home/"$inputuser"
+sudo 7z x -y User.Settings.7z -o/home/"$inputuser"
 sudo 7z x -y Firefox.Settings.7z -o/home/"$inputuser"
 
 echo "Changing Owner of Setting Files..."
