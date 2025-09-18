@@ -143,7 +143,7 @@ main() {
             fi
 
             # Check and then resize
-            echo "Running ntfsresize checks and resize on $part_path"
+            echo "Running partition checks and resize on $part_path"
             sudo e2fsck -f -y -v -C 0 "$part_path" 2>&1
             sudo resize2fs -p "$part_path" 2>&1
             sudo tune2fs -U random "$part_path" 2>&1
