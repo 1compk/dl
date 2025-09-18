@@ -112,7 +112,7 @@ main() {
             echo "GParted session for device setup completed."
             ;;
 
-        2) # Flash Windows Image
+        2) # Flash Linux Partition Image
             read -rp "Enter the target device (e.g., sdb, sdc) for GParted: " target_input
             target_path=$(validate_device_input "$target_input")
             confirm_action "$target_path"
@@ -134,12 +134,6 @@ main() {
 
             flash_image "$image_file" "$part_path"
             
-            echo "Launching Gnome Disks for Windows partition repair: $part_path"
-            echo "==== Please use Gnome Disks to repair the Windows partition ($part_path). ===="
-            echo "After repairing, you can close Gnome Disks to continue with resizing and UUID changes."
-            sudo gnome-disks
-            echo "Gnome Disks session completed."
-
             echo "Resizing and updating Windows partition: $part_path"
             echo "Resizing and checking Windows Partition: $part_path"
             # Attempt to unmount the partition if it's mounted
@@ -150,13 +144,13 @@ main() {
 
             # Check and then resize
             echo "Running ntfsresize checks and resize on $part_path"
-            sudo ntfsresize -i -f -v "$part_path" 2>&1
-            sudo ntfsresize --force --force "$part_path" 2>&1
-            sudo ntfslabel --new-half-serial "$part_path" 2>&1
+            sudo e2fsck -f -y -v -C "$part_path" 2>&1
+            sudo resize2fs -p "$part_path" 2>&1
+            sudo tune2fs -U random "$part_path" 2>&1
             sudo sync
-            echo "Windows partition resize and UUID update completed."
+            echo "Linux partition resize and UUID update completed."
 
-            echo "Windows image flashing and post-processing completed!"
+            echo "Linux Partition image flashing and post-processing completed!"
             ;;
 
         *)
