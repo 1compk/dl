@@ -79,7 +79,7 @@ main() {
 
     echo "Please choose an action:"
     echo "1. Flash Linux Image (to entire device)"
-    echo "2. Flash Windows Image (to a partition)"
+    echo "2. Flash Partition Image (to a partition)"
     read -rp "Enter your choice (1 or 2): " choice
 
     local target_input=""
@@ -95,7 +95,7 @@ main() {
             echo "Launching GParted for device setup: $target_path"
             echo "==== Please use GParted to clear the drive and Unmount necessary partitions. ===="
             echo "Once done, close GParted to continue."
-            sudo gparted "$target_path"
+            #sudo gparted "$target_path"
             echo "GParted session for device setup completed."
 
             read -rp "Enter the Linux image file name (.img or .xz): " image_file
@@ -108,7 +108,7 @@ main() {
             echo "Launching GParted for device setup: $target_path"
             echo "==== Please use GParted to check the drive and Unmount necessary partitions. ===="
             echo "Once done, close GParted to continue."
-            sudo gparted "$target_path"
+            #sudo gparted "$target_path"
             echo "GParted session for device setup completed."
             ;;
 
@@ -120,7 +120,7 @@ main() {
             echo "Launching GParted for Windows partition setup: $target_path"
             echo "==== Important: Use GParted to create a FAT32 partition for Windows. ===="
             echo "Once done, close GParted to continue."
-            sudo gparted "$target_path"
+            #sudo gparted "$target_path"
             echo "GParted session for Windows partition setup completed."
 
             list_devices # List devices again to show new partitions
