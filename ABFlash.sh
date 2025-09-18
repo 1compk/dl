@@ -133,7 +133,7 @@ main() {
             check_image_exists "$image_file"
 
             flash_image "$image_file" "$part_path"
-            
+
             echo "Resizing and updating Windows partition: $part_path"
             echo "Resizing and checking Windows Partition: $part_path"
             # Attempt to unmount the partition if it's mounted
@@ -144,7 +144,7 @@ main() {
 
             # Check and then resize
             echo "Running ntfsresize checks and resize on $part_path"
-            sudo e2fsck -f -y -v -C "$part_path" 2>&1
+            sudo e2fsck -f -y -v -C 0 "$part_path" 2>&1
             sudo resize2fs -p "$part_path" 2>&1
             sudo tune2fs -U random "$part_path" 2>&1
             sudo sync
