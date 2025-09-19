@@ -42,12 +42,12 @@ create_partitions() {
   sudo parted -s "$disk" set 1 bios_grub on
 
   # Create the EFI partition (800 MB) in FAT32
-  sudo parted -s "$disk" mkpart efi fat32 5MiB 40MiB
+  sudo parted -s "$disk" mkpart efi fat32 5MiB 45MiB
   sudo parted -s "$disk" set 2 boot on
   sudo parted -s "$disk" set 2 esp on
 
   # Create the EXT4 partition (using remaining space for Linux)
-  sudo parted -s "$disk" mkpart ext4 ext4 40MiB 100%
+  sudo parted -s "$disk" mkpart ext4 ext4 45MiB 100%
 
   # Format the partitions
   echo "Formatting partitions..."
