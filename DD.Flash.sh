@@ -98,6 +98,7 @@ main() {
             sudo gparted "$target_path"
             echo "GParted session for device setup completed."
 
+            ls
             read -rp "Enter the Linux image file name (.img or .xz): " image_file
             check_image_exists "$image_file"
 
@@ -129,6 +130,7 @@ main() {
             local part_path=$(validate_device_input "$part_input")
             confirm_action "$part_path"
 
+            ls
             read -rp "Enter the Windows image file name (.img or .xz): " image_file
             check_image_exists "$image_file"
 
