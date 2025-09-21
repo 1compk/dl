@@ -135,7 +135,7 @@ main() {
             check_image_exists "$image_file"
 
             flash_image "$image_file" "$part_path"
-            
+
             echo "Launching Gnome Disks for Windows partition repair: $part_path"
             echo "==== Please use Gnome Disks to repair the Windows partition ($part_path). ===="
             echo "After repairing, you can close Gnome Disks to continue with resizing and UUID changes."
