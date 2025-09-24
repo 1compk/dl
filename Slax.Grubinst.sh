@@ -36,24 +36,24 @@ create_partitions() {
 
   # Create a new GPT partition table
   sudo parted -s "$disk" mklabel gpt
-
+  sudo sync
   # Create the BIOS partition (4 MB) for bios_grub
   sudo parted -s "$disk" mkpart bios 2MiB 5MiB
   sudo parted -s "$disk" set 1 bios_grub on
-
+  sudo sync
   # Create the EFI partition (800 MB) in FAT32
   sudo parted -s "$disk" mkpart efi fat32 5MiB 45MiB
   sudo parted -s "$disk" set 2 boot on
   sudo parted -s "$disk" set 2 esp on
-
+  sudo sync
   # Create the EXT4 partition (using remaining space for Linux)
   sudo parted -s "$disk" mkpart ext4 ext4 45MiB 100%
-
+  sudo sync
   # Format the partitions
   echo "Formatting partitions..."
   sudo mkfs.vfat -F32 "${disk}2"
   sudo mkfs.ext4 "${disk}3"
-
+  sudo sync
   echo "Partitions created and formatted."
 }
 
@@ -79,13 +79,13 @@ mount_efi() {
 install_grub() {
   local disk=$1
   local custom_mount=$2
-
+  sudo sync
   echo "Installing GRUB for BIOS (i386-pc)..."
   sudo grub-install --target=i386-pc "$disk" --boot-directory="$custom_mount/efi" --removable
-
+  sudo sync
   echo "Installing GRUB for UEFI (x86_64-efi)..."
   sudo grub-install --target=x86_64-efi --efi-directory="$custom_mount" --boot-directory="$custom_mount/efi" --removable
-
+  sudo sync
   echo "GRUB installation completed."
 }
 
@@ -129,7 +129,7 @@ install_grub_only() {
   read -p "Enter the partition number for the EFI partition (see parted print output, e.g., 2): " efinput
   sudo parted -s "$disk" set "${efinput##*/}" boot on
   sudo parted -s "$disk" set "${efinput##*/}" esp on
-
+  sudo sync
   read -p "Enter the desired mount point for EFI partition (e.g., /media/sdb2): " custom_mount
   if [ -z "$custom_mount" ]; then
     custom_mount="/media/${disk##*/}${efinput}"  # Default: /media/sdb2 (e.g.)
