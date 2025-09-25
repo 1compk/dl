@@ -20,7 +20,7 @@ echo "Cleaning..."
 sudo nala clean
 
 echo "Installing Lastest FDM and Neofetch..."
-sudo apt install freedownloadmanager neofetch
+sudo apt install engrampa freedownloadmanager neofetch
 
 echo "Cleaning..."
 sudo nala clean
