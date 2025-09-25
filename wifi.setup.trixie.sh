@@ -2,7 +2,11 @@
 #echo "deb http://debian-archive.trafficmanager.net/debian/ trixie main" > /etc/apt/sources.list.d/nala-trixie.list
 #echo "deb https://mirror.sg.gs/debian/ trixie main" >> /etc/apt/sources.list.d/nala-trixie.list
 #echo "deb https://mirror.twds.com.tw/debian/ trixie main" >> /etc/apt/sources.list.d/nala-trixie.list
-rsync -avP nala-trixie.list /etc/apt/sources.list.d/
+cp -u nala-trixie.list /etc/apt/sources.list.d/
+
+#passwd guest
+#usermod -l user guest
+#usermod -d /home/user -m user
 
 # Unblock wifi
 rfkill unblock all
@@ -18,19 +22,28 @@ nmcli d wifi connect "$nmssid" password "$wifipass"
 
 ping -c 2 1.1.1.1
 
-apt update -y && apt install nala systemd-timesyncd perl sudo -y
+apt update -y && apt install nala perl sudo -y
 
 nala --install-completion bash
 
 nala clean
 
-deluser --remove-home guest
-ls /home
+#deluser --remove-home guest
+#ls /home
+
+# Prompt for New User and Password
+#read -p "Enter New User : " inputuser
+#adduser "$inputuser"
+#usermod -aG sudo,audio,video,dip,netdev,plugdev "$inputuser"
+#id -Gn "$inputuser"
+#echo
 
 apt update -y && apt upgrade -y
 
 nala clean
 
-apt install bash-completion elpa-bash-completion network-manager -y
+apt install bash-completion elpa-bash-completion gcc network-manager systemd-timesyncd -y
 
 nala clean
+
+ping -c 2 1.1.1.1
