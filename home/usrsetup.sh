@@ -11,7 +11,7 @@ sudo 7z x -y User.Settings.7z -o/home/"$inputuser"
 sudo 7z x -y Firefox.Settings.7z -o/home/"$inputuser"
 
 echo "Changing Owner of Setting Files..."
-sudo chown -R "$inputuser":user /home/"$inputuser"
+sudo chown -R "$inputuser":"$inputuser" /home/"$inputuser"
 
 echo "Updating and Upgrading System..."
 sudo nala update && sudo apt upgrade -y
@@ -20,7 +20,7 @@ echo "Cleaning..."
 sudo nala clean
 
 echo "Installing Lastest FDM and Neofetch..."
-sudo apt install engrampa freedownloadmanager neofetch
+sudo nala install engrampa freedownloadmanager neofetch
 
 echo "Cleaning..."
 sudo nala clean
