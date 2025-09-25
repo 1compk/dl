@@ -131,16 +131,16 @@ create_partitions() {
   sudo parted -s "$disk" mklabel gpt
 
   echo "Creating BIOS partition (2MiB-5MiB) for bios_grub"
-  sudo parted -s "$disk" mkpart primary 2MiB 5MiB
+  sudo parted -s "$disk" mkpart bios 2MiB 5MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
   echo "Creating EFI partition (5MiB-45MiB) FAT32"
-  sudo parted -s "$disk" mkpart primary fat32 5MiB 45MiB
+  sudo parted -s "$disk" mkpart efi fat32 5MiB 45MiB
   sudo parted -s "$disk" set 2 boot on
   sudo parted -s "$disk" set 2 esp on
 
   echo "Creating Linux partition (45MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart primary ext4 45MiB 100%
+  sudo parted -s "$disk" mkpart ext4 ext4 45MiB 100%
 
   # Rescan and wait
   rescan_and_settle "$disk"
@@ -198,13 +198,13 @@ install_grub() {
   rescan_and_settle "$disk"
 
   echo "Installing GRUB (BIOS i386-pc) to $disk"
-  sudo grub-install --target=i386-pc "$disk" --boot-directory="$efi_mount/boot" --recheck --force || echo "BIOS grub-install returned non-zero"
+  sudo grub-install --target=i386-pc "$disk" --boot-directory="$efi_mount/efi" --recheck --force || echo "BIOS grub-install returned non-zero"
 
   # Ensure efi mount present
   if [[ ! -d "$efi_mount" ]]; then die "EFI mountpoint $efi_mount not found"; fi
 
   echo "Installing GRUB (UEFI x86_64) to $efi_mount"
-  sudo grub-install --target=x86_64-efi --efi-directory="$efi_mount" --boot-directory="$efi_mount/boot" --removable || echo "UEFI grub-install returned non-zero"
+  sudo grub-install --target=x86_64-efi --efi-directory="$efi_mount" --boot-directory="$efi_mount/efi" --removable || echo "UEFI grub-install returned non-zero"
 
   sudo sync
   echo "GRUB installation attempted. Verify success messages above."
