@@ -2,7 +2,7 @@
 echo "deb http://debian-archive.trafficmanager.net/debian/ bookworm main" > /etc/apt/sources.list.d/nala-bookworm.list
 echo "deb https://mirror.sg.gs/debian/ bookworm main" >> /etc/apt/sources.list.d/nala-bookworm.list
 echo "deb https://mirror.twds.com.tw/debian/ bookworm main" >> /etc/apt/sources.list.d/nala-bookworm.list
-#rsync -avP nala-bookworm.list /etc/apt/sources.list.d/
+#cp -u nala-bookworm.list /etc/apt/sources.list.d/
 
 #passwd guest
 #usermod -l user guest
@@ -44,7 +44,7 @@ dhclient "$wifi_device"
 #Test by ping Google
 ping -c 2 1.1.1.1
 
-apt update -y && apt install nala perl sudo systemd-timesyncd -y
+apt update -y && apt install nala perl sudo -y
 
 nala --install-completion bash
 
@@ -64,7 +64,7 @@ nala update && apt upgrade -y
 
 nala clean
 
-nala install network-manager -y
+nala install bash-completion elpa-bash-completion gcc network-manager systemd-timesyncd -y
 
 nala clean
 
