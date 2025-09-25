@@ -283,6 +283,7 @@ show_disk_details() {
 main() {
   while true; do
     echo
+    echo "App Need: grub-pc grub-efi-amd64-bin parted"
     echo "Main Menu:"
     echo "1) Flash Linux image (to entire device)"
     echo "2) Flash Windows image (to partition)"
