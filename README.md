@@ -4,6 +4,8 @@ Mirror : https://mirror.twds.com.tw/armbian-dl/uefi-x86/archive/?C=S&O=D
 
 Free Download Manager : https://debrepo.freedownloadmanager.org/pool/main/f/freedownloadmanager/
 
+Armbian Kernel : http://fi.mirror.armbian.de/beta/pool/main/l/
+
 ==================================================================
 
 Flash img :
