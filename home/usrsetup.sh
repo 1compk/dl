@@ -20,7 +20,7 @@ echo "Cleaning..."
 sudo nala clean
 
 echo "Installing Lastest FDM and Neofetch..."
-sudo nala install apparmor apparmor-profiles engrampa neofetch xdman
+sudo nala install apparmor apparmor-profiles engrampa neofetch
 
 echo "Cleaning..."
 sudo nala clean
