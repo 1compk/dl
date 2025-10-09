@@ -108,7 +108,7 @@ flash_image() {
     else
       die "No xzcat or 7z available."
     fi
-  elif [[ "$image" == *.img || "$image" == *.raw ]]; then
+  elif [[ "$image" == *.img || "$image" == *.iso || "$image" == *.raw ]]; then
     sudo dd if="$image" of="$target" bs=4M status=progress conv=fsync
   else
     die "Unsupported image type."
@@ -130,16 +130,16 @@ create_partitions() {
   echo "Creating GPT label on $disk"
   sudo parted -s "$disk" mklabel gpt
 
-  echo "Creating BIOS partition (2MiB-5MiB) for bios_grub"
+  echo "Creating BIOS partition (1MiB-4MiB) for bios_grub"
   sudo parted -s "$disk" mkpart bios 1MiB 4MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
-  echo "Creating EFI partition (5MiB-45MiB) FAT32"
+  echo "Creating EFI partition (4MiB-44MiB) FAT32"
   sudo parted -s "$disk" mkpart efi fat32 4MiB 44MiB
   sudo parted -s "$disk" set 2 boot on
   sudo parted -s "$disk" set 2 esp on
 
-  echo "Creating Linux partition (45MiB to 100%) ext4"
+  echo "Creating Linux partition (44MiB to 100%) ext4"
   sudo parted -s "$disk" mkpart ext4 ext4 44MiB 100%
 
   # Rescan and wait
@@ -197,14 +197,14 @@ install_grub() {
   # Ensure filesystem changes settled before grub install
   rescan_and_settle "$disk"
 
-  echo "Installing GRUB (BIOS i386-pc) to $disk"
-  sudo grub-install --target=i386-pc "$disk" --boot-directory="$efi_mount/efi" --recheck --force || echo "BIOS grub-install returned non-zero"
-
   # Ensure efi mount present
   if [[ ! -d "$efi_mount" ]]; then die "EFI mountpoint $efi_mount not found"; fi
 
   echo "Installing GRUB (UEFI x86_64) to $efi_mount"
   sudo grub-install --target=x86_64-efi --efi-directory="$efi_mount" --boot-directory="$efi_mount/efi" --removable || echo "UEFI grub-install returned non-zero"
+
+  echo "Installing GRUB (BIOS i386-pc) to $disk"
+  sudo grub-install --target=i386-pc "$disk" --boot-directory="$efi_mount/efi" --removable --recheck --force || echo "BIOS grub-install returned non-zero"
 
   sudo sync
   echo "GRUB installation attempted. Verify success messages above."
