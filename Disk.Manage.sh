@@ -131,16 +131,16 @@ create_partitions() {
   sudo parted -s "$disk" mklabel gpt
 
   echo "Creating BIOS partition (2MiB-5MiB) for bios_grub"
-  sudo parted -s "$disk" mkpart bios 2MiB 5MiB
+  sudo parted -s "$disk" mkpart bios 1MiB 4MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
   echo "Creating EFI partition (5MiB-45MiB) FAT32"
-  sudo parted -s "$disk" mkpart efi fat32 5MiB 45MiB
+  sudo parted -s "$disk" mkpart efi fat32 4MiB 44MiB
   sudo parted -s "$disk" set 2 boot on
   sudo parted -s "$disk" set 2 esp on
 
   echo "Creating Linux partition (45MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart ext4 ext4 45MiB 100%
+  sudo parted -s "$disk" mkpart ext4 ext4 44MiB 100%
 
   # Rescan and wait
   rescan_and_settle "$disk"
