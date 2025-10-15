@@ -321,6 +321,7 @@ main() {
         read -rp "Enter Windows image path (.img or .xz): " img
         flash_image "$img" "$part"
         rescan_and_settle "${part%[0-9]*}" || true
+        run_partitioner "gparted $target"
         run_partitioner "gnome-disks"
         if mount | grep -q "^$part"; then sudo umount "$part" || true; fi
         if command -v ntfsresize >/dev/null 2>&1; then
