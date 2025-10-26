@@ -26,7 +26,7 @@ echo "Cleaning..."
 sudo nala clean
 
 echo "Setting Desktop Manager..."
-#sudo dpkg-reconfigure sddm
+sudo dpkg-reconfigure sddm
 
 echo "Setting Timezone..."
 sudo dpkg-reconfigure tzdata
