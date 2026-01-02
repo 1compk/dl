@@ -57,6 +57,7 @@ usermod -aG sudo user
 for amd gpu : firmware-amd-graphics mesa-vulkan-drivers 
 
 ==================================================================
+gnome-disks --block-device /dev/sdx
 
 #Gnome-Disks Mount Options :
 
