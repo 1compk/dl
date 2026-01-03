@@ -72,6 +72,7 @@ defaults,x-gvfs-show,noauto
 user,users,noatime,nodiratime,suid,dev,exec,async,comment=x-gvfs-show,x-gvfs-show,x-udisks-auth
 
 ==================================================================
+
 Gnome Extensions :
 
 gir1.2-gmenu-3.0
@@ -117,7 +118,9 @@ menuentry "Wimboot" {
 TerMux Install Debian Command:
 
 pkg update && pkg upgrade -y
+
 pkg install proot-distro -y
 
 proot-distro install debian
+
 proot-distro login debian --shared-tmp
