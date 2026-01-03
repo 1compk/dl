@@ -99,6 +99,7 @@ menuentry "Wimboot" {
 }
 
 ==================================================================
+
 TerMux Install Debian Command:
 
 pkg update && pkg upgrade -y
