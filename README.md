@@ -27,6 +27,8 @@ Decompress 7Zip : 7z x xxx.img.xz
 
 Fast User Settings : sh /usersetup.sh
 
+sudo update-alternatives --config x-terminal-emulator
+
 ==================================================================
 
 Install Grub bootloader :
@@ -95,3 +97,12 @@ menuentry "Wimboot" {
            newc:boot.sdi:(loop)/boot/boot.sdi \
            newc:boot.wim:(loop)/sources/boot.wim
 }
+
+==================================================================
+TerMux Install Debian Command:
+
+pkg update && pkg upgrade -y
+pkg install proot-distro -y
+
+proot-distro install debian
+proot-distro login debian --shared-tmp
