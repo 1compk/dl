@@ -121,7 +121,7 @@ flash_image() {
 
 # Partitioning, formatting, grub functions
 
-create_partitions() {
+create_gpt_partitions() {
   local disk=$1
 
   echo "Opening GParted to let you clear/unmount partitions for $disk"
@@ -130,17 +130,17 @@ create_partitions() {
   echo "Creating GPT label on $disk"
   sudo parted -s "$disk" mklabel gpt
 
-  echo "Creating BIOS partition (2MiB-5MiB) for bios_grub"
+  echo "Creating BIOS partition (1MiB-4MiB) for bios_grub"
   sudo parted -s "$disk" mkpart bios 1MiB 4MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
-  echo "Creating EFI partition (5MiB-45MiB) FAT32"
-  sudo parted -s "$disk" mkpart efi fat32 4MiB 44MiB
-  sudo parted -s "$disk" set 2 boot on
-  sudo parted -s "$disk" set 2 esp on
+  echo "Creating EFI partition (4MiB-804MiB) FAT32"
+  sudo parted -s "$disk" mkpart efi fat32 4MiB 4104MiB
+  #sudo parted -s "$disk" set 2 boot on
+  #sudo parted -s "$disk" set 2 esp on
 
-  echo "Creating Linux partition (45MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart ext4 ext4 44MiB 100%
+  echo "Creating Linux partition (804MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart ext4 ext4 4104MiB 100%
 
   # Rescan and wait
   rescan_and_settle "$disk"
@@ -170,6 +170,59 @@ create_partitions() {
 
   echo "Partitions created and formatted."
   echo "Partitions on $disk:"
+  sudo parted -s "$disk" print
+}
+
+# Partitioning, formatting, grub functions for MBR/msdos
+create_mbr_partitions() {
+  local disk=$1
+
+  echo "Opening GParted to let you clear/unmount partitions for $disk"
+  run_partitioner "gparted $disk"
+
+  # 1. Create MBR (msdos) label instead of GPT
+  echo "Creating MBR (msdos) label on $disk"
+  sudo parted -s "$disk" mklabel msdos
+
+  # 2. Create 1st partition: FAT32 (1MiB to 4101MiB = 4100MiB size)
+  echo "Creating Boot partition (1MiB-4101MiB) FAT32"
+  sudo parted -s "$disk" mkpart primary fat32 1MiB 4101MiB
+  
+  # 3. Set the boot flag on the first partition
+  echo "Setting boot flag on partition 1"
+  sudo parted -s "$disk" set 1 boot on
+
+  # 4. Create 2nd partition: EXT4 (4101MiB to 100%)
+  echo "Creating Linux partition (4101MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart primary ext4 4101MiB 100%
+
+  # Rescan and wait for the kernel to see the new table
+  rescan_and_settle "$disk"
+
+  local p1 p2
+  p1=$(get_part_name "$disk" 1)
+  p2=$(get_part_name "$disk" 2)
+
+  # Wait for partition nodes (essential for slow SD cards)
+  wait_for_part "$p1" 10 || true
+  wait_for_part "$p2" 10 || true
+
+  # 5. Format Partition 1 as FAT32
+  echo "Formatting $p1 as FAT32"
+  sudo umount "$p1" 2>/dev/null || true
+  sudo mkfs.vfat -F32 -n "efi" "$p1"
+  
+  # 6. Format Partition 2 as EXT4
+  echo "Formatting $p2 as ext4"
+  sudo umount "$p2" 2>/dev/null || true
+  sudo mkfs.ext4 -F -L "ext4" "$p2" || die "mkfs.ext4 failed on $p2"
+  
+  sudo sync
+  sudo partprobe "$disk" || true
+  sudo udevadm settle || true
+
+  echo "Partitions created and formatted successfully."
+  echo "Final Partition Layout on $disk:"
   sudo parted -s "$disk" print
 }
 
@@ -210,12 +263,12 @@ install_grub() {
   echo "GRUB installation attempted. Verify success messages above."
 }
 
-create_new_disk() {
+create_gpt_disk() {
   list_disks
   read -rp "Enter target disk (e.g., sdb or /dev/sdb): " disk_in
   disk=$(normalize_device "$disk_in")
   confirm_action "$disk"
-  create_partitions "$disk"
+  create_gpt_partitions "$disk"
 
   read -rp "Enter EFI partition number (default 2): " efnum
   efnum=${efnum:-2}
@@ -234,6 +287,43 @@ create_new_disk() {
   mount_efi "$disk" "$efnum" "$mountp"
   install_grub "$disk" "$mountp"
   echo "Done creating GPT disk and installing GRUB."
+}
+
+create_mbr_disk() {
+  list_disks
+  read -rp "Enter target disk (e.g., sdb or /dev/sdb): " disk_in
+  disk=$(normalize_device "$disk_in")
+  confirm_action "$disk"
+  
+  # Calls the MBR-specific version you edited earlier
+  create_mbr_partitions "$disk"
+
+  # On MBR, we use Partition 1 (FAT32) for both BIOS and EFI files
+  local efnum=1
+  
+  sep=$(get_part_sep "$disk")
+  # Default mount point for the 4100MiB FAT32 partition
+  read -rp "Enter mount point for Boot/EFI (default /mnt/${disk##*/}${sep}${efnum}): " mountp
+  if [[ -z "$mountp" ]]; then
+    mountp="/mnt/${disk##*/}${sep}${efnum}"
+    echo "Using default: $mountp"
+  fi
+
+  # Identify the partition node (e.g., /dev/sdb1)
+  part=$(get_part_name "$disk" "$efnum")
+  
+  # Wait for the node to appear (crucial for slow micro-SD cards)
+  wait_for_part "$part" 15 || echo "Proceeding even though $part may not exist yet"
+
+  # Standard mount procedure
+  sudo mkdir -p "$mountp"
+  sudo mount "$part" "$mountp" || die "Failed to mount $part to $mountp"
+
+  # Install GRUB for both modes using the same directory
+  # Note: your install_grub function should use --removable for the EFI target
+  install_grub "$disk" "$mountp"
+
+  echo "Done creating MBR disk and installing Hybrid GRUB (BIOS + UEFI)."
 }
 
 install_grub_only() {
@@ -288,8 +378,9 @@ main() {
     echo "1) Flash Linux image (to entire device)"
     echo "2) Flash Windows image (to partition)"
     echo "3) Create GPT disk (partitions, format, install GRUB)"
-    echo "4) Show disk details"
-    echo "5) Install GRUB only to existing EFI partition"
+    echo "4) Create MBR disk (partitions, format, install GRUB)"
+    echo "5) Show disk details"
+    echo "6) Install GRUB only to existing EFI partition"
     echo "q) Quit"
     read -rp "Choose an option: " choice
 
@@ -327,12 +418,15 @@ main() {
         sudo sync
         ;;
       3)
-        create_new_disk
+        create_gpt_disk
         ;;
       4)
-        show_disk_details
+        create_mbr_disk
         ;;
       5)
+        show_disk_details
+        ;;
+      6)
         install_grub_only
         ;;
       q|Q)
