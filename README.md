@@ -1,3 +1,15 @@
+Rufus Download : https://rufus.ie/downloads/
+
+MiniOS Original : https://github.com/minios-linux/minios-live
+
+=====================================================================
+
+<img width="800" height="600" alt="MiniOS Desktop" src="https://github.com/user-attachments/assets/07e54c0a-d9c2-4f76-9489-ac125613823a" />
+
+<img width="800" height="600" alt="MiniOS Gparted 4Gb" src="https://github.com/user-attachments/assets/f615d70b-033f-4a00-bb60-d69c219571af" />
+
+==================================================================
+
 Armbian AMD64 Downloads : https://dl.armbian.com/uefi-x86/
 
 Mirror : https://mirror.twds.com.tw/armbian-dl/uefi-x86/archive/?C=S&O=D
