@@ -4,8 +4,6 @@ Mirror : https://mirror.twds.com.tw/armbian-dl/uefi-x86/archive/?C=S&O=D
 
 Free Download Manager : https://debrepo.freedownloadmanager.org/pool/main/f/freedownloadmanager/
 
-Armbian Kernel : http://fi.mirror.armbian.de/beta/pool/main/l/
-
 ==================================================================
 
 Flash img :
@@ -13,9 +11,9 @@ Flash img :
     Find Target Drive : lsblk
     Use DD Command for X = target drive :
 
-sudo 7z x -so file.img.xz | sudo dd of=/dev/sdX status=progress bs=3M conv=fsync
-
 sudo xzcat file.img.xz | sudo dd of=/dev/sdX status=progress bs=3M conv=fsync
+
+sudo 7z x -so file.img.xz | sudo dd of=/dev/sdX status=progress bs=3M conv=fsync
 
 sudo dd if=xxx.img of=/dev/sdX status=progress bs=3M conv=fsync
 
@@ -31,7 +29,14 @@ sudo update-alternatives --config x-terminal-emulator
 
 ==================================================================
 
+Install bootmgr mbr bootloader :
+lsblk
+sudo dd if=NT6.512.mbr of=/dev/sdX bs=512 count=1
+
+==================================================================
+
 Install Grub bootloader :
+
 lsblk = /dev/sdX > mount = /mnt/sdX
 
 #Grub-Install gonna Create "/efi/grub" Files > /efi/grub/grub.cfg :
@@ -60,8 +65,6 @@ for amd gpu : firmware-amd-graphics mesa-vulkan-drivers
 
 ==================================================================
 
-gnome-disks --block-device /dev/sdx
-
 #Gnome-Disks Mount Options :
 
 defaults,x-gvfs-show,noauto
@@ -69,6 +72,17 @@ defaults,x-gvfs-show,noauto
 user,users,noatime,nodiratime,suid,dev,exec,async,comment=x-gvfs-show,x-gvfs-show,x-udisks-auth
 
 ==================================================================
+Gnome Extensions :
+
+gir1.2-gmenu-3.0
+
+gnome-shell-extension-manager
+
+Vulkan:
+libvulkan-dev
+vulkan-tools
+vulkaninfo
+
 
 #Ubuntu remove :
 
@@ -103,10 +117,7 @@ menuentry "Wimboot" {
 TerMux Install Debian Command:
 
 pkg update && pkg upgrade -y
-
 pkg install proot-distro -y
 
-
 proot-distro install debian
-
 proot-distro login debian --shared-tmp
