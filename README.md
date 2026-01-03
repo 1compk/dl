@@ -103,7 +103,10 @@ menuentry "Wimboot" {
 TerMux Install Debian Command:
 
 pkg update && pkg upgrade -y
+
 pkg install proot-distro -y
 
+
 proot-distro install debian
+
 proot-distro login debian --shared-tmp
