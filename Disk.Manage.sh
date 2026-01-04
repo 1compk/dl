@@ -128,6 +128,7 @@ create_gpt_partitions() {
   run_partitioner "gparted $disk"
 
   echo "Creating GPT label on $disk"
+  sudo wipefs -a "$disk"
   sudo parted -s "$disk" mklabel gpt
 
   echo "Creating BIOS partition (1MiB-4MiB) for bios_grub"
@@ -143,6 +144,9 @@ create_gpt_partitions() {
   sudo parted -s "$disk" mkpart ext4 ext4 4104MiB 100%
 
   # Rescan and wait
+  sudo sync
+  sudo partprobe "$disk" || true
+  sudo udevadm settle || true
   rescan_and_settle "$disk"
 
   local p1 p2 p3
@@ -157,13 +161,13 @@ create_gpt_partitions() {
 
   echo "Formatting partitions: $p2 as FAT32 and $p3 as ext4"
   sudo umount "$p2" 2>/dev/null || true
-  sudo mkfs.vfat -F32 "$p2"
+  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "BOOT" "$p2"
   sudo sync
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
 
   sudo umount "$p3" 2>/dev/null || true
-  sudo mkfs.ext4 -F "$p3" || die "mkfs.ext4 failed on $p3"
+  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 -L "ext4" "$p3" || die "mkfs.ext4 failed on $p3"
   sudo sync
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
@@ -182,6 +186,7 @@ create_mbr_partitions() {
 
   # 1. Create MBR (msdos) label instead of GPT
   echo "Creating MBR (msdos) label on $disk"
+  sudo wipefs -a "$disk"
   sudo parted -s "$disk" mklabel msdos
 
   # 2. Create 1st partition: FAT32 (1MiB to 4101MiB = 4100MiB size)
@@ -197,6 +202,9 @@ create_mbr_partitions() {
   sudo parted -s "$disk" mkpart primary ext4 4101MiB 100%
 
   # Rescan and wait for the kernel to see the new table
+  sudo sync
+  sudo partprobe "$disk" || true
+  sudo udevadm settle || true
   rescan_and_settle "$disk"
 
   local p1 p2
@@ -210,12 +218,12 @@ create_mbr_partitions() {
   # 5. Format Partition 1 as FAT32
   echo "Formatting $p1 as FAT32"
   sudo umount "$p1" 2>/dev/null || true
-  sudo mkfs.vfat -F32 -n "efi" "$p1"
+  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "BOOT" "$p1"
   
   # 6. Format Partition 2 as EXT4
   echo "Formatting $p2 as ext4"
   sudo umount "$p2" 2>/dev/null || true
-  sudo mkfs.ext4 -F -L "ext4" "$p2" || die "mkfs.ext4 failed on $p2"
+  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 -L "ext4" "$p2" || die "mkfs.ext4 failed on $p2"
   
   sudo sync
   sudo partprobe "$disk" || true
