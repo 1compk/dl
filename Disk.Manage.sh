@@ -131,17 +131,17 @@ create_gpt_partitions() {
   sudo wipefs -a "$disk"
   sudo parted -s "$disk" mklabel gpt
 
-  echo "Creating BIOS partition (1MiB-4MiB) for bios_grub"
-  sudo parted -s "$disk" mkpart bios 1MiB 4MiB
+  echo "Creating BIOS partition (1MiB-5MiB) for bios_grub"
+  sudo parted -s "$disk" mkpart bios 1MiB 5MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
-  echo "Creating EFI partition (4MiB-804MiB) FAT32"
-  sudo parted -s "$disk" mkpart efi fat32 4MiB 4104MiB
+  echo "Creating EFI partition (5MiB-4105MiB) FAT32"
+  sudo parted -s "$disk" mkpart efi fat32 5MiB 4105MiB
   #sudo parted -s "$disk" set 2 boot on
   #sudo parted -s "$disk" set 2 esp on
 
-  echo "Creating Linux partition (804MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart ext4 ext4 4104MiB 100%
+  echo "Creating Linux partition (4105MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart ext4 ext4 4105MiB 100%
 
   # Rescan and wait
   sudo sync
@@ -161,7 +161,7 @@ create_gpt_partitions() {
 
   echo "Formatting partitions: $p2 as FAT32 and $p3 as ext4"
   sudo umount "$p2" 2>/dev/null || true
-  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "BOOT" "$p2"
+  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "efi" "$p2"
   sudo sync
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
