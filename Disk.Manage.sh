@@ -278,6 +278,7 @@ create_gpt_disk() {
   confirm_action "$disk"
   create_gpt_partitions "$disk"
 
+  confirm_action "$disk"
   read -rp "Enter EFI partition number (default 2): " efnum
   efnum=${efnum:-2}
 
@@ -306,6 +307,7 @@ create_mbr_disk() {
   # Calls the MBR-specific version you edited earlier
   create_mbr_partitions "$disk"
 
+  confirm_action "$disk"
   # On MBR, we use Partition 1 (FAT32) for both BIOS and EFI files
   local efnum=1
   
