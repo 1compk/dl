@@ -218,7 +218,7 @@ create_mbr_partitions() {
   # 5. Format Partition 1 as FAT32
   echo "Formatting $p1 as FAT32"
   sudo umount "$p1" 2>/dev/null || true
-  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "BOOT" "$p1"
+  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "efi" "$p1"
   
   # 6. Format Partition 2 as EXT4
   echo "Formatting $p2 as ext4"
