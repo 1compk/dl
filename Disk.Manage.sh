@@ -131,17 +131,17 @@ create_gpt_partitions() {
   sudo wipefs -a "$disk"
   sudo parted -s "$disk" mklabel gpt
 
-  echo "Creating BIOS partition (1MiB-5MiB) for bios_grub"
-  sudo parted -s "$disk" mkpart bios 1MiB 5MiB
+  echo "Creating BIOS partition (4MiB-9MiB) for bios_grub"
+  sudo parted -s "$disk" mkpart bios 4MiB 9MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
-  echo "Creating EFI partition (5MiB-4105MiB) FAT32"
-  sudo parted -s "$disk" mkpart efi fat32 5MiB 4105MiB
+  echo "Creating EFI partition (9MiB-4109MiB) FAT32"
+  sudo parted -s "$disk" mkpart efi fat32 9MiB 4109MiB
   #sudo parted -s "$disk" set 2 boot on
   #sudo parted -s "$disk" set 2 esp on
 
-  echo "Creating Linux partition (4105MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart ext4 ext4 4105MiB 100%
+  echo "Creating Linux partition (4109MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart ext4 ext4 4109MiB 100%
 
   # Rescan and wait
   sudo sync
@@ -161,13 +161,13 @@ create_gpt_partitions() {
 
   echo "Formatting partitions: $p2 as FAT32 and $p3 as ext4"
   sudo umount "$p2" 2>/dev/null || true
-  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "efi" "$p2"
+  sudo mkfs.vfat -F 32 -a -s 8 -I "$p2"
   sudo sync
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
 
   sudo umount "$p3" 2>/dev/null || true
-  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 -L "ext4" "$p3" || die "mkfs.ext4 failed on $p3"
+  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p3" || die "mkfs.ext4 failed on $p3"
   sudo sync
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
@@ -190,16 +190,16 @@ create_mbr_partitions() {
   sudo parted -s "$disk" mklabel msdos
 
   # 2. Create 1st partition: FAT32 (1MiB to 4101MiB = 4100MiB size)
-  echo "Creating Boot partition (1MiB-4101MiB) FAT32"
-  sudo parted -s "$disk" mkpart primary fat32 1MiB 4101MiB
+  echo "Creating Boot partition (4MiB-4104MiB) FAT32"
+  sudo parted -s "$disk" mkpart primary fat32 4MiB 4104MiB
   
   # 3. Set the boot flag on the first partition
   echo "Setting boot flag on partition 1"
   sudo parted -s "$disk" set 1 boot on
 
   # 4. Create 2nd partition: EXT4 (4101MiB to 100%)
-  echo "Creating Linux partition (4101MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart primary ext4 4101MiB 100%
+  echo "Creating Linux partition (4104MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart primary ext4 4104MiB 100%
 
   # Rescan and wait for the kernel to see the new table
   sudo sync
@@ -218,12 +218,12 @@ create_mbr_partitions() {
   # 5. Format Partition 1 as FAT32
   echo "Formatting $p1 as FAT32"
   sudo umount "$p1" 2>/dev/null || true
-  sudo mkfs.vfat -F 32 -s 8 -S 512 -I -n "efi" "$p1"
+  sudo mkfs.vfat -F 32 -a -s 8 -I "$p1"
   
   # 6. Format Partition 2 as EXT4
   echo "Formatting $p2 as ext4"
   sudo umount "$p2" 2>/dev/null || true
-  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 -L "ext4" "$p2" || die "mkfs.ext4 failed on $p2"
+  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p2" || die "mkfs.ext4 failed on $p2"
   
   sudo sync
   sudo partprobe "$disk" || true
