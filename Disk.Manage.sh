@@ -131,17 +131,17 @@ create_gpt_partitions() {
   sudo wipefs -a "$disk"
   sudo parted -s "$disk" mklabel gpt
 
-  echo "Creating BIOS partition (4MiB-9MiB) for bios_grub"
-  sudo parted -s "$disk" mkpart bios 4MiB 9MiB
+  echo "Creating BIOS partition (4MiB-8MiB) for bios_grub"
+  sudo parted -s "$disk" mkpart bios 4MiB 8MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
-  echo "Creating EFI partition (9MiB-4109MiB) FAT32"
-  sudo parted -s "$disk" mkpart efi fat32 9MiB 4109MiB
+  echo "Creating EFI partition (8MiB-4108MiB) FAT32"
+  sudo parted -s "$disk" mkpart efi fat32 8MiB 4108MiB
   #sudo parted -s "$disk" set 2 boot on
   #sudo parted -s "$disk" set 2 esp on
 
   echo "Creating Linux partition (4109MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart ext4 ext4 4109MiB 100%
+  sudo parted -s "$disk" mkpart ext4 ext4 4108MiB 100%
 
   # Rescan and wait
   sudo sync
