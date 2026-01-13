@@ -39,6 +39,8 @@ Fast User Settings : sh /usersetup.sh
 
 sudo update-alternatives --config x-terminal-emulator
 
+sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "/dev/loop6p3"
+
 ==================================================================
 
 Install bootmgr mbr bootloader :
