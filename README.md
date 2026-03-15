@@ -1,3 +1,5 @@
+MiniOS Download : https://github.com/1compk/minios/releases
+
 Rufus Download : https://rufus.ie/downloads/
 
 MiniOS Original : https://github.com/minios-linux/minios-live
