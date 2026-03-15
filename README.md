@@ -4,7 +4,7 @@ MiniOS Original : https://github.com/minios-linux/minios-live
 
 =====================================================================
 
-<img width="800" height="600" alt="MiniOS Desktop" src="https://github.com/user-attachments/assets/07e54c0a-d9c2-4f76-9489-ac125613823a" />
+<img width="800" height="600" alt="MiniOS Desktop" src="https://github.com/user-attachments/assets/85d6c3fe-85a3-41f2-b19f-4db1249c2975" />
 
 <img width="800" height="600" alt="MiniOS Gparted 4Gb" src="https://github.com/user-attachments/assets/f615d70b-033f-4a00-bb60-d69c219571af" />
 
