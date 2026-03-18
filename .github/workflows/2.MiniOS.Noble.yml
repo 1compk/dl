@@ -26,7 +26,7 @@ jobs:
           cd zMinios.Skyline.Build.03.2026/
           sudo sh noble.xfce.build.sh
 
-      - name: Upload Image
+      - name: Upload MiniOS.Noble.iSO
         uses: actions/upload-artifact@v4
         with:
           name: MiniOS.Noble.ISO
@@ -34,7 +34,7 @@ jobs:
           if-no-files-found: error
           retention-days: 15
           
-      - name: Upload Image
+      - name: Upload MiniOS.Noble.SB
         uses: actions/upload-artifact@v4
         with:
           name: MiniOS.Noble.SB
