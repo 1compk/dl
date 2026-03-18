@@ -1,4 +1,4 @@
-name: Build MiniOS Trixie
+name: 1.Build MiniOS Trixie
 on:
   workflow_dispatch:
 
@@ -21,7 +21,7 @@ jobs:
            
       - name: Download, Decompress and Build
         run: |
-          wget -q https://github.com/1compk/dl/releases/download/v6.18/zMinios.Skyline.Build.03.2026.tar.xz
+          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.03.2026.tar.xz
           tar -xf zMinios.Skyline.Build.03.2026.tar.xz 
           cd zMinios.Skyline.Build.03.2026/
           sudo sh trixie.xfce.build.sh
@@ -29,7 +29,15 @@ jobs:
       - name: Upload Image
         uses: actions/upload-artifact@v4
         with:
-          name: MiniOS.Trixie
+          name: MiniOS.Trixie.ISO
+          path: zMinios.Skyline.Build.03.2026/build/iso/*.iso*
+          if-no-files-found: error
+          retention-days: 15
+          
+      - name: Upload Image
+        uses: actions/upload-artifact@v4
+        with:
+          name: MiniOS.Trixie.SB
           path: zMinios.Skyline.Build.03.2026/build/trixie-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
           retention-days: 15
