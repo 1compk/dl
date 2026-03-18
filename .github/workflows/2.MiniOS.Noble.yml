@@ -30,6 +30,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MiniOS.Noble
-          path: zMinios.Skyline.Build.03.2026/build/iso/*.iso*
+          path: zMinios.Skyline.Build.03.2026/build/noble-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
           retention-days: 15
