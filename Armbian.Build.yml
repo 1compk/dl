@@ -1,10 +1,10 @@
-name: 1.Build Armbian LXFce Trixie Uefi-x86
+name: 2.Build Armbian LXFce Trixie AML-S9xx
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 360
     steps:
       - name: Free Disk Space
@@ -28,7 +28,7 @@ jobs:
       - name: Download, Decompress and Build
         run: |
           chmod +x compile.sh
-          ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=trixie \
+          ./compile.sh build BOARD=aml-s9xx-box BRANCH=edge RELEASE=trixie \
            EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
            DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
@@ -38,7 +38,7 @@ jobs:
       - name: Upload Armbian.iMG
         uses: actions/upload-artifact@v4
         with:
-          name: Armbian.LXFce.Trixie.Uefi-x86
+          name: Armbian.LXFce.Trixie.Aml-S9xx
           path: output/images/*.img*
           if-no-files-found: error
           retention-days: 15
