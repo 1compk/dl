@@ -1,4 +1,4 @@
-name: 1.Build Armbian LXFce Trixie RK35xx
+name: 1.Build Armbian LXFce Trixie Uefi-x86
 on:
   workflow_dispatch:
 
@@ -28,7 +28,7 @@ jobs:
       - name: Download, Decompress and Build
         run: |
           chmod +x compile.sh
-          ./compile.sh build BOARD=armsom-sige1 BRANCH=vendor RELEASE=trixie \
+          ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=trixie \
            EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
            DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
@@ -38,7 +38,7 @@ jobs:
       - name: Upload Armbian.iMG
         uses: actions/upload-artifact@v4
         with:
-          name: Armbian.LXFce.Trixie.RK35xx
+          name: Armbian.LXFce.Trixie.Uefi-x86
           path: output/images/*.img*
           if-no-files-found: error
           retention-days: 15
