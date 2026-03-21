@@ -43,7 +43,7 @@ jobs:
       - name: Upload MiniOS.Trixie.SB
         uses: actions/upload-artifact@v4
         with:
-          name: MiniOS.Noble.SB
+          name: MiniOS.Trixie.SB
           path: zMinios.Skyline.Build.03.2026/build/trixie-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
           retention-days: 15
