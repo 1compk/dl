@@ -32,16 +32,16 @@ jobs:
       - name: Download, Decompress and Build
         continue-on-error: true
         run: |
-          wget -q https://github.com/1compk/dl/releases/download/v6.16/zMinios.Skyline.Build.04.2026.tar.xz
-          tar -xf zMinios.Skyline.Build.04.2026.tar.xz 
-          cd zMinios.Skyline.Build.04.2026/
+          wget -q https://github.com/1compk/dl/releases/download/v6.16/zMinios.Skyline.Build.04..tar.xz
+          tar -xf zMinios.Skyline.Build.04..tar.xz 
+          cd zMinios.Skyline.Build.04./
           sudo sh armtx.xfce.build.sh
           
       - name: Upload ISO Files
         uses: actions/upload-artifact@v4
         with:
           name: MiniOS.Trixie.Arm64.ISO-${{ steps.date.outputs.DATE }}
-          path: zMinios.Skyline.Build.04.2026/build/iso/*.iso*
+          path: zMinios.Skyline.Build.04./build/iso/*.iso*
           if-no-files-found: warn
           retention-days: 180
           
