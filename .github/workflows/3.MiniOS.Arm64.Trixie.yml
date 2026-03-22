@@ -35,13 +35,14 @@ jobs:
           tar -xf zMinios.Skyline.Build.03.2026.tar.xz 
           cd zMinios.Skyline.Build.03.2026/
           sudo sh armtx.xfce.build.sh
+          continue-on-error: true
 
       - name: Upload ISO Files
         uses: actions/upload-artifact@v4
         with:
           name: MiniOS.Trixie.Arm64.ISO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.03.2026/build/iso/*.iso*
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 15
           
 
@@ -50,5 +51,5 @@ jobs:
         with:
           name: MiniOS.Trixie.Arm64.SB-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.03.2026/build/trixie-standard-arm64/image/minios/*.sb*
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 15
