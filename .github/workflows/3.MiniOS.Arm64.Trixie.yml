@@ -43,7 +43,7 @@ jobs:
           name: MiniOS.Trixie.Arm64.ISO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.03.2026/build/iso/*.iso*
           if-no-files-found: warn
-          retention-days: 15
+          retention-days: 180
           
 
       - name: Upload SB Modules
@@ -52,4 +52,4 @@ jobs:
           name: MiniOS.Trixie.Arm64.SB-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.03.2026/build/trixie-standard-arm64/image/minios/*.sb*
           if-no-files-found: warn
-          retention-days: 15
+          retention-days: 180
