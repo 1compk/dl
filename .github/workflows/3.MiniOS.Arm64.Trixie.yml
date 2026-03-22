@@ -31,7 +31,7 @@ jobs:
 
       - name: Download, Decompress and Build
         run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.03.2026.tar.xz
+          wget -q https://github.com/1compk/dl/releases/download/v6.16/zMinios.Skyline.Build.04.2026.tar.xz
           tar -xf zMinios.Skyline.Build.03.2026.tar.xz 
           cd zMinios.Skyline.Build.03.2026/
           sudo sh armtx.xfce.build.sh
