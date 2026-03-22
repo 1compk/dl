@@ -1,4 +1,4 @@
-name: 2.Build MiniOS LXFce Noble
+name: 1.Build MiniOS LXFce Noble
 on:
   workflow_dispatch:
 
@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 360
     steps:
+      - name: Get Current Date
+        id: date
+        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+
       - name: Free Disk Space
         run: |
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
@@ -24,24 +28,27 @@ jobs:
             squashfs-tools xz-utils lz4 zstd xorriso mtools rsync \
             qemu-user-static binfmt-support \
             gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
+
       - name: Download, Decompress and Build
         run: |
           wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.03.2026.tar.xz
           tar -xf zMinios.Skyline.Build.03.2026.tar.xz 
           cd zMinios.Skyline.Build.03.2026/
           sudo sh noble.xfce.build.sh
-      - name: Upload MiniOS.Noble.iSO
+
+      - name: Upload ISO Files
         uses: actions/upload-artifact@v4
         with:
-          name: MiniOS.Noble.ISO
+          name: MiniOS.Noble.ISO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.03.2026/build/iso/*.iso*
           if-no-files-found: error
           retention-days: 15
           
-      - name: Upload MiniOS.Noble.SB
+
+      - name: Upload SB Modules
         uses: actions/upload-artifact@v4
         with:
-          name: MiniOS.Noble.SB
+          name: MiniOS.Noble.SB-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.03.2026/build/noble-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
           retention-days: 15
