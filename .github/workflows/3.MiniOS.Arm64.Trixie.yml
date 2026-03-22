@@ -49,7 +49,7 @@ jobs:
       - name: Upload SB Modules
         uses: actions/upload-artifact@v4
         with:
-          name: MiniOS.Trixie.Arm64.SB-${{ steps.date.outputs.DATE }}
-          path: zMinios.Skyline.Build.04.2026/build/trixie-standard-arm64/image/minios/*.sb*
+          name: MiniOS.Trixie.Arm64-${{ steps.date.outputs.DATE }}
+          path: zMinios.Skyline.Build.04.2026/build/trixie-standard-arm64/image/*
           if-no-files-found: warn
           retention-days: 180
