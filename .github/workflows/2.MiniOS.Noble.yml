@@ -1,4 +1,4 @@
-name: 1.Build MiniOS LXFce Noble
+name: 2.Build MiniOS LXFce Noble
 on:
   workflow_dispatch:
 
