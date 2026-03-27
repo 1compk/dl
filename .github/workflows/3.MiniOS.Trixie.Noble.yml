@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    timeout-minutes: 360
+    timeout-minutes: 600
     steps:
       - name: Get Current Date
         id: date
@@ -34,7 +34,7 @@ jobs:
           wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.2026.tar.xz
           tar -xf zMinios.Skyline.Build.2026.tar.xz 
           cd zMinios.Skyline.Build.2026/
-          sudo sh mix.trixie.noble.xfce.build.sh
+          sudo sh trixie.xfce.build.sh
 
       - name: Upload MiniOS.Trixie.iSO
         uses: actions/upload-artifact@v4
@@ -44,14 +44,6 @@ jobs:
           if-no-files-found: error
           retention-days: 15
 
-      - name: Upload MiniOS.Noble.iSO
-        uses: actions/upload-artifact@v4
-        with:
-          name: MiniOS.Noble.iSO-${{ steps.date.outputs.DATE }}
-          path: zMinios.Skyline.Build.2026/build/iso/*noble*
-          if-no-files-found: error
-          retention-days: 15
-          
       - name: Upload MiniOS.Trixie.SB
         uses: actions/upload-artifact@v4
         with:
@@ -60,6 +52,19 @@ jobs:
           if-no-files-found: error
           retention-days: 15
 
+      - name: Download, Decompress and Build
+        run: |
+          cd zMinios.Skyline.Build.2026/
+          sudo sh noble.xfce.build.sh
+
+      - name: Upload MiniOS.Noble.iSO
+        uses: actions/upload-artifact@v4
+        with:
+          name: MiniOS.Noble.iSO-${{ steps.date.outputs.DATE }}
+          path: zMinios.Skyline.Build.2026/build/iso/*noble*
+          if-no-files-found: error
+          retention-days: 15
+          
       - name: Upload MiniOS.Noble.SB
         uses: actions/upload-artifact@v4
         with:
