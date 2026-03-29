@@ -1,21 +1,23 @@
-name: 2.Build Armbian LXFce Trixie AML-S9xx
+name: 1.Build Armbian LXFce Trixie Aml-S9xx
 on:
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-24.04-arm
-    timeout-minutes: 360
+    timeout-minutes: 600
     steps:
+      - name: Get Current Date
+        id: date
+        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+        
       - name: Free Disk Space
         run: |
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
           sudo docker image prune -a -f
       
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
 
       - name: Install Dependencies
         run: |
@@ -24,7 +26,6 @@ jobs:
             squashfs-tools xz-utils lz4 zstd xorriso mtools rsync \
             qemu-user-static binfmt-support \
             gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
-
       - name: Download, Decompress and Build
         run: |
           chmod +x compile.sh
@@ -34,11 +35,10 @@ jobs:
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
            KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
            DOCKER_ARMBIAN=no
-
       - name: Upload Armbian.iMG
         uses: actions/upload-artifact@v4
         with:
-          name: Armbian.LXFce.Trixie.Aml-S9xx
+          name: Armbian.LXFce.Trixie.Aml-S9xx-${{ steps.date.outputs.DATE }}
           path: output/images/*.img*
           if-no-files-found: error
           retention-days: 15
