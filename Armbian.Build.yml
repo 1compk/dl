@@ -26,6 +26,7 @@ jobs:
             squashfs-tools xz-utils lz4 zstd xorriso mtools rsync \
             qemu-user-static binfmt-support \
             gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
+            
       - name: Download, Decompress and Build
         run: |
           chmod +x compile.sh
@@ -35,6 +36,7 @@ jobs:
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
            KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
            DOCKER_ARMBIAN=no
+           
       - name: Upload Armbian.iMG
         uses: actions/upload-artifact@v4
         with:
