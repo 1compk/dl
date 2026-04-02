@@ -42,6 +42,7 @@ jobs:
           name: MiniOS-Trixie-iSO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.04.2026/build/iso/*trixie*
           if-no-files-found: error
+          retention-days: 15
 
       - name: Upload MiniOS.Trixie.SB
         uses: actions/upload-artifact@v4
@@ -49,6 +50,7 @@ jobs:
           name: MiniOS-Trixie-SB-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.04.2026/build/trixie-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
+          retention-days: 15
 
       - name: Build Noble
         working-directory: zMinios.Skyline.Build.04.2026
@@ -60,6 +62,7 @@ jobs:
           name: MiniOS-Noble-iSO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.04.2026/build/iso/*noble*
           if-no-files-found: error
+          retention-days: 15
           
       - name: Upload MiniOS.Noble.SB
         uses: actions/upload-artifact@v4
@@ -67,3 +70,4 @@ jobs:
           name: MiniOS-Noble-SB-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.04.2026/build/noble-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
+          retention-days: 15
