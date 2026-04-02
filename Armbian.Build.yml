@@ -43,4 +43,4 @@ jobs:
           name: Armbian.LXFce.Trixie.Aml-S9xx-${{ steps.date.outputs.DATE }}
           path: output/images/*.img*
           if-no-files-found: error
-          retention-days: 15
+          retention-days: 90
