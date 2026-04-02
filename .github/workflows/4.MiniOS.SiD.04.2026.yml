@@ -42,3 +42,4 @@ jobs:
           name: MiniOS-SiD-iSO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.04.2026/build/iso/*sid*
           if-no-files-found: error
+          retention-days: 90
