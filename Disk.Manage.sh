@@ -140,7 +140,7 @@ create_gpt_partitions() {
   #sudo parted -s "$disk" set 2 boot on
   #sudo parted -s "$disk" set 2 esp on
 
-  echo "Creating Linux partition (4109MiB to 100%) ext4"
+  echo "Creating Linux partition (4108MiB to 100%) ext4"
   sudo parted -s "$disk" mkpart ext4 ext4 4108MiB 100%
 
   # Rescan and wait
@@ -189,7 +189,7 @@ create_mbr_partitions() {
   sudo wipefs -a "$disk"
   sudo parted -s "$disk" mklabel msdos
 
-  # 2. Create 1st partition: FAT32 (1MiB to 4101MiB = 4100MiB size)
+  # 2. Create 1st partition: FAT32 (4MiB to 4104MiB = 4100MiB size)
   echo "Creating Boot partition (4MiB-4104MiB) FAT32"
   sudo parted -s "$disk" mkpart primary fat32 4MiB 4104MiB
   
