@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-Trixie-iSO-${{ steps.date.outputs.DATE }}
-          path: zMinios.Skyline.Build.04.2026/build/iso/*trixie*
+          path: zMinios.Skyline.Build.04.2026/build/iso/*.iso
           archive: false
           if-no-files-found: error
           retention-days: 30
@@ -53,6 +53,9 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Clean Trixie to save space
+        run: sudo rm -rf zMinios.Skyline.Build.04.2026/build/*
+
       - name: Build Noble
         working-directory: zMinios.Skyline.Build.04.2026
         run: sudo sh noble.xfce.build.sh
@@ -61,7 +64,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-Noble-iSO-${{ steps.date.outputs.DATE }}
-          path: zMinios.Skyline.Build.04.2026/build/iso/*noble*
+          path: zMinios.Skyline.Build.04.2026/build/iso/*.iso
           archive: false
           if-no-files-found: error
           retention-days: 30
