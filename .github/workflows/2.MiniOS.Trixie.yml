@@ -1,4 +1,4 @@
-name: 2.Build MiniOS LXFce Trixie
+name: 2.Build MiniOS LXFce Trixie Noble
 on:
   workflow_dispatch:
 
@@ -26,26 +26,29 @@ jobs:
             squashfs-tools xz-utils lz4 zstd xorriso mtools rsync \
             qemu-user-static binfmt-support \
             gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
-            
+
       - name: Download and Decompress Source
         run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.2026.tar.xz
-          tar -xf zMinios.Skyline.Build.2026.tar.xz
-          
+          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.04.2026.tar.xz
+          tar -xf zMinios.Skyline.Build.04.2026.tar.xz
+
       - name: Build Trixie
-        working-directory: zMinios.Skyline.Build.2026
+        working-directory: zMinios.Skyline.Build.04.2026
         run: sudo sh trixie.xfce.build.sh
 
       - name: Upload MiniOS.Trixie.iSO
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MiniOS-Trixie-iSO-${{ steps.date.outputs.DATE }}
-          path: zMinios.Skyline.Build.2026/build/iso/*trixie*
+          path: zMinios.Skyline.Build.04.2026/build/iso/*.iso
+          archive: false
           if-no-files-found: error
+          retention-days: 30
 
       - name: Upload MiniOS.Trixie.SB
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MiniOS-Trixie-SB-${{ steps.date.outputs.DATE }}
-          path: zMinios.Skyline.Build.2026/build/trixie-standard-amd64/image/minios/*.sb*
+          path: zMinios.Skyline.Build.04.2026/build/trixie-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
+          retention-days: 30
