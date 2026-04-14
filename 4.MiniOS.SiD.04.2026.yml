@@ -37,7 +37,7 @@ jobs:
         run: sudo sh sid.xfce.build.sh
 
       - name: Upload MiniOS.SiD.iSO
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MiniOS-SiD-iSO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.04.2026/build/iso/*.iso

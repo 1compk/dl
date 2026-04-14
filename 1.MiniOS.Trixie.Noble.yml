@@ -37,7 +37,7 @@ jobs:
         run: sudo sh trixie.xfce.build.sh
 
       - name: Upload MiniOS.Trixie.iSO
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MiniOS-Trixie-iSO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.2026/build/iso/*.iso
@@ -61,7 +61,7 @@ jobs:
         run: sudo sh noble.xfce.build.sh
 
       - name: Upload MiniOS.Noble.iSO
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: MiniOS-Noble-iSO-${{ steps.date.outputs.DATE }}
           path: zMinios.Skyline.Build.2026/build/iso/*.iso
