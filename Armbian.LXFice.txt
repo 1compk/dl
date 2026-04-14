@@ -19,6 +19,7 @@ cups-filters
 curl
 dbus-x11
 dconf-cli
+elementary-xfce-icon-theme
 elpa-bash-completion
 evince
 evince-common
