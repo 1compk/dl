@@ -38,10 +38,10 @@ jobs:
            DOCKER_ARMBIAN=no
            
       - name: Upload Armbian.iMG
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Armbian.LXFce.Trixie.Aml-S9xx-${{ steps.date.outputs.DATE }}
           path: output/images/*.img
-          archive: false
+          archive: true
           if-no-files-found: error
           retention-days: 90
