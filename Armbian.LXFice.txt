@@ -106,7 +106,6 @@ ntfs-3g
 openprinting-ppds
 orca
 orchis-gtk-theme
-papirus-icon-theme
 pavucontrol
 pcmanfm
 pkexec
