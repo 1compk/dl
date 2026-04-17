@@ -92,6 +92,8 @@ lm-sensors
 lxpolkit
 lz4
 mate-polkit
+mesa-va-drivers
+mesa-vdpau-drivers
 mesa-utils
 mmv
 mousepad
