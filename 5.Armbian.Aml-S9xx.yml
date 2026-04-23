@@ -48,12 +48,15 @@ jobs:
           sudo chown -R runner:runner /builder
           df -Th
           echo "status=success" >> ${GITHUB_OUTPUT}
-            
-      - name: Download, Decompress and Build
+
+      - name: Download and Decompress Source
         working-directory: /builder
         run: |
           git clone https://github.com/1compk/armbian.build.git armbian
-          cd armbian/
+
+      - name: Build Armbian
+        working-directory: /builder/armbian
+        run: |
           chmod +x compile.sh
           ./compile.sh build BOARD=aml-s9xx-box BRANCH=edge RELEASE=trixie \
            EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
