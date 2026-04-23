@@ -2,6 +2,9 @@ name: 5.Build Armbian LXFce Trixie Aml-S9xx
 on:
   workflow_dispatch:
 
+env:
+  TZ: Etc/GMT-7
+
 jobs:
   build:
     runs-on: ubuntu-24.04-arm

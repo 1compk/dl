@@ -2,6 +2,9 @@ name: 1.Build MiniOS LXFce Trixie Noble
 on:
   workflow_dispatch:
 
+env:
+  TZ: Etc/GMT-7
+
 jobs:
   build:
     runs-on: ubuntu-24.04
