@@ -83,8 +83,8 @@ jobs:
       - name: Build Armbian
         working-directory: /builder/armbian
         run: |
-          chmod +x compile.sh
-          ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=trixie \
+          sudo chmod +x compile.sh
+          sudo ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=trixie \
            EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
            DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
