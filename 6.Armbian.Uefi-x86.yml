@@ -7,7 +7,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 600
     steps:
       - name: Get Current Date
@@ -22,31 +22,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Initialize the build environment
-        id: init
-        env:
-          DEBIAN_FRONTEND: noninteractive
+      - name: Install Dependencies
         run: |
-          docker rmi -f $(docker images -q) 2>/dev/null || true
-          [[ -n "${AGENT_TOOLSDIRECTORY}" ]] && sudo rm -rf "${AGENT_TOOLSDIRECTORY}"
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android 2>/dev/null
-          sudo swapoff -a
-          sudo rm -f /swapfile /mnt/swapfile
-          sudo -E apt-get -y update
-          sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mongodb* moby* || true
-          sudo -E apt-get -y install $(curl -fsSL https://ophub.org/ubuntu2404-build-armbian-depends)
-          sudo -E systemctl daemon-reload
-          #sudo -E apt-get -y full-upgrade
-          sudo -E apt-get -y autoremove --purge
-          sudo -E apt-get clean
-          sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
-          sudo rm -rf ~/{.cargo,.dotnet,.rustup}
-          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
-          sudo -E ntpdate ntp.ubuntu.com 0.pool.ntp.org || true
-          sudo -E timedatectl set-ntp true
-          date -u
-          timedatectl status || true
-          echo "status=success" >> ${GITHUB_OUTPUT}
+          sudo apt-get update
+          sudo apt-get install -y 7zip curl git wget ca-certificates binutils debootstrap \
+            squashfs-tools xz-utils lz4 zstd xorriso mtools rsync \
+            qemu-user-static binfmt-support \
+            gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
 
       - name: Create virtual disk for extended storage
         run: |
@@ -67,14 +49,6 @@ jobs:
           df -Th
           echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y 7zip curl git wget ca-certificates binutils debootstrap \
-            squashfs-tools xz-utils lz4 zstd xorriso mtools rsync \
-            qemu-user-static binfmt-support \
-            gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
-            
       - name: Download and Decompress Source
         working-directory: /builder
         run: |
