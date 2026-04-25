@@ -57,6 +57,7 @@ jobs:
       - name: Build Armbian
         working-directory: /builder/armbian
         run: |
+          sudo su
           chmod +x compile.sh
           ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=trixie \
            EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
