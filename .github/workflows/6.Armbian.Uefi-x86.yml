@@ -6,19 +6,33 @@ env:
   TZ: Etc/GMT-7
 
 jobs:
-  build:
+  prepare:
     runs-on: ubuntu-24.04
-    timeout-minutes: 600
+    outputs:
+      date: ${{ steps.date.outputs.DATE }}
     steps:
       - name: Get Current Date
         id: date
         run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-        
-      - name: Free Disk Space
+
+      - name: Free Disk Space (Host)
         run: |
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
           sudo docker image prune -a -f
-      
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 600
+    container:
+      image: debian:trixie
+      options: --privileged --device /dev/loop-control:/dev/loop-control
+    steps:
+      - name: Install Base Essentials
+        run: |
+          apt-get update
+          apt-get install -y sudo kmod udev  # ต้องมีเพื่อจัดการ loop device และรองรับคำสั่ง sudo
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -26,38 +40,48 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y 7zip curl git wget ca-certificates binutils debootstrap \
-            squashfs-tools xz-utils lz4 zstd xorriso mtools rsync kmod lvm2 \
+            squashfs-tools xz-utils lz4 zstd xorriso mtools rsync lvm2 \
             qemu-user-static binfmt-support debian-archive-keyring xfsprogs \
             gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
 
       - name: Create virtual disk for extended storage
         run: |
-          mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
-          root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
+          for i in $(seq 0 7); do
+            if [ ! -b /dev/loop$i ]; then
+              sudo mknod -m 0660 /dev/loop$i b 7 $i
+            fi
+          done
+
+          mnt_size=$(df -G /mnt | awk 'NR==2 {print $4}' | cut -d. -f1)
+          mnt_size=$((mnt_size - 2))
+          root_size=$(df -G / | awk 'NR==2 {print $4}' | cut -d. -f1)
+          root_size=$((root_size - 4))
+          
           sudo truncate -s "${mnt_size}"G /mnt/mnt.img
           sudo truncate -s "${root_size}"G /root.img
+          
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
-          sudo pvcreate /dev/loop6
-          sudo pvcreate /dev/loop7
+          
+          sudo pvcreate /dev/loop6 /dev/loop7
           sudo vgcreate github /dev/loop6 /dev/loop7
           sudo lvcreate -n runner -l 100%FREE github
           sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
+          
           sudo mkdir -p /builder
           sudo mount /dev/github/runner /builder
-          sudo chown -R runner:runner /builder
-          df -Th
-          echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Download and Decompress Source
+          sudo chown -R root:root /builder
+          df -Th
+
+      - name: Download Armbian Source
         working-directory: /builder
         run: |
-          git clone https://github.com/1compk/armbian.build.git armbian
+          git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
 
       - name: Build Armbian
         working-directory: /builder/armbian
         run: |
-          sudo su
           chmod +x compile.sh
           ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=trixie \
            EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
@@ -65,12 +89,11 @@ jobs:
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
            KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
            DOCKER_ARMBIAN=no
-           
+
       - name: Upload Armbian.iMG
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
-          name: Armbian.LXFce.Trixie.Uefi-x86-${{ steps.date.outputs.DATE }}
+          name: Armbian.LXFce.Trixie.Uefi-x86-${{ needs.prepare.outputs.date }}
           path: /builder/armbian/output/images/*.img
-          archive: true
           if-no-files-found: error
           retention-days: 90
