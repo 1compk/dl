@@ -95,7 +95,8 @@ jobs:
            DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
            KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
-           DOCKER_ARMBIAN=no
+           DOCKER_ARMBIAN=no SKIP_BOOTSTRAP_SIGNATURE=yes \
+           INSTALL_GPG_FIX=yes
 
       - name: Upload Armbian.iMG
         uses: actions/upload-artifact@v4
