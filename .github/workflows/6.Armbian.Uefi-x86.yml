@@ -53,13 +53,16 @@ jobs:
             fi
           done
 
-          mnt_size=$(df -G /mnt | awk 'NR==2 {print $4}' | cut -d. -f1)
-          mnt_size=$((mnt_size - 2))
-          root_size=$(df -G / | awk 'NR==2 {print $4}' | cut -d. -f1)
-          root_size=$((root_size - 4))
+          mnt_free_mb=$(df -m /mnt | awk 'NR==2 {print $4}')
+          root_free_mb=$(df -m / | awk 'NR==2 {print $4}')
+
+          mnt_size_mb=$((mnt_free_mb - 2048))
+          root_size_mb=$((root_free_mb - 4096))
           
-          sudo truncate -s "${mnt_size}"G /mnt/mnt.img
-          sudo truncate -s "${root_size}"G /root.img
+          echo "Creating images: MNT=${mnt_size_mb}MB, ROOT=${root_size_mb}MB"
+
+          sudo truncate -s "${mnt_size_mb}"M /mnt/mnt.img
+          sudo truncate -s "${root_size_mb}"M /root.img
           
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
@@ -71,7 +74,6 @@ jobs:
           
           sudo mkdir -p /builder
           sudo mount /dev/github/runner /builder
-
           sudo chown -R root:root /builder
           df -Th
 
