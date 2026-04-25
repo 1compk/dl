@@ -26,8 +26,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y 7zip curl git wget ca-certificates binutils debootstrap \
-            squashfs-tools xz-utils lz4 zstd xorriso mtools rsync \
-            qemu-user-static binfmt-support debian-archive-keyring \
+            squashfs-tools xz-utils lz4 zstd xorriso mtools rsync kmod lvm2 \
+            qemu-user-static binfmt-support debian-archive-keyring xfsprogs \
             gcc-aarch64-linux-gnu g++-aarch64-linux-gnu build-essential
 
       - name: Create virtual disk for extended storage
