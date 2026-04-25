@@ -59,13 +59,12 @@ jobs:
         working-directory: /builder/armbian
         run: |
           chmod +x compile.sh
-          ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=trixie \
+          ./compile.sh build BOARD=aml-s9xx-box BRANCH=edge RELEASE=trixie \
            EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
            DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
            KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
-           DOCKER_ARMBIAN=no SKIP_BOOTSTRAP_SIGNATURE=yes \
-           INSTALL_GPG_FIX=yes INSTALL_GRAPHICS_DRIVERS=no
+           DOCKER_ARMBIAN=no
            
       - name: Upload Armbian.iMG
         uses: actions/upload-artifact@v7
