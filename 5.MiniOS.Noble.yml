@@ -1,4 +1,4 @@
-name: 1.Build MiniOS LXFce Trixie Noble
+name: 3.Build MiniOS LXFce Noble
 on:
   workflow_dispatch:
 
@@ -81,30 +81,6 @@ jobs:
         run: |
           wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.2026.tar.xz
           tar -xf zMinios.Skyline.Build.2026.tar.xz
-
-      - name: Build Trixie
-        working-directory: /builder/zMinios.Skyline.Build.2026
-        run: sudo sh trixie.xfce.build.sh
-
-      - name: Upload MiniOS.Trixie.iSO
-        uses: actions/upload-artifact@v7
-        with:
-          name: MiniOS-Trixie-iSO-${{ steps.date.outputs.DATE }}
-          path: /builder/zMinios.Skyline.Build.2026/build/iso/*.iso
-          archive: false
-          if-no-files-found: error
-          retention-days: 30
-
-      - name: Upload MiniOS.Trixie.SB
-        uses: actions/upload-artifact@v4
-        with:
-          name: MiniOS-Trixie-SB-${{ steps.date.outputs.DATE }}
-          path: /builder/zMinios.Skyline.Build.2026/build/trixie-standard-amd64/image/minios/*.sb*
-          if-no-files-found: error
-          retention-days: 30
-
-      - name: Clean Trixie to save space
-        run: sudo rm -rf /builder/zMinios.Skyline.Build.2026/build/*
 
       - name: Build Noble
         working-directory: /builder/zMinios.Skyline.Build.2026
