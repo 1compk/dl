@@ -48,32 +48,32 @@ jobs:
       - name: Create virtual disk for extended storage
         run: |
           for i in $(seq 0 7); do
-            if [ ! -b /dev/loop$i ]; then
-              sudo mknod -m 0660 /dev/loop$i b 7 $i
-            fi
+            [ -b /dev/loop$i ] || sudo mknod -m 0660 /dev/loop$i b 7 $i
           done
 
           mnt_free_mb=$(df -m /mnt | awk 'NR==2 {print $4}')
           root_free_mb=$(df -m / | awk 'NR==2 {print $4}')
-
           mnt_size_mb=$((mnt_free_mb - 2048))
           root_size_mb=$((root_free_mb - 4096))
           
-          echo "Creating images: MNT=${mnt_size_mb}MB, ROOT=${root_size_mb}MB"
-
           sudo truncate -s "${mnt_size_mb}"M /mnt/mnt.img
           sudo truncate -s "${root_size_mb}"M /root.img
           
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           
-          sudo pvcreate /dev/loop6 /dev/loop7
-          sudo vgcreate github /dev/loop6 /dev/loop7
-          sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
+          sudo pvcreate -y /dev/loop6 /dev/loop7
+          sudo vgcreate -y github /dev/loop6 /dev/loop7
+
+          sudo lvcreate -y -n runner -l 100%FREE github --noudevsync
+
+          sudo vgscan --mknodes
+          sudo vgchange -ay
+          
+          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/mapper/github-runner
           
           sudo mkdir -p /builder
-          sudo mount /dev/github/runner /builder
+          sudo mount /dev/mapper/github-runner /builder
           sudo chown -R root:root /builder
           df -Th
 
