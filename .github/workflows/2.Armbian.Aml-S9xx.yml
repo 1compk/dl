@@ -1,4 +1,4 @@
-name: 5.Build Armbian LXFce Trixie Aml-S9xx
+name: 2.Build Armbian LXFce Trixie Aml-S9xx
 on:
   workflow_dispatch:
 
