@@ -1,4 +1,4 @@
-name: 2.Build Armbian LXFce Trixie Aml-S9xx
+name: 4.Build Armbian LXFce Forky Uefi-x86
 on:
   workflow_dispatch:
 
@@ -7,7 +7,7 @@ env:
 
 jobs:
   build-armbian:
-    name: Build Armbian LXFce Trixie Aml-S9xx
+    name: Build Armbian LXFce Forky Uefi-x86
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 600
     steps:
@@ -71,7 +71,7 @@ jobs:
         working-directory: /builder/armbian
         run: |
           chmod +x compile.sh
-          ./compile.sh build EXPERT=yes BOARD=aml-s9xx-box BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
+          ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
           BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
           DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no
@@ -79,7 +79,7 @@ jobs:
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
-          name: Armbian.LXFce.Trixie.Aml-S9xx-${{ steps.date.outputs.DATE }}
+          name: Armbian.LXFce.Forky.Uefi-x86-${{ steps.date.outputs.DATE }}
           path: /builder/armbian/output/images/*.img
           archive: true
           if-no-files-found: error
