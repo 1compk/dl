@@ -7,7 +7,7 @@ env:
 
 jobs:
   build-aml-s9xx:
-    name: Build Armbian LXFce Trixie Aml-S9xx
+    name: Build Armbian LXFce Forky Aml-S9xx
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 600
     steps:
@@ -79,7 +79,7 @@ jobs:
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
-          name: Armbian.LXFce.Trixie.Aml-S9xx-${{ steps.date.outputs.DATE }}
+          name: Armbian.LXFce.Forky.Aml-S9xx-${{ steps.date.outputs.DATE }}
           path: /builder/armbian/output/images/*.img
           archive: true
           if-no-files-found: error
