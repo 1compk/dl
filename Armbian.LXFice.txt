@@ -56,7 +56,6 @@ gparted
 grsync
 grub-customizer
 gtk2-engines
-gtk2-engines-murrine
 gtk2-engines-pixbuf
 gvfs-backends
 icewm
@@ -78,12 +77,9 @@ libgsettings-qt1
 libgtk2.0-bin
 libnotify-bin
 libpam-gnome-keyring
-libproxy1-plugin-gsettings
 libpulsedsp
 libqt5widgets5
 libvulkan-dev
-libwmf-0.2-7-gtk
-libwmf0.2-7-gtk
 libxcb-cursor0
 libxcursor1
 libxfce4ui-utils
@@ -97,7 +93,6 @@ mesa-vdpau-drivers
 mesa-utils
 mmv
 mousepad
-mousetweaks
 mtools
 nala
 nemo
@@ -114,7 +109,6 @@ pkexec
 polkitd
 plasma-discover
 plasma-discover-backend-flatpak
-printer-driver-all
 profile-sync-daemon
 pulseaudio
 pulseaudio-module-bluetooth
