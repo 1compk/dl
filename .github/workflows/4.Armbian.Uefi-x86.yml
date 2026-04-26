@@ -8,7 +8,7 @@ env:
 jobs:
   build-armbian:
     name: Build Armbian LXFce Forky Uefi-x86
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 600
     steps:
       - name: Prepare | Get Date
@@ -71,12 +71,10 @@ jobs:
         working-directory: /builder/armbian
         run: |
           chmod +x compile.sh
-          ./compile.sh build BOARD=uefi-x86 BRANCH=edge RELEASE=forky \
-           EXPERT=yes BUILD_DESKTOP=yes BUILD_MINIMAL=no \
-           DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
-           DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
-           KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
-           DOCKER_ARMBIAN=no
+          ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
+          BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
+          DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
+          KERNEL_GIT=shallow DOCKER_ARMBIAN=no
            
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
