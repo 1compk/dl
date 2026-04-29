@@ -122,7 +122,6 @@ sddm
 sddm-theme-maui
 slick-greeter
 smbclient
-spice-vdagent
 sudo
 system-config-printer
 system-config-printer-common
