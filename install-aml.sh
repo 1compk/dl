@@ -57,9 +57,9 @@ dd if="${DEV_EMMC}" of=/root/u-boot-default-aml.img bs=1M count=4
 echo "Start create MBR and partittion"
 
 parted -s "${DEV_EMMC}" mklabel msdos
-parted -s "${DEV_EMMC}" mkpart primary fat32 200MiB 400MiB
-parted -s "${DEV_EMMC}" mkpart primary ext4 400MiB 100%
-parted -s "${DEV_EMMC}" set 1 boot on
+parted -s "${DEV_EMMC}" mkpart primary fat32 48MiB 176MiB
+parted -s "${DEV_EMMC}" mkpart primary ext4 176MiB 100%
+parted -s "${DEV_EMMC}" set 1 bls_boot on
 
 echo "Start restore u-boot"
 
@@ -89,7 +89,7 @@ if grep -q $PART_BOOT /proc/mounts ; then
     umount -f $PART_BOOT
 fi
 echo -n "Formatting BOOT partition..."
-mkfs.vfat -n "BOOT_EMMC" $PART_BOOT
+mkfs.vfat -F 32 -n "bootemmc" $PART_BOOT
 echo "done."
 
 mount -o rw $PART_BOOT $DIR_INSTALL
@@ -99,7 +99,7 @@ cp -r /boot/* $DIR_INSTALL && sync
 echo "done."
 
 echo -n "Edit init config..."
-sed -e "s/\(root=UUID\)\([[:graph:]]\)*/root=LABEL=boxemmc/gi" \
+sed -e "s/\(root=UUID\)\([[:graph:]]\)*/root=LABEL=rootemmc/gi" \
  -i "$DIR_INSTALL/extlinux/extlinux.conf"
 echo "done."
 
@@ -124,7 +124,7 @@ if grep -q $PART_ROOT /proc/mounts ; then
 fi
 
 echo "Formatting ROOT partition..."
-mke2fs -F -q -t ext4 -L boxemmc -m 0 $PART_ROOT
+mke2fs -F -q -t ext4 -L rootemmc -m 0 $PART_ROOT
 e2fsck -n $PART_ROOT
 echo "done."
 
@@ -187,10 +187,11 @@ cp -a /root/fstab.template $DIR_INSTALL/etc/fstab
 rm $DIR_INSTALL/root/install*.sh
 rm $DIR_INSTALL/root/fstab.template
 rm $DIR_INSTALL/usr/bin/ddbr
-
+sync
 
 cd /
 sync
+systemctl daemon-reload
 
 umount $DIR_INSTALL
 
