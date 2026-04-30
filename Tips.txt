@@ -55,11 +55,11 @@ lsblk = /dev/sdX > mount = /mnt/sdX
 
 #Grub-Install gonna Create "/efi/grub" Files > /efi/grub/grub.cfg :
 
-sudo grub-install --target=i386-pc /dev/loop6 --boot-directory=/media/user/D56C-4F6D/efi --removable
+sudo grub-install --target=i386-pc /dev/nvme0n1 --boot-directory=/media/user/B018-F0A5/efi --removable
 
 #Grub-Install gonna Create "/efi/boot/bootx64.efi" File > /efi/boot/grub.cfg :
 
-sudo grub-install --target=x86_64-efi --efi-directory=/media/user/D56C-4F6D --boot-directory=/media/user/D56C-4F6D/efi --removable
+sudo grub-install --target=x86_64-efi --efi-directory=/media/user/B018-F0A5 --boot-directory=/media/user/B018-F0A5/efi --removable
 
 ==================================================================
 
@@ -138,3 +138,12 @@ pkg install proot-distro -y
 proot-distro install debian
 
 proot-distro login debian --shared-tmp
+
+==================================================================
+Wipe Nvme :
+
+sudo blkdiscard -f /dev/nvmeXnX
+
+sudo systemctl enable --now fstrim.timer
+
+sudo fstrim -av
