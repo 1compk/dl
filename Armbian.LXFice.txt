@@ -88,9 +88,12 @@ libxfce4ui-utils
 libxml2-utils
 lm-sensors
 lxappearance
+lxappearance-obconf
+lxde
 lxde-core
 lxinput
 lxrandr
+lxsession-edit
 lz4
 mate-polkit
 mesa-utils
