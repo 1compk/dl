@@ -89,7 +89,6 @@ libxml2-utils
 lm-sensors
 lxappearance
 lxappearance-obconf
-lxde
 lxde-core
 lxinput
 lxrandr
