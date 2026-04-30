@@ -6,12 +6,6 @@ MiniOS Original : https://github.com/minios-linux/minios-live
 
 =====================================================================
 
-<img width="800" height="600" alt="MiniOS Desktop" src="https://github.com/user-attachments/assets/85d6c3fe-85a3-41f2-b19f-4db1249c2975" />
-
-<img width="800" height="600" alt="MiniOS Gparted 4Gb" src="https://github.com/user-attachments/assets/f615d70b-033f-4a00-bb60-d69c219571af" />
-
-==================================================================
-
 Armbian AMD64 Downloads : https://dl.armbian.com/uefi-x86/
 
 Mirror : https://mirror.twds.com.tw/armbian-dl/uefi-x86/archive/?C=S&O=D
@@ -140,3 +134,13 @@ pkg install proot-distro -y
 proot-distro install debian
 
 proot-distro login debian --shared-tmp
+
+==================================================================
+
+Wipe Nvme :
+
+sudo blkdiscard -f /dev/nvmeXnX
+
+sudo systemctl enable --now fstrim.timer
+
+sudo fstrim -av
