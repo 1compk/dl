@@ -71,7 +71,8 @@ jobs:
       - name: Build | Trixie
         working-directory: /builder/zMinios.Skyline.Build.2026
         run: |
-          sudo sh trixie.xfce.build.sh
+          sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
+          sudo -E ./minios-cmd -d trixie -a amd64 -de xfce -pv standard -dkms -kl -ib dracut
 
       - name: Upload | Trixie ISO
         uses: actions/upload-artifact@v7
@@ -155,7 +156,8 @@ jobs:
       - name: Build | Noble
         working-directory: /builder/zMinios.Skyline.Build.2026
         run: |
-          sudo sh noble.xfce.build.sh
+          sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
+          sudo -E ./minios-cmd -d noble -a amd64 -de xfce -pv standard -dkms -kl -ib dracut
 
       - name: Upload | Noble ISO
         uses: actions/upload-artifact@v7
@@ -165,6 +167,7 @@ jobs:
           archive: false
           if-no-files-found: error
           retention-days: 30
+
       - name: Upload | Noble SB
         uses: actions/upload-artifact@v4
         with:
@@ -238,7 +241,8 @@ jobs:
       - name: Build | SiD
         working-directory: /builder/zMinios.Skyline.Build.04.2026
         run: |
-          sudo sh sid.xfce.build.sh
+          sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
+          sudo -E ./minios-cmd -d sid -a amd64 -de xfce -pv standard -dkms -kl -ib dracut
 
       - name: Upload | SiD ISO
         uses: actions/upload-artifact@v7
