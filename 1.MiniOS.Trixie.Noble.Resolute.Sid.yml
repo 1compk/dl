@@ -242,7 +242,9 @@ jobs:
         working-directory: /builder/zMinios.Skyline.Build.2026
         run: |
           sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -dkms -kl -ib dracut
+          sudo echo "./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7"" > resolute.sh
+          sudo chmod +x resolute.sh
+          sudo -E sh resolute.sh
 
       - name: Upload | Resolute ISO
         uses: actions/upload-artifact@v7
@@ -250,14 +252,6 @@ jobs:
           name: MiniOS-Resolute-ISO-${{ steps.date.outputs.DATE }}
           path: /builder/zMinios.Skyline.Build.2026/build/iso/*.iso
           archive: false
-          if-no-files-found: error
-          retention-days: 30
-
-      - name: Upload | Resolute SB
-        uses: actions/upload-artifact@v4
-        with:
-          name: MiniOS-Resolute-SB-${{ steps.date.outputs.DATE }}
-          path: /builder/zMinios.Skyline.Build.2026/build/resolute-standard-amd64/image/minios/*.sb*
           if-no-files-found: error
           retention-days: 30
 
@@ -327,7 +321,9 @@ jobs:
         working-directory: /builder/zMinios.Skyline.Build.04.2026
         run: |
           sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo -E sh sid.xfce.build.sh
+          sudo echo "./minios-cmd -d sid -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7"" > sid.sh
+          sudo chmod +x sid.sh
+          sudo -E sh sid.sh
 
       - name: Upload | SiD ISO
         uses: actions/upload-artifact@v7
