@@ -242,7 +242,7 @@ jobs:
         working-directory: /builder/zMinios.Skyline.Build.2026
         run: |
           sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo echo "./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -dkms -kl" > resolute.sh
+          sudo echo "./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7"" > resolute.sh
           sudo chmod +x resolute.sh
           sudo -E sh resolute.sh
 
@@ -314,14 +314,14 @@ jobs:
       - name: Prepare | Download and Decompress Build Files
         working-directory: /builder
         run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.2026.tar.xz
-          tar -xf zMinios.Skyline.Build.2026.tar.xz
+          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.04.2026.tar.xz
+          tar -xf zMinios.Skyline.Build.04.2026.tar.xz
 
       - name: Build | SiD
-        working-directory: /builder/zMinios.Skyline.Build.2026
+        working-directory: /builder/zMinios.Skyline.Build.04.2026
         run: |
           sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo echo "./minios-cmd -d sid -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -dkms -kl" > sid.sh
+          sudo echo "./minios-cmd -d sid -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7"" > sid.sh
           sudo chmod +x sid.sh
           sudo -E sh sid.sh
 
@@ -329,7 +329,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-SiD-ISO-${{ steps.date.outputs.DATE }}
-          path: /builder/zMinios.Skyline.Build.2026/build/iso/*.iso
+          path: /builder/zMinios.Skyline.Build.04.2026/build/iso/*.iso
           archive: false
           if-no-files-found: error
           retention-days: 30
