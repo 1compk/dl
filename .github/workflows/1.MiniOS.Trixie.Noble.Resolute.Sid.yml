@@ -329,7 +329,7 @@ jobs:
         working-directory: /builder/zMinios.Skyline.Build.04.2026
         run: |
           sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo echo "./minios-cmd -d sid -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -dkms -kl -ib dracut" > resolute.sh
+          sudo echo "./minios-cmd -d sid -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -dkms -kl -ib dracut" > sid.sh
           sudo chmod +x sid.sh
           sudo -E sh sid.sh
 
