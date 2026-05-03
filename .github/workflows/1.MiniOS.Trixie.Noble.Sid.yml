@@ -242,7 +242,9 @@ jobs:
         working-directory: /builder/zMiniOS.SkyLine.Build.05.2026
         run: |
           sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo -E ./minios-cmd -d sid -a amd64 -de xfce -pv minimal -c zstd -l en_US -tz "Etc/GMT-7"
+          sudo echo "./minios-cmd -d sid -a amd64 -de xfce -pv minimal -c zstd -l en_US -tz "Etc/GMT-7"" > sid.sh
+          sudo chmod +x sid.sh
+          sudo -E sh sid.sh
 
       - name: Upload | SiD ISO
         uses: actions/upload-artifact@v7
