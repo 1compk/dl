@@ -312,11 +312,11 @@ jobs:
       - name: Prepare | Download and Decompress Build Files
         working-directory: /builder
         run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.SkyLine.Build.04.2026.tar.xz
-          tar -xf zMinios.SkyLine.Build.04.2026.tar.xz
+          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.04.2026.tar.xz
+          tar -xf zMinios.Skyline.Build.04.2026.tar.xz
 
       - name: Build | SiD
-        working-directory: /builder/zMinios.SkyLine.Build.04.2026
+        working-directory: /builder/zMinios.Skyline.Build.04.2026
         run: |
           sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
           sudo -E ./minios-cmd -d sid -a amd64 -de xfce -pv minimum -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
@@ -325,7 +325,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-SiD-ISO-${{ steps.date.outputs.DATE }}
-          path: /builder/zMinios.SkyLine.Build.04.2026/build/iso/*.iso
+          path: /builder/zMinios.Skyline.Build.04.2026/build/iso/*.iso
           archive: false
           if-no-files-found: error
           retention-days: 30
