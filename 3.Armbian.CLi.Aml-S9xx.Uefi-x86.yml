@@ -32,7 +32,6 @@ jobs:
           sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
           sudo rm -rf ~/{.cargo,.dotnet,.rustup}
           sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
-          sudo -E ntpdate ntp.ubuntu.com 0.pool.ntp.org || true
           sudo -E timedatectl set-ntp true
           date -u
           timedatectl status || true
@@ -106,7 +105,6 @@ jobs:
           sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
           sudo rm -rf ~/{.cargo,.dotnet,.rustup}
           sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
-          sudo -E ntpdate ntp.ubuntu.com 0.pool.ntp.org || true
           sudo -E timedatectl set-ntp true
           date -u
           timedatectl status || true
