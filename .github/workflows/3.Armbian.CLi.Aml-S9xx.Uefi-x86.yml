@@ -1,4 +1,4 @@
-name: 3.Build Armbian Minimal Forky Aml-S9xx Uefi-x86 (Parallel)
+name: 3.Build Armbian CLi Forky Aml-S9xx Uefi-x86 (Parallel)
 on:
   workflow_dispatch:
 
@@ -7,7 +7,7 @@ env:
 
 jobs:
   build-aml-s9xx:
-    name: Build Armbian Minimal Forky Aml-S9xx
+    name: Build Armbian CLi Forky Aml-S9xx
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 600
     steps:
@@ -72,21 +72,21 @@ jobs:
         run: |
           chmod +x compile.sh
           ./compile.sh build EXPERT=yes BOARD=aml-s9xx-box BRANCH=edge RELEASE=forky BUILD_DESKTOP=no \
-          BUILD_MINIMAL=yes DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT= \
+          BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT= \
           DESKTOP_ENVIRONMENT_CONFIG_NAME= KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no
            
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
-          name: Armbian.Minimal.Forky.Aml-S9xx-${{ steps.date.outputs.DATE }}
+          name: Armbian.CLi.Forky.Aml-S9xx-${{ steps.date.outputs.DATE }}
           path: /builder/armbian/output/images/*.img
           archive: true
           if-no-files-found: error
           retention-days: 90
 
   build-uefi-x86:
-    name: Build Armbian Minimal Forky Uefi-x86
+    name: Build Armbian CLi Forky Uefi-x86
     runs-on: ubuntu-24.04
     timeout-minutes: 600
     steps:
@@ -151,14 +151,14 @@ jobs:
         run: |
           chmod +x compile.sh
           ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky BUILD_DESKTOP=no \
-          BUILD_MINIMAL=yes DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT= \
+          BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT= \
           DESKTOP_ENVIRONMENT_CONFIG_NAME= KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no
            
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
-          name: Armbian.Minimal.Forky.Uefi-x86-${{ steps.date.outputs.DATE }}
+          name: Armbian.CLi.Forky.Uefi-x86-${{ steps.date.outputs.DATE }}
           path: /builder/armbian/output/images/*.img
           archive: true
           if-no-files-found: error
