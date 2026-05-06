@@ -154,9 +154,9 @@ jobs:
           CCACHE_DIR: /home/.ccache
         run: |
           chmod +x compile.sh
-          ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
-          BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
-          DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
+          ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky BUILD_DESKTOP=no \
+          BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT= \
+          DESKTOP_ENVIRONMENT_CONFIG_NAME= KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no
           
       - name: Upload | Armbian.iMG
