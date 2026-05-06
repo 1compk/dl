@@ -34,8 +34,8 @@ jobs:
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100GiB /mnt/mnt.img
-          sudo truncate -s 100GiB /root.img
+          sudo truncate -s 100G /mnt/mnt.img
+          sudo truncate -s 100G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
@@ -98,8 +98,8 @@ jobs:
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100GiB /mnt/mnt.img
-          sudo truncate -s 100GiB /root.img
+          sudo truncate -s 100G /mnt/mnt.img
+          sudo truncate -s 100G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
@@ -162,8 +162,8 @@ jobs:
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100GiB /mnt/mnt.img
-          sudo truncate -s 100GiB /root.img
+          sudo truncate -s 100G /mnt/mnt.img
+          sudo truncate -s 100G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
@@ -226,8 +226,8 @@ jobs:
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100GiB /mnt/mnt.img
-          sudo truncate -s 100GiB /root.img
+          sudo truncate -s 100G /mnt/mnt.img
+          sudo truncate -s 100G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
