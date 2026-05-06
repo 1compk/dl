@@ -53,7 +53,7 @@ jobs:
   - name: Prepare | System Cleanup & Optimization
     id: init
     env:
-      DEBIAN\_FRONTEND: noninteractive
+      DEBIAN_FRONTEND: noninteractive
     run: |
       set -x
       # (use the same commands from your original init step)
