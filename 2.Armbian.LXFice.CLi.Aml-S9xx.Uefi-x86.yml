@@ -67,6 +67,7 @@ jobs:
 
       - name: Prepare | Pre-install Build Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             ccache \
             git \
@@ -347,6 +348,7 @@ jobs:
 
       - name: Prepare | Pre-install Build Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             ccache \
             git \
@@ -627,6 +629,7 @@ jobs:
 
       - name: Prepare | Pre-install Build Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             ccache \
             git \
@@ -907,6 +910,7 @@ jobs:
 
       - name: Prepare | Pre-install Build Dependencies
         run: |
+          sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             ccache \
             git \

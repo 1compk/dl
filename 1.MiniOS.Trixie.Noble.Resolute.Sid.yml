@@ -1,263 +1,109 @@
 name: 1.Build MiniOS LXFce Trixie Noble Resolute SiD (Parallel)
+
 on:
   workflow_dispatch:
 
 env:
   TZ: Etc/GMT-7
+  IMAGE_SIZE: 100G
+  VG_NAME: github
+  LV_NAME: runner
+  MOUNT_POINT: /builder
+  APT_PACKAGES: "binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common pv"
+  DEBIAN_FRONTEND: noninteractive
 
 jobs:
-  build-trixie:
-    name: Build Trixie Edition
+  build:
+    name: Build ${{ matrix.release }} Edition
     runs-on: ubuntu-24.04
     timeout-minutes: 600
+    strategy:
+      fail-fast: false
+      matrix:
+        release: [trixie, noble, resolute, sid]
+        include:
+          - release: trixie
+            build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
+            build_dir: zMiniOS.SkyLine.Build.05.2026
+            command: sudo -E ./minios-cmd -d trixie -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
+
+          - release: noble
+            build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
+            build_dir: zMiniOS.SkyLine.Build.05.2026
+            command: sudo -E ./minios-cmd -d noble -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
+
+          - release: resolute
+            build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
+            build_dir: zMiniOS.SkyLine.Build.05.2026
+            command: sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
+
+          - release: sid
+            build_tar: zMinios.Skyline.Build.04.2026.tar.xz
+            build_dir: zMinios.Skyline.Build.04.2026
+            command: sudo sh sid.xfce.build.sh
+
     steps:
       - name: Prepare | Get Date
         id: date
         run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
 
-      - name: Prepare | Initialize & Install Dependencies
-        id: init
-        env:
-          DEBIAN_FRONTEND: noninteractive
+      - name: Prepare | Setup environment
         run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile /mnt/swapfile
-          sudo -E systemctl daemon-reload
-          sudo -E apt-get clean
-          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
-          sudo -E timedatectl set-ntp true
+          set -euo pipefail
+          sudo timedatectl set-timezone "${{ env.TZ }}"
+          sudo timedatectl set-ntp true || true
           date -u
-          timedatectl status || true
-          echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Prepare | Create Virtual Disk
+      - name: Prepare | Install dependencies (cached apt)
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt
+          key: apt-cache-ubuntu-24-04-v1
+          continue-on-error: true
+
+      - name: Prepare | Apt install required packages
         run: |
-          mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
-          root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100G /mnt/mnt.img
-          sudo truncate -s 100G /root.img
-          sudo losetup /dev/loop6 /mnt/mnt.img
-          sudo losetup /dev/loop7 /root.img
-          sudo pvcreate /dev/loop6
-          sudo pvcreate /dev/loop7
-          sudo vgcreate github /dev/loop6 /dev/loop7
-          sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
-          sudo mkdir -p /builder
-          sudo mount /dev/github/runner /builder
-          sudo chown -R runner:runner /builder
-          df -Th
-          echo "status=success" >> ${GITHUB_OUTPUT}
+          set -euo pipefail
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends $APT_PACKAGES
 
-      - name: Prepare | Download and Decompress Build Files
-        working-directory: /builder
+      - name: Prepare | Create and mount virtual disk
         run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMiniOS.SkyLine.Build.05.2026.tar.xz
-          tar -xf zMiniOS.SkyLine.Build.05.2026.tar.xz
+          set -euo pipefail
+          IMG_MNT=/mnt/mnt.img
+          IMG_ROOT=/root.img
+          sudo swapoff -a || true
+          sudo rm -f $IMG_MNT $IMG_ROOT || true
+          sudo truncate -s $IMAGE_SIZE $IMG_MNT
+          sudo truncate -s $IMAGE_SIZE $IMG_ROOT
+          LOOP_MNT=$(sudo losetup --find --show $IMG_MNT)
+          LOOP_ROOT=$(sudo losetup --find --show $IMG_ROOT)
+          sudo pvcreate $LOOP_MNT $LOOP_ROOT
+          sudo vgcreate $VG_NAME $LOOP_MNT $LOOP_ROOT || true
+          sudo lvcreate -n $LV_NAME -l 100%FREE $VG_NAME
+          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/${VG_NAME}/${LV_NAME}
+          sudo mkdir -p $MOUNT_POINT
+          sudo mount /dev/${VG_NAME}/${LV_NAME} $MOUNT_POINT
+          sudo chown -R $USER:$USER $MOUNT_POINT
 
-      - name: Build | Trixie
-        working-directory: /builder/zMiniOS.SkyLine.Build.05.2026
+      - name: Prepare | Download and extract build files
+        working-directory: ${{ env.MOUNT_POINT }}
         run: |
-          sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo -E ./minios-cmd -d trixie -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
+          set -euo pipefail
+          wget -q "https://github.com/1compk/minios/releases/download/live/${{ matrix.build_tar }}"
+          tar -xf "${{ matrix.build_tar }}"
 
-      - name: Upload | Trixie ISO
+      - name: Build | ${{ matrix.release }}
+        working-directory: ${{ env.MOUNT_POINT }}/${{ matrix.build_dir }}
+        run: |
+          set -euo pipefail
+          ${{ matrix.command }}
+
+      - name: Upload | ISO Artifact
         uses: actions/upload-artifact@v7
         with:
-          name: MiniOS-Trixie-ISO-${{ steps.date.outputs.DATE }}
-          path: /builder/zMiniOS.SkyLine.Build.05.2026/build/iso/*.iso
-          archive: false
-          if-no-files-found: error
-          retention-days: 30
-
-  build-noble:
-    name: Build Noble Edition
-    runs-on: ubuntu-24.04
-    timeout-minutes: 600
-    steps:
-      - name: Prepare | Get Date
-        id: date
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-      - name: Prepare | Initialize & Install Dependencies
-        id: init
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile /mnt/swapfile
-          sudo -E systemctl daemon-reload
-          sudo -E apt-get clean
-          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
-          sudo -E timedatectl set-ntp true
-          date -u
-          timedatectl status || true
-          echo "status=success" >> ${GITHUB_OUTPUT}
-
-      - name: Prepare | Create Virtual Disk
-        run: |
-          mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
-          root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100G /mnt/mnt.img
-          sudo truncate -s 100G /root.img
-          sudo losetup /dev/loop6 /mnt/mnt.img
-          sudo losetup /dev/loop7 /root.img
-          sudo pvcreate /dev/loop6
-          sudo pvcreate /dev/loop7
-          sudo vgcreate github /dev/loop6 /dev/loop7
-          sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
-          sudo mkdir -p /builder
-          sudo mount /dev/github/runner /builder
-          sudo chown -R runner:runner /builder
-          df -Th
-          echo "status=success" >> ${GITHUB_OUTPUT}
-
-      - name: Prepare | Download and Decompress Build Files
-        working-directory: /builder
-        run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMiniOS.SkyLine.Build.05.2026.tar.xz
-          tar -xf zMiniOS.SkyLine.Build.05.2026.tar.xz
-
-      - name: Build | Noble
-        working-directory: /builder/zMiniOS.SkyLine.Build.05.2026
-        run: |
-          sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo -E ./minios-cmd -d noble -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
-
-      - name: Upload | Noble ISO
-        uses: actions/upload-artifact@v7
-        with:
-          name: MiniOS-Noble-ISO-${{ steps.date.outputs.DATE }}
-          path: /builder/zMiniOS.SkyLine.Build.05.2026/build/iso/*.iso
-          archive: false
-          if-no-files-found: error
-          retention-days: 30
-
-  build-resolute:
-    name: Build Resolute Edition
-    runs-on: ubuntu-24.04
-    timeout-minutes: 600
-    steps:
-      - name: Prepare | Get Date
-        id: date
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-      - name: Prepare | Initialize & Install Dependencies
-        id: init
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile /mnt/swapfile
-          sudo -E systemctl daemon-reload
-          sudo -E apt-get clean
-          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
-          sudo -E timedatectl set-ntp true
-          date -u
-          timedatectl status || true
-          echo "status=success" >> ${GITHUB_OUTPUT}
-
-      - name: Prepare | Create Virtual Disk
-        run: |
-          mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
-          root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100G /mnt/mnt.img
-          sudo truncate -s 100G /root.img
-          sudo losetup /dev/loop6 /mnt/mnt.img
-          sudo losetup /dev/loop7 /root.img
-          sudo pvcreate /dev/loop6
-          sudo pvcreate /dev/loop7
-          sudo vgcreate github /dev/loop6 /dev/loop7
-          sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
-          sudo mkdir -p /builder
-          sudo mount /dev/github/runner /builder
-          sudo chown -R runner:runner /builder
-          df -Th
-          echo "status=success" >> ${GITHUB_OUTPUT}
-
-      - name: Prepare | Download and Decompress Build Files
-        working-directory: /builder
-        run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMiniOS.SkyLine.Build.05.2026.tar.xz
-          tar -xf zMiniOS.SkyLine.Build.05.2026.tar.xz
-
-      - name: Build | Resolute
-        working-directory: /builder/zMiniOS.SkyLine.Build.05.2026
-        run: |
-          sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
-
-      - name: Upload | Resolute ISO
-        uses: actions/upload-artifact@v7
-        with:
-          name: MiniOS-Resolute-ISO-${{ steps.date.outputs.DATE }}
-          path: /builder/zMiniOS.SkyLine.Build.05.2026/build/iso/*.iso
-          archive: false
-          if-no-files-found: error
-          retention-days: 30
-
-  build-sid:
-    name: Build SiD Edition
-    runs-on: ubuntu-24.04
-    timeout-minutes: 600
-    steps:
-      - name: Prepare | Get Date
-        id: date
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-      - name: Prepare | Initialize & Install Dependencies
-        id: init
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile /mnt/swapfile
-          sudo -E systemctl daemon-reload
-          sudo -E apt-get clean
-          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
-          sudo -E timedatectl set-ntp true
-          date -u
-          timedatectl status || true
-          echo "status=success" >> ${GITHUB_OUTPUT}
-
-      - name: Prepare | Create Virtual Disk
-        run: |
-          mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
-          root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100G /mnt/mnt.img
-          sudo truncate -s 100G /root.img
-          sudo losetup /dev/loop6 /mnt/mnt.img
-          sudo losetup /dev/loop7 /root.img
-          sudo pvcreate /dev/loop6
-          sudo pvcreate /dev/loop7
-          sudo vgcreate github /dev/loop6 /dev/loop7
-          sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
-          sudo mkdir -p /builder
-          sudo mount /dev/github/runner /builder
-          sudo chown -R runner:runner /builder
-          df -Th
-          echo "status=success" >> ${GITHUB_OUTPUT}
-
-      - name: Prepare | Download and Decompress Build Files
-        working-directory: /builder
-        run: |
-          wget -q https://github.com/1compk/minios/releases/download/live/zMinios.Skyline.Build.04.2026.tar.xz
-          tar -xf zMinios.Skyline.Build.04.2026.tar.xz
-
-      - name: Build | SiD
-        working-directory: /builder/zMinios.Skyline.Build.04.2026
-        run: |
-          sudo apt install binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common -y
-          sudo sh sid.xfce.build.sh
-
-      - name: Upload | SiD ISO
-        uses: actions/upload-artifact@v7
-        with:
-          name: MiniOS-SiD-ISO-${{ steps.date.outputs.DATE }}
-          path: /builder/zMinios.Skyline.Build.04.2026/build/iso/*.iso
+          name: MiniOS-${{ matrix.release }}-${{ steps.date.outputs.DATE }}
+          path: ${{ env.MOUNT_POINT }}/${{ matrix.build_dir }}/build/iso/*.iso
           archive: false
           if-no-files-found: error
           retention-days: 30
