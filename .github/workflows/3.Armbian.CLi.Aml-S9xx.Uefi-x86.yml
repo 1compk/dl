@@ -1,4 +1,4 @@
-name: 2.Build Armbian CLi Forky Aml-S9xx Uefi-x86 (Parallel)
+name: 3.Build Armbian CLi Forky Aml-S9xx Uefi-x86 (Parallel)
 on:
   workflow_dispatch:
 
