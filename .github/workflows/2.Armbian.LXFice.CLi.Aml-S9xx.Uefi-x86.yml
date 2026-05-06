@@ -57,22 +57,22 @@ jobs:
     run: |
       set -x
       # (use the same commands from your original init step)
-      echo "status=success" >> \${GITHUB\_OUTPUT}
+      echo "status=success" >> ${GITHUB_OUTPUT}
       set +x
 
   - name: Prepare | Pre-install Build Dependencies
     run: |
       sudo apt-get update
-      sudo apt-get install -y --no-install-recommends \\
+      sudo apt-get install -y --no-install-recommends \
         ccache git wget curl dosfstools mtools parted e2fsprogs fdisk rsync lsof pv
 
   - name: Prepare | Configure ccache
     run: |
       mkdir -p /home/runner/.ccache
-      ccache -M \${CCACHE\_MAXSIZE}
+      ccache -M ${CCACHE_MAXSIZE}
       ccache --set-config=compression=true
-      ccache --set-config=compression\_level=6
-      ccache --set-config=sloppiness=file\_stat\_matches
+      ccache --set-config=compression_level=6
+      ccache --set-config=sloppiness=file_stat_matches
       ccache -p
       ccache -z
 
@@ -81,10 +81,10 @@ jobs:
     id: ccache-restore
     with:
       path: /home/runner/.ccache
-      key: ccache-\${{ matrix.board }}-\${{ matrix.de }}-\${{ runner.os }}-\${{ hashFiles('\*\*/compile.sh') }}
+      key: ccache-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
       restore-keys: |
-        ccache-\${{ matrix.board }}-\${{ matrix.de }}-\${{ runner.os }}-
-        ccache-\${{ matrix.board }}-\${{ matrix.de }}-
+        ccache-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-
+        ccache-${{ matrix.board }}-${{ matrix.de }}-
 
   - name: Prepare | Create Optimized Virtual Disk
     run: |
@@ -149,11 +149,11 @@ jobs:
         /builder/armbian/sources/linux-kernel
         /builder/armbian/cache
         /builder/armbian/output/debs
-      key: armbian-kernel-\${{ matrix.board }}-\${{ matrix.de }}-\${{ runner.os }}-\${{ hashFiles('\*\*/compile.sh') }}
+      key: armbian-kernel-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
       restore-keys: |
-        armbian-kernel-\${{ matrix.board }}-\${{ matrix.de }}-\${{ runner.os }}-
-        armbian-kernel-\${{ matrix.board }}-\${{ matrix.de }}-
-        armbian-kernel-\${{ matrix.board }}-
+        armbian-kernel-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-
+        armbian-kernel-${{ matrix.board }}-${{ matrix.de }}-
+        armbian-kernel-${{ matrix.board }}-
 
   - name: Prepare | Display Cache Status
     run: |
@@ -171,46 +171,46 @@ jobs:
       set -x
       sudo chown -R runner:runner /builder/armbian
       chmod +x compile.sh
-      export CCACHE\_SLOPPINESS="file\_stat\_matches,time\_macros"
-      export CCACHE\_IGNOREHEADERS="/usr/include/sys/stat.h"
+      export CCACHE_SLOPPINESS="file_stat_matches,time_macros"
+      export CCACHE_IGNOREHEADERS="/usr/include/sys/stat.h"
       # Map matrix.de to build variables
-      if [ "\${{ matrix.de }}" = "xfce" ]; then
-        BUILD\_DESKTOP=yes
-        DESKTOP\_ENVIRONMENT=xfce
-        BUILD\_MINIMAL=no
+      if [ "${{ matrix.de }}" = "xfce" ]; then
+        BUILD_DESKTOP=yes
+        DESKTOP_ENVIRONMENT=xfce
+        DEConfig=config_base
       else
-        BUILD\_DESKTOP=no
-        DESKTOP\_ENVIRONMENT=
-        BUILD\_MINIMAL=yes
+        BUILD_DESKTOP=no
+        DESKTOP_ENVIRONMENT=
+        DEConfig=
       fi
       # Run compile.sh with matrix variables
-      time ./compile.sh build \\
-        EXPERT=yes \\
-        BOARD=\${{ matrix.board }} \\
-        BRANCH=edge \\
-        RELEASE=forky \\
-        BUILD\_DESKTOP=\${BUILD\_DESKTOP} \\
-        BUILD\_MINIMAL=\${BUILD\_MINIMAL} \\
-        DESKTOP\_ENVIRONMENT=\${DESKTOP\_ENVIRONMENT} \\
-        DESKTOP\_ENVIRONMENT\_CONFIG\_NAME=config\_base \\
-        KERNEL\_BTF=no \\
-        KERNEL\_CONFIGURE=no \\
-        KERNEL\_GIT=no \\
-        DOCKER\_ARMBIAN=no \\
-        SKIP\_ARMBIAN\_CONFIG=yes \\
-        COMPRESS\_OUTPUTIMAGE=gz \\
-        USE\_CCACHE=yes \\
-        CCACHE\_DIR=/home/runner/.ccache \\
-        BUILD\_ALL=no \\
-        SHOW\_LOG=no \\
-        EXTRAWIFI=no \\
+      time ./compile.sh build \
+        EXPERT=yes \
+        BOARD=${{ matrix.board }} \
+        BRANCH=edge \
+        RELEASE=forky \
+        BUILD_DESKTOP=${BUILD_DESKTOP} \
+        BUILD_MINIMAL=no \
+        DESKTOP_ENVIRONMENT=${DESKTOP_ENVIRONMENT} \
+        DESKTOP_ENVIRONMENT_CONFIG_NAME=${DEConfig} \
+        KERNEL_BTF=no \
+        KERNEL_CONFIGURE=no \
+        KERNEL_GIT=no \
+        DOCKER_ARMBIAN=no \
+        SKIP_ARMBIAN\_CONFIG=yes \
+        COMPRESS_OUTPUTIMAGE=gz \
+        USE_CCACHE=yes \
+        CCACHE_DIR=/home/runner/.ccache \
+        BUILD_ALL=no \
+        SHOW_LOG=no \
+        EXTRAWIFI=no \
         WIREGUARD=no || {
           echo "Build failed! Checking logs..."
           tail -500 /builder/armbian/output/debug/*.log 2>/dev/null || true
           exit 1
         }
       set +x
-      echo "build\_status=success" >> \${GITHUB\_OUTPUT}
+      echo "build_status=success" >> ${GITHUB_OUTPUT}
 
   - name: Prepare | Save Build Statistics
     if: always()
@@ -219,9 +219,9 @@ jobs:
       ccache -s 2>/dev/null | tee /tmp/build-stats/ccache-stats.txt || true
       du -sh /builder/armbian/output/* 2>/dev/null | tee /tmp/build-stats/output-sizes.txt || true
       {
-        echo "Kernel sources: \$(du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo '0B')"
-        echo "Build cache: \$(du -sh /builder/armbian/cache 2>/dev/null || echo '0B')"
-        echo "ccache: \$(du -sh /home/runner/.ccache 2>/dev/null || echo '0B')"
+        echo "Kernel sources: $(du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo '0B')"
+        echo "Build cache: $(du -sh /builder/armbian/cache 2>/dev/null || echo '0B')"
+        echo "ccache: $(du -sh /home/runner/.ccache 2>/dev/null || echo '0B')"
       } | tee /tmp/build-stats/cache-sizes.txt
       df -h /builder | tee /tmp/build-stats/disk-usage.txt
 
@@ -229,7 +229,7 @@ jobs:
     uses: actions/upload-artifact@v7
     if: success()
     with:
-      name: Armbian.\${{ matrix.de == 'xfce' && 'LXFce' || 'CLI' }}.\${{ matrix.board }}.\${{ steps.date.outputs.DATE }}
+      name: Armbian.${{ matrix.de == 'xfce' && 'LXFce' || 'CLI' }}.${{ matrix.board }}.${{ steps.date.outputs.DATE }}
       path: /builder/armbian/output/images/*.img*
       if-no-files-found: error
       retention-days: 90
