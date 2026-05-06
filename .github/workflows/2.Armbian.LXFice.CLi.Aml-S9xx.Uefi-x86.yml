@@ -1,16 +1,15 @@
 name: 2.Build Armbian LXFice CLi Forky Aml-S9xx Uefi-x86 (Parallel)
-
 on:
- workflow_dispatch:
-  inputs:
-   enable_cache_cleanup:
-    description: 'Clean old cache before building'
-    required: false
-    default: 'false'
-    type: choice
-    options:
-     - 'true'
-     - 'false'
+  workflow_dispatch:
+    inputs:
+      enable_cache_cleanup:
+        description: 'Clean old cache before building'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
 
 env:
   TZ: Etc/GMT-7
@@ -22,72 +21,89 @@ env:
   CCACHE_BASEDIR: /builder/armbian
 
 jobs:
- build:
-  name: Build Armbian Matrix (${{ matrix.board }} / ${{ matrix.de }})
-  runs-on: ubuntu-24.04-arm
-  timeout-minutes: 600
-  strategy:
-   fail-fast: false
-   matrix:
-    board: [aml-s9xx-box, uefi-x86]
-    de: [xfce, cli]
+  build-aml-s9xx:
+    name: Build Armbian LXFce Forky Aml-S9xx
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 600
+    steps:
+      - name: Prepare | Get Date & Environment Info
+        id: date
+        run: |
+          echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+          echo "TIMESTAMP=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
+          echo "Available disk space:"
+          df -h /mnt / | grep -E '^/|Filesystem'
 
-  env:
-    TZ: Etc/GMT-7
-    CCACHE_DIR: /home/runner/.ccache
-    CCACHE_COMPRESS: 1
-    CCACHE_COMPRESSLEVEL: 6
-    CCACHE_MAXSIZE: 25G
-    CCACHE_SLOPPINESS: file_stat_matches
-    CCACHE_BASEDIR: /builder/armbian
+      - name: Prepare | System Cleanup & Optimization
+        id: init
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          set -x
+          
+          # Disable unnecessary services
+          sudo systemctl disable --now snapd.service snapd.socket 2>/dev/null || true
+          sudo systemctl disable --now apt-daily.service apt-daily.timer 2>/dev/null || true
+          
+          # Clean system
+          sudo swapoff -a
+          sudo rm -f /swapfile /mnt/swapfile
+          sudo rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+          sudo rm -rf /usr/share/doc/* /usr/share/man/*
+          
+          # Optimize system settings
+          sudo -E systemctl daemon-reload
+          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
+          sudo -E timedatectl set-ntp true
+          
+          # Increase ulimits for build
+          sudo sh -c 'echo "* soft nofile 65535" >> /etc/security/limits.conf'
+          sudo sh -c 'echo "* hard nofile 65535" >> /etc/security/limits.conf'
+          
+          date -u
+          timedatectl status || true
+          echo "status=success" >> ${GITHUB_OUTPUT}
+          set +x
 
-  steps:
-  - name: Prepare | Get Date & Environment Info
-    id: date
-    run: |
-      echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-      echo "TIMESTAMP=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
-      echo "Available disk space:"
-      df -h /mnt / | grep -E '^/|Filesystem'
+      - name: Prepare | Pre-install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ccache \
+            git \
+            wget \
+            curl \
+            dosfstools \
+            mtools \
+            parted \
+            e2fsprogs \
+            fdisk \
+            rsync \
+            lsof \
+            pv 2>&1 | tail -20
 
-  - name: Prepare | System Cleanup & Optimization
-    id: init
-    env:
-      DEBIAN_FRONTEND: noninteractive
-    run: |
-      set -x
-      # (use the same commands from your original init step)
-      echo "status=success" >> ${GITHUB_OUTPUT}
-      set +x
+      - name: Prepare | Configure ccache
+        run: |
+          mkdir -p /home/runner/.ccache
+          ccache -M ${CCACHE_MAXSIZE}
+          ccache --set-config=compression=true
+          ccache --set-config=compression_level=6
+          ccache --set-config=sloppiness=file_stat_matches
+          ccache -p
+          ccache -z  # Reset stats
 
-  - name: Prepare | Pre-install Build Dependencies
-    run: |
-      sudo apt-get update
-      sudo apt-get install -y --no-install-recommends \
-        ccache git wget curl dosfstools mtools parted e2fsprogs fdisk rsync lsof pv
+      - name: Prepare | Restore ccache from Cache
+        uses: actions/cache@v4
+        id: ccache-restore
+        with:
+          path: /home/runner/.ccache
+          key: ccache-aml-s9xx-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            ccache-aml-s9xx-${{ runner.os }}-
+            ccache-aml-s9xx-
 
-  - name: Prepare | Configure ccache
-    run: |
-      mkdir -p /home/runner/.ccache
-      ccache -M ${CCACHE_MAXSIZE}
-      ccache --set-config=compression=true
-      ccache --set-config=compression_level=6
-      ccache --set-config=sloppiness=file_stat_matches
-      ccache -p
-      ccache -z
-
-  - name: Prepare | Restore ccache from Cache
-    uses: actions/cache@v4
-    id: ccache-restore
-    with:
-      path: /home/runner/.ccache
-      key: ccache-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
-      restore-keys: |
-        ccache-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-
-        ccache-${{ matrix.board }}-${{ matrix.de }}-
-
-  - name: Prepare | Create Optimized Virtual Disk
-    run: |
+      - name: Prepare | Create Optimized Virtual Disk
+        run: |
           set -x
           
           # Calculate available space
@@ -130,107 +146,1001 @@ jobs:
           df -Th /builder
           set +x
 
-  - name: Prepare | Clone Armbian Build System
-    working-directory: /builder
-    run: |
-      set -x
-      git clone --single-branch --branch main --filter=blob:none https://github.com/1compk/armbian.build.git armbian
-      cd armbian
-      mkdir -p output/images output/debs output/debug sources/linux-kernel cache/sources cache/ccache userpatches/overlay userpatches/kernel/linux-aml-s9xx ccache-stats
-      sudo chown -R runner:runner /builder/armbian
-      chmod -R u+w /builder/armbian
-      set +x
+      - name: Prepare | Clone Armbian Build System
+        working-directory: /builder
+        run: |
+          set -x
+          
+          # Use full clone but with single branch
+          git clone \
+            --single-branch \
+            --branch main \
+            --filter=blob:none \
+            https://github.com/1compk/armbian.build.git armbian
+          
+          cd armbian
+          
+          # Create necessary directories
+          mkdir -p \
+            output/images \
+            output/debs \
+            output/debug \
+            sources/linux-kernel \
+            cache/sources \
+            cache/ccache \
+            userpatches/overlay \
+            userpatches/kernel/linux-aml-s9xx \
+            ccache-stats
+          
+          # Setup permissions
+          sudo chown -R runner:runner /builder/armbian
+          chmod -R u+w /builder/armbian
+          
+          df -h .
+          set +x
 
-  - name: Prepare | Restore Kernel & Build Cache
-    uses: actions/cache@v4
-    id: kernel-cache
-    with:
-      path: |
-        /builder/armbian/sources/linux-kernel
-        /builder/armbian/cache
-        /builder/armbian/output/debs
-      key: armbian-kernel-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
-      restore-keys: |
-        armbian-kernel-${{ matrix.board }}-${{ matrix.de }}-${{ runner.os }}-
-        armbian-kernel-${{ matrix.board }}-${{ matrix.de }}-
-        armbian-kernel-${{ matrix.board }}-
+      - name: Prepare | Restore Kernel & Build Cache
+        uses: actions/cache@v4
+        id: kernel-cache
+        with:
+          path: |
+            /builder/armbian/sources/linux-kernel
+            /builder/armbian/cache
+            /builder/armbian/output/debs
+          key: armbian-kernel-aml-s9xx-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            armbian-kernel-aml-s9xx-${{ runner.os }}-edge-
+            armbian-kernel-aml-s9xx-${{ runner.os }}-
+            armbian-kernel-aml-s9xx-
 
-  - name: Prepare | Display Cache Status
-    run: |
-      echo "=== ccache Stats ==="
-      ccache -s 2>/dev/null | head -20
-      du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || true
-      du -sh /builder/armbian/cache 2>/dev/null || true
-      du -sh /builder/armbian/output/debs 2>/dev/null || true
-      df -h /builder | tail -1
+      - name: Prepare | Display Cache Status
+        run: |
+          echo "╔════════════════════════════════════════╗"
+          echo "║      CACHE STATUS BEFORE BUILD         ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Stats ==="
+          ccache -s 2>/dev/null | head -20
+          
+          echo ""
+          echo "=== Kernel Sources Cache ==="
+          du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo "No kernel sources cached"
+          
+          echo ""
+          echo "=== Armbian Build Cache ==="
+          du -sh /builder/armbian/cache 2>/dev/null || echo "No build cache"
+          
+          echo ""
+          echo "=== Prebuilt DEBs ==="
+          du -sh /builder/armbian/output/debs 2>/dev/null || echo "No prebuilt debs"
+          
+          echo ""
+          echo "=== Available Disk Space ==="
+          df -h /builder | tail -1
 
-  - name: Build | Armbian with Optimizations
-    id: build
-    working-directory: /builder/armbian
-    run: |
-      set -x
-      sudo chown -R runner:runner /builder/armbian
-      chmod +x compile.sh
-      export CCACHE_SLOPPINESS="file_stat_matches,time_macros"
-      export CCACHE_IGNOREHEADERS="/usr/include/sys/stat.h"
-      # Map matrix.de to build variables
-      if [ "${{ matrix.de }}" = "xfce" ]; then
-        BUILD_DESKTOP=yes
-        DESKTOP_ENVIRONMENT=xfce
-        DEConfig=config_base
-      else
-        BUILD_DESKTOP=no
-        DESKTOP_ENVIRONMENT=
-        DEConfig=
-      fi
-      # Run compile.sh with matrix variables
-      time ./compile.sh build \
-        EXPERT=yes \
-        BOARD=${{ matrix.board }} \
-        BRANCH=edge \
-        RELEASE=forky \
-        BUILD_DESKTOP=${BUILD_DESKTOP} \
-        BUILD_MINIMAL=no \
-        DESKTOP_ENVIRONMENT=${DESKTOP_ENVIRONMENT} \
-        DESKTOP_ENVIRONMENT_CONFIG_NAME=${DEConfig} \
-        KERNEL_BTF=no \
-        KERNEL_CONFIGURE=no \
-        KERNEL_GIT=no \
-        DOCKER_ARMBIAN=no \
-        SKIP_ARMBIAN\_CONFIG=yes \
-        COMPRESS_OUTPUTIMAGE=gz \
-        USE_CCACHE=yes \
-        CCACHE_DIR=/home/runner/.ccache \
-        BUILD_ALL=no \
-        SHOW_LOG=no \
-        EXTRAWIFI=no \
-        WIREGUARD=no || {
-          echo "Build failed! Checking logs..."
-          tail -500 /builder/armbian/output/debug/*.log 2>/dev/null || true
-          exit 1
-        }
-      set +x
-      echo "build_status=success" >> ${GITHUB_OUTPUT}
+      - name: Build | Armbian with Optimizations
+        id: build
+        working-directory: /builder/armbian
+        run: |
+          set -x
+          
+          sudo chown -R runner:runner /builder/armbian
+          chmod +x compile.sh
+          
+          # Pre-export environment variables for build
+          export CCACHE_SLOPPINESS="file_stat_matches,time_macros"
+          export CCACHE_IGNOREHEADERS="/usr/include/sys/stat.h"
+          
+          # Run build with optimizations
+          time ./compile.sh build \
+            EXPERT=yes \
+            BOARD=aml-s9xx-box \
+            BRANCH=edge \
+            RELEASE=forky \
+            BUILD_DESKTOP=yes \
+            BUILD_MINIMAL=no \
+            DESKTOP_APPGROUPS_SELECTED= \
+            DESKTOP_ENVIRONMENT=xfce \
+            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
+            KERNEL_BTF=no \
+            KERNEL_CONFIGURE=no \
+            KERNEL_GIT=no \
+            DOCKER_ARMBIAN=no \
+            SKIP_ARMBIAN_CONFIG=yes \
+            COMPRESS_OUTPUTIMAGE=gz \
+            USE_CCACHE=yes \
+            CCACHE_DIR=/home/runner/.ccache \
+            BUILD_ALL=no \
+            SHOW_LOG=no \
+            EXTRAWIFI=no \
+            WIREGUARD=no || {
+              echo "Build failed! Checking logs..."
+              tail -500 /builder/armbian/output/debug/*.log 2>/dev/null || true
+              exit 1
+            }
+          
+          set +x
+          echo "build_status=success" >> ${GITHUB_OUTPUT}
 
-  - name: Prepare | Save Build Statistics
-    if: always()
-    run: |
-      mkdir -p /tmp/build-stats
-      ccache -s 2>/dev/null | tee /tmp/build-stats/ccache-stats.txt || true
-      du -sh /builder/armbian/output/* 2>/dev/null | tee /tmp/build-stats/output-sizes.txt || true
-      {
-        echo "Kernel sources: $(du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo '0B')"
-        echo "Build cache: $(du -sh /builder/armbian/cache 2>/dev/null || echo '0B')"
-        echo "ccache: $(du -sh /home/runner/.ccache 2>/dev/null || echo '0B')"
-      } | tee /tmp/build-stats/cache-sizes.txt
-      df -h /builder | tee /tmp/build-stats/disk-usage.txt
+      - name: Prepare | Save Build Statistics
+        if: always()
+        run: |
+          mkdir -p /tmp/build-stats
+          
+          echo "╔════════════════════════════════════════╗"
+          echo "║      BUILD STATISTICS & CACHE INFO     ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Final Statistics ==="
+          ccache -s 2>/dev/null | tee /tmp/build-stats/ccache-stats.txt || echo "ccache stats unavailable"
+          
+          echo ""
+          echo "=== Build Artifact Sizes ==="
+          du -sh /builder/armbian/output/* 2>/dev/null | tee /tmp/build-stats/output-sizes.txt
+          
+          echo ""
+          echo "=== Cache Sizes for Next Run ==="
+          {
+            echo "Kernel sources: $(du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo '0B')"
+            echo "Build cache: $(du -sh /builder/armbian/cache 2>/dev/null || echo '0B')"
+            echo "ccache: $(du -sh /home/runner/.ccache 2>/dev/null || echo '0B')"
+          } | tee /tmp/build-stats/cache-sizes.txt
+          
+          echo ""
+          echo "=== Final Disk Usage ==="
+          df -h /builder | tee /tmp/build-stats/disk-usage.txt
 
-  - name: Upload | Build Artifacts
-    uses: actions/upload-artifact@v7
-    if: success()
-    with:
-      name: Armbian.${{ matrix.de == 'xfce' && 'LXFce' || 'CLI' }}.${{ matrix.board }}.${{ steps.date.outputs.DATE }}
-      path: /builder/armbian/output/images/*.img*
-      if-no-files-found: error
-      retention-days: 90
-      compression-level: 8
+      - name: Upload | Build Artifacts
+        uses: actions/upload-artifact@v7
+        if: success()
+        with:
+          name: Armbian.LXFce.Forky.Aml-S9xx-${{ steps.date.outputs.DATE }}
+          path: /builder/armbian/output/images/*.img*
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 8
+
+  build-uefi-x86:
+    name: Build Armbian LXFce Forky Uefi-x86
+    runs-on: ubuntu-24.04
+    timeout-minutes: 600
+    steps:
+      - name: Prepare | Get Date & Environment Info
+        id: date
+        run: |
+          echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+          echo "TIMESTAMP=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
+          echo "Available disk space:"
+          df -h /mnt / | grep -E '^/|Filesystem'
+
+      - name: Prepare | System Cleanup & Optimization
+        id: init
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          set -x
+          
+          # Disable unnecessary services
+          sudo systemctl disable --now snapd.service snapd.socket 2>/dev/null || true
+          sudo systemctl disable --now apt-daily.service apt-daily.timer 2>/dev/null || true
+          
+          # Clean system
+          sudo swapoff -a
+          sudo rm -f /swapfile /mnt/swapfile
+          sudo rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+          sudo rm -rf /usr/share/doc/* /usr/share/man/*
+          
+          # Optimize system settings
+          sudo -E systemctl daemon-reload
+          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
+          sudo -E timedatectl set-ntp true
+          
+          # Increase ulimits for build
+          sudo sh -c 'echo "* soft nofile 65535" >> /etc/security/limits.conf'
+          sudo sh -c 'echo "* hard nofile 65535" >> /etc/security/limits.conf'
+          
+          date -u
+          timedatectl status || true
+          echo "status=success" >> ${GITHUB_OUTPUT}
+          set +x
+
+      - name: Prepare | Pre-install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ccache \
+            git \
+            wget \
+            curl \
+            dosfstools \
+            mtools \
+            parted \
+            e2fsprogs \
+            fdisk \
+            rsync \
+            lsof \
+            pv 2>&1 | tail -20
+
+      - name: Prepare | Configure ccache
+        run: |
+          mkdir -p /home/runner/.ccache
+          ccache -M ${CCACHE_MAXSIZE}
+          ccache --set-config=compression=true
+          ccache --set-config=compression_level=6
+          ccache --set-config=sloppiness=file_stat_matches
+          ccache -p
+          ccache -z  # Reset stats
+
+      - name: Prepare | Restore ccache from Cache
+        uses: actions/cache@v4
+        id: ccache-restore
+        with:
+          path: /home/runner/.ccache
+          key: ccache-uefi-x86-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            ccache-uefi-x86-${{ runner.os }}-
+            ccache-uefi-x86-
+
+      - name: Prepare | Create Optimized Virtual Disk
+        run: |
+          set -x
+          
+          # Calculate available space
+          available_root=$(df / | tail -1 | awk '{print int($4/1024)-10}')
+          available_mnt=$(df /mnt | tail -1 | awk '{print int($4/1024)-10}')
+          
+          # Use 90% of available space, minimum 80GB each
+          root_size=$((available_root > 80 ? available_root : 80))
+          mnt_size=$((available_mnt > 80 ? available_mnt : 80))
+          
+          echo "Allocating: root=${root_size}GB, mnt=${mnt_size}GB"
+          
+          # Create and setup disk
+          sudo truncate -s 100G /root.img
+          sudo truncate -s 100G /mnt/mnt.img
+          
+          sudo losetup /dev/loop6 /mnt/mnt.img
+          sudo losetup /dev/loop7 /root.img
+          
+          sudo pvcreate /dev/loop6 /dev/loop7
+          sudo vgcreate github /dev/loop6 /dev/loop7
+          
+          # Single LV with 100% free space
+          sudo lvcreate -n runner -l 100%FREE github
+          
+          # XFS with optimizations for large files
+          sudo mkfs.xfs -f \
+            -i sparse=0 \
+            -b size=4096 \
+            -d agcount=$(nproc) \
+            -m crc=1 \
+            /dev/github/runner
+          
+          # Mount with performance options
+          sudo mkdir -p /builder
+          sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k /dev/github/runner /builder
+          
+          sudo chown -R runner:runner /builder
+          
+          df -Th /builder
+          set +x
+
+      - name: Prepare | Clone Armbian Build System
+        working-directory: /builder
+        run: |
+          set -x
+          
+          # Use full clone but with single branch
+          git clone \
+            --single-branch \
+            --branch main \
+            --filter=blob:none \
+            https://github.com/1compk/armbian.build.git armbian
+          
+          cd armbian
+          
+          # Create necessary directories
+          mkdir -p \
+            output/images \
+            output/debs \
+            output/debug \
+            sources/linux-kernel \
+            cache/sources \
+            cache/ccache \
+            userpatches/overlay \
+            userpatches/kernel/linux-uefi-x86 \
+            ccache-stats
+          
+          # Setup permissions
+          sudo chown -R runner:runner /builder/armbian
+          chmod -R u+w /builder/armbian
+          
+          df -h .
+          set +x
+
+      - name: Prepare | Restore Kernel & Build Cache
+        uses: actions/cache@v4
+        id: kernel-cache
+        with:
+          path: |
+            /builder/armbian/sources/linux-kernel
+            /builder/armbian/cache
+            /builder/armbian/output/debs
+          key: armbian-kernel-uefi-x86-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            armbian-kernel-uefi-x86-${{ runner.os }}-edge-
+            armbian-kernel-uefi-x86-${{ runner.os }}-
+            armbian-kernel-uefi-x86-
+
+      - name: Prepare | Display Cache Status
+        run: |
+          echo "╔════════════════════════════════════════╗"
+          echo "║      CACHE STATUS BEFORE BUILD         ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Stats ==="
+          ccache -s 2>/dev/null | head -20
+          
+          echo ""
+          echo "=== Kernel Sources Cache ==="
+          du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo "No kernel sources cached"
+          
+          echo ""
+          echo "=== Armbian Build Cache ==="
+          du -sh /builder/armbian/cache 2>/dev/null || echo "No build cache"
+          
+          echo ""
+          echo "=== Prebuilt DEBs ==="
+          du -sh /builder/armbian/output/debs 2>/dev/null || echo "No prebuilt debs"
+          
+          echo ""
+          echo "=== Available Disk Space ==="
+          df -h /builder | tail -1
+
+      - name: Build | Armbian with Optimizations
+        id: build
+        working-directory: /builder/armbian
+        run: |
+          set -x
+          
+          sudo chown -R runner:runner /builder/armbian
+          chmod +x compile.sh
+          
+          # Pre-export environment variables for build
+          export CCACHE_SLOPPINESS="file_stat_matches,time_macros"
+          export CCACHE_IGNOREHEADERS="/usr/include/sys/stat.h"
+          
+          # Run build with optimizations
+          time ./compile.sh build \
+            EXPERT=yes \
+            BOARD=uefi-x86 \
+            BRANCH=edge \
+            RELEASE=forky \
+            BUILD_DESKTOP=yes \
+            BUILD_MINIMAL=no \
+            DESKTOP_APPGROUPS_SELECTED= \
+            DESKTOP_ENVIRONMENT=xfce \
+            DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
+            KERNEL_BTF=no \
+            KERNEL_CONFIGURE=no \
+            KERNEL_GIT=no \
+            DOCKER_ARMBIAN=no \
+            SKIP_ARMBIAN_CONFIG=yes \
+            COMPRESS_OUTPUTIMAGE=gz \
+            USE_CCACHE=yes \
+            CCACHE_DIR=/home/runner/.ccache \
+            BUILD_ALL=no \
+            SHOW_LOG=no \
+            EXTRAWIFI=no \
+            WIREGUARD=no || {
+              echo "Build failed! Checking logs..."
+              tail -500 /builder/armbian/output/debug/*.log 2>/dev/null || true
+              exit 1
+            }
+          
+          set +x
+          echo "build_status=success" >> ${GITHUB_OUTPUT}
+
+      - name: Prepare | Save Build Statistics
+        if: always()
+        run: |
+          mkdir -p /tmp/build-stats
+          
+          echo "╔════════════════════════════════════════╗"
+          echo "║      BUILD STATISTICS & CACHE INFO     ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Final Statistics ==="
+          ccache -s 2>/dev/null | tee /tmp/build-stats/ccache-stats.txt || echo "ccache stats unavailable"
+          
+          echo ""
+          echo "=== Build Artifact Sizes ==="
+          du -sh /builder/armbian/output/* 2>/dev/null | tee /tmp/build-stats/output-sizes.txt
+          
+          echo ""
+          echo "=== Cache Sizes for Next Run ==="
+          {
+            echo "Kernel sources: $(du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo '0B')"
+            echo "Build cache: $(du -sh /builder/armbian/cache 2>/dev/null || echo '0B')"
+            echo "ccache: $(du -sh /home/runner/.ccache 2>/dev/null || echo '0B')"
+          } | tee /tmp/build-stats/cache-sizes.txt
+          
+          echo ""
+          echo "=== Final Disk Usage ==="
+          df -h /builder | tee /tmp/build-stats/disk-usage.txt
+
+      - name: Upload | Build Artifacts
+        uses: actions/upload-artifact@v7
+        if: success()
+        with:
+          name: Armbian.LXFce.Forky.Uefi-x86-${{ steps.date.outputs.DATE }}
+          path: /builder/armbian/output/images/*.img*
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 8
+
+  build-aml-s9xx-cli:
+    name: Build Armbian CLi Forky Aml-S9xx
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 600
+    steps:
+      - name: Prepare | Get Date & Environment Info
+        id: date
+        run: |
+          echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+          echo "TIMESTAMP=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
+          echo "Available disk space:"
+          df -h /mnt / | grep -E '^/|Filesystem'
+
+      - name: Prepare | System Cleanup & Optimization
+        id: init
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          set -x
+          
+          # Disable unnecessary services
+          sudo systemctl disable --now snapd.service snapd.socket 2>/dev/null || true
+          sudo systemctl disable --now apt-daily.service apt-daily.timer 2>/dev/null || true
+          
+          # Clean system
+          sudo swapoff -a
+          sudo rm -f /swapfile /mnt/swapfile
+          sudo rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+          sudo rm -rf /usr/share/doc/* /usr/share/man/*
+          
+          # Optimize system settings
+          sudo -E systemctl daemon-reload
+          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
+          sudo -E timedatectl set-ntp true
+          
+          # Increase ulimits for build
+          sudo sh -c 'echo "* soft nofile 65535" >> /etc/security/limits.conf'
+          sudo sh -c 'echo "* hard nofile 65535" >> /etc/security/limits.conf'
+          
+          date -u
+          timedatectl status || true
+          echo "status=success" >> ${GITHUB_OUTPUT}
+          set +x
+
+      - name: Prepare | Pre-install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ccache \
+            git \
+            wget \
+            curl \
+            dosfstools \
+            mtools \
+            parted \
+            e2fsprogs \
+            fdisk \
+            rsync \
+            lsof \
+            pv 2>&1 | tail -20
+
+      - name: Prepare | Configure ccache
+        run: |
+          mkdir -p /home/runner/.ccache
+          ccache -M ${CCACHE_MAXSIZE}
+          ccache --set-config=compression=true
+          ccache --set-config=compression_level=6
+          ccache --set-config=sloppiness=file_stat_matches
+          ccache -p
+          ccache -z  # Reset stats
+
+      - name: Prepare | Restore ccache from Cache
+        uses: actions/cache@v4
+        id: ccache-restore
+        with:
+          path: /home/runner/.ccache
+          key: ccache-aml-s9xx-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            ccache-aml-s9xx-${{ runner.os }}-
+            ccache-aml-s9xx-
+
+      - name: Prepare | Create Optimized Virtual Disk
+        run: |
+          set -x
+          
+          # Calculate available space
+          available_root=$(df / | tail -1 | awk '{print int($4/1024)-10}')
+          available_mnt=$(df /mnt | tail -1 | awk '{print int($4/1024)-10}')
+          
+          # Use 90% of available space, minimum 80GB each
+          root_size=$((available_root > 80 ? available_root : 80))
+          mnt_size=$((available_mnt > 80 ? available_mnt : 80))
+          
+          echo "Allocating: root=${root_size}GB, mnt=${mnt_size}GB"
+          
+          # Create and setup disk
+          sudo truncate -s 100G /root.img
+          sudo truncate -s 100G /mnt/mnt.img
+          
+          sudo losetup /dev/loop6 /mnt/mnt.img
+          sudo losetup /dev/loop7 /root.img
+          
+          sudo pvcreate /dev/loop6 /dev/loop7
+          sudo vgcreate github /dev/loop6 /dev/loop7
+          
+          # Single LV with 100% free space
+          sudo lvcreate -n runner -l 100%FREE github
+          
+          # XFS with optimizations for large files
+          sudo mkfs.xfs -f \
+            -i sparse=0 \
+            -b size=4096 \
+            -d agcount=$(nproc) \
+            -m crc=1 \
+            /dev/github/runner
+          
+          # Mount with performance options
+          sudo mkdir -p /builder
+          sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k /dev/github/runner /builder
+          
+          sudo chown -R runner:runner /builder
+          
+          df -Th /builder
+          set +x
+
+      - name: Prepare | Clone Armbian Build System
+        working-directory: /builder
+        run: |
+          set -x
+          
+          # Use full clone but with single branch
+          git clone \
+            --single-branch \
+            --branch main \
+            --filter=blob:none \
+            https://github.com/1compk/armbian.build.git armbian
+          
+          cd armbian
+          
+          # Create necessary directories
+          mkdir -p \
+            output/images \
+            output/debs \
+            output/debug \
+            sources/linux-kernel \
+            cache/sources \
+            cache/ccache \
+            userpatches/overlay \
+            userpatches/kernel/linux-aml-s9xx \
+            ccache-stats
+          
+          # Setup permissions
+          sudo chown -R runner:runner /builder/armbian
+          chmod -R u+w /builder/armbian
+          
+          df -h .
+          set +x
+
+      - name: Prepare | Restore Kernel & Build Cache
+        uses: actions/cache@v4
+        id: kernel-cache
+        with:
+          path: |
+            /builder/armbian/sources/linux-kernel
+            /builder/armbian/cache
+            /builder/armbian/output/debs
+          key: armbian-kernel-aml-s9xx-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            armbian-kernel-aml-s9xx-${{ runner.os }}-edge-
+            armbian-kernel-aml-s9xx-${{ runner.os }}-
+            armbian-kernel-aml-s9xx-
+
+      - name: Prepare | Display Cache Status
+        run: |
+          echo "╔════════════════════════════════════════╗"
+          echo "║      CACHE STATUS BEFORE BUILD         ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Stats ==="
+          ccache -s 2>/dev/null | head -20
+          
+          echo ""
+          echo "=== Kernel Sources Cache ==="
+          du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo "No kernel sources cached"
+          
+          echo ""
+          echo "=== Armbian Build Cache ==="
+          du -sh /builder/armbian/cache 2>/dev/null || echo "No build cache"
+          
+          echo ""
+          echo "=== Prebuilt DEBs ==="
+          du -sh /builder/armbian/output/debs 2>/dev/null || echo "No prebuilt debs"
+          
+          echo ""
+          echo "=== Available Disk Space ==="
+          df -h /builder | tail -1
+
+      - name: Build | Armbian with Optimizations
+        id: build
+        working-directory: /builder/armbian
+        run: |
+          set -x
+          
+          sudo chown -R runner:runner /builder/armbian
+          chmod +x compile.sh
+          
+          # Pre-export environment variables for build
+          export CCACHE_SLOPPINESS="file_stat_matches,time_macros"
+          export CCACHE_IGNOREHEADERS="/usr/include/sys/stat.h"
+          
+          # Run build with optimizations
+          time ./compile.sh build \
+            EXPERT=yes \
+            BOARD=aml-s9xx-box \
+            BRANCH=edge \
+            RELEASE=forky \
+            BUILD_DESKTOP=no \
+            BUILD_MINIMAL=no \
+            DESKTOP_APPGROUPS_SELECTED= \
+            DESKTOP_ENVIRONMENT= \
+            DESKTOP_ENVIRONMENT_CONFIG_NAME= \
+            KERNEL_BTF=no \
+            KERNEL_CONFIGURE=no \
+            KERNEL_GIT=no \
+            DOCKER_ARMBIAN=no \
+            SKIP_ARMBIAN_CONFIG=yes \
+            COMPRESS_OUTPUTIMAGE=gz \
+            USE_CCACHE=yes \
+            CCACHE_DIR=/home/runner/.ccache \
+            BUILD_ALL=no \
+            SHOW_LOG=no \
+            EXTRAWIFI=no \
+            WIREGUARD=no || {
+              echo "Build failed! Checking logs..."
+              tail -500 /builder/armbian/output/debug/*.log 2>/dev/null || true
+              exit 1
+            }
+          
+          set +x
+          echo "build_status=success" >> ${GITHUB_OUTPUT}
+
+      - name: Prepare | Save Build Statistics
+        if: always()
+        run: |
+          mkdir -p /tmp/build-stats
+          
+          echo "╔════════════════════════════════════════╗"
+          echo "║      BUILD STATISTICS & CACHE INFO     ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Final Statistics ==="
+          ccache -s 2>/dev/null | tee /tmp/build-stats/ccache-stats.txt || echo "ccache stats unavailable"
+          
+          echo ""
+          echo "=== Build Artifact Sizes ==="
+          du -sh /builder/armbian/output/* 2>/dev/null | tee /tmp/build-stats/output-sizes.txt
+          
+          echo ""
+          echo "=== Cache Sizes for Next Run ==="
+          {
+            echo "Kernel sources: $(du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo '0B')"
+            echo "Build cache: $(du -sh /builder/armbian/cache 2>/dev/null || echo '0B')"
+            echo "ccache: $(du -sh /home/runner/.ccache 2>/dev/null || echo '0B')"
+          } | tee /tmp/build-stats/cache-sizes.txt
+          
+          echo ""
+          echo "=== Final Disk Usage ==="
+          df -h /builder | tee /tmp/build-stats/disk-usage.txt
+
+      - name: Upload | Build Artifacts
+        uses: actions/upload-artifact@v7
+        if: success()
+        with:
+          name: Armbian.CLi.Forky.Aml-S9xx-${{ steps.date.outputs.DATE }}
+          path: /builder/armbian/output/images/*.img*
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 8
+
+  build-uefi-x86-cli:
+    name: Build Armbian CLi Forky Uefi-x86
+    runs-on: ubuntu-24.04
+    timeout-minutes: 600
+    steps:
+      - name: Prepare | Get Date & Environment Info
+        id: date
+        run: |
+          echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+          echo "TIMESTAMP=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
+          echo "Available disk space:"
+          df -h /mnt / | grep -E '^/|Filesystem'
+
+      - name: Prepare | System Cleanup & Optimization
+        id: init
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          set -x
+          
+          # Disable unnecessary services
+          sudo systemctl disable --now snapd.service snapd.socket 2>/dev/null || true
+          sudo systemctl disable --now apt-daily.service apt-daily.timer 2>/dev/null || true
+          
+          # Clean system
+          sudo swapoff -a
+          sudo rm -f /swapfile /mnt/swapfile
+          sudo rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
+          sudo rm -rf /usr/share/doc/* /usr/share/man/*
+          
+          # Optimize system settings
+          sudo -E systemctl daemon-reload
+          sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
+          sudo -E timedatectl set-ntp true
+          
+          # Increase ulimits for build
+          sudo sh -c 'echo "* soft nofile 65535" >> /etc/security/limits.conf'
+          sudo sh -c 'echo "* hard nofile 65535" >> /etc/security/limits.conf'
+          
+          date -u
+          timedatectl status || true
+          echo "status=success" >> ${GITHUB_OUTPUT}
+          set +x
+
+      - name: Prepare | Pre-install Build Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ccache \
+            git \
+            wget \
+            curl \
+            dosfstools \
+            mtools \
+            parted \
+            e2fsprogs \
+            fdisk \
+            rsync \
+            lsof \
+            pv 2>&1 | tail -20
+
+      - name: Prepare | Configure ccache
+        run: |
+          mkdir -p /home/runner/.ccache
+          ccache -M ${CCACHE_MAXSIZE}
+          ccache --set-config=compression=true
+          ccache --set-config=compression_level=6
+          ccache --set-config=sloppiness=file_stat_matches
+          ccache -p
+          ccache -z  # Reset stats
+
+      - name: Prepare | Restore ccache from Cache
+        uses: actions/cache@v4
+        id: ccache-restore
+        with:
+          path: /home/runner/.ccache
+          key: ccache-uefi-x86-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            ccache-uefi-x86-${{ runner.os }}-
+            ccache-uefi-x86-
+
+      - name: Prepare | Create Optimized Virtual Disk
+        run: |
+          set -x
+          
+          # Calculate available space
+          available_root=$(df / | tail -1 | awk '{print int($4/1024)-10}')
+          available_mnt=$(df /mnt | tail -1 | awk '{print int($4/1024)-10}')
+          
+          # Use 90% of available space, minimum 80GB each
+          root_size=$((available_root > 80 ? available_root : 80))
+          mnt_size=$((available_mnt > 80 ? available_mnt : 80))
+          
+          echo "Allocating: root=${root_size}GB, mnt=${mnt_size}GB"
+          
+          # Create and setup disk
+          sudo truncate -s 100G /root.img
+          sudo truncate -s 100G /mnt/mnt.img
+          
+          sudo losetup /dev/loop6 /mnt/mnt.img
+          sudo losetup /dev/loop7 /root.img
+          
+          sudo pvcreate /dev/loop6 /dev/loop7
+          sudo vgcreate github /dev/loop6 /dev/loop7
+          
+          # Single LV with 100% free space
+          sudo lvcreate -n runner -l 100%FREE github
+          
+          # XFS with optimizations for large files
+          sudo mkfs.xfs -f \
+            -i sparse=0 \
+            -b size=4096 \
+            -d agcount=$(nproc) \
+            -m crc=1 \
+            /dev/github/runner
+          
+          # Mount with performance options
+          sudo mkdir -p /builder
+          sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k /dev/github/runner /builder
+          
+          sudo chown -R runner:runner /builder
+          
+          df -Th /builder
+          set +x
+
+      - name: Prepare | Clone Armbian Build System
+        working-directory: /builder
+        run: |
+          set -x
+          
+          # Use full clone but with single branch
+          git clone \
+            --single-branch \
+            --branch main \
+            --filter=blob:none \
+            https://github.com/1compk/armbian.build.git armbian
+          
+          cd armbian
+          
+          # Create necessary directories
+          mkdir -p \
+            output/images \
+            output/debs \
+            output/debug \
+            sources/linux-kernel \
+            cache/sources \
+            cache/ccache \
+            userpatches/overlay \
+            userpatches/kernel/linux-uefi-x86 \
+            ccache-stats
+          
+          # Setup permissions
+          sudo chown -R runner:runner /builder/armbian
+          chmod -R u+w /builder/armbian
+          
+          df -h .
+          set +x
+
+      - name: Prepare | Restore Kernel & Build Cache
+        uses: actions/cache@v4
+        id: kernel-cache
+        with:
+          path: |
+            /builder/armbian/sources/linux-kernel
+            /builder/armbian/cache
+            /builder/armbian/output/debs
+          key: armbian-kernel-uefi-x86-${{ runner.os }}-${{ hashFiles('**/compile.sh') }}
+          restore-keys: |
+            armbian-kernel-uefi-x86-${{ runner.os }}-edge-
+            armbian-kernel-uefi-x86-${{ runner.os }}-
+            armbian-kernel-uefi-x86-
+
+      - name: Prepare | Display Cache Status
+        run: |
+          echo "╔════════════════════════════════════════╗"
+          echo "║      CACHE STATUS BEFORE BUILD         ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Stats ==="
+          ccache -s 2>/dev/null | head -20
+          
+          echo ""
+          echo "=== Kernel Sources Cache ==="
+          du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo "No kernel sources cached"
+          
+          echo ""
+          echo "=== Armbian Build Cache ==="
+          du -sh /builder/armbian/cache 2>/dev/null || echo "No build cache"
+          
+          echo ""
+          echo "=== Prebuilt DEBs ==="
+          du -sh /builder/armbian/output/debs 2>/dev/null || echo "No prebuilt debs"
+          
+          echo ""
+          echo "=== Available Disk Space ==="
+          df -h /builder | tail -1
+
+      - name: Build | Armbian with Optimizations
+        id: build
+        working-directory: /builder/armbian
+        run: |
+          set -x
+          
+          sudo chown -R runner:runner /builder/armbian
+          chmod +x compile.sh
+          
+          # Pre-export environment variables for build
+          export CCACHE_SLOPPINESS="file_stat_matches,time_macros"
+          export CCACHE_IGNOREHEADERS="/usr/include/sys/stat.h"
+          
+          # Run build with optimizations
+          time ./compile.sh build \
+            EXPERT=yes \
+            BOARD=uefi-x86 \
+            BRANCH=edge \
+            RELEASE=forky \
+            BUILD_DESKTOP=no \
+            BUILD_MINIMAL=no \
+            DESKTOP_APPGROUPS_SELECTED= \
+            DESKTOP_ENVIRONMENT= \
+            DESKTOP_ENVIRONMENT_CONFIG_NAME= \
+            KERNEL_BTF=no \
+            KERNEL_CONFIGURE=no \
+            KERNEL_GIT=no \
+            DOCKER_ARMBIAN=no \
+            SKIP_ARMBIAN_CONFIG=yes \
+            COMPRESS_OUTPUTIMAGE=gz \
+            USE_CCACHE=yes \
+            CCACHE_DIR=/home/runner/.ccache \
+            BUILD_ALL=no \
+            SHOW_LOG=no \
+            EXTRAWIFI=no \
+            WIREGUARD=no || {
+              echo "Build failed! Checking logs..."
+              tail -500 /builder/armbian/output/debug/*.log 2>/dev/null || true
+              exit 1
+            }
+          
+          set +x
+          echo "build_status=success" >> ${GITHUB_OUTPUT}
+
+      - name: Prepare | Save Build Statistics
+        if: always()
+        run: |
+          mkdir -p /tmp/build-stats
+          
+          echo "╔════════════════════════════════════════╗"
+          echo "║      BUILD STATISTICS & CACHE INFO     ║"
+          echo "╚════════════════════════════════════════╝"
+          
+          echo ""
+          echo "=== ccache Final Statistics ==="
+          ccache -s 2>/dev/null | tee /tmp/build-stats/ccache-stats.txt || echo "ccache stats unavailable"
+          
+          echo ""
+          echo "=== Build Artifact Sizes ==="
+          du -sh /builder/armbian/output/* 2>/dev/null | tee /tmp/build-stats/output-sizes.txt
+          
+          echo ""
+          echo "=== Cache Sizes for Next Run ==="
+          {
+            echo "Kernel sources: $(du -sh /builder/armbian/sources/linux-kernel 2>/dev/null || echo '0B')"
+            echo "Build cache: $(du -sh /builder/armbian/cache 2>/dev/null || echo '0B')"
+            echo "ccache: $(du -sh /home/runner/.ccache 2>/dev/null || echo '0B')"
+          } | tee /tmp/build-stats/cache-sizes.txt
+          
+          echo ""
+          echo "=== Final Disk Usage ==="
+          df -h /builder | tee /tmp/build-stats/disk-usage.txt
+
+      - name: Upload | Build Artifacts
+        uses: actions/upload-artifact@v7
+        if: success()
+        with:
+          name: Armbian.CLi.Forky.Uefi-x86-${{ steps.date.outputs.DATE }}
+          path: /builder/armbian/output/images/*.img*
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 8
