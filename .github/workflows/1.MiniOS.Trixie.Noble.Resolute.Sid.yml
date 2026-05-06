@@ -24,15 +24,15 @@ jobs:
           - release: trixie
             build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
             build_dir: zMiniOS.SkyLine.Build.05.2026
-            command: sudo -E ./minios-cmd -d trixie -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${{ env.TZ }}" -kl -ib dracut
+            command: sudo -E ./minios-cmd -d trixie -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
           - release: noble
             build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
             build_dir: zMiniOS.SkyLine.Build.05.2026
-            command: sudo -E ./minios-cmd -d noble -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${{ env.TZ }}" -kl -ib dracut
+            command: sudo -E ./minios-cmd -d noble -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
           - release: resolute
             build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
             build_dir: zMiniOS.SkyLine.Build.05.2026
-            command: sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${{ env.TZ }}" -kl -ib dracut
+            command: sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
           - release: sid
             build_tar: zMinios.Skyline.Build.04.2026.tar.xz
             build_dir: zMinios.Skyline.Build.04.2026
