@@ -37,6 +37,7 @@ jobs:
           sudo apt-get install -y ccache
           sudo mkdir -p /home/.ccache
           sudo chown -R runner:runner /home/.ccache
+          ccache -M 10G
 
       - name: Cache ccache
         uses: actions/cache@v4
@@ -70,6 +71,17 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
 
+      - name: Cache Armbian Build Output and Sources
+        uses: actions/cache@v4
+        with:
+          path: |
+            /builder/armbian/output
+            /builder/armbian/sources
+            /builder/armbian/cache
+          key: armbian-build-aml-s9xx-${{ steps.date.outputs.DATE }}-${{ github.run_id }}
+          restore-keys: |
+            armbian-build-aml-s9xx-
+
       - name: Build | Armbian
         working-directory: /builder/armbian
         run: |
@@ -78,7 +90,7 @@ jobs:
           BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
           DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no USE_CCACHE=yes
-           
+
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
@@ -118,6 +130,7 @@ jobs:
           sudo apt-get install -y ccache
           sudo mkdir -p /home/.ccache
           sudo chown -R runner:runner /home/.ccache
+          ccache -M 10G
 
       - name: Cache ccache
         uses: actions/cache@v4
@@ -151,6 +164,17 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
 
+      - name: Cache Armbian Build Output and Sources
+        uses: actions/cache@v4
+        with:
+          path: |
+            /builder/armbian/output
+            /builder/armbian/sources
+            /builder/armbian/cache
+          key: armbian-build-uefi-x86-${{ steps.date.outputs.DATE }}-${{ github.run_id }}
+          restore-keys: |
+            armbian-build-uefi-x86-
+
       - name: Build | Armbian
         working-directory: /builder/armbian
         run: |
@@ -159,7 +183,7 @@ jobs:
           BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
           DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no USE_CCACHE=yes
-           
+
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
