@@ -28,10 +28,9 @@ jobs:
           sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
           sudo -E timedatectl set-ntp true
           date -u
-          timedatectl status || true
           echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Install & Configure ccache
+      - name: Prepare | Install & Configure ccache
         run: |
           sudo apt-get update
           sudo apt-get install -y ccache
@@ -39,7 +38,7 @@ jobs:
           sudo chown -R runner:runner /home/.ccache
           ccache -M 10G
 
-      - name: Cache ccache
+      - name: Prepare | Cache ccache
         uses: actions/cache@v4
         with:
           path: /home/.ccache
@@ -51,8 +50,8 @@ jobs:
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s "${mnt_size}"G /mnt/mnt.img
-          sudo truncate -s "${root_size}"G /root.img
+          sudo truncate -s "100"G /mnt/mnt.img
+          sudo truncate -s "100"G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
@@ -64,20 +63,22 @@ jobs:
           sudo mount /dev/github/runner /builder
           sudo chown -R runner:runner /builder
           df -Th
-          echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Prepare | Download and Decompress Build Files
+      - name: Prepare | Download Build Files & Setup Paths
         working-directory: /builder
         run: |
           git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
+          mkdir -p armbian/output armbian/sources armbian/cache armbian/userpatches
+          sudo chown -R runner:runner /builder/armbian
 
-      - name: Cache Armbian Build Output and Sources
+      - name: Prepare | Cache Armbian Build Output and Sources
         uses: actions/cache@v4
         with:
           path: |
             /builder/armbian/output
             /builder/armbian/sources
             /builder/armbian/cache
+            /builder/armbian/userpatches
           key: armbian-build-aml-s9xx-${{ steps.date.outputs.DATE }}-${{ github.run_id }}
           restore-keys: |
             armbian-build-aml-s9xx-
@@ -85,20 +86,22 @@ jobs:
       - name: Build | Armbian
         working-directory: /builder/armbian
         run: |
+          sudo chown -R runner:runner /builder/armbian
           chmod +x compile.sh
-          ./compile.sh build EXPERT=yes BOARD=aml-s9xx-box BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
-          BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
-          DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
-          KERNEL_GIT=shallow DOCKER_ARMBIAN=no USE_CCACHE=yes
+          ./compile.sh build EXPERT=yes BOARD=aml-s9xx-box BRANCH=edge RELEASE=forky \
+          BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= \
+          DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
+          KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
+          DOCKER_ARMBIAN=no USE_CCACHE=yes CCACHE_DIR=/home/.ccache
 
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
           name: Armbian.LXFce.Forky.Aml-S9xx-${{ steps.date.outputs.DATE }}
           path: /builder/armbian/output/images/*.img
-          archive: true
           if-no-files-found: error
           retention-days: 90
+
 
   build-uefi-x86:
     name: Build Armbian LXFce Forky Uefi-x86
@@ -121,10 +124,9 @@ jobs:
           sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
           sudo -E timedatectl set-ntp true
           date -u
-          timedatectl status || true
           echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Install & Configure ccache
+      - name: Prepare | Install & Configure ccache
         run: |
           sudo apt-get update
           sudo apt-get install -y ccache
@@ -132,7 +134,7 @@ jobs:
           sudo chown -R runner:runner /home/.ccache
           ccache -M 10G
 
-      - name: Cache ccache
+      - name: Prepare | Cache ccache
         uses: actions/cache@v4
         with:
           path: /home/.ccache
@@ -144,8 +146,8 @@ jobs:
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s "${mnt_size}"G /mnt/mnt.img
-          sudo truncate -s "${root_size}"G /root.img
+          sudo truncate -s "100"G /mnt/mnt.img
+          sudo truncate -s "100"G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
@@ -157,20 +159,22 @@ jobs:
           sudo mount /dev/github/runner /builder
           sudo chown -R runner:runner /builder
           df -Th
-          echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Prepare | Download and Decompress Build Files
+      - name: Prepare | Download Build Files & Setup Paths
         working-directory: /builder
         run: |
           git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
+          mkdir -p armbian/output armbian/sources armbian/cache armbian/userpatches
+          sudo chown -R runner:runner /builder/armbian
 
-      - name: Cache Armbian Build Output and Sources
+      - name: Prepare | Cache Armbian Build Output and Sources
         uses: actions/cache@v4
         with:
           path: |
             /builder/armbian/output
             /builder/armbian/sources
             /builder/armbian/cache
+            /builder/armbian/userpatches
           key: armbian-build-uefi-x86-${{ steps.date.outputs.DATE }}-${{ github.run_id }}
           restore-keys: |
             armbian-build-uefi-x86-
@@ -178,12 +182,14 @@ jobs:
       - name: Build | Armbian
         working-directory: /builder/armbian
         run: |
+          sudo chown -R runner:runner /builder/armbian
           chmod +x compile.sh
-          ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
-          BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
-          DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
-          KERNEL_GIT=shallow DOCKER_ARMBIAN=no USE_CCACHE=yes
-
+          ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky \
+          BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= \
+          DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base \
+          KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow \
+          DOCKER_ARMBIAN=no USE_CCACHE=yes CCACHE_DIR=/home/.ccache
+           
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
