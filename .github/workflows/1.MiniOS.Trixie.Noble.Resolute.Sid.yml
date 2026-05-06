@@ -1,5 +1,4 @@
 name: 1.Build MiniOS LXFce Trixie Noble Resolute SiD (Parallel)
-
 on:
   workflow_dispatch:
 
