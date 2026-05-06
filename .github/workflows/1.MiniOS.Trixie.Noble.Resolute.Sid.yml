@@ -1,7 +1,7 @@
 name: 1.Build MiniOS LXFce Trixie Noble Resolute SiD (Parallel)
 on:
   schedule:
-    # รันทุกๆ 5 วัน (เวลา 00:00 UTC)
+    # 5 Days (00:00 UTC)
     - cron: '0 0 */5 * *'
   workflow_dispatch:
 
