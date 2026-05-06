@@ -4,6 +4,7 @@ on:
 
 env:
   TZ: Etc/GMT-7
+  CCACHE_DIR: /home/.ccache
 
 jobs:
   build-aml-s9xx:
@@ -30,6 +31,21 @@ jobs:
           timedatectl status || true
           echo "status=success" >> ${GITHUB_OUTPUT}
 
+      - name: Install & Configure ccache
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ccache
+          sudo mkdir -p /home/.ccache
+          sudo chown -R runner:runner /home/.ccache
+
+      - name: Cache ccache
+        uses: actions/cache@v4
+        with:
+          path: /home/.ccache
+          key: ccache-aml-s9xx-${{ github.run_id }}
+          restore-keys: |
+            ccache-aml-s9xx-
+
       - name: Prepare | Create Virtual Disk
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
@@ -49,19 +65,6 @@ jobs:
           df -Th
           echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Prepare | Cache ccache
-        uses: actions/cache@v4
-        with:
-          path: /home/.ccache
-          key: ccache-aml-s9xx-${{ github.run_id }}
-          restore-keys: |
-            ccache-aml-s9xx-
-
-      - name: Prepare | Setup ccache directory
-        run: |
-          sudo mkdir -p /home/.ccache
-          sudo chown -R runner:runner /home/.ccache
-
       - name: Prepare | Download and Decompress Build Files
         working-directory: /builder
         run: |
@@ -69,15 +72,13 @@ jobs:
 
       - name: Build | Armbian
         working-directory: /builder/armbian
-        env:
-          CCACHE_DIR: /home/.ccache
         run: |
           chmod +x compile.sh
           ./compile.sh build EXPERT=yes BOARD=aml-s9xx-box BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
           BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
           DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no
-          
+           
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
@@ -111,6 +112,21 @@ jobs:
           timedatectl status || true
           echo "status=success" >> ${GITHUB_OUTPUT}
 
+      - name: Install & Configure ccache
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ccache
+          sudo mkdir -p /home/.ccache
+          sudo chown -R runner:runner /home/.ccache
+
+      - name: Cache ccache
+        uses: actions/cache@v4
+        with:
+          path: /home/.ccache
+          key: ccache-uefi-x86-${{ github.run_id }}
+          restore-keys: |
+            ccache-uefi-x86-
+
       - name: Prepare | Create Virtual Disk
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
@@ -130,19 +146,6 @@ jobs:
           df -Th
           echo "status=success" >> ${GITHUB_OUTPUT}
 
-      - name: Prepare | Cache ccache
-        uses: actions/cache@v4
-        with:
-          path: /home/.ccache
-          key: ccache-uefi-x86-${{ github.run_id }}
-          restore-keys: |
-            ccache-uefi-x86-
-
-      - name: Prepare | Setup ccache directory
-        run: |
-          sudo mkdir -p /home/.ccache
-          sudo chown -R runner:runner /home/.ccache
-
       - name: Prepare | Download and Decompress Build Files
         working-directory: /builder
         run: |
@@ -150,15 +153,13 @@ jobs:
 
       - name: Build | Armbian
         working-directory: /builder/armbian
-        env:
-          CCACHE_DIR: /home/.ccache
         run: |
           chmod +x compile.sh
           ./compile.sh build EXPERT=yes BOARD=uefi-x86 BRANCH=edge RELEASE=forky BUILD_DESKTOP=yes \
           BUILD_MINIMAL=no DESKTOP_APPGROUPS_SELECTED= DESKTOP_ENVIRONMENT=xfce \
           DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base KERNEL_BTF=no KERNEL_CONFIGURE=no \
           KERNEL_GIT=shallow DOCKER_ARMBIAN=no
-          
+           
       - name: Upload | Armbian.iMG
         uses: actions/upload-artifact@v7
         with:
