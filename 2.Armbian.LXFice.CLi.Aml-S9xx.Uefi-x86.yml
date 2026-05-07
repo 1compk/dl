@@ -127,5 +127,5 @@ jobs:
           name: ${{ matrix.name }}-${{ steps.date.outputs.DATE }}
           path: ${{ env.BUILDER_DIR }}/armbian/output/images/*.img*
           retention-days: 90
-          archive: false
+          archive: true
           if-no-files-found: error
