@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # ===== Aml-S9xx GROUP =====
+          # ===== Aml-S9xx Build =====
           - name: Armbian.LXFice.Forky.Aml-S9xx
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
@@ -32,7 +32,7 @@ jobs:
             env_xfce: ""
             config_name: ""
 
-          # ===== Uefi-x86 GROUP =====
+          # ===== Uefi-x86 Build =====
           - name: Armbian.LXFice.Forky.Uefi-x86
             runs_on: ubuntu-24.04
             board: uefi-x86
