@@ -19,7 +19,7 @@ jobs:
       matrix:
         include:
 
-          # ===== Distro (05.2026 Build) =====
+          # ===== zMiniOS.SkyLine.Build.05.2026 =====
           - release: trixie
             build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
             build_dir: zMiniOS.SkyLine.Build.05.2026
@@ -35,30 +35,36 @@ jobs:
             build_dir: zMiniOS.SkyLine.Build.05.2026
             command: sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
 
-          # ===== SID (04.2026 Build) =====
+          # ===== zMinios.Skyline.Build.04.2026 =====
           - release: sid
             build_tar: zMinios.Skyline.Build.04.2026.tar.xz
             build_dir: zMinios.Skyline.Build.04.2026
             command: sudo sh sid.xfce.build.sh
 
     steps:
-      - name: Prepare | Init
+      - name: Prepare | Get Date
+        id: date
+        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
+
+      - name: Prepare | Init & Dependencies
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-
-      - name: Prepare | Install Dependencies
-        run: |
           sudo apt-get update
           sudo apt-get install -y \
             debootstrap squashfs-tools xz-utils \
             xorriso mtools rsync grub-common \
             xfsprogs lvm2 pv wget
 
+      - name: Prepare | Restore APT Cache
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt
+          key: minios-apt-v2
+
       - name: Prepare | Create LVM Disk
         run: |
           set -e
-
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
 
@@ -68,17 +74,11 @@ jobs:
           sudo pvcreate $LOOP1 $LOOP2
           sudo vgcreate github $LOOP1 $LOOP2
           sudo lvcreate -n runner -l 100%FREE github
-
-          sudo mkfs.xfs -f \
-            -b size=4096 \
-            -d agcount=$(nproc) \
-            /dev/github/runner
+          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
 
           sudo mkdir -p $BUILDER_DIR
-
           sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k \
             /dev/github/runner $BUILDER_DIR
-
           sudo chown -R runner:runner $BUILDER_DIR
           df -Th
 
@@ -97,8 +97,8 @@ jobs:
       - name: Upload | Upload ISO
         uses: actions/upload-artifact@v7
         with:
-          name: MiniOS-${{ matrix.release }}
+          name: MiniOS-${{ matrix.release }}-${{ steps.date.outputs.DATE }}
           path: /builder/${{ matrix.build_dir }}/build/iso/*.iso
-          retention-days: 30
+          retention-days: 90
           archive: false
           if-no-files-found: error
