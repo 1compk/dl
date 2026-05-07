@@ -48,9 +48,6 @@ jobs:
             config_name: ""
 
     steps:
-      # =========================================
-      # 1. INITIALIZE SYSTEM
-      # =========================================
       - name: Prepare | Get Date
         id: date
         run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
@@ -64,9 +61,6 @@ jobs:
             git wget curl dosfstools mtools parted \
             e2fsprogs fdisk rsync lsof pv xfsprogs lvm2
 
-      # =========================================
-      # 2. CREATE LVM DISK
-      # =========================================
       - name: Prepare | Create Virtual Disk
         run: |
           set -e
@@ -86,17 +80,11 @@ jobs:
           sudo chown -R runner:runner $BUILDER_DIR
           df -Th
 
-      # =========================================
-      # 3. DOWNLOAD ARMBIAN BUILD SYSTEM
-      # =========================================
       - name: Prepare | Clone Armbian
         working-directory: ${{ env.BUILDER_DIR }}
         run: |
           git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
 
-      # =========================================
-      # 4. BUILD ARMBIAN
-      # =========================================
       - name: Build | Armbian
         working-directory: ${{ env.BUILDER_DIR }}/armbian
         run: |
@@ -118,9 +106,6 @@ jobs:
             USE_CCACHE=no \
             COMPRESS_OUTPUTIMAGE=gz
 
-      # =========================================
-      # 5. UPLOAD ARTIFACTS
-      # =========================================
       - name: Upload | Armbian Image
         uses: actions/upload-artifact@v7
         with:
