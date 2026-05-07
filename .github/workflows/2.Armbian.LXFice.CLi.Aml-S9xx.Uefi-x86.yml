@@ -1,4 +1,4 @@
-name: 2.Build Armbian Matrix (No Cache)
+name: 2.Build Armbian LXFice CLi Aml-S9xx Uefi-x86
 
 on:
   workflow_dispatch:
@@ -122,9 +122,10 @@ jobs:
       # 5. UPLOAD ARTIFACTS
       # =========================================
       - name: Upload | Armbian Image
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.name }}-${{ steps.date.outputs.DATE }}
           path: ${{ env.BUILDER_DIR }}/armbian/output/images/*.img*
           retention-days: 90
+          archive: false
           if-no-files-found: error
