@@ -65,12 +65,6 @@ jobs:
             git wget curl dosfstools mtools parted \
             e2fsprogs fdisk rsync lsof pv xfsprogs lvm2
 
-      - name: Prepare | Restore APT Cache
-        uses: actions/cache@v4
-        with:
-          path: /var/cache/apt
-          key: armbian-apt-v2
-
       - name: Prepare | Create LVM Disk
         run: |
           set -e

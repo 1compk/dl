@@ -57,12 +57,6 @@ jobs:
             xorriso mtools rsync grub-common \
             xfsprogs lvm2 pv wget
 
-      - name: Prepare | Restore APT Cache
-        uses: actions/cache@v4
-        with:
-          path: /var/cache/apt
-          key: minios-apt-v2
-
       - name: Prepare | Create LVM Disk
         run: |
           set -e
