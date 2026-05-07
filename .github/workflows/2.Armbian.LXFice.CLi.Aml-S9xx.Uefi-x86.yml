@@ -18,7 +18,7 @@ jobs:
       matrix:
         include:
           # ===== Aml-S9xx GROUP =====
-          - name: Armbian.LXFce.Forky.Aml-S9xx
+          - name: Armbian.LXFice.Forky.Aml-S9xx
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
             desktop: yes
@@ -33,7 +33,7 @@ jobs:
             config_name: ""
 
           # ===== Uefi-x86 GROUP =====
-          - name: Armbian.LXFce.Forky.Uefi-x86
+          - name: Armbian.LXFice.Forky.Uefi-x86
             runs_on: ubuntu-24.04
             board: uefi-x86
             desktop: yes
