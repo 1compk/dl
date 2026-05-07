@@ -5,6 +5,7 @@ on:
 
 env:
   TZ: Etc/GMT-7
+  IMAGE_SIZE: 100G
   BUILDER_DIR: /builder
 
 jobs:
@@ -17,6 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
+
           # ===== Aml-S9xx Build =====
           - name: Armbian.LXFice.Forky.Aml-S9xx
             runs_on: ubuntu-24.04-arm
@@ -61,11 +63,17 @@ jobs:
             git wget curl dosfstools mtools parted \
             e2fsprogs fdisk rsync lsof pv xfsprogs lvm2
 
-      - name: Prepare | Create Virtual Disk
+      - name: Prepare | Restore APT Cache
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt
+          key: armbian-apt-v2
+
+      - name: Prepare | Create LVM Disk
         run: |
           set -e
-          sudo truncate -s 100G /mnt.img
-          sudo truncate -s 100G /root.img
+          sudo truncate -s $IMAGE_SIZE /mnt.img
+          sudo truncate -s $IMAGE_SIZE /root.img
 
           LOOP1=$(sudo losetup --find --show /mnt.img)
           LOOP2=$(sudo losetup --find --show /root.img)
@@ -73,10 +81,11 @@ jobs:
           sudo pvcreate $LOOP1 $LOOP2
           sudo vgcreate github $LOOP1 $LOOP2
           sudo lvcreate -n runner -l 100%FREE github
-
           sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
+
           sudo mkdir -p $BUILDER_DIR
-          sudo mount /dev/github/runner $BUILDER_DIR
+          sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k \
+            /dev/github/runner $BUILDER_DIR
           sudo chown -R runner:runner $BUILDER_DIR
           df -Th
 
