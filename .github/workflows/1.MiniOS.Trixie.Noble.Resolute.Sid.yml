@@ -1,105 +1,126 @@
-name: 1.Build MiniOS LXFce Trixie Noble Resolute SiD (Parallel)
+name: 1. MiniOS LXFice Trixie Noble Resolute Sid
+
 on:
   workflow_dispatch:
 
 env:
   TZ: Etc/GMT-7
   IMAGE_SIZE: 100G
-  VG_NAME: github
-  LV_NAME: runner
-  MOUNT_POINT: /builder
-  APT_PACKAGES: "binutils debootstrap squashfs-tools xz-utils lz4 zstd xorriso mtools rsync grub-efi-amd64-bin grub-pc-bin grub-common pv"
-  DEBIAN_FRONTEND: noninteractive
+  BUILDER_DIR: /builder
 
 jobs:
   build:
-    name: Build ${{ matrix.release }} Edition
+    name: MiniOS ${{ matrix.release }}
     runs-on: ubuntu-24.04
     timeout-minutes: 600
+
     strategy:
       fail-fast: false
       matrix:
-        release: [trixie, noble, resolute, sid]
         include:
+
+          # ===== 05.2026 GROUP =====
           - release: trixie
             build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
             build_dir: zMiniOS.SkyLine.Build.05.2026
             command: sudo -E ./minios-cmd -d trixie -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
+
           - release: noble
             build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
             build_dir: zMiniOS.SkyLine.Build.05.2026
             command: sudo -E ./minios-cmd -d noble -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
+
           - release: resolute
             build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
             build_dir: zMiniOS.SkyLine.Build.05.2026
             command: sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
+
+          # ===== SID (04.2026 BUILD) =====
           - release: sid
             build_tar: zMinios.Skyline.Build.04.2026.tar.xz
             build_dir: zMinios.Skyline.Build.04.2026
             command: sudo sh sid.xfce.build.sh
 
     steps:
-      - name: Prepare | Get Date
-        id: date
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-      - name: Prepare | Setup environment
+      # =========================================
+      # INIT
+      # =========================================
+      - name: Init
         run: |
-          set -euo pipefail
-          sudo timedatectl set-timezone "${{ env.TZ }}"
-          sudo timedatectl set-ntp true || true
-          date -u
+          sudo timedatectl set-timezone "${TZ}"
+          sudo swapoff -a || true
 
-      - name: Prepare | Install dependencies (cached apt)
+      # =========================================
+      # APT CACHE
+      # =========================================
+      - name: Restore APT Cache
         uses: actions/cache@v4
         with:
           path: /var/cache/apt
-          key: apt-cache-ubuntu-24-04-v1
-          continue-on-error: true
+          key: minios-apt-v2
 
-      - name: Prepare | Apt install required packages
+      - name: Install Dependencies
         run: |
-          set -euo pipefail
-          sudo apt-get update -y
-          sudo apt-get install -y --no-install-recommends $APT_PACKAGES
+          sudo apt-get update
+          sudo apt-get install -y \
+            debootstrap squashfs-tools xz-utils \
+            xorriso mtools rsync grub-common \
+            xfsprogs lvm2 pv wget
 
-      - name: Prepare | Create and mount virtual disk
+      # =========================================
+      #  MiniOS LVM Disk (EXTREME)
+      # =========================================
+      - name: Create LVM Disk
         run: |
-          set -euo pipefail
-          IMG_MNT=/mnt/mnt.img
-          IMG_ROOT=/root.img
-          sudo swapoff -a || true
-          sudo rm -f $IMG_MNT $IMG_ROOT || true
-          sudo truncate -s $IMAGE_SIZE $IMG_MNT
-          sudo truncate -s $IMAGE_SIZE $IMG_ROOT
-          LOOP_MNT=$(sudo losetup --find --show $IMG_MNT)
-          LOOP_ROOT=$(sudo losetup --find --show $IMG_ROOT)
-          sudo pvcreate $LOOP_MNT $LOOP_ROOT
-          sudo vgcreate $VG_NAME $LOOP_MNT $LOOP_ROOT || true
-          sudo lvcreate -n $LV_NAME -l 100%FREE $VG_NAME
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/${VG_NAME}/${LV_NAME}
-          sudo mkdir -p $MOUNT_POINT
-          sudo mount /dev/${VG_NAME}/${LV_NAME} $MOUNT_POINT
-          sudo chown -R $USER:$USER $MOUNT_POINT
+          set -e
 
-      - name: Prepare | Download and extract build files
-        working-directory: ${{ env.MOUNT_POINT }}
-        run: |
-          set -euo pipefail
-          wget -q https://github.com/1compk/minios/releases/download/live{{ matrix.build_tar }}
-          tar -xf ${{ matrix.build_tar }}
+          sudo truncate -s $IMAGE_SIZE /mnt.img
+          sudo truncate -s $IMAGE_SIZE /root.img
 
-      - name: Build | ${{ matrix.release }}
-        working-directory: ${{ env.MOUNT_POINT }}/${{ matrix.build_dir }}
+          LOOP1=$(sudo losetup --find --show /mnt.img)
+          LOOP2=$(sudo losetup --find --show /root.img)
+
+          sudo pvcreate $LOOP1 $LOOP2
+          sudo vgcreate github $LOOP1 $LOOP2
+          sudo lvcreate -n runner -l 100%FREE github
+
+          sudo mkfs.xfs -f \
+            -b size=4096 \
+            -d agcount=$(nproc) \
+            /dev/github/runner
+
+          sudo mkdir -p $BUILDER_DIR
+
+          sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k \
+            /dev/github/runner $BUILDER_DIR
+
+          sudo chown -R runner:runner $BUILDER_DIR
+          df -Th
+
+      # =========================================
+      # DOWNLOAD BUILD FILE
+      # =========================================
+      - name: Download Build Files
+        working-directory: /builder
         run: |
-          set -euo pipefail
+          wget -q "https://github.com/1compk/minios/releases/download/live/${{ matrix.build_tar }}"
+          tar -xf "${{ matrix.build_tar }}"
+
+      # =========================================
+      # BUILD
+      # =========================================
+      - name: Build MiniOS
+        working-directory: /builder/${{ matrix.build_dir }}
+        run: |
+          set -e
           ${{ matrix.command }}
 
-      - name: Upload | ISO Artifact
-        uses: actions/upload-artifact@v7
+      # =========================================
+      # UPLOAD
+      # =========================================
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
         with:
-          name: MiniOS-${{ matrix.release }}-${{ steps.date.outputs.DATE }}
-          path: ${{ env.MOUNT_POINT }}/${{ matrix.build_dir }}/build/iso/*.iso
-          archive: false
-          if-no-files-found: error
+          name: MiniOS-${{ matrix.release }}
+          path: /builder/${{ matrix.build_dir }}/build/iso/*.iso
           retention-days: 30
