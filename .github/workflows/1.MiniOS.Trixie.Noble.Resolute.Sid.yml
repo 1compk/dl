@@ -47,7 +47,7 @@ jobs:
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
 
-       - name: Prepare | Install Dependencies
+      - name: Prepare | Install Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -55,7 +55,7 @@ jobs:
             xorriso mtools rsync grub-common \
             xfsprogs lvm2 pv wget
 
-        - name: Prepare | Create LVM Disk
+      - name: Prepare | Create LVM Disk
         run: |
           set -e
 
@@ -82,19 +82,19 @@ jobs:
           sudo chown -R runner:runner $BUILDER_DIR
           df -Th
 
-       - name: Prepare | Download Build Files
+      - name: Prepare | Download Build Files
         working-directory: /builder
         run: |
           wget -q "https://github.com/1compk/minios/releases/download/live/${{ matrix.build_tar }}"
           tar -xf "${{ matrix.build_tar }}"
 
-       - name: Build | Build MiniOS
+      - name: Build | Build MiniOS
         working-directory: /builder/${{ matrix.build_dir }}
         run: |
           set -e
           ${{ matrix.command }}
 
-        - name: Upload | Upload ISO
+      - name: Upload | Upload ISO
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-${{ matrix.release }}
