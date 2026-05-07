@@ -1,6 +1,8 @@
 name: 2.Build Armbian LXFice CLi Aml-S9xx Uefi-x86
 
 on:
+  schedule:
+   - cron: '0 0 */5 * *'
   workflow_dispatch:
 
 env:
