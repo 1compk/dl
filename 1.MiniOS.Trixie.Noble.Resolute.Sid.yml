@@ -2,7 +2,7 @@ name: 1. MiniOS LXFice Trixie Noble Resolute Sid
 
 on:
   schedule:
-   - cron: '0 0 */5 * *'
+    - cron: '0 0 */5 * *' # Run every 5 Days
   workflow_dispatch:
 
 env:
@@ -10,90 +10,60 @@ env:
   IMAGE_SIZE: 100G
   BUILDER_DIR: /builder
 
+  DEFAULT_TAR: zMiniOS.SkyLine.Build.05.2026.tar.xz
+  DEFAULT_DIR: zMiniOS.SkyLine.Build.05.2026
+
 jobs:
   build:
     name: MiniOS ${{ matrix.release }}
     runs-on: ubuntu-24.04
     timeout-minutes: 600
-
     strategy:
       fail-fast: false
       matrix:
         include:
-
-          # ===== zMiniOS.SkyLine.Build.05.2026 =====
-          - release: trixie
-            build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
-            build_dir: zMiniOS.SkyLine.Build.05.2026
-            command: sudo -E ./minios-cmd -d trixie -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
-
-          - release: noble
-            build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
-            build_dir: zMiniOS.SkyLine.Build.05.2026
-            command: sudo -E ./minios-cmd -d noble -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
-
-          - release: resolute
-            build_tar: zMiniOS.SkyLine.Build.05.2026.tar.xz
-            build_dir: zMiniOS.SkyLine.Build.05.2026
-            command: sudo -E ./minios-cmd -d resolute -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "Etc/GMT-7" -kl -ib dracut
-
-          # ===== zMinios.Skyline.Build.04.2026 =====
-          - release: sid
-            build_tar: zMinios.Skyline.Build.04.2026.tar.xz
-            build_dir: zMinios.Skyline.Build.04.2026
-            command: sudo sh sid.xfce.build.sh
+          - { release: trixie, is_custom: false }
+          - { release: noble, is_custom: false }
+          - { release: resolute, is_custom: false }
+          - { release: sid, is_custom: true, build_tar: "zMinios.Skyline.Build.04.2026.tar.xz", build_dir: "zMinios.Skyline.Build.04.2026" }
 
     steps:
-      - name: Prepare | Get Date
-        id: date
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-      - name: Prepare | Init & Dependencies
+      - name: Prepare | Init & LVM
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-          sudo apt-get install -y \
-            debootstrap squashfs-tools xz-utils \
-            xorriso mtools rsync grub-common \
-            xfsprogs lvm2 pv wget
-
-      - name: Prepare | Create LVM Disk
-        run: |
-          set -e
+          sudo apt-get update && sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso mtools rsync grub-common xfsprogs lvm2 pv wget
+          
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
-
-          LOOP1=$(sudo losetup --find --show /mnt.img)
-          LOOP2=$(sudo losetup --find --show /root.img)
-
-          sudo pvcreate $LOOP1 $LOOP2
-          sudo vgcreate github $LOOP1 $LOOP2
+          L1=$(sudo losetup -f --show /mnt.img)
+          L2=$(sudo losetup -f --show /root.img)
+          sudo pvcreate $L1 $L2 && sudo vgcreate github $L1 $L2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
+          sudo mkfs.xfs -f -i sparse=0 /dev/github/runner
+          sudo mkdir -p $BUILDER_DIR && sudo mount /dev/github/runner $BUILDER_DIR
+          sudo chown runner:runner $BUILDER_DIR
 
-          sudo mkdir -p $BUILDER_DIR
-          sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k \
-            /dev/github/runner $BUILDER_DIR
-          sudo chown -R runner:runner $BUILDER_DIR
-          df -Th
-
-      - name: Prepare | Download Build Files
+      - name: Prepare | Download
         working-directory: /builder
         run: |
-          wget -q "https://github.com/1compk/minios/releases/download/live/${{ matrix.build_tar }}"
-          tar -xf "${{ matrix.build_tar }}"
+          TAR_FILE="${{ matrix.build_tar || env.DEFAULT_TAR }}"
+          wget -q "https://github.com/1compk/minios/releases/download/live/$TAR_FILE"
+          tar -xf "$TAR_FILE"
 
-      - name: Build | Build MiniOS
-        working-directory: /builder/${{ matrix.build_dir }}
+      - name: Build | Run
+        working-directory: /builder/${{ matrix.build_dir || env.DEFAULT_DIR }}
         run: |
-          set -e
-          ${{ matrix.command }}
+          if [ "${{ matrix.is_custom }}" = "true" ]; then
+            sudo sh sid.xfce.build.sh
+          else
+            sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
+          fi
 
-      - name: Upload | Upload ISO
+      - name: Upload | ISO
         uses: actions/upload-artifact@v7
         with:
-          name: MiniOS-${{ matrix.release }}-${{ steps.date.outputs.DATE }}
-          path: /builder/${{ matrix.build_dir }}/build/iso/*.iso
-          retention-days: 90
-          archive: false
-          if-no-files-found: error
+          name: MiniOS-${{ matrix.release }}-${{ github.run_id }}
+          path: /builder/${{ matrix.build_dir || env.DEFAULT_DIR }}/build/iso/*.iso
+          retention-
+          days: 90
