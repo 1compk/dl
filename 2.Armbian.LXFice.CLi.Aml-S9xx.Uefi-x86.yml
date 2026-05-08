@@ -1,8 +1,8 @@
-name: 2.Build Armbian LXFice CLi Aml-S9xx Uefi-x86
+name: 2. Armbian Build LXFice CLi Aml-S9xx Uefi-x86
 
 on:
   schedule:
-   - cron: '0 0 */5 * *'
+    - cron: '0 0 */5 * *' # Run every 5 Days
   workflow_dispatch:
 
 env:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    name: Build ${{ matrix.name }}
+    name: Armbian ${{ matrix.name }}
     runs-on: ${{ matrix.runs_on }}
     timeout-minutes: 600
 
@@ -21,30 +21,30 @@ jobs:
       matrix:
         include:
 
-          # ===== Aml-S9xx Build =====
-          - name: Armbian.LXFice.Forky.Aml-S9xx
+          # ===== Aml-S9xx =====
+          - name: LXFice Aml-S9xx
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
             desktop: yes
             env_xfce: xfce
             config_name: config_base
 
-          - name: Armbian.CLi.Forky.Aml-S9xx
+          - name: CLi Aml-S9xx
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
             desktop: no
             env_xfce: ""
             config_name: ""
 
-          # ===== Uefi-x86 Build =====
-          - name: Armbian.LXFice.Forky.Uefi-x86
+          # ===== Uefi-x86 =====
+          - name: LXFice Uefi-x86
             runs_on: ubuntu-24.04
             board: uefi-x86
             desktop: yes
             env_xfce: xfce
             config_name: config_base
 
-          - name: Armbian.CLi.Forky.Uefi-x86
+          - name: CLi Uefi-x86
             runs_on: ubuntu-24.04
             board: uefi-x86
             desktop: no
@@ -52,36 +52,26 @@ jobs:
             config_name: ""
 
     steps:
-      - name: Prepare | Get Date
-        id: date
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-
-      - name: Prepare | Init & Dependencies
+      - name: Prepare | Init & LVM
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-          sudo apt-get update
+          #sudo apt-get update
           sudo apt-get install -y \
             git wget curl dosfstools mtools parted \
             e2fsprogs fdisk rsync lsof pv xfsprogs lvm2
 
-      - name: Prepare | Create LVM Disk
-        run: |
-          set -e
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
-
           LOOP1=$(sudo losetup --find --show /mnt.img)
           LOOP2=$(sudo losetup --find --show /root.img)
-
           sudo pvcreate $LOOP1 $LOOP2
           sudo vgcreate github $LOOP1 $LOOP2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
+          sudo mkfs.xfs -f -i sparse=0 /dev/github/runner
 
           sudo mkdir -p $BUILDER_DIR
-          sudo mount -o noatime,nodiratime,logbufs=8,logbsize=256k \
-            /dev/github/runner $BUILDER_DIR
+          sudo mount /dev/github/runner $BUILDER_DIR
           sudo chown -R runner:runner $BUILDER_DIR
           df -Th
 
@@ -90,7 +80,7 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
 
-      - name: Build | Armbian
+      - name: Build | Run
         working-directory: ${{ env.BUILDER_DIR }}/armbian
         run: |
           chmod +x compile.sh
@@ -108,14 +98,12 @@ jobs:
             KERNEL_CONFIGURE=no \
             KERNEL_GIT=shallow \
             DOCKER_ARMBIAN=no \
-            USE_CCACHE=no \
-            COMPRESS_OUTPUTIMAGE=gz
 
-      - name: Upload | Armbian Image
+      - name: Upload | Image
         uses: actions/upload-artifact@v7
         with:
-          name: ${{ matrix.name }}-${{ steps.date.outputs.DATE }}
+          name: Armbian-${{ matrix.name }}-${{ github.run_id }}
           path: ${{ env.BUILDER_DIR }}/armbian/output/images/*.img*
-          retention-days: 90
+          retention-days: 30
           archive: true
           if-no-files-found: error
