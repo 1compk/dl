@@ -44,6 +44,7 @@ jobs:
           sudo mkfs.xfs -f -i sparse=0 /dev/github/runner
           sudo mkdir -p $BUILDER_DIR && sudo mount /dev/github/runner $BUILDER_DIR
           sudo chown runner:runner $BUILDER_DIR
+          df -Th
 
       - name: Prepare | Download
         working-directory: /builder
