@@ -1,4 +1,4 @@
-name: 2.Armbian Build LXFice CLi Aml-S9xx Uefi-x86
+name: 2. Armbian Build LXFice CLi Aml-S9xx Uefi-x86
 
 on:
   schedule:
@@ -92,13 +92,13 @@ jobs:
             RELEASE=forky \
             BUILD_DESKTOP=${{ matrix.desktop }} \
             BUILD_MINIMAL=no \
+            DESKTOP_APPGROUPS_SELECTED= \
             DESKTOP_ENVIRONMENT=${{ matrix.env_xfce }} \
             DESKTOP_ENVIRONMENT_CONFIG_NAME=${{ matrix.config_name }} \
             KERNEL_BTF=no \
             KERNEL_CONFIGURE=no \
             KERNEL_GIT=shallow \
             DOCKER_ARMBIAN=no \
-            USE_CCACHE=no \
 
       - name: Upload | Image
         uses: actions/upload-artifact@v7
