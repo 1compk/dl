@@ -52,7 +52,6 @@ jobs:
             config_name: ""
 
     steps:
-      # ===== Prepare =====
       - name: Prepare | Init & LVM
         run: |
           sudo timedatectl set-timezone "${TZ}"
