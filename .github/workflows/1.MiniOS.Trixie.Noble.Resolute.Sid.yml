@@ -32,7 +32,8 @@ jobs:
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-          sudo apt-get update && sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso mtools rsync grub-common xfsprogs lvm2 pv wget
+          #sudo apt-get update
+          sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso mtools rsync grub-common xfsprogs lvm2 pv wget
           
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
