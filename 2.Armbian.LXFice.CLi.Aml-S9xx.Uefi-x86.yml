@@ -1,8 +1,8 @@
-name: Armbian Build LXFice CLi Aml-S9xx Uefi-x86
+name: 2.Armbian Build LXFice CLi Aml-S9xx Uefi-x86
 
 on:
   schedule:
-    - cron: '0 0 */5 * *'
+    - cron: '0 0 */5 * *' # Run every 5 Days
   workflow_dispatch:
 
 env:
@@ -57,18 +57,15 @@ jobs:
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-          sudo apt-get update
+          #sudo apt-get update
           sudo apt-get install -y \
             git wget curl dosfstools mtools parted \
             e2fsprogs fdisk rsync lsof pv xfsprogs lvm2
 
-          # Create LVM (เหมือน MiniOS)
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
-
           LOOP1=$(sudo losetup --find --show /mnt.img)
           LOOP2=$(sudo losetup --find --show /root.img)
-
           sudo pvcreate $LOOP1 $LOOP2
           sudo vgcreate github $LOOP1 $LOOP2
           sudo lvcreate -n runner -l 100%FREE github
@@ -77,16 +74,13 @@ jobs:
           sudo mkdir -p $BUILDER_DIR
           sudo mount /dev/github/runner $BUILDER_DIR
           sudo chown -R runner:runner $BUILDER_DIR
-
           df -Th
 
-      # ===== Clone =====
       - name: Prepare | Clone Armbian
         working-directory: ${{ env.BUILDER_DIR }}
         run: |
           git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
 
-      # ===== Build =====
       - name: Build | Run
         working-directory: ${{ env.BUILDER_DIR }}/armbian
         run: |
@@ -105,9 +99,7 @@ jobs:
             KERNEL_GIT=shallow \
             DOCKER_ARMBIAN=no \
             USE_CCACHE=no \
-            COMPRESS_OUTPUTIMAGE=gz
 
-      # ===== Upload =====
       - name: Upload | Image
         uses: actions/upload-artifact@v7
         with:
