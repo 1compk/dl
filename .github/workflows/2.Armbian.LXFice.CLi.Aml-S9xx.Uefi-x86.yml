@@ -83,7 +83,7 @@ jobs:
       - name: Build | Run
         working-directory: ${{ env.BUILDER_DIR }}/armbian
         run: |
-          git checkout c3385ce
+          git checkout 38c583f
           git submodule update --init --recursive
           chmod +x compile.sh
           sudo ./compile.sh build \
