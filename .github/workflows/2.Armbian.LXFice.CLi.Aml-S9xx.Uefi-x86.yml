@@ -78,13 +78,13 @@ jobs:
       - name: Prepare | Clone Armbian
         working-directory: ${{ env.BUILDER_DIR }}
         run: |
-          git clone https://github.com/1compk/armbian.build.git armbian
+          git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
 
       - name: Build | Run
         working-directory: ${{ env.BUILDER_DIR }}/armbian
         run: |
-          git checkout 38c583f
-          git submodule update --init --recursive
+          #git checkout 38c583f
+          #git submodule update --init --recursive
           chmod +x compile.sh
           sudo ./compile.sh build \
             EXPERT=yes \
