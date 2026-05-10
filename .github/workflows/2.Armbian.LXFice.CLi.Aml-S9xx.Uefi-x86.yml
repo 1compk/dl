@@ -28,6 +28,7 @@ jobs:
             desktop: yes
             env_xfce: xfce
             config_name: config_base
+            appgroups: "minimal"
 
           - name: CLi Aml-S9xx
             runs_on: ubuntu-24.04-arm
@@ -35,6 +36,7 @@ jobs:
             desktop: no
             env_xfce: ""
             config_name: ""
+            appgroups: ""
 
           # ===== Uefi-x86 =====
           - name: LXFice Uefi-x86
@@ -43,6 +45,7 @@ jobs:
             desktop: yes
             env_xfce: xfce
             config_name: config_base
+            appgroups: "minimal"
 
           - name: CLi Uefi-x86
             runs_on: ubuntu-24.04
@@ -50,6 +53,7 @@ jobs:
             desktop: no
             env_xfce: ""
             config_name: ""
+            appgroups: ""
 
     steps:
       - name: Prepare | Init & LVM
@@ -78,13 +82,11 @@ jobs:
       - name: Prepare | Clone Armbian
         working-directory: ${{ env.BUILDER_DIR }}
         run: |
-          git clone --depth 1 https://github.com/1compk/armbian.build.git armbian
+          git clone --depth 1 https://github.com/armbian/build.git armbian
 
       - name: Build | Run
         working-directory: ${{ env.BUILDER_DIR }}/armbian
         run: |
-          #git checkout 38c583f
-          #git submodule update --init --recursive
           chmod +x compile.sh
           sudo ./compile.sh build \
             EXPERT=yes \
@@ -93,7 +95,7 @@ jobs:
             RELEASE=forky \
             BUILD_DESKTOP=${{ matrix.desktop }} \
             BUILD_MINIMAL=no \
-            DESKTOP_APPGROUPS_SELECTED= \
+            DESKTOP_APPGROUPS_SELECTED=${{ matrix.appgroups }} \
             DESKTOP_ENVIRONMENT=${{ matrix.env_xfce }} \
             DESKTOP_ENVIRONMENT_CONFIG_NAME=${{ matrix.config_name }} \
             KERNEL_BTF=no \
