@@ -1,4 +1,4 @@
-name: 2. Armbian Build LXFice CLi Aml-S9xx Uefi-x86
+name: 2. Armbian Build DL LXFice CLi Aml-S9xx Uefi-x86
 
 on:
   schedule:
