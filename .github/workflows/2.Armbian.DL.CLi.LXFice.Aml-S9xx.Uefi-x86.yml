@@ -7,7 +7,7 @@ on:
 
 env:
   TZ: Etc/GMT-7
-  IMAGE_SIZE: 100G
+  IMAGE_SIZE: 100GiB
   BUILDER_DIR: /builder
 
 jobs:
