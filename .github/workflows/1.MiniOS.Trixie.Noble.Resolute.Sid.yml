@@ -54,7 +54,7 @@ jobs:
         working-directory: /builder
         run: |
           TAR_FILE="${{ matrix.build_tar || env.DEFAULT_TAR }}"
-          wget -q "https://github.com/1compk/minios/releases/download/live/$TAR_FILE"
+          wget -q "https://github.com/1compk/dl/releases/download/dl/$TAR_FILE"
           tar -xf "$TAR_FILE"
 
       - name: Build | Run
