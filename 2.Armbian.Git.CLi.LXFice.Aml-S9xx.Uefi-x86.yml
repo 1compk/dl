@@ -1,0 +1,113 @@
+name: 2. Armbian Build Git CLi LXFice Aml-S9xx Uefi-x86
+
+on:
+  schedule:
+    - cron: '0 0 */5 * *' # Run every 5 Days
+  workflow_dispatch:
+
+env:
+  TZ: Etc/GMT-7
+  IMAGE_SIZE: 100GiB
+  BUILDER_DIR: /builder
+
+jobs:
+  build:
+    name: Armbian ${{ matrix.name }}
+    runs-on: ${{ matrix.runs_on }}
+    timeout-minutes: 600
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+
+          # ===== CLi =====
+          - name: CLi Aml-S9xx
+            runs_on: ubuntu-24.04-arm
+            board: aml-s9xx-box
+            desktop: no
+            env_xfce: ""
+            config_name: ""
+            appgroups: ""
+
+          - name: CLi Uefi-x86
+            runs_on: ubuntu-24.04
+            board: uefi-x86
+            desktop: no
+            env_xfce: ""
+            config_name: ""
+            appgroups: ""
+
+          # ===== Desktop =====
+          - name: LXFice Aml-S9xx
+            runs_on: ubuntu-24.04-arm
+            board: aml-s9xx-box
+            desktop: yes
+            env_xfce: xfce
+            config_name: config_base
+            appgroups: "minimal"
+
+          - name: LXFice Uefi-x86
+            runs_on: ubuntu-24.04
+            board: uefi-x86
+            desktop: yes
+            env_xfce: xfce
+            config_name: config_base
+            appgroups: "program"
+
+    steps:
+      - name: Prepare | Init & LVM
+        run: |
+          sudo timedatectl set-timezone "${TZ}"
+          sudo swapoff -a || true
+          #sudo apt-get update
+          sudo apt-get install -y \
+            git wget curl dosfstools mtools parted \
+            e2fsprogs fdisk rsync lsof pv lvm2 f2fs-tools
+
+          sudo truncate -s $IMAGE_SIZE /mnt.img
+          sudo truncate -s $IMAGE_SIZE /root.img
+          LOOP1=$(sudo losetup --find --show /mnt.img)
+          LOOP2=$(sudo losetup --find --show /root.img)
+          sudo pvcreate $LOOP1 $LOOP2
+          sudo vgcreate github $LOOP1 $LOOP2
+          sudo lvcreate -n runner -l 100%FREE github
+          sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
+
+          sudo mkdir -p $BUILDER_DIR
+          sudo mount /dev/github/runner $BUILDER_DIR
+          sudo chown -R runner:runner $BUILDER_DIR
+          df -Th
+
+      - name: Prepare | Clone Armbian
+        working-directory: ${{ env.BUILDER_DIR }}
+        run: |
+          git clone --depth 1 https://github.com/armbian/build.git armbian
+
+      - name: Build | Run
+        working-directory: ${{ env.BUILDER_DIR }}/armbian
+        run: |
+          chmod +x compile.sh
+          sudo ./compile.sh build \
+            EXPERT=yes \
+            BOARD=${{ matrix.board }} \
+            BRANCH=edge \
+            RELEASE=forky \
+            BUILD_DESKTOP=${{ matrix.desktop }} \
+            BUILD_MINIMAL=no \
+            DESKTOP_APPGROUPS_SELECTED=${{ matrix.appgroups }} \
+            DESKTOP_ENVIRONMENT=${{ matrix.env_xfce }} \
+            DESKTOP_ENVIRONMENT_CONFIG_NAME=${{ matrix.config_name }} \
+            KERNEL_BTF=no \
+            KERNEL_CONFIGURE=no \
+            KERNEL_GIT=shallow \
+            DOCKER_ARMBIAN=no \
+
+      - name: Upload | Image
+        uses: actions/upload-artifact@v7
+        with:
+          name: Armbian-${{ matrix.name }}-${{ github.run_id }}
+          path: ${{ env.BUILDER_DIR }}/armbian/output/images/*.img*
+          retention-days: 30
+          archive: true
+          if-no-files-found: error
