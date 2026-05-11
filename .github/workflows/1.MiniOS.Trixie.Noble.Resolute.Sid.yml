@@ -34,7 +34,7 @@ jobs:
           sudo swapoff -a || true
           #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common xfsprogs lvm2 pv wget
+            mtools rsync grub-common e2fsprogs lvm2 pv wget f2fs-tools
           
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
@@ -43,7 +43,7 @@ jobs:
           sudo pvcreate $LOOP1 $LOOP2
           sudo vgcreate github $LOOP1 $LOOP2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 /dev/github/runner
+          sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
 
           sudo mkdir -p $BUILDER_DIR
           sudo mount /dev/github/runner $BUILDER_DIR

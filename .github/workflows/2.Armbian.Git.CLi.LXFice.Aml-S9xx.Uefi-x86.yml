@@ -63,7 +63,7 @@ jobs:
           #sudo apt-get update
           sudo apt-get install -y \
             git wget curl dosfstools mtools parted \
-            e2fsprogs fdisk rsync lsof pv xfsprogs lvm2
+            e2fsprogs fdisk rsync lsof pv lvm2 f2fs-tools
 
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
@@ -72,7 +72,7 @@ jobs:
           sudo pvcreate $LOOP1 $LOOP2
           sudo vgcreate github $LOOP1 $LOOP2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 /dev/github/runner
+          sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
 
           sudo mkdir -p $BUILDER_DIR
           sudo mount /dev/github/runner $BUILDER_DIR
