@@ -33,17 +33,21 @@ jobs:
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
           #sudo apt-get update
-          sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso mtools rsync grub-common xfsprogs lvm2 pv wget
+          sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
+            mtools rsync grub-common xfsprogs lvm2 pv wget
           
           sudo truncate -s $IMAGE_SIZE /mnt.img
           sudo truncate -s $IMAGE_SIZE /root.img
-          L1=$(sudo losetup -f --show /mnt.img)
-          L2=$(sudo losetup -f --show /root.img)
-          sudo pvcreate $L1 $L2 && sudo vgcreate github $L1 $L2
+          LOOP1=$(sudo losetup --find --show /mnt.img)
+          LOOP2=$(sudo losetup --find --show /root.img)
+          sudo pvcreate $LOOP1 $LOOP2
+          sudo vgcreate github $LOOP1 $LOOP2
           sudo lvcreate -n runner -l 100%FREE github
           sudo mkfs.xfs -f -i sparse=0 /dev/github/runner
-          sudo mkdir -p $BUILDER_DIR && sudo mount /dev/github/runner $BUILDER_DIR
-          sudo chown runner:runner $BUILDER_DIR
+
+          sudo mkdir -p $BUILDER_DIR
+          sudo mount /dev/github/runner $BUILDER_DIR
+          sudo chown -R runner:runner $BUILDER_DIR
           df -Th
 
       - name: Prepare | Download
