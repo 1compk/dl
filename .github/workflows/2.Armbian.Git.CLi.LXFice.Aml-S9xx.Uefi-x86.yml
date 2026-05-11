@@ -1,4 +1,4 @@
-name: 2. Armbian Build Git LXFice CLi Aml-S9xx Uefi-x86
+name: 2. Armbian Build Git CLi LXFice Aml-S9xx Uefi-x86
 
 on:
   schedule:
@@ -21,15 +21,7 @@ jobs:
       matrix:
         include:
 
-          # ===== Aml-S9xx =====
-          - name: LXFice Aml-S9xx
-            runs_on: ubuntu-24.04-arm
-            board: aml-s9xx-box
-            desktop: yes
-            env_xfce: xfce
-            config_name: config_base
-            appgroups: "minimal"
-
+          # ===== CLi =====
           - name: CLi Aml-S9xx
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
@@ -38,15 +30,6 @@ jobs:
             config_name: ""
             appgroups: ""
 
-          # ===== Uefi-x86 =====
-          - name: LXFice Uefi-x86
-            runs_on: ubuntu-24.04
-            board: uefi-x86
-            desktop: yes
-            env_xfce: xfce
-            config_name: config_base
-            appgroups: "minimal"
-
           - name: CLi Uefi-x86
             runs_on: ubuntu-24.04
             board: uefi-x86
@@ -54,6 +37,23 @@ jobs:
             env_xfce: ""
             config_name: ""
             appgroups: ""
+
+          # ===== Desktop =====
+          - name: LXFice Aml-S9xx
+            runs_on: ubuntu-24.04-arm
+            board: aml-s9xx-box
+            desktop: yes
+            env_xfce: xfce
+            config_name: config_base
+            appgroups: "minimal"
+
+          - name: LXFice Uefi-x86
+            runs_on: ubuntu-24.04
+            board: uefi-x86
+            desktop: yes
+            env_xfce: xfce
+            config_name: config_base
+            appgroups: "program"
 
     steps:
       - name: Prepare | Init & LVM

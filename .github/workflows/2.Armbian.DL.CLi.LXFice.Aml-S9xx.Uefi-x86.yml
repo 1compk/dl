@@ -1,4 +1,4 @@
-name: 2. Armbian Build DL LXFice CLi Aml-S9xx Uefi-x86
+name: 2. Armbian Build DL CLi LXFice Aml-S9xx Uefi-x86
 
 on:
   schedule:
@@ -21,28 +21,13 @@ jobs:
       matrix:
         include:
 
-          # ===== Aml-S9xx =====
-          - name: LXFice Aml-S9xx
-            runs_on: ubuntu-24.04-arm
-            board: aml-s9xx-box
-            desktop: yes
-            env_xfce: xfce
-            config_name: config_base
-
+          # ===== CLi =====
           - name: CLi Aml-S9xx
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
             desktop: no
             env_xfce: ""
             config_name: ""
-
-          # ===== Uefi-x86 =====
-          - name: LXFice Uefi-x86
-            runs_on: ubuntu-24.04
-            board: uefi-x86
-            desktop: yes
-            env_xfce: xfce
-            config_name: config_base
 
           - name: CLi Uefi-x86
             runs_on: ubuntu-24.04
@@ -51,14 +36,28 @@ jobs:
             env_xfce: ""
             config_name: ""
 
+          # ===== LXFice =====
+          - name: LXFice Aml-S9xx
+            runs_on: ubuntu-24.04-arm
+            board: aml-s9xx-box
+            desktop: yes
+            env_xfce: xfce
+            config_name: config_base
+
+          - name: LXFice Uefi-x86
+            runs_on: ubuntu-24.04
+            board: uefi-x86
+            desktop: yes
+            env_xfce: xfce
+            config_name: config_base
+
     steps:
       - name: Prepare | Init & LVM
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
           #sudo apt-get update
-          sudo apt-get install -y \
-            git wget curl dosfstools mtools parted \
+          sudo apt-get install -y git wget curl dosfstools mtools parted \
             e2fsprogs fdisk rsync lsof pv xfsprogs lvm2
 
           sudo truncate -s $IMAGE_SIZE /mnt.img
