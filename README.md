@@ -37,6 +37,8 @@ sudo update-alternatives --config x-terminal-emulator
 
 sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "/dev/loop6p3"
 
+sudo mkfs.xfs -f -i sparse=0 -b size=4096 "/dev/loop6p3"
+
 ==================================================================
 
 Install bootmgr mbr bootloader :
