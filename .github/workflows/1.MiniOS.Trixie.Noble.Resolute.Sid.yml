@@ -7,8 +7,8 @@ on:
 
 env:
   TZ: Etc/GMT-7
-  IMAGE_SIZE: 100GiB
-  BUILDER_DIR: /builder
+  iMageSize: 100GiB
+  MainDir: /builder
 
   BuildFile: zMiniOS.SkyLine.Build.05.2026.tar.xz
   BuildDir: zMiniOS.SkyLine.Build.05.2026
@@ -22,10 +22,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { release: trixie, is_custom: false }
-          - { release: noble, is_custom: false }
-          - { release: resolute, is_custom: false }
-          - { release: sid, is_custom: false }
+          - { release: trixie, Custom: false }
+          - { release: noble, Custom: false }
+          - { release: resolute, Custom: false }
+          - { release: sid, Custom: false }
 
     steps:
       - name: Prepare | Init & LVM
@@ -36,18 +36,18 @@ jobs:
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs
           
-          sudo truncate -s $IMAGE_SIZE /mnt.img
-          sudo truncate -s $IMAGE_SIZE /root.img
-          LOOP1=$(sudo losetup --find --show /mnt.img)
-          LOOP2=$(sudo losetup --find --show /root.img)
-          sudo pvcreate $LOOP1 $LOOP2
-          sudo vgcreate github $LOOP1 $LOOP2
+          sudo truncate -s $iMageSize /mnt.img
+          sudo truncate -s $iMageSize /root.img
+          Loop1=$(sudo losetup --find --show /mnt.img)
+          Loop2=$(sudo losetup --find --show /root.img)
+          sudo pvcreate $Loop1 $Loop2
+          sudo vgcreate github $Loop1 $Loop2
           sudo lvcreate -n runner -l 100%FREE github
           sudo mkfs.btrfs -fv /dev/github/runner
 
-          sudo mkdir -p $BUILDER_DIR
-          sudo mount /dev/github/runner $BUILDER_DIR
-          sudo chown -R runner:runner $BUILDER_DIR
+          sudo mkdir -p $MainDir
+          sudo mount /dev/github/runner $MainDir
+          sudo chown -R runner:runner $MainDir
           df -Th
 
       - name: Prepare | Download
@@ -59,7 +59,7 @@ jobs:
       - name: Build | Run
         working-directory: /builder/${{ env.BuildDir }}
         run: |
-            sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
+           sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
       - name: Upload | ISO
         uses: actions/upload-artifact@v7
