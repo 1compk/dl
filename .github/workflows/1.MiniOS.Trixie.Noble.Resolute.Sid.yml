@@ -10,8 +10,8 @@ env:
   IMAGE_SIZE: 100GiB
   BUILDER_DIR: /builder
 
-  DEFAULT_TAR: zMiniOS.SkyLine.Build.05.2026.tar.xz
-  DEFAULT_DIR: zMiniOS.SkyLine.Build.05.2026
+  BuildFile: zMiniOS.SkyLine.Build.05.2026.tar.xz
+  BuildDir: zMiniOS.SkyLine.Build.05.2026
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
           - { release: trixie, is_custom: false }
           - { release: noble, is_custom: false }
           - { release: resolute, is_custom: false }
-          - { release: sid, is_custom: true, build_tar: "zMinios.Skyline.Build.04.2026.tar.xz", build_dir: "zMinios.Skyline.Build.04.2026" }
+          - { release: sid, is_custom: false }
 
     steps:
       - name: Prepare | Init & LVM
@@ -53,24 +53,19 @@ jobs:
       - name: Prepare | Download
         working-directory: /builder
         run: |
-          TAR_FILE="${{ matrix.build_tar || env.DEFAULT_TAR }}"
-          wget -q "https://github.com/1compk/minios/releases/download/live/$TAR_FILE"
-          tar -xf "$TAR_FILE"
+          wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.BuildFile }}"
+          tar -xf "${{ env.BuildFile }}"
 
       - name: Build | Run
-        working-directory: /builder/${{ matrix.build_dir || env.DEFAULT_DIR }}
+        working-directory: /builder/${{ env.BuildDir }}
         run: |
-          if [ "${{ matrix.is_custom }}" = "true" ]; then
-            sudo sh sid.xfce.build.sh
-          else
             sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
-          fi
 
       - name: Upload | ISO
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-${{ matrix.release }}-${{ github.run_id }}
-          path: /builder/${{ matrix.build_dir || env.DEFAULT_DIR }}/build/iso/*.iso
+          path: /builder/${{ env.BuildDir }}/build/iso/*.iso
           retention-days: 30
           archive: false
           if-no-files-found: error
