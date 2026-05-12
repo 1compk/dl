@@ -43,7 +43,7 @@ jobs:
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.btrfs -fv /dev/github/runner
+          sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
 
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
