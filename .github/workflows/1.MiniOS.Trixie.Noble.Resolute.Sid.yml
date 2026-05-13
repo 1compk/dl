@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-24.04
     container:
      image: debian:trixie
-     options: --privileged
+     options: --privileged -v /dev:/dev
     timeout-minutes: 600
     strategy:
       fail-fast: false
@@ -35,11 +35,11 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          apt-get update && apt-get install -y sudo
+          apt-get update && apt-get install -y sudo lvm2 udev
           sudo swapoff -a || true
           sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs udev
+            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
@@ -47,8 +47,8 @@ jobs:
           Loop2=$(sudo losetup --find --show /root.img)
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
-          sudo systemctl daemon-reload && sudo sync
           lvcreate -n runner -l 100%FREE github --wipesignatures n
+          sudo vgscan && sudo vgchange -ay github
           sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
 
           sudo mkdir -p $MainDir
