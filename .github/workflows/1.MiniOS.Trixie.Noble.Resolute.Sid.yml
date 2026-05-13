@@ -48,7 +48,7 @@ jobs:
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
           sudo systemctl daemon-reload && sudo sync
-          lvcreate --notouching -n runner -l 100%FREE github --wipesignatures n
+          lvcreate -n runner -l 100%FREE github --wipesignatures n
           sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
 
           sudo mkdir -p $MainDir
