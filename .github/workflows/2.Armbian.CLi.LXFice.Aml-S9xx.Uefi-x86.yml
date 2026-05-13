@@ -9,6 +9,7 @@ env:
   TZ: Etc/GMT-7
   iMageSize: 100GiB
   MainDir: /builder
+
   ArmbianBuild: zArmbian.Build.10.05.26.tar.xz
   ArmbianBuildDir: zArmbian.Build.10.05.26
 
@@ -60,6 +61,7 @@ jobs:
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
+          #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs \
             git curl dosfstools parted fdisk lsof xfsprogs
