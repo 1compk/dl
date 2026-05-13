@@ -50,7 +50,7 @@ jobs:
           sudo chown -R runner:runner $MainDir
           df -Th
 
-      - name: Prepare | Download
+      - name: Prepare | Source Code
         working-directory: /builder
         run: |
           wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.MiniOSBuild }}"
