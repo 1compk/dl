@@ -17,6 +17,9 @@ jobs:
   build:
     name: MiniOS ${{ matrix.release }}
     runs-on: ubuntu-24.04
+    container:
+     image: debian:trixie
+     options: --privileged
     timeout-minutes: 600
     strategy:
       fail-fast: false
@@ -30,9 +33,10 @@ jobs:
     steps:
       - name: Prepare | Init & LVM
         run: |
+          apt-get update && apt-get install -y sudo timedatectl
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-          #sudo apt-get update
+          sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs
           
