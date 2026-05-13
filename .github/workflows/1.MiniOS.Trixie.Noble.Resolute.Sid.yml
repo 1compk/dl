@@ -33,11 +33,10 @@ jobs:
       - name: Prepare | OS Update
         run: |
           apt-get update
-          apt-get install -y sudo timedatectl lvm2 udev
+          apt-get install -y sudo lvm2 udev
 
       - name: Prepare | Init & LVM
         run: |
-          sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs pv wget btrfs-progs
           
