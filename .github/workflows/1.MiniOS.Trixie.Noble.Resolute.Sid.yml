@@ -32,6 +32,8 @@ jobs:
 
     steps:
       - name: Prepare | Init & LVM
+        env:
+         DEBIAN_FRONTEND: noninteractive
         run: |
           apt-get update && apt-get install -y sudo
           sudo swapoff -a || true
