@@ -1,4 +1,4 @@
-name: 1. MiniOS LXFice Trixie Noble Resolute Sid
+name: 1. MiniOS LXFice Trixie Noble Resolute Sid (on Debian Trixie)
 
 on:
   schedule:
@@ -9,7 +9,6 @@ env:
   TZ: Etc/GMT-7
   iMageSize: 100GiB
   MainDir: /builder
-
   MiniOSBuild: zMiniOS.SkyLine.Build.05.2026.tar.xz
   MiniOSBuildDir: zMiniOS.SkyLine.Build.05.2026
 
@@ -18,8 +17,8 @@ jobs:
     name: MiniOS ${{ matrix.release }}
     runs-on: ubuntu-24.04
     container:
-     image: debian:trixie
-     options: --privileged -v /dev:/dev
+      image: debian:trixie
+      options: --privileged -v /dev:/dev # เชื่อมต่อ /dev ของโฮสต์เข้ากับ Container
     timeout-minutes: 600
     strategy:
       fail-fast: false
@@ -31,24 +30,31 @@ jobs:
           - { release: sid, Custom: false }
 
     steps:
-      - name: Prepare | Init & LVM
-        env:
-          DEBIAN_FRONTEND: noninteractive
+      - name: Prepare | OS Update
         run: |
-          apt-get update && apt-get install -y sudo lvm2 udev
-          sudo swapoff -a || true
-          sudo apt-get update
+          apt-get update
+          apt-get install -y sudo timedatectl lvm2 udev
+
+      - name: Prepare | Init & LVM
+        run: |
+          sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs
+            mtools rsync grub-common e2fsprogs pv wget btrfs-progs
           
+          # สร้างไฟล์อิมเมจ
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
           Loop1=$(sudo losetup --find --show /mnt.img)
           Loop2=$(sudo losetup --find --show /root.img)
-          sudo pvcreate $Loop1 $Loop2
-          sudo vgcreate github $Loop1 $Loop2
-          lvcreate -n runner -l 100%FREE github --wipesignatures n
-          sudo vgscan && sudo vgchange -ay github
+          
+          # จัดการ LVM
+          sudo pvcreate -f $Loop1 $Loop2
+          sudo vgcreate -f github $Loop1 $Loop2
+          sudo lvcreate -y -n runner -l 100%FREE github
+          
+          # กระตุ้นให้ Container มองเห็น Device Node ใหม่
+          sudo vgscan
+          sudo vgchange -ay github
           sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
 
           sudo mkdir -p $MainDir
