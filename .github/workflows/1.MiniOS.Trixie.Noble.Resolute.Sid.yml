@@ -10,8 +10,8 @@ env:
   iMageSize: 100GiB
   MainDir: /builder
 
-  BuildFile: zMiniOS.SkyLine.Build.05.2026.tar.xz
-  BuildDir: zMiniOS.SkyLine.Build.05.2026
+  MiniOSBuild: zMiniOS.SkyLine.Build.05.2026.tar.xz
+  MiniOSBuildDir: zMiniOS.SkyLine.Build.05.2026
 
 jobs:
   build:
@@ -53,11 +53,11 @@ jobs:
       - name: Prepare | Download
         working-directory: /builder
         run: |
-          wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.BuildFile }}"
-          tar -xf "${{ env.BuildFile }}"
+          wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.MiniOSBuild }}"
+          tar -xf "${{ env.MiniOSBuild }}"
 
       - name: Build | Run
-        working-directory: /builder/${{ env.BuildDir }}
+        working-directory: /builder/${{ env.MiniOSBuildDir }}
         run: |
            sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
@@ -65,7 +65,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-${{ matrix.release }}-${{ github.run_id }}
-          path: /builder/${{ env.BuildDir }}/build/iso/*.iso
+          path: /builder/${{ env.MiniOSBuildDir }}/build/iso/*.iso
           retention-days: 30
           archive: false
           if-no-files-found: error
