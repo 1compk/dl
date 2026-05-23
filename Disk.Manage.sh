@@ -135,13 +135,13 @@ create_gpt_partitions() {
   sudo parted -s "$disk" mkpart bios 4MiB 8MiB
   sudo parted -s "$disk" set 1 bios_grub on
 
-  echo "Creating EFI partition (8MiB-4108MiB) FAT32"
-  sudo parted -s "$disk" mkpart efi fat32 8MiB 4108MiB
+  echo "Creating EFI partition (8MiB-1008MiB) FAT32"
+  sudo parted -s "$disk" mkpart efi fat32 8MiB 1008MiB
   #sudo parted -s "$disk" set 2 boot on
   #sudo parted -s "$disk" set 2 esp on
 
-  echo "Creating Linux partition (4108MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart ext4 ext4 4108MiB 100%
+  echo "Creating Linux partition (1008MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart ext4 ext4 1008MiB 100%
 
   # Rescan and wait
   sudo sync
@@ -167,8 +167,8 @@ create_gpt_partitions() {
   sudo udevadm settle || true
 
   sudo umount "$p3" 2>/dev/null || true
-  #sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p3" || die "mkfs.ext4 failed on $p3"
-  sudo mkfs.xfs -f -i sparse=0 "$p3" || die "mkfs.xfs failed on $p3"
+  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p3" || die "mkfs.ext4 failed on $p3"
+  #sudo mkfs.xfs -f -i sparse=0 "$p3" || die "mkfs.xfs failed on $p3"
   sudo sync
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
@@ -191,16 +191,16 @@ create_mbr_partitions() {
   sudo parted -s "$disk" mklabel msdos
 
   # 2. Create 1st partition: FAT32 (4MiB to 4104MiB = 4100MiB size)
-  echo "Creating Boot partition (4MiB-4104MiB) FAT32"
-  sudo parted -s "$disk" mkpart primary fat32 4MiB 4104MiB
+  echo "Creating Boot partition (4MiB-1004MiB) FAT32"
+  sudo parted -s "$disk" mkpart primary fat32 4MiB 1004MiB
   
   # 3. Set the boot flag on the first partition
   echo "Setting boot flag on partition 1"
   sudo parted -s "$disk" set 1 boot on
 
   # 4. Create 2nd partition: EXT4 (4101MiB to 100%)
-  echo "Creating Linux partition (4104MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart primary ext4 4104MiB 100%
+  echo "Creating Linux partition (1004MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart primary ext4 1004MiB 100%
 
   # Rescan and wait for the kernel to see the new table
   sudo sync
@@ -224,8 +224,8 @@ create_mbr_partitions() {
   # 6. Format Partition 2 as EXT4
   echo "Formatting $p2 as ext4"
   sudo umount "$p2" 2>/dev/null || true
-  #sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p2" || die "mkfs.ext4 failed on $p2"
-  sudo mkfs.xfs -f -i sparse=0 "$p2" || die "mkfs.xfs failed on $p2"
+  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p2" || die "mkfs.ext4 failed on $p2"
+  #sudo mkfs.xfs -f -i sparse=0 "$p2" || die "mkfs.xfs failed on $p2"
 
   sudo sync
   sudo partprobe "$disk" || true
