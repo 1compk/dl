@@ -90,7 +90,7 @@ jobs:
             git clone --depth 1 https://github.com/armbian/build.git ${{ env.ArmbianBuildDir }}
             cd ${{ env.ArmbianBuildDir }}
             git fetch --all --tags
-            git checkout v26.8.0-trunk.52
+            git checkout v26.8.0-trunk.53
           fi
 
       - name: Build | Run
