@@ -88,6 +88,8 @@ jobs:
           else
             # Clone Git CLi
             git clone --depth 1 https://github.com/armbian/build.git ${{ env.ArmbianBuildDir }}
+            git fetch --all --tags
+            git checkout v26.8.0-trunk.52
           fi
 
       - name: Build | Run
