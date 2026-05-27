@@ -91,12 +91,12 @@ jobs:
             git fetch --all --tags
             
               if [ "${{ matrix.desktop }}" = "yes" ]; then
-            git checkout --detach v26.2.0-trunk.844 -b local-branch
+            git checkout --detach v26.2.0-trunk.844
             cd config/desktop/trixie/environments/xfce/config_base/
             rm -rf packages
             wget https://github.com/1compk/dl/raw/dl/xfce/packages
               else
-            git checkout --detach v26.8.0-trunk.53 -b local-branch
+            git checkout --detach v26.8.0-trunk.53
               fi
 
       - name: Build | Run
@@ -130,5 +130,4 @@ jobs:
           path: /builder/${{ env.ArmbianBuildDir }}/output/images/*.img*
           retention-days: 30
           archive: true
-          if-no-files-found: error
-          
+          if-no-files-found: error          
