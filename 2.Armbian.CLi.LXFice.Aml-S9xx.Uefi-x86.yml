@@ -10,8 +10,9 @@ env:
   iMageSize: 100GiB
   MainDir: /builder
 
-  ArmbianBuild: zArmbian.Build.10.05.26.tar.xz
-  ArmbianBuildDir: zArmbian.Build.10.05.26
+  BuildFile: zArmbian.Build.05.26.tar.xz
+  BuildDir: zArmbian.Build.05.26
+  iMageVersion: 26.8.0-trunk.53
 
 jobs:
   build:
@@ -27,34 +28,38 @@ jobs:
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
             desktop: no
-            env_xfce: ""
+            environment: ""
             config_name: ""
-            source_method: clone
+            revision: 26.8.0-trunk.53
+            image_version: $iMageVersion
 
           - name: CLi-Uefi-x86
             runs_on: ubuntu-24.04
             board: uefi-x86
             desktop: no
-            env_xfce: ""
+            environment: ""
             config_name: ""
-            source_method: clone
+            revision: 26.8.0-trunk.53
+            image_version: $iMageVersion
 
           # ===== (Build DE) =====
           - name: LXFice-Aml-S9xx
             runs_on: ubuntu-24.04-arm
             board: aml-s9xx-box
             desktop: yes
-            env_xfce: xfce
+            environment: xfce
             config_name: config_base
-            source_method: download
+            revision: 26.2.0-trunk.844
+            image_version: $iMageVersion
 
           - name: LXFice-Uefi-x86
             runs_on: ubuntu-24.04
             board: uefi-x86
             desktop: yes
-            env_xfce: xfce
+            environment: xfce
             config_name: config_base
-            source_method: download
+            revision: 26.2.0-trunk.844
+            image_version: $iMageVersion
 
     steps:
       - name: Prepare | Init & LVM
@@ -82,19 +87,21 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          if [ "${{ matrix.source_method }}" = "download" ]; then
-            wget -q "https://github.com/1compk/dl/releases/download/dl/${{ env.ArmbianBuild }}"
-            tar -xf "${{ env.ArmbianBuild }}"
-          else
-            # Clone Git CLi
-            git clone --depth 1 https://github.com/armbian/build.git ${{ env.ArmbianBuildDir }}
-            cd ${{ env.ArmbianBuildDir }}
+            git clone https://github.com/armbian/build.git ${{ env.BuildDir }}
+            cd ${{ env.BuildDir }}
             git fetch --all --tags
-            git checkout v26.8.0-trunk.53
-          fi
+            
+              if [ "${{ matrix.desktop }}" = "yes" ]; then
+            git checkout --detach v26.2.0-trunk.844
+            cd config/desktop/trixie/environments/xfce/config_base/
+            rm -rf packages
+            wget https://github.com/1compk/dl/raw/dl/xfce/packages
+              else
+            git checkout --detach v26.8.0-trunk.53
+              fi
 
       - name: Build | Run
-        working-directory: /builder/${{ env.ArmbianBuildDir }}
+        working-directory: /builder/${{ env.BuildDir }}
         run: |
           chmod +x compile.sh
           sudo -E ./compile.sh build \
@@ -105,20 +112,20 @@ jobs:
             BUILD_DESKTOP=${{ matrix.desktop }} \
             BUILD_MINIMAL=no \
             DESKTOP_APPGROUPS_SELECTED= \
-            DESKTOP_ENVIRONMENT="${{ matrix.env_xfce }}" \
+            DESKTOP_ENVIRONMENT="${{ matrix.environment }}" \
             DESKTOP_ENVIRONMENT_CONFIG_NAME="${{ matrix.config_name }}" \
             KERNEL_BTF=no \
             KERNEL_CONFIGURE=no \
             KERNEL_GIT=shallow \
             DOCKER_ARMBIAN=no \
-            BUILD_AUTO_UPDATE=no
+            BUILD_AUTO_UPDATE=no \
+            IMAGE_VERSION=${{ env.iMageVersion }}
 
       - name: Upload | Image
         uses: actions/upload-artifact@v7
         with:
           name: Armbian-${{ matrix.name }}-${{ github.run_id }}
-          path: /builder/${{ env.ArmbianBuildDir }}/output/images/*.img*
+          path: /builder/${{ env.BuildDir }}/output/images/*.img*
           retention-days: 30
           archive: true
-          if-no-files-found: error
-          
+          if-no-files-found: error          
