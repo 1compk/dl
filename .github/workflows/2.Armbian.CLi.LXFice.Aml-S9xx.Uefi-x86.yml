@@ -29,7 +29,8 @@ jobs:
             desktop: no
             env_xfce: ""
             config_name: ""
-            source_method: clone
+            revision: 26.8.0-trunk.53
+            image_version: 26.8.0
 
           - name: CLi-Uefi-x86
             runs_on: ubuntu-24.04
@@ -37,7 +38,8 @@ jobs:
             desktop: no
             env_xfce: ""
             config_name: ""
-            source_method: clone
+            revision: 26.8.0-trunk.53
+            image_version: 26.8.0
 
           # ===== (Build DE) =====
           - name: LXFice-Aml-S9xx
@@ -46,7 +48,8 @@ jobs:
             desktop: yes
             env_xfce: xfce
             config_name: config_base
-            source_method: download
+            revision: 26.2.0-trunk.844
+            image_version: 26.2.0
 
           - name: LXFice-Uefi-x86
             runs_on: ubuntu-24.04
@@ -54,7 +57,8 @@ jobs:
             desktop: yes
             env_xfce: xfce
             config_name: config_base
-            source_method: download
+            revision: 26.2.0-trunk.844
+            image_version: 26.2.0
 
     steps:
       - name: Prepare | Init & LVM
@@ -86,11 +90,14 @@ jobs:
             cd ${{ env.ArmbianBuildDir }}
             git fetch --all --tags
             
-             if [ "${{ matrix.desktop }}" = "yes" ]; then
-            git checkout v26.2.0-trunk.844
-             else
-            git checkout v26.8.0-trunk.53
-             fi
+              if [ "${{ matrix.desktop }}" = "yes" ]; then
+            git checkout --detach v26.2.0-trunk.844 -b local-branch
+            cd config/desktop/trixie/environments/xfce/config_base/
+            rm -rf packages
+            wget https://github.com/1compk/dl/raw/dl/xfce/packages
+              else
+            git checkout --detach v26.8.0-trunk.53 -b local-branch
+              fi
 
       - name: Build | Run
         working-directory: /builder/${{ env.ArmbianBuildDir }}
@@ -109,8 +116,12 @@ jobs:
             KERNEL_BTF=no \
             KERNEL_CONFIGURE=no \
             KERNEL_GIT=shallow \
+            IGNORE_GIT=yes \
             DOCKER_ARMBIAN=no \
-            BUILD_AUTO_UPDATE=no
+            BUILD_AUTO_UPDATE=no \
+            REVISION=${{ matrix.revision }} \
+            FORCE_ARMBIAN_VERSION=${{ matrix.revision }} \
+            IMAGE_VERSION=${{ matrix.image_version }}
 
       - name: Upload | Image
         uses: actions/upload-artifact@v7
