@@ -1,4 +1,4 @@
-name: 2. Armbian Build Forky CLi LXFice Aml-S9xx Uefi-x86
+name: 2. Armbian Build Trixie CLi LXFice Aml-S9xx Uefi-x86
 
 on:
   schedule:
@@ -108,7 +108,7 @@ jobs:
             EXPERT=yes \
             BOARD=${{ matrix.board }} \
             BRANCH=edge \
-            RELEASE=forky \
+            RELEASE=trixie \
             BUILD_DESKTOP=${{ matrix.desktop }} \
             BUILD_MINIMAL=no \
             DESKTOP_APPGROUPS_SELECTED= \
