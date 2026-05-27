@@ -82,16 +82,15 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          if [ "${{ matrix.source_method }}" = "download" ]; then
-            wget -q "https://github.com/1compk/dl/releases/download/dl/${{ env.ArmbianBuild }}"
-            tar -xf "${{ env.ArmbianBuild }}"
-          else
-            # Clone Git CLi
-            git clone --depth 1 https://github.com/armbian/build.git ${{ env.ArmbianBuildDir }}
+            git clone https://github.com/armbian/build.git ${{ env.ArmbianBuildDir }}
             cd ${{ env.ArmbianBuildDir }}
             git fetch --all --tags
+            
+             if [ "${{ matrix.desktop }}" = "yes" ]; then
+            git checkout v26.2.0-trunk.844
+             else
             git checkout v26.8.0-trunk.53
-          fi
+             fi
 
       - name: Build | Run
         working-directory: /builder/${{ env.ArmbianBuildDir }}
