@@ -134,6 +134,9 @@ system-config-printer-common
 systemd-timesyncd
 thunar
 thunar-volman
+tracker
+tracker-extract
+tracker-miner-fs
 viewnior
 vlc
 vulkan-tools
