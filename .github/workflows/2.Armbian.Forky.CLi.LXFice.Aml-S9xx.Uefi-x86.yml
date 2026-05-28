@@ -12,54 +12,33 @@ env:
 
   BuildFile: zArmbian.Build.05.26.tar.xz
   BuildDir: zArmbian.Build.05.26
-  iMageVersion: 26.8.0-trunk.53
+  iMageVersion: 26.5.1
 
 jobs:
   build:
-    name: Armbian ${{ matrix.name }}
-    runs-on: ${{ matrix.runs_on }}
+    name: Armbian-${{ matrix.board }}-${{ matrix.release }}-${{ matrix.type }}
+    runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     timeout-minutes: 600
     strategy:
       fail-fast: false
       matrix:
+        release: [forky]
+        board: [aml-s9xx-box, uefi-x86]
+        type: [cli, lxfice]
         include:
           # ===== (Build CLi) =====
-          - name: CLi-Aml-S9xx
-            runs_on: ubuntu-24.04-arm
-            board: aml-s9xx-box
+          - type: cli
             desktop: no
             environment: ""
             config_name: ""
             revision: 26.8.0-trunk.53
-            image_version: $iMageVersion
-
-          - name: CLi-Uefi-x86
-            runs_on: ubuntu-24.04
-            board: uefi-x86
-            desktop: no
-            environment: ""
-            config_name: ""
-            revision: 26.8.0-trunk.53
-            image_version: $iMageVersion
 
           # ===== (Build DE) =====
-          - name: LXFice-Aml-S9xx
-            runs_on: ubuntu-24.04-arm
-            board: aml-s9xx-box
+          - type: lxfice
             desktop: yes
             environment: xfce
             config_name: config_base
             revision: 26.2.0-trunk.844
-            image_version: $iMageVersion
-
-          - name: LXFice-Uefi-x86
-            runs_on: ubuntu-24.04
-            board: uefi-x86
-            desktop: yes
-            environment: xfce
-            config_name: config_base
-            revision: 26.2.0-trunk.844
-            image_version: $iMageVersion
 
     steps:
       - name: Prepare | Init & LVM
@@ -108,7 +87,7 @@ jobs:
             EXPERT=yes \
             BOARD=${{ matrix.board }} \
             BRANCH=edge \
-            RELEASE=forky \
+            RELEASE=${{ matrix.release }} \
             BUILD_DESKTOP=${{ matrix.desktop }} \
             BUILD_MINIMAL=no \
             DESKTOP_APPGROUPS_SELECTED= \
@@ -124,7 +103,7 @@ jobs:
       - name: Upload | Image
         uses: actions/upload-artifact@v7
         with:
-          name: Armbian-${{ matrix.name }}-${{ github.run_id }}
+          name: Armbian-${{ matrix.board }}-${{ matrix.release }}-${{ matrix.type }}-${{ github.run_id }}
           path: /builder/${{ env.BuildDir }}/output/images/*.img*
           retention-days: 30
           archive: true

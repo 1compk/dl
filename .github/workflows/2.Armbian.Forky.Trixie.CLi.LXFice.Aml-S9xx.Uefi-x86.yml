@@ -16,7 +16,7 @@ env:
 
 jobs:
   build:
-    name: Armbian-${{ matrix.release }}-${{ matrix.type }}-${{ matrix.board }}
+    name: Armbian-${{ matrix.board }}-${{ matrix.release }}-${{ matrix.type }}
     runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     timeout-minutes: 600
     strategy:
@@ -103,7 +103,7 @@ jobs:
       - name: Upload | Image
         uses: actions/upload-artifact@v7
         with:
-          name: Armbian-${{ matrix.release }}-${{ matrix.type }}-${{ matrix.board }}-${{ github.run_id }}
+          name: Armbian-${{ matrix.board }}-${{ matrix.release }}-${{ matrix.type }}-${{ github.run_id }}
           path: /builder/${{ env.BuildDir }}/output/images/*.img*
           retention-days: 30
           archive: true
