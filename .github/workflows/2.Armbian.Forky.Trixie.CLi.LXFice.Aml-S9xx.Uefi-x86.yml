@@ -28,13 +28,13 @@ jobs:
         type: [CLi, LXFice]
 
         exclude:
-          # ===== (No DE) =====
-          - release: trixie
-            type: LXFice
-
           # ===== (No CLi) =====
           - board: aml-s9xx-box
             type: CLi
+
+          # ===== (No LXFice) =====
+          - release: trixie
+            type: LXFice
 
         include:
           # ===== (Build CLi) =====
@@ -44,7 +44,7 @@ jobs:
             config_name: ""
             revision: 26.8.0-trunk.53
 
-          # ===== (Build DE) =====
+          # ===== (Build LXFice) =====
           - type: LXFice
             desktop: yes
             environment: xfce
