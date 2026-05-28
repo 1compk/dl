@@ -22,19 +22,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [forky]
+        release: [forky, trixie]
         board: [aml-s9xx-box, uefi-x86]
-        type: [cli, lxfice]
+        type: [CLi, LXFice]
+        exclude:
+          - release: trixie
+            type: LXFice
         include:
           # ===== (Build CLi) =====
-          - type: cli
+          - type: CLi
             desktop: no
             environment: ""
             config_name: ""
             revision: 26.8.0-trunk.53
 
           # ===== (Build DE) =====
-          - type: lxfice
+          - type: LXFice
             desktop: yes
             environment: xfce
             config_name: config_base
@@ -66,7 +69,7 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-            git clone https://github.com/armbian/build.git ${{ env.BuildDir }}
+            git clone --depth 3 https://github.com/armbian/build.git ${{ env.BuildDir }}
             cd ${{ env.BuildDir }}
             git fetch --all --tags
             
