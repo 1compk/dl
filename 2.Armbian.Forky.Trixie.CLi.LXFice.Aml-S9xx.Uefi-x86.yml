@@ -26,9 +26,16 @@ jobs:
         release: [forky, trixie]
         board: [aml-s9xx-box, uefi-x86]
         type: [CLi, LXFice]
+
         exclude:
+          # ===== (No DE) =====
           - release: trixie
             type: LXFice
+
+          # ===== (No CLi) =====
+          - board: aml-s9xx-box
+            type: CLi
+
         include:
           # ===== (Build CLi) =====
           - type: CLi
