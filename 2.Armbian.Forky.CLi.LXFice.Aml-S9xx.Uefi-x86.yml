@@ -98,6 +98,7 @@ jobs:
             KERNEL_GIT=shallow \
             DOCKER_ARMBIAN=no \
             BUILD_AUTO_UPDATE=no \
+            REVISION=${{ env.iMageVersion }} \
             IMAGE_VERSION=${{ env.iMageVersion }}
 
       - name: Upload | Image
