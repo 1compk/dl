@@ -12,7 +12,8 @@ env:
 
   BuildFile: zArmbian.Build.05.26.tar.xz
   BuildDir: zArmbian.Build.05.26
-  iMageVersion: 26.5.1
+  UefiVersion: 26.5.1
+  BoxVersion: 26.8.0-trunk.53
 
 jobs:
   build:
@@ -48,7 +49,7 @@ jobs:
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-          #sudo apt-get update
+          sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs
           
@@ -69,24 +70,34 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-            git clone --depth 3 https://github.com/armbian/build.git ${{ env.BuildDir }}
-            cd ${{ env.BuildDir }}
-            git fetch --all --tags
-            
-              if [ "${{ matrix.desktop }}" = "yes" ]; then
+          git clone --depth 3 https://github.com/armbian/build.git ${{ env.BuildDir }}
+          cd ${{ env.BuildDir }}
+          git fetch --all --tags
+          
+          if [ "${{ matrix.desktop }}" = "yes" ]; then
             git checkout --detach v26.2.0-trunk.844
-            cd config/desktop/trixie/environments/xfce/config_base/
+            
+            PackagesDir="config/desktop/${{ matrix.release }}/environments/xfce/config_base"
+            mkdir -p $PackagesDir
+            cd $PackagesDir
+            
             rm -rf packages
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/packages"
-              else
+          else
             git checkout --detach v26.8.0-trunk.53
-              fi
+          fi
 
       - name: Build | Run
         working-directory: /builder/${{ env.BuildDir }}
         run: |
+          if [ "${{ matrix.board }}" = "uefi-x86" ]; then
+            SetVersion="${{ env.UefiVersion }}"
+          else
+            SetVersion="${{ env.BoxVersion }}"
+          fi
+
           chmod +x compile.sh
-          sudo -E ./compile.sh build \
+          ./compile.sh build \
             EXPERT=yes \
             BOARD=${{ matrix.board }} \
             BRANCH=edge \
@@ -101,8 +112,8 @@ jobs:
             KERNEL_GIT=shallow \
             DOCKER_ARMBIAN=no \
             BUILD_AUTO_UPDATE=no \
-            REVISION=${{ env.iMageVersion }} \
-            IMAGE_VERSION=${{ env.iMageVersion }}
+            IMAGE_VERSION="$SetVersion" \
+            REVISION="$SetVersion"
 
       - name: Upload | Image
         uses: actions/upload-artifact@v7
@@ -111,4 +122,4 @@ jobs:
           path: /builder/${{ env.BuildDir }}/output/images/*.img*
           retention-days: 30
           archive: true
-          if-no-files-found: error          
+          if-no-files-found: error
