@@ -1,4 +1,4 @@
-name: 2. Armbian Build Forky Trixie CLi LXFice Aml-S9xx Uefi-x86
+name: 3. Armbian Build Forky Resolute CLi LXFice Aml-S9xx Uefi-x86
 
 on:
   schedule:
@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [forky, trixie]
+        release: [forky, resolute]
         board: [aml-s9xx-box, uefi-x86]
         type: [cli, lxfice]
         include:
