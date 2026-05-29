@@ -31,12 +31,15 @@ jobs:
           # ===== (No CLi) =====
           - board: aml-s9xx-box
             type: CLi
+
           - release: forky
             type: CLi
 
           # ===== (No LXFice) =====
-          - release: trixie
+          - board: uefi-x86
+            release: trixie
             type: LXFice
+
           - release: resolute
             type: LXFice
 
