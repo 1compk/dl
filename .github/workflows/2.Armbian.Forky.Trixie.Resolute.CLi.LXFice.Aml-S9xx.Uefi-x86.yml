@@ -94,8 +94,6 @@ jobs:
             
             rm -rf packages
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/packages"
-            
-            # ย้อนกลับออกมาที่โฟลเดอร์หลักเพื่อความปลอดภัยของสคริปต์
             cd /builder/${{ env.BuildDir }}
           else
             git checkout --detach v26.8.0-trunk.53
