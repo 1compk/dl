@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [forky, trixie]
+        release: [forky, trixie, resolute]
         board: [aml-s9xx-box, uefi-x86]
         type: [CLi, LXFice]
 
