@@ -7,7 +7,7 @@ on:
 
 env:
   TZ: Etc/GMT-7
-  iMageSize: 100GiB
+  iMageSize: 120GiB
   MainDir: /builder
 
   BuildFile: zArmbian.Build.05.26.tar.xz
