@@ -3,7 +3,7 @@
 # Copyright (C) 2021 https://github.com/ophub/amlogic-s9xxx-armbian
 #==========================================================================
 
-name: 3.OPHub Build Armbian from official images
+name: 3. OPHub Build Armbian from official images
 
 on:
   repository_dispatch:
@@ -334,8 +334,8 @@ jobs:
         run: |
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 100G /mnt/mnt.img
-          sudo truncate -s 100G /root.img
+          sudo truncate -s 120G /mnt/mnt.img
+          sudo truncate -s 120G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
