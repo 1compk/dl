@@ -33,7 +33,7 @@ jobs:
             type: CLi
 
           # ===== (No LXFice) =====
-          - release: trixie
+          - release: [trixie, resolute]
             type: LXFice
 
         include:
@@ -120,7 +120,8 @@ jobs:
             DOCKER_ARMBIAN=no \
             BUILD_AUTO_UPDATE=no \
             IMAGE_VERSION="$SetVersion" \
-            REVISION="$SetVersion"
+            REVISION="$SetVersion" \
+            INSTALL_NVIDIA_DRIVERS=no
 
       - name: Upload | Image
         uses: actions/upload-artifact@v7
