@@ -99,7 +99,7 @@ jobs:
             git checkout --detach v26.8.0-trunk.53
           fi
 
-      - name: Build | Run
+      - name: Build | Compile
         working-directory: /builder/${{ env.BuildDir }}
         run: |
           if [ "${{ matrix.board }}" = "uefi-x86" ]; then
@@ -125,8 +125,7 @@ jobs:
             DOCKER_ARMBIAN=no \
             BUILD_AUTO_UPDATE=no \
             IMAGE_VERSION="$SetVersion" \
-            REVISION="$SetVersion" \
-            INSTALL_NVIDIA_DRIVERS=no
+            REVISION="$SetVersion"
 
       - name: Upload | Image
         uses: actions/upload-artifact@v7
