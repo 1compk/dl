@@ -7,7 +7,7 @@ on:
 
 env:
   TZ: Etc/GMT-7
-  iMageSize: 100GiB
+  iMageSize: 120GiB
   MainDir: /builder
 
   MiniOSBuild: zMiniOS.SkyLine.Build.05.2026.tar.xz
