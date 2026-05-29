@@ -33,7 +33,9 @@ jobs:
             type: CLi
 
           # ===== (No LXFice) =====
-          - release: trixie, resolute
+          - release: trixie
+            type: LXFice
+          - release: resolute
             type: LXFice
 
         include:
