@@ -10,7 +10,7 @@ env:
   iMageSize: 120GiB
   MainDir: /builder
 
-  BuildFile: zArmbian.Build.05.26.tar.xz
+  BuildSource: zArmbian.Build.05.26.tar.xz
   BuildDir: zArmbian.Build.05.26
   UefiVersion: 26.5.1
   BoxVersion: 26.8.0-trunk.53
@@ -29,15 +29,11 @@ jobs:
 
         exclude:
           # ===== (No CLi) =====
-          - board: aml-s9xx-box
-            type: CLi
-
-          - release: forky
-            type: CLi
+          - { board: aml-s9xx-box, type: CLi}
+          - { release: forky, type: CLi}
 
           # ===== (No LXFice) =====
-          - release: resolute
-            type: LXFice
+          - { release: resolute, type: LXFice}
 
         include:
           # ===== (Build CLi) =====
