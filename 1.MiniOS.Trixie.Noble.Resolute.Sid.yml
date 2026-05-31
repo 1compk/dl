@@ -23,8 +23,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [noble, resolute, sid, trixie]
-        board: [uefi-x86]
+        release: [ noble, resolute, sid, trixie ]
+        board: [ uefi-x86 ]
         include:
           - { release: noble, Custom: false }
           - { release: resolute, Custom: false }
