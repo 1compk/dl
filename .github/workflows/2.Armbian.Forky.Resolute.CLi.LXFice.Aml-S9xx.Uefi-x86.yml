@@ -82,12 +82,12 @@ jobs:
             git checkout --detach v26.2.0-trunk.844
             
             PackagesDir="config/desktop/${{ matrix.release }}/environments/xfce/config_base"
-            mkdir -p $PackagesDir
             cd $PackagesDir
-            
             rm -rf packages
+
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/packages"
             cd /builder/${{ env.BuildDir }}
+
           else
             git checkout --detach v26.8.0-trunk.53
           fi
