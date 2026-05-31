@@ -10,22 +10,25 @@ env:
   iMageSize: 120GiB
   MainDir: /builder
 
-  MiniOSBuild: zMiniOS.SkyLine.Build.05.2026.tar.xz
-  MiniOSBuildDir: zMiniOS.SkyLine.Build.05.2026
+  BuildSource: zMiniOS.SkyLine.Build.05.2026.tar.xz
+  BuildDir: zMiniOS.SkyLine.Build.05.2026
+  BaseVersion: 5.1.1
+  CustomVersion: SkyLine 2026
 
 jobs:
   build:
-    name: MiniOS ${{ matrix.release }}
-    runs-on: ubuntu-24.04
+    name: MiniOS-${{ matrix.release }}
+    runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     timeout-minutes: 600
     strategy:
       fail-fast: false
       matrix:
+        release: [noble, resolute, sid, trixie]
         include:
-          - { release: trixie, Custom: false }
           - { release: noble, Custom: false }
           - { release: resolute, Custom: false }
           - { release: sid, Custom: false }
+          - { release: trixie, Custom: false }
 
     steps:
       - name: Prepare | Init & LVM
@@ -53,11 +56,11 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.MiniOSBuild }}"
-          tar -xf "${{ env.MiniOSBuild }}"
+          wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.BuildSource }}"
+          tar -xf "${{ env.BuildSource }}"
 
       - name: Build | Run
-        working-directory: /builder/${{ env.MiniOSBuildDir }}
+        working-directory: /builder/${{ env.BuildDir }}
         run: |
            sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
@@ -65,7 +68,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: MiniOS-${{ matrix.release }}-${{ github.run_id }}
-          path: /builder/${{ env.MiniOSBuildDir }}/build/iso/*.iso
+          path: /builder/${{ env.BuildDir }}/build/iso/*.iso
           retention-days: 30
           archive: false
           if-no-files-found: error
