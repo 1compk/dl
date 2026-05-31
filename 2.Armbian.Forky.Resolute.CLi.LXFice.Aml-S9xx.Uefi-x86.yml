@@ -23,17 +23,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [forky, resolute]
-        board: [aml-s9xx-box, uefi-x86]
-        type: [CLi, LXFice]
+        release: [ forky, resolute ]
+        board: [ aml-s9xx-box, uefi-x86 ]
+        type: [ CLi, LXFice ]
 
         exclude:
-          # ===== (No CLi) =====
-          - { board: aml-s9xx-box, type: CLi}
-          - { release: forky, type: CLi}
-
-          # ===== (No LXFice) =====
-          - { release: resolute, type: LXFice}
+          # ===== (No CLi LXFice) =====
+          - { board: aml-s9xx-box, type: CLi }
+          - { release: forky, type: CLi }
+          - { release: resolute, type: LXFice }
 
         include:
           # ===== (Build CLi) =====
