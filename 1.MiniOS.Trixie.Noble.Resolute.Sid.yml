@@ -60,7 +60,7 @@ jobs:
           wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.BuildSource }}"
           tar -xf "${{ env.BuildSource }}"
 
-      - name: Build | Run
+      - name: Build | Compile
         working-directory: /builder/${{ env.BuildDir }}
         run: |
            sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
