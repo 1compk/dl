@@ -11,7 +11,7 @@ env:
   MainDir: /builder
 
   BuildSource: zMiniOS.SkyLine.Build.06.2026.tar.xz
-  BuildDir: zMiniOS.SkyLine.Build.06.2026
+  BuildDir: zMiniOS.SkyLine.Build.2026
   BaseVersion: 5.1.1
   CustomVersion: SkyLine 2026
 

@@ -11,7 +11,7 @@ env:
   MainDir: /builder
 
   BuildSource: zArmbian.Build.05.26.tar.xz
-  BuildDir: zArmbian.Build.05.26
+  BuildDir: zArmbian.Build.2026
   UefiVersion: 26.5.1
   BoxVersion: 26.8.0-trunk.53
 
