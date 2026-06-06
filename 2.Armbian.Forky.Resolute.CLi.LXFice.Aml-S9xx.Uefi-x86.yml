@@ -10,10 +10,10 @@ env:
   iMageSize: 120GiB
   MainDir: /builder
 
-  BuildSource: zArmbian.Build.05.26.tar.xz
+  BuildSource: zArmbian.Build.06.26.tar.xz
   BuildDir: zArmbian.Build.2026
   UefiVersion: 26.5.1
-  BoxVersion: 26.8.0-trunk.53
+  BoxVersion: 26.8.0-trunk.84
 
 jobs:
   build:
@@ -39,7 +39,7 @@ jobs:
             desktop: no
             environment: ""
             config_name: ""
-            revision: 26.8.0-trunk.53
+            revision: 26.8.0-trunk.84
 
           # ===== (Build LXFice) =====
           - type: LXFice
@@ -74,7 +74,7 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          git clone --depth 3 https://github.com/armbian/build.git ${{ env.BuildDir }}
+          git clone --depth 1 https://github.com/armbian/build.git ${{ env.BuildDir }}
           cd ${{ env.BuildDir }}
           git fetch --all --tags
           
@@ -89,7 +89,7 @@ jobs:
             cd /builder/${{ env.BuildDir }}
 
           else
-            git checkout --detach v26.8.0-trunk.53
+            git checkout --detach v26.8.0-trunk.84
           fi
 
       - name: Build | Compile
