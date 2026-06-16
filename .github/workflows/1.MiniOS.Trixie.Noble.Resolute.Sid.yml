@@ -10,7 +10,7 @@ env:
   iMageSize: 120GiB
   MainDir: /builder
 
-  BuildSource: zMiniOS.SkyLine.06.2026.tar.xz
+  BuildSource: zMiniOS.SkyLine.2026.tar.xz
   BuildDir: MiniOS.SkyLine.2026
   BaseVersion: 5.1.1
   CustomVersion: SkyLine 2026
@@ -57,7 +57,7 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          #git clone --depth 1 https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
+          git clone --depth 1 https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
           wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.BuildSource }}"
           tar -xf "${{ env.BuildSource }}"
 
