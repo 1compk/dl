@@ -64,7 +64,7 @@ jobs:
       - name: Build | Compile
         working-directory: /builder/${{ env.BuildDir }}
         run: |
-           sudo chown -R /builder/${{ env.BuildDir }}
+           sudo chown -R root:root /builder/${{ env.BuildDir }}
            sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
       - name: Upload | ISO
