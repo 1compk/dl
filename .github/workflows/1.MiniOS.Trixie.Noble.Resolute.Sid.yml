@@ -36,9 +36,9 @@ jobs:
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo swapoff -a || true
-          sudo apt-get update
+          #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs neofetch
+            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs fastfetch
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
