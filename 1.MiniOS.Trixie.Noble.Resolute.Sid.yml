@@ -38,7 +38,7 @@ jobs:
           sudo swapoff -a || true
           #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs
+            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs neofetch
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
@@ -52,9 +52,8 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
-          lscpu
+          neofetch
           df -Th
-          free -th
 
       - name: Prepare | Source Code
         working-directory: /builder
