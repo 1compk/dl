@@ -70,6 +70,7 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
+          lscpu
           df -Th
           free -th
 
