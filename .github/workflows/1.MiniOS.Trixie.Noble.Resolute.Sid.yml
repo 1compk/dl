@@ -53,6 +53,7 @@ jobs:
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
           df -Th
+          free -th
 
       - name: Prepare | Source Code
         working-directory: /builder
