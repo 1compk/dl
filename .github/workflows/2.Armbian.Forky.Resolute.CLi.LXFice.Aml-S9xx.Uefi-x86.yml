@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ forky, resolute, trixie ]
+        release: [ forky, resolute ]
         board: [ aml-s9xx-box, uefi-x86 ]
         type: [ CLi, LXFice ]
 
@@ -32,7 +32,6 @@ jobs:
           - { board: aml-s9xx-box, type: CLi }
           - { release: forky, type: CLi }
           - { release: resolute, type: LXFice }
-          - { release: trixie, type: LXFice }
 
         include:
           # ===== (Build CLi) =====
@@ -56,7 +55,7 @@ jobs:
           sudo swapoff -a || true
           sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs
+            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs neofetch
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
@@ -70,9 +69,8 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
-          lscpu
+          neofetch
           df -Th
-          free -th
 
       - name: Prepare | Source Code
         working-directory: /builder
