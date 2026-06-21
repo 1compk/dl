@@ -31,6 +31,8 @@ Decompress 7Zip : 7z x xxx.img.xz
 
 ==================================================================
 
+SSD Speed Test : sudo hdparm -t --direct /dev/sdx
+
 Fast User Settings : sh /usersetup.sh
 
 sudo update-alternatives --config x-terminal-emulator
