@@ -7,7 +7,7 @@ on:
 
 env:
   TZ: Etc/GMT-7
-  iMageSize: 30GiB
+  iMageSize: 20GiB
   MainDir: /builder
 
   BuildSource: zMiniOS.SkyLine.2026.tar.xz
@@ -52,7 +52,9 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
+          lscpu
           df -Th
+          free -th
 
       - name: Prepare | Source Code
         working-directory: /builder
