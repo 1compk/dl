@@ -1,16 +1,23 @@
+<img width="800" height="600" alt="MiniOS.SS.RV413" src="https://github.com/1compk/minios/raw/dl/MiniOS.SkyLine.2026.Fastfetch.SS.RV413.png" />
+
+
 MiniOS Download : https://github.com/1compk/minios/releases
 
 Rufus Download : https://rufus.ie/downloads/
 
 MiniOS Original : https://github.com/minios-linux/minios-live
 
-=====================================================================
+==================================================================
 
 Armbian AMD64 Downloads : https://dl.armbian.com/uefi-x86/
 
 Mirror : https://mirror.twds.com.tw/armbian-dl/uefi-x86/archive/?C=S&O=D
 
 Free Download Manager : https://debrepo.freedownloadmanager.org/pool/main/f/freedownloadmanager/
+
+Firefox : https://ftp.mozilla.org/pub/firefox/releases/
+
+wget -O Firefox-esr.tar.xz "https://download.mozilla.org/?product=firefox-esr-latest&os=linux64&lang=en-US"
 
 ==================================================================
 
@@ -55,11 +62,11 @@ lsblk = /dev/sdX > mount = /mnt/sdX
 
 #Grub-Install gonna Create "/efi/grub" Files > /efi/grub/grub.cfg :
 
-sudo grub-install --target=i386-pc /dev/sdX --boot-directory=/mnt/sdX2/efi --removable
+sudo grub-install --target=i386-pc /dev/nvme0n1 --boot-directory=/media/user/5B75-9E67/efi --removable
 
 #Grub-Install gonna Create "/efi/boot/bootx64.efi" File > /efi/boot/grub.cfg :
 
-sudo grub-install --target=x86_64-efi --efi-directory=/mnt/sdX2 --boot-directory=/mnt/sdX2/efi --removable
+sudo grub-install --target=x86_64-efi --efi-directory=/media/user/5B75-9E67 --boot-directory=/media/user/5B75-9E67/efi --removable
 
 ==================================================================
 
