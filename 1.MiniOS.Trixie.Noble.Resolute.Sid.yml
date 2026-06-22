@@ -18,7 +18,7 @@ env:
 jobs:
   build:
     name: MiniOS-${{ matrix.release }}
-    runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-26.04' || 'ubuntu-26.04-arm' }}
     timeout-minutes: 600
     strategy:
       fail-fast: false
@@ -38,7 +38,7 @@ jobs:
           sudo swapoff -a || true
           #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs neofetch
+            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs fastfetch
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
@@ -52,7 +52,7 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
-          neofetch
+          fastfetch
           df -Th
 
       - name: Prepare | Source Code
