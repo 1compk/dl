@@ -52,7 +52,7 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
-          neofetch
+          fastfetch
           df -Th
 
       - name: Prepare | Source Code
