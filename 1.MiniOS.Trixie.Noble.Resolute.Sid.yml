@@ -35,7 +35,7 @@ jobs:
       - name: Prepare | Init & LVM
         run: |
           sudo timedatectl set-timezone "${TZ}"
-          sudo swapoff -a || true
+          #sudo swapoff -a || true
           #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs fastfetch
