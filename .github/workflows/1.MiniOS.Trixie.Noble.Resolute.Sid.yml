@@ -18,7 +18,7 @@ env:
 jobs:
   build:
     name: MiniOS-${{ matrix.release }}
-    runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-26.04-arm' || 'ubuntu-26.04-arm' }}
+    runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-26.04' || 'ubuntu-26.04-arm' }}
     timeout-minutes: 600
     strategy:
       fail-fast: false
