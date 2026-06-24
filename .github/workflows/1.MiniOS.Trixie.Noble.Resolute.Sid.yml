@@ -24,7 +24,7 @@ jobs:
       fail-fast: false
       matrix:
         release: [ noble, resolute, sid, trixie ]
-        board: [ uefi-x86 ]
+        board: [ arm64 ]
         include:
           - { release: noble, Custom: false }
           - { release: resolute, Custom: false }
@@ -66,7 +66,7 @@ jobs:
         working-directory: /builder/${{ env.BuildDir }}
         run: |
           sudo chown -R root:root /builder/${{ env.BuildDir }}
-          sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
+          sudo -E ./minios-cmd -d ${{ matrix.release }} -a arm64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
       - name: Upload | ISO
         uses: actions/upload-artifact@v7
