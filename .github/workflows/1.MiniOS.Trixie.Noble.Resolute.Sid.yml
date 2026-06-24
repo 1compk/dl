@@ -37,7 +37,7 @@ jobs:
           sudo timedatectl set-timezone "${TZ}"
           #sudo swapoff -a || true
           sudo apt-get update
-          sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
+          sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso chrootuid \
             mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs fastfetch
           
           sudo truncate -s $iMageSize /mnt.img
