@@ -2,7 +2,7 @@ name: 1. MiniOS LXFice Trixie Noble Resolute Sid
 
 on:
   schedule:
-    - cron: '0 0 */5 * *' # Run every 5 Days
+    - cron: '0 0 */3 * *' # Run every 3 Days
   workflow_dispatch:
 
 env:
