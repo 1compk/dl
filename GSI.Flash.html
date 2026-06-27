@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือการแฟลช GSI บน Alldocube iPlay 50 ด้วย Debian</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --code-bg: #2d3748;
+            --code-text: #f7fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: var(--primary-color);
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .warning {
+            background-color: #fff5f5;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .warning strong {
+            color: var(--accent-color);
+        }
+        code {
+            background-color: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #718096;
+        }
+        .checkbox-container input {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>⚡ ขั้นตอนการแฟลช GSI ผ่าน Fastboot (Debian Trixie)</h1>
+    
+    <div class="warning">
+        <strong>⚠️ คำเตือนความปลอดภัย:</strong> การดำเนินการนี้จะ <strong>ลบข้อมูลทั้งหมด</strong> ในแท็บเล็ต Alldocube iPlay 50 ของคุณ กรุณาสำรองข้อมูลสำคัญก่อนเริ่มทำ และตรวจสอบให้แน่ใจว่าแบตเตอรี่มีมากกว่า 50%
+    </div>
+
+    <h2>🛠️ ขั้นตอนที่ 1: ติดตั้งเครื่องมือบน Debian</h2>
+    <p>เปิด Terminal บนระบบปฏิบัติการ Debian Trixie ของคุณ แล้วรันคำสั่งด้านล่างนี้เพื่อติดตั้งเครื่องมือควบคุมแอนดรอยด์:</p>
+    <pre>sudo apt update
+sudo apt install android-tools-adb android-tools-fastboot</pre>
+    <div class="checkbox-container">
+        <input type="checkbox" id="step1"> <label for="step1">ติดตั้งเครื่องมือ ADB และ Fastboot เรียบร้อยแล้ว</label>
+    </div>
+
+    <h2>🔓 ขั้นตอนที่ 2: ปลดล็อก Bootloader บนแท็บเล็ต</h2>
+    <ol>
+        <li>ไปที่แท็บเล็ต: <strong>Settings</strong> &gt; <strong>About Tablet</strong> &gt; กดที่ <strong>Build Number</strong> ซ้ำๆ 7 ครั้งจนระบบแจ้งว่าเป็นผู้พัฒนาแล้ว</li>
+        <li>ย้อนกลับไปที่ <strong>System</strong> &gt; <strong>Developer options</strong></li>
+        <li>เปิดใช้งาน <strong>USB debugging</strong> และ <strong>OEM unlocking</strong></li>
+        <li>เสียบสายแท็บเล็ตเข้ากับคอมพิวเตอร์ Debian</li>
+        <li>ใน Terminal บน Debian สั่งรีบูตเข้าโหมด Bootloader:</li>
+        <pre>adb reboot bootloader</pre>
+        <li>เมื่อหน้าจอแท็บเล็ตเข้าสู่หน้าดำๆ ให้พิมพ์คำสั่งปลดล็อกระบบ:</li>
+        <pre>fastboot flashing unlock</pre>
+        <li><strong>ดูที่หน้าจอแท็บเล็ต:</strong> กดปุ่มปรับระดับเสียงเพื่อกดยืนยันการปลดล็อก (Confirm) ตัวเครื่องจะล้างข้อมูลและรีบูตใหม่</li>
+    </ol>
+    <div class="checkbox-container">
+        <input type="checkbox" id="step2"> <label for="step2">ปลดล็อก Bootloader สำเร็จแล้ว (หน้าจอเปิดเครื่องจะแจ้งเตือนความปลอดภัย)</label>
+    </div>
+
+    <h2>📦 ขั้นตอนที่ 3: เตรียมไฟล์ GSI (.img)</h2>
+    <ol>
+        <li>หลังจากเครื่องรีบูตเสร็จ ให้เข้าไปเปิด <strong>USB Debugging</strong> ในเมนูผู้พัฒนาอีกครั้ง</li>
+        <li>ดาวน์โหลดไฟล์ ROM GSI ที่ต้องการ (เช่น LineageOS GSI) นามสกุลไฟล์มักจะเป็น <code>.img.xz</code></li>
+        <li>แตกไฟล์บน Debian จนได้ไฟล์ชื่อ <code>system.img</code></li>
+        <li>ย้ายไฟล์ <code>system.img</code> เข้ามาไว้ในโฟลเดอร์ปัจจุบันที่ Terminal กำลังทำงานอยู่</li>
+    </ol>
+    <div class="checkbox-container">
+        <input type="checkbox" id="step3"> <label for="step3">เตรียมไฟล์ system.img เรียบร้อยในโฟลเดอร์ทำงาน</label>
+    </div>
+
+    <h2>⚡ ขั้นตอนที่ 4: เข้าสู่ Fastbootd (โหมดแฟลชระบบ)</h2>
+    <ol>
+        <li>สั่งเข้าโหมด Fastboot ปกติก่อนด้วยคำสั่ง:</li>
+        <pre>adb reboot bootloader</pre>
+        <li>เมื่อเครื่องเข้าหน้าจอ Fastboot แล้ว ให้พิมพ์คำสั่งเพื่อสลับเข้าโหมด <strong>Fastbootd</strong> (โหมดของ Project Treble):</li>
+        <pre>fastboot reboot fastboot</pre>
+        <li>สังเกตหน้าจอแท็บเล็ต จะต้องเปลี่ยนเป็นหน้าเมนูสีๆ และมีคำว่า <strong>fastbootd</strong> อยู่ด้านบนสุด</li>
+    </ol>
+    <div class="checkbox-container">
+        <input type="checkbox" id="step4"> <label for="step4">แท็บเล็ตอยู่ในโหมด Fastbootd เรียบร้อยแล้ว</label>
+    </div>
+
+    <h2>💾 ขั้นตอนที่ 5: เริ่มกระบวนการแฟลช GSI</h2>
+    <p>รันคำสั่งเหล่านี้ทีละแถวบน Terminal ของ Debian เพื่อเริ่มเขียนข้อมูล:</p>
+    <ol>
+        <li>ลบพาร์ทิชันเก่าที่ไม่ได้ใช้เพื่อเคลียร์พื้นที่ (แนะนำสำหรับชิป Unisoc):</li>
+        <pre>fastboot delete-logical-partition product</pre>
+        <li>แฟลชไฟล์ระบบ GSI ใหม่ลงไปแทนที่:</li>
+        <pre>fastboot flash system system.img</pre>
+        <li>ล้างค่าระบบโรงงานเพื่อป้องกันแอปเก่าตีกัน:</li>
+        <pre>fastboot -w</pre>
+        <li>รีบูตเครื่องเข้าสู่ ROM ใหม่ทันที:</li>
+        <pre>fastboot reboot</pre>
+    </ol>
+    <div class="checkbox-container">
+        <input type="checkbox" id="step5"> <label for="step5">แฟลชระบบเสร็จสิ้น และสั่งรีบูตเข้าใช้งานแล้ว</label>
+    </div>
+</div>
+
+</body>
+</html>
+
