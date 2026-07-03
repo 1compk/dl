@@ -128,6 +128,7 @@ pipewire-bin
 pipewire-jack
 pipewire-module-xrdp
 pipewire-pulse
+pipx
 pkexec
 plasma-discover
 plasma-discover-backend-flatpak
