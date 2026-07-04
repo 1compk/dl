@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือติดตั้ง Revolution RaiderZ บน Debian Trixie</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f6fa;
+        }
+        header {
+            background: linear-gradient(135deg, #2980b9, #2c3e50);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { margin: 0; font-size: 24px; letter-spacing: 0.5px; }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; margin-top: 35px; }
+        h3 { color: #2980b9; margin-bottom: 10px; }
+        .info-box {
+            background-color: #e1f5fe;
+            border-left: 5px solid #0288d1;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+        }
+        .info-box ul { margin: 5px 0 0 0; padding-left: 20px; }
+        .step {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+        .step-number {
+            background-color: #3498db;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        code {
+            background-color: #2d3436;
+            color: #ffeaa7;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+        pre {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 15px 0;
+        }
+        ul, ol { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .badge {
+            background-color: #2ecc71;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>คู่มือติดตั้ง Revolution RaiderZ (Non-Steam Game) บน Debian Trixie</h1>
+</header>
+
+<div class="info-box">
+    <strong>ข้อมูลความเข้ากันได้ของระบบ:</strong>
+    <ul>
+        <li>ฮาร์ดแวร์ของคุณ (RX 580 / RAM 64GB) แรงทะลุความต้องการขั้นแนะนำของเกมนี้ไปไกลมาก</li>
+        <li>เนื่องจากเป็นตัวเกมนอกสโตร์หลัก (Private Server) จำเป็นต้องพึ่งพาเครื่องมือสแกนไฟล์เสริมเพิ่มเติม</li>
+    </ul>
+</div>
+
+<h2>ขั้นตอนที่ 1: ดาวน์โหลดและเตรียมไฟล์เกม</h2>
+<div class="step">
+    <h3><span class="step-number">1</span>เตรียมตัวติดตั้ง</h3>
+    <ol>
+        <li>ดาวน์โหลดตัวเกมรันไทม์ของ Windows จากหน้าเว็บไซต์หลัก <a href="https://revolutionraiderz.com" target="_blank">revolutionraiderz.com</a></li>
+        <li>แตกไฟล์เกมทั้งหมดออกมา (ใช้รูปไฟล์ zip/rar ปกติ) แนะนำให้นำไปวางไว้ในโฟลเดอร์สำหรับเก็บเกมโดยเฉพาะ เช่น <code>~/Games/RevolutionRaiderZ</code> เพื่อความเป็นระเบียบและสิทธิ์เข้าถึงไฟล์ที่ปลอดภัย</li>
+    </ol>
+</div>
+
+<h2>ขั้นตอนที่ 2: ติดตั้งและตั้งค่าเครื่องมือเสริม Protontricks</h2>
+<div class="step">
+    <h3><span class="step-number">2</span>เตรียมระบบแปลคำสั่งวินโดวส์</h3>
+    <p>เนื่องจาก RaiderZ เป็นเกมเก่าที่พัฒนาบน DirectX 9 ระบบลินุกซ์จำเป็นต้องดาวน์โหลดส่วนเสริมมาใส่เพิ่ม โดยติดตั้งผ่านทาง Flatpak เปิด Terminal และกรอกคำสั่งดังนี้:</p>
+    
+    <p><strong>2.1 เปิดใช้งานระบบ Flatpak (หากยังไม่มี) และติดตั้ง Protontricks:</strong></p>
+    <pre>sudo apt update && sudo apt install flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org
+flatpak install flathub com.github.Matoking.protontricks -y</pre>
+
+    <p><strong>2.2 สร้างคำสั่งย่อ (Alias) เพื่อเรียกใช้งานโปรแกรมสะดวกขึ้น:</strong></p>
+    <pre>echo "alias protontricks='flatpak run com.github.Matoking.protontricks'" >> ~/.bashrc
+source ~/.bashrc</pre>
+</div>
+
+<h2>ขั้นตอนที่ 3: เพิ่มเกมเข้า Steam และเปิดใช้ Proton</h2>
+<div class="step">
+    <h3><span class="step-number">3</span>การนำระบบภายนอกเข้าสู่คลังหลัก</h3>
+    <ol>
+        <li>เปิดแอปพลิเคชัน <strong>Steam</strong></li>
+        <li>ไปที่เมนูด้านบน เลือก <strong>Games</strong> &gt; คลิกที่ <strong>Add a Non-Steam Game to My Library...</strong></li>
+        <li>คลิกปุ่ม <strong>Browse</strong> เพื่อค้นหาไฟล์ในเครื่องของคุณ</li>
+        <li>เข้าไปยังโฟลเดอร์เกมที่แตกไว้ในขั้นตอนแรก แล้วดับเบิลคลิกเลือกไฟล์ <code>RaiderZLauncher.exe</code> หรือ <code>RaiderZ.exe</code> จากนั้นกดปุ่ม <strong>Add Selected Programs</strong></li>
+        <li>ไปที่หน้าคลังเกม (Library) หาชื่อตัวเข้าเกมที่คุณเพิ่งเพิ่มเข้ามา คลิกขวาแล้วเลือก <strong>Properties...</strong></li>
+        <li>ไปที่หัวข้อ <strong>Compatibility</strong> ติ๊กเปิดเครื่องหมายถูกในช่องข้อความเพื่อบังคับใช้ระบบแปลงคำสั่ง แล้วเลือกเปลี่ยนเป็น <strong>Proton Experimental</strong> หรือ <strong>Proton 9.0</strong></li>
+        <li><span class="badge">สำคัญ</span> <strong>กดรันเริ่มเกม (Play) สักหนึ่งครั้ง</strong> แม้ว่าเกมจะเปิดไม่ขึ้นหรือหน้าจอเงียบหายไป เพื่อปล่อยให้ Steam สร้างโฟลเดอร์ขวดระบบ (Prefix) ขึ้นมาก่อน</li>
+    </ol>
+</div>
+
+<h2>ขั้นตอนที่ 4: เติมส่วนประกอบที่ขาดด้วย Protontricks</h2>
+<div class="step">
+    <h3><span class="step-number">4</span>ติดตั้งไฟล์ DLL เพื่อแก้ปัญหาจอดำและเกมไม่รัน</h3>
+    <ol>
+        <li>เปิดแอปพลิเคชัน <strong>Protontricks</strong> ขึ้นมาจากเมนูหลักของระบบปฏิบัติการ (หรือพิมพ์ <code>protontricks --gui</code> ใน Terminal)</li>
+        <li>เลือกชื่อเกม <code>RaiderZLauncher.exe</code> (หรือชื่อตามที่คุณตั้งไว้ในคลัง) จากนั้นกด <strong>OK</strong></li>
+        <li>ในหน้าต่างถัดมา คลิกเลือกที่ <strong>Select the default wineprefix</strong> แล้วกด <strong>OK</strong></li>
+        <li>คลิกเลือกหัวข้อ <strong>Install a Windows DLL or component</strong> แล้วกด <strong>OK</strong></li>
+        <li>หน้าจอจะแสดงรายการซอฟต์แวร์เสริมของฝั่งวินโดวส์ ให้ค้นหาแล้วติ๊กเลือกหน้าช่องเหล่านี้:
+            <ul>
+                <li>🔲 <code>d3dx9</code> (ชุดประมวลผลกราฟิกและแสงเงาเก่า)</li>
+                <li>🔲 <code>vcrun2015</code> (ตัวรันระบบภาษาโค้ดซีพลัสพลัส)</li>
+            </ul>
+        </li>
+        <li>กดปุ่ม <strong>OK</strong> และปล่อยระบบให้ดาวน์โหลดติดตั้งไฟล์พื้นฐานเบื้องหลังจนเสร็จสิ้น</li>
+    </ol>
+    <p style="margin-top: 15px; color: #27ae60; font-weight: bold;">✓ เสร็จสิ้นขั้นตอนการเตรียมระบบ! ตอนนี้คุณสามารถเปิดโปรแกรม Steam และกดเริ่มเกมเพื่อดึงแพตช์ล่าสุดและร่วมสนุกกับตัวเกมออนไลน์ได้ทันทีครับ</p>
+</div>
+
+</body>
+</html>
+
