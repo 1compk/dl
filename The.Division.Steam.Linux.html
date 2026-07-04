@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือตั้งค่าสำหรับเล่นเกม The Division บน Debian Trixie</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 { margin: 0; font-size: 24px; }
+        h2 { color: #2980b9; border-bottom: 2px solid #3498db; padding-bottom: 5px; margin-top: 30px; }
+        .specs-box {
+            background-color: #e1f5fe;
+            border-left: 5px solid #0288d1;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .specs-box ul { margin: 0; padding-left: 20px; }
+        .step {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .step-number {
+            background-color: #e74c3c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        code {
+            background-color: #2d3436;
+            color: #fab1a0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+        pre {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .important {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>คู่มือการเล่น Tom Clancy's The Division บน Debian Trixie (Steam/Proton)</h1>
+</header>
+
+<div class="specs-box">
+    <strong>สเปกเครื่องของคุณ:</strong>
+    <ul>
+        <li>CPU: Intel Core i5-13400F</li>
+        <li>RAM: DDR4 64GB</li>
+        <li>GPU: AMD Radeon RX 580 VRAM 8GB</li>
+        <li>Storage: NVMe 512GB</li>
+        <li>OS: Debian Trixie (Testing)</li>
+    </ul>
+</div>
+
+<h2>ขั้นตอนการตั้งค่าระบบและตัวเกม</h2>
+
+<!-- STEP 1 -->
+<div class="step">
+    <h3><span class="step-number">1</span>เปิดใช้งานคลังซอฟต์แวร์แบบ Non-Free</h3>
+    <p>เปิด Terminal แล้วเปิดใช้งานสถาปัตยกรรมแบบ 32-bit พร้อมติดตั้งไดรเวอร์และเฟิร์มแวร์กราฟิกสำหรับ AMD ขาดไม่ได้สำหรับ Linux Gaming:</p>
+    <pre>sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install firmware-amd-graphics mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386</pre>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+    <h3><span class="step-number">2</span>ติดตั้ง Steam และเปิดใช้งาน Steam Play (Proton)</h3>
+    <p>ติดตั้ง Steam ผ่าน Apt Command:</p>
+    <pre>sudo apt update && sudo apt install steam</pre>
+    <p>เมื่อเข้าโปรแกรม Steam ให้เปิดใช้งานระบบแปลงคำสั่งเกมวินโดวส์ดังนี้:</p>
+    <ul>
+        <li>ไปที่เมนู <strong>Steam</strong> (มุมซ้ายบน) &gt; <strong>Settings</strong></li>
+        <li>เลือกหัวข้อ <strong>Compatibility</strong> ด้านซ้ายมือ</li>
+        <li>ติ๊กเปิดใช้งาน <strong>"Enable Steam Play for supported titles"</strong></li>
+        <li>ติ๊กเปิดใช้งาน <strong>"Enable Steam Play for all other titles"</strong></li>
+        <li>ในช่อง "Run titles with:" ให้เลือกเป็น <strong>Proton Experimental</strong> หรือ <strong>Proton 9.0</strong></li>
+    </ul>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+    <h3><span class="step-number">3</span>ติดตั้ง รันไทม์ระบบป้องกันการโกงเกม (Proton Anti-Cheat Runtimes)</h3>
+    <p class="highlight">สำคัญมากสำหรับโหมดออนไลน์:</p>
+    <p>เพื่อป้องกันไม่ให้ระบบเซิร์ฟเวอร์เตะคุณออกจากห้อง (โดยเฉพาะเวลาเข้าสู่ Dark Zone) ให้ติดตั้งตัวช่วยแปลระบบ Anti-Cheat บนเครื่องของคุณดังนี้:</p>
+    <ul>
+        <li>ไปที่คลังเกมของคุณบน Steam (<strong>Library</strong>)</li>
+        <li>ตรงช่องค้นหาด้านซ้าย ให้พิมพ์คำว่า <code>Proton Anti-Cheat</code> หรือ <code>Proton Runtime</code></li>
+        <li>ค้นหาและกด <strong>Install (ติดตั้ง)</strong> สองซอฟต์แวร์นี้:
+            <ol>
+                <li><strong>Proton EasyAntiCheat Runtime</strong></li>
+                <li><strong>Proton BattlEye Runtime</strong></li>
+            </ol>
+        </li>
+    </ul>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+    <h3><span class="step-number">4</span>การตั้งค่า Launch Options ก่อนเริ่มเกม</h3>
+    <p>การเปิดเกมครั้งแรก ตัวเกมจะเรียกใช้ตัวเปิดเกมของค่าย Ubisoft (Ubisoft Connect) เพื่อลดอาการค้างและช่วยให้เฟรมเรตนิ่งขึ้นบนการ์ดจอของคุณ:</p>
+    <ul>
+        <li>คลิกขวาที่ชื่อเกม <strong>Tom Clancy's The Division</strong> ในคลัง Steam &gt; เลือก <strong>Properties...</strong></li>
+        <li>ในแถบ <strong>General</strong> มองหาช่อง <strong>Launch Options</strong> ด้านล่างสุด</li>
+        <li>พิมพ์คำสั่งต่อไปนี้ลงไปในช่อง:</li>
+    </ul>
+    <pre>GAMEMODE_GE_PROTON=1 %command%</pre>
+</div>
+
+<!-- STEP 5 -->
+<div class="step">
+    <h3><span class="step-number">5</span>การตั้งค่าภายในเกม (In-Game Graphics Settings)</h3>
+    <p>สำหรับหน่วยประมวลผลกราฟิก AMD RX 580 ให้ตั้งค่าในเกมเพื่อความลื่นไหลระดับ 60 FPS:</p>
+    <ul>
+        <li><strong>Resolution:</strong> 1920x1080</li>
+        <li><strong>V-Sync:</strong> Off</li>
+        <li><strong>Graphics Quality:</strong> Custom (ปรับแต่งเองโดยเริ่มจากพรีเซต Medium)</li>
+        <li><strong>Shadow Quality:</strong> Medium</li>
+        <li><strong>Object Detail:</strong> 40% - 50%</li>
+        <li><strong>Anisotropic Filtering:</strong> 8x</li>
+        <li><strong>Temporal AA:</strong> Stabilization</li>
+    </ul>
+    <div class="important">
+        <strong>ข้อควรระวังพิเศษสำหรับระบบ Linux:</strong> <br>
+        ในหน้าเมนูกราฟิกของเกม <span class="highlight">ห้ามเปิดใช้งาน DX12 (ต้องปรับ DX12 Renderer เป็น Off หรือใช้ DX11 เท่านั้น)</span> เนื่องจากฟังก์ชัน DX12 ของตัวเกมภาคแรกนี้ ไม่เข้ากับระบบ Proton และจะทำให้เกิดอาการเกมค้างหรือหน่วยความจำล้น (Memory leak)
+    </div>
+</div>
+
+</body>
+</html>
