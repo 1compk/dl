@@ -32,7 +32,7 @@ jobs:
           - { board: aml-s9xx-box, type: CLi }
           - { release: forky, type: CLi }
           - { release: resolute, type: LXFice }
-          - { release: trixie, type: LXFice }
+          - { board: uefi-x86, release: trixie, type: LXFice }
 
         include:
           # ===== (Build CLi) =====
