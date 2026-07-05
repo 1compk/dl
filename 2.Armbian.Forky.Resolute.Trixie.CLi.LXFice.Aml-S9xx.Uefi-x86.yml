@@ -13,7 +13,7 @@ env:
   BuildSource: zArmbian.Build.06.26.tar.xz
   BuildDir: zArmbian.Build.2026
   UefiVersion: 26.5.1
-  BoxVersion: 26.8.0-trunk.216
+  BoxVersion: 26.8.0-trunk.277
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
             desktop: no
             environment: ""
             config_name: ""
-            revision: 26.8.0-trunk.216
+            revision: 26.8.0-trunk.277
 
           # ===== (Build LXFice) =====
           - type: LXFice
@@ -91,7 +91,7 @@ jobs:
             cd /builder/${{ env.BuildDir }}
 
           else
-            git checkout --detach v26.8.0-trunk.216
+            git checkout --detach v26.8.0-trunk.277
           fi
 
       - name: Build | Compile
