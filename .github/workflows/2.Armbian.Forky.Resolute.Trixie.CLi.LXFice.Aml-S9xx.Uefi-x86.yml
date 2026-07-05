@@ -29,10 +29,10 @@ jobs:
 
         exclude:
           # ===== (No CLi LXFice) =====
+          - { board: uefi-x86, release: trixie, type: LXFice }
           - { board: aml-s9xx-box, type: CLi }
           - { release: forky, type: CLi }
           - { release: resolute, type: LXFice }
-          - { board: uefi-x86, release: trixie, type: LXFice }
 
         include:
           # ===== (Build CLi) =====
