@@ -46,7 +46,11 @@ sudo update-alternatives --config x-terminal-emulator
 
 sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "/dev/loop6p3"
 
-sudo mkfs.xfs -f -i sparse=0 -b size=4096 "/dev/loop6p3"
+sudo mkfs.xfs -f -i sparse=0 -s size=4096 -b size=4096 "/dev/loop6p3"
+
+sudo mkfs.btrfs -fv -n 8K "/dev/loop6p3"
+
+sudo mkfs.f2fs -f -o 10 "/dev/loop6p3"
 
 ==================================================================
 
