@@ -168,8 +168,8 @@ create_gpt_partitions() {
 
   sudo umount "$p3" 2>/dev/null || true
   #sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p3" || die "mkfs.ext4 failed on $p3"
-  #sudo mkfs.xfs -f -i sparse=0 "$p3" || die "mkfs.xfs failed on $p3"
-  sudo mkfs.btrfs -fv -n 8K "$p3" || die "mkfs.btrfs failed on $p3"
+  sudo mkfs.xfs -f -i sparse=0 -s size=4096 -b size=4096 "$p3" || die "mkfs.xfs failed on $p3"
+  #sudo mkfs.btrfs -fv -n 8K "$p3" || die "mkfs.btrfs failed on $p3"
   #sudo mkfs.f2fs -f -o 0 "$p3" || die "mkfs.f2fs failed on $p3"
 
   sudo sync
@@ -228,8 +228,8 @@ create_mbr_partitions() {
   echo "Formatting $p2 as ext4"
   sudo umount "$p2" 2>/dev/null || true
   #sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p2" || die "mkfs.ext4 failed on $p2"
-  #sudo mkfs.xfs -f -i sparse=0 "$p2" || die "mkfs.xfs failed on $p2"
-  sudo mkfs.btrfs -fv -n 8K "$p2" || die "mkfs.btrfs failed on $p2"
+  sudo mkfs.xfs -f -i sparse=0 -s size=4096 -b size=4096 "$p2" || die "mkfs.xfs failed on $p2"
+  #sudo mkfs.btrfs -fv -n 8K "$p2" || die "mkfs.btrfs failed on $p2"
   #sudo mkfs.f2fs -f -o 0 "$p2" || die "mkfs.f2fs failed on $p2"
 
   sudo sync
