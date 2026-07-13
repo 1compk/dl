@@ -90,7 +90,7 @@ jobs:
 
             cd /builder/${{ env.BuildDir }}
 
-            NvidiaDir="config/optional/architectures/amd64/_config/desktop/${{ matrix.release }}/environments/_all_environments/sources/apt"
+            NvidiaDir="config/optional/architectures/amd64/_config/desktop/trixie/environments/_all_environments/sources/apt"
             cd $NvidiaDir
             rm -rf nvidia-drivers.source
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/nvidia-drivers.source"
