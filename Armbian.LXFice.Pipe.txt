@@ -61,11 +61,15 @@ gnome-shell-extension-manager
 gnome-system-monitor
 gnome-terminal
 gnome-themes-extra
+gnome-tweaks
 gparted
 grsync
 grub-customizer
+grub-efi-amd64-bin
+grub-pc
 gsettings-desktop-schemas
 gtk2-engines
+gtk2-engines-murrine
 gtk2-engines-pixbuf
 gvfs-backends
 icewm
@@ -102,6 +106,7 @@ lxrandr
 lxsession-edit
 lz4
 mate-polkit
+mesa-libgallium
 mesa-utils
 mesa-va-drivers
 mesa-vdpau-drivers
@@ -128,6 +133,7 @@ pipewire-bin
 pipewire-jack
 pipewire-module-xrdp
 pipewire-pulse
+pipx
 pkexec
 plasma-discover
 plasma-discover-backend-flatpak
@@ -147,6 +153,7 @@ thunar-volman
 tracker
 tracker-extract
 tracker-miner-fs
+update-inetd
 viewnior
 vlc
 vulkan-tools
@@ -182,6 +189,7 @@ xfonts-base
 xfonts-encodings
 xfonts-scalable
 xfonts-utils
+xfsprogs
 xfwm4
 xmlstarlet
 xorg-docs-core
