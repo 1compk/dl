@@ -88,6 +88,8 @@ jobs:
             rm -rf packages
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/packages"
 
+            cd /builder/${{ env.BuildDir }}
+
             NvidiaDir="config/optional/architectures/amd64/_config/desktop/${{ matrix.release }}/environments/_all_environments/sources/apt"
             cd $NvidiaDir
             rm -rf nvidia-drivers.source
