@@ -29,7 +29,7 @@ jobs:
 
         exclude:
           # ===== (No CLi LXFice) =====
-          - { board: uefi-x86, release: trixie, type: LXFice }
+          #- { board: uefi-x86, release: trixie, type: LXFice }
           - { board: aml-s9xx-box, type: CLi }
           - { release: forky, type: CLi }
           - { release: resolute, type: LXFice }
@@ -86,8 +86,13 @@ jobs:
             PackagesDir="config/desktop/${{ matrix.release }}/environments/xfce/config_base"
             cd $PackagesDir
             rm -rf packages
-
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/packages"
+
+            NvidiaDir="config/optional/architectures/amd64/_config/desktop/${{ matrix.release }}/environments/_all_environments/sources/apt"
+            cd $NvidiaDir
+            rm -rf nvidia-drivers.source
+            wget -q "https://github.com/1compk/dl/raw/dl/xfce/nvidia-drivers.source"
+
             cd /builder/${{ env.BuildDir }}
 
           else
