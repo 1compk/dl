@@ -78,7 +78,7 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/armbian/build.git ${{ env.BuildDir }}
           cd ${{ env.BuildDir }}
-          git fetch --all --tags
+          #git fetch --all --tags
           
           if [ "${{ matrix.desktop }}" = "yes" ]; then
             git checkout --detach v26.2.0-trunk.844
