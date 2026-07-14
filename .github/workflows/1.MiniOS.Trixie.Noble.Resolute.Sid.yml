@@ -1,4 +1,4 @@
-name: 1. MiniOS LXFice Trixie Noble Resolute Sid
+name: 1. MiniOS GLXFice Trixie Noble Resolute Sid
 
 on:
   schedule:
@@ -12,8 +12,8 @@ env:
 
   BuildSource: zMiniOS.SkyLine.2026.tar.xz
   BuildDir: MiniOS.SkyLine.2026
-  BaseVersion: 5.1.1
-  CustomVersion: SkyLine 2026
+  BaseVersion: Lastest
+  CustomVersion: SkyLine Edition 2026 GLXFice
 
 jobs:
   build:
@@ -35,10 +35,8 @@ jobs:
       - name: Prepare | Init & LVM
         run: |
           sudo timedatectl set-timezone "${TZ}"
-          #sudo swapoff -a || true
-          #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs fastfetch
+            mtools rsync grub-common e2fsprogs lvm2 pv wget fastfetch
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
@@ -52,13 +50,13 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
-          fastfetch
           df -Th
+          fastfetch
 
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          git clone --depth 1 https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
+          git clone --depth 1 --single-branch --no-tags https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
           wget -q "https://github.com/1compk/minios/releases/download/live/${{ env.BuildSource }}"
           tar -xf "${{ env.BuildSource }}"
 
