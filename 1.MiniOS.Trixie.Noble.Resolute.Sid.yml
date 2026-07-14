@@ -36,7 +36,7 @@ jobs:
         run: |
           sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget fastfetch
+            mtools rsync grub-common e2fsprogs lvm2 pv wget
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
@@ -51,7 +51,7 @@ jobs:
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
           df -Th
-          fastfetch
+          lscpu | grep -E "Model name|CPU\(s\):"
 
       - name: Prepare | Source Code
         working-directory: /builder
