@@ -107,7 +107,7 @@ jobs:
           if [ "${{ matrix.board }}" = "uefi-x86" ]; then
             SetVersion="${{ env.UefiVersion }}"
           else
-            SetVersion="${{ env.BoxVersion }}"
+            SetVersion=""
           fi
 
           chmod +x compile.sh
