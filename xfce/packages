@@ -65,8 +65,6 @@ gnome-tweaks
 gparted
 grsync
 grub-customizer
-grub-efi-amd64-bin
-grub-pc
 gsettings-desktop-schemas
 gtk2-engines
 gtk2-engines-murrine
