@@ -13,7 +13,7 @@ env:
   BuildSource: zArmbian.Build.2026.tar.xz
   BuildDir: zArmbian.Build.2026
   UefiVersion: 26.5.1
-  BoxVersion: lastest
+  BoxVersion: Lastest
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
             desktop: no
             environment: ""
             config_name: ""
-            revision: lastest
+            revision: Lastest
 
           # ===== (Build LXFice) =====
           - type: LXFice
@@ -53,10 +53,8 @@ jobs:
       - name: Prepare | Init & LVM
         run: |
           sudo timedatectl set-timezone "${TZ}"
-          #sudo swapoff -a || true
-          #sudo apt-get update
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget btrfs-progs fastfetch
+            mtools rsync grub-common e2fsprogs lvm2 pv wget fastfetch
           
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
@@ -70,35 +68,31 @@ jobs:
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
-          fastfetch
           df -Th
+          fastfetch
 
       - name: Prepare | Source Code
         working-directory: /builder
-        run: |
-          git clone --depth 1 https://github.com/armbian/build.git ${{ env.BuildDir }}
-          cd ${{ env.BuildDir }}
-          git fetch --all --tags
-          
+        run: |          
           if [ "${{ matrix.desktop }}" = "yes" ]; then
-            git checkout --detach v26.2.0-trunk.844
+            git clone --branch v26.2.0-trunk.844 --depth 1 --single-branch --no-tags https://github.com/armbian/build.git ${{ env.BuildDir }}
+            cd ${{ env.BuildDir }}
             
-            PackagesDir="config/desktop/${{ matrix.release }}/environments/xfce/config_base"
+            PackagesDir="config/desktop/trixie/environments/xfce/config_base"
             cd $PackagesDir
             rm -rf packages
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/packages"
-
             cd /builder/${{ env.BuildDir }}
 
             NvidiaDir="config/optional/architectures/amd64/_config/desktop/trixie/environments/_all_environments/sources/apt"
             cd $NvidiaDir
             rm -rf nvidia-drivers.source
             wget -q "https://github.com/1compk/dl/raw/dl/xfce/nvidia-drivers.source"
-
             cd /builder/${{ env.BuildDir }}
 
           else
-            git status
+            git clone --depth 1 --single-branch --no-tags https://github.com/armbian/build.git ${{ env.BuildDir }}
+            cd ${{ env.BuildDir }}
           fi
 
       - name: Build | Compile
