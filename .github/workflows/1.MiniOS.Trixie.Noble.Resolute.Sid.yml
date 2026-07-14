@@ -34,6 +34,7 @@ jobs:
     steps:
       - name: Prepare | Init & LVM
         run: |
+          lscpu | grep -E "Model name|CPU\(s\):"
           sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget
@@ -51,7 +52,6 @@ jobs:
           sudo mount /dev/github/runner $MainDir
           sudo chown -R runner:runner $MainDir
           df -Th
-          lscpu | grep -E "Model name|CPU\(s\):"
 
       - name: Prepare | Source Code
         working-directory: /builder
