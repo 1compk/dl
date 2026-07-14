@@ -10,7 +10,7 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildSource: zArmbian.Build.06.26.tar.xz
+  BuildSource: zArmbian.Build.2026.tar.xz
   BuildDir: zArmbian.Build.2026
   UefiVersion: 26.5.1
   BoxVersion: lastest
@@ -134,6 +134,24 @@ jobs:
         with:
           name: Armbian-${{ matrix.board }}-${{ matrix.release }}-${{ matrix.type }}-${{ github.run_id }}
           path: /builder/${{ env.BuildDir }}/output/images/*.img*
+          retention-days: 30
+          archive: true
+          if-no-files-found: error
+
+      - name: Upload | Header
+        uses: actions/upload-artifact@v7
+        with:
+          name: Header-Armbian-${{ matrix.board }}-${{ matrix.release }}-${{ github.run_id }}
+          path: /builder/${{ env.BuildDir }}/output/debs/*linux-headers*
+          retention-days: 30
+          archive: true
+          if-no-files-found: error
+
+      - name: Upload | Kernel
+        uses: actions/upload-artifact@v7
+        with:
+          name: Kernel-Armbian-${{ matrix.board }}-${{ matrix.release }}-${{ github.run_id }}
+          path: /builder/${{ env.BuildDir }}/output/debs/*linux-image*
           retention-days: 30
           archive: true
           if-no-files-found: error
