@@ -67,7 +67,6 @@ grsync
 grub-customizer
 gsettings-desktop-schemas
 gtk2-engines
-gtk2-engines-murrine
 gtk2-engines-pixbuf
 gvfs-backends
 icewm
