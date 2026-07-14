@@ -1,0 +1,849 @@
+# Armbian ANSI build logs for bca877e2-2ec1-4569-a862-0bf71da89ada - use "less -SR" to view
+# Armbian build at Tue Jul 14 09:13:22 +07 2026 on uefi-x86
+------------------------------------------------------------------------------------------------------------
+# Repeat build: ./compile.sh build BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_ENVIRONMENT=xfce DESKTOP_TIER=mid EXPERT=yes KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow RELEASE=trixie
+# ARGs: 'PREFER_DOCKER=no' 'BUILD_MINIMAL=no' 'BUILD_DESKTOP=yes' 'EXPERT=yes' 'ARMBIAN_RELAUNCHED=yes' 'KERNEL_BTF=no' 'BRANCH=edge' 'DESKTOP_ENVIRONMENT=xfce' 'BOARD=uefi-x86' 'SET_OWNER_TO_UID=1000' 'DESKTOP_TIER=mid' 'RELEASE=trixie' 'KERNEL_GIT=shallow' 'KERNEL_CONFIGURE=no' 'build'
+------------------------------------------------------------------------------------------------------------
+# GIT revision
+   commit a7f3a943d30769d5657354e9660329171ca5c39d (HEAD, tag: v26.8.0-trunk.343)
+   Author: James S <jshkolnik@gmail.com>
+   
+       orangepizero3w: Add community support for Orange Pi Zero 3W (Allwinner A733) (#10103)
+------------------------------------------------------------------------------------------------------------
+# GIT status
+   HEAD detached at v26.8.0-trunk.343
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git restore <file>..." to discard changes in working directory)
+   	modified:   config/optional/architectures/amd64/_config/desktop/trixie/appgroups/programming/packages
+   	modified:   config/optional/architectures/amd64/_config/desktop/trixie/environments/_all_environments/sources/apt/nvidia-drivers.source
+   
+   Untracked files:
+     (use "git add <file>..." to include in what will be committed)
+   	trixie.edge.uefi-x86.glxfice.sh
+   
+   no changes added to commit (use "git add" and/or "git commit -a")
+------------------------------------------------------------------------------------------------------------
+### config_early_init.log 
+--> (0) INFO: Starting single build process [ uefi-x86 ]
+--> (0) INFO: Checking [ basic host setup ]
+--> (0) INFO: Build host OS release [ forky ]
+--> (0) INFO: Build host architecture [ amd64 ]
+------------------------------------------------------------------------------------------------------------
+### config_source_board_file.log 
+--> (0) INFO: Sourcing board configuration [ /home/user/Downloads/Armbian.Build.2026/config/boards/uefi-x86.conf ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing board file config/boards/uefi-x86.conf [ BOARDFAMILY='uefi-x86' ]
+--> (0) CHANGE-TRACKING: change-tracking: after defaulting LINUXFAMILY to BOARDFAMILY [ LINUXFAMILY='uefi-x86' ]
+------------------------------------------------------------------------------------------------------------
+### do_main_configuration.log 
+--> (0) INFO: Starting main configuration
+--> (0) INFO: Using REVISION from [ main VERSION file: '26.08.0-trunk' ]
+--> (0) INFO: Enabling extension [ armbian-config ]
+--> (0) INFO: Enabling extension [ uboot-binman-fix-pkg-resources ]
+--> (0) INFO: Sourcing family configuration [ /home/user/Downloads/Armbian.Build.2026/config/sources/families/uefi-x86.conf ]
+--> (0) INFO: extra .config for Apple T2-based x86 machines [ x86: BRANCH=edge ]
+--> (0) INFO: Apple T2 patches already present in [ DIR=/home/user/Downloads/Armbian.Build.2026/patch/kernel/archive/uefi-x86-7.1 ]
+--> (0) INFO: Enabling extension [ grub ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing family config [ KERNEL_MAJOR_MINOR='7.1' ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing family config [ LINUXFAMILY='x86'  # (was: 'uefi-x86') ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing family config [ LINUXCONFIG='linux-uefi-x86-edge' ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing family config [ KERNELPATCHDIR='archive/uefi-x86-7.1' ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing family config [ ATF_COMPILE='yes' ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing family config [ NETWORKING_STACK='network-manager' ]
+--> (0) INFO: Sourcing arch configuration [ amd64.conf ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing amd64 arch [ KERNEL_COMPILER='x86_64-linux-gnu-' ]
+--> (0) CHANGE-TRACKING: change-tracking: after sourcing amd64 arch [ UBOOT_COMPILER='x86_64-linux-gnu-' ]
+--> (0) INFO: Using NETWORKING_STACK [ NETWORKING_STACK: network-manager ]
+--> (0) INFO: Adding networking extensions [ net-network-manager, net-chrony ]
+--> (0) INFO: Enabling extension [ net-network-manager ]
+--> (0) INFO: Enabling extension [ net-chrony ]
+--> (1) INFO: Extension manager [ processed 16 Extension Methods calls and 36 Extension Method implementations ]
+--> (1) INFO: Getting sources from Git [ armbian-configng main ]
+--> (1) COMMAND: git --no-pager config --global --add safe.directory /home/user/Downloads/Armbian.Build.2026/cache/sources/armbian-configng
+--> (2) INFO: Fetching updates from remote repository [ armbian-configng main ]
+--> (2) COMMAND: /usr/bin/git --no-pager fetch --verbose --progress --recurse-submodules=no --no-tags https://github.com/armbian/configng main
+--> (2) INFO: git: Fetch from remote completed, rev-parsing... [ 'armbian-configng' 'main' 'FETCH_HEAD' ]
+--> (2) COMMAND: git --no-pager checkout -f -q 17dd73fe70ad1ca3763540a483afb0c6c20b1854
+--> (2) COMMAND: git --no-pager clean -q -d -f
+------------------------------------------------------------------------------------------------------------
+### do_extra_configuration.log 
+--> (2) CHANGE-TRACKING: change-tracking: after user_config hooks [ BOOTPATCHDIR='u-boot-x86' ]
+--> (2) INFO: Extension: net-chrony: Adding extra package to image [ chrony ]
+--> (2) INFO: Extension: net-network-manager: Adding extra packages to image [ network-manager network-manager-openvpn netplan.io ]
+--> (2) INFO: Extension: net-network-manager: Adding extra packages for desktop to image [ network-manager-gnome network-manager-ssh network-manager-vpnc ]
+--> (2) INFO: Extension: grub:  activating [ GRUB with SERIALCON=tty1; timeout 3; BIOS=i386-pc ]
+--> (2) CHANGE-TRACKING: change-tracking: after extension_prepare_config hooks [ BOOTCONFIG='none' ]
+------------------------------------------------------------------------------------------------------------
+### config_post_main.log 
+--> (3) INFO: mainline-kernel: default to branch / rolling stable version [ Using KERNELBRANCH='branch:linux-7.1.y' for KERNEL_MAJOR_MINOR='7.1' ]
+--> (3) CHANGE-TRACKING: change-tracking: after late_family_config hooks [ KERNELSOURCE='https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git' ]
+--> (3) CHANGE-TRACKING: change-tracking: after late_family_config hooks [ KERNELBRANCH='branch:linux-7.1.y' ]
+--> (3) CHANGE-TRACKING: change-tracking: after late_family_config hooks [ KERNEL_PATCH_ARCHIVE_BASE='x86' ]
+--> (3) CHANGE-TRACKING: change-tracking: after late_family_config hooks [ BOOTSOURCE='https://github.com/u-boot/u-boot' ]
+--> (3) CHANGE-TRACKING: change-tracking: after late_family_config hooks [ BOOTBRANCH='tag:v2022.07' ]
+--> (3) CHANGE-TRACKING: change-tracking: after late_family_config hooks [ BOOTDIR='u-boot' ]
+--> (3) CHANGE-TRACKING: change-tracking: before handling KERNEL_MAJOR_MINOR in config_post_main [ BOOTSOURCEDIR='u-boot-worktree/u-boot/v2022.07' ]
+--> (3) WARNING: Not-installing software-properties-common [ For distro 'Debian' release 'trixie' ]
+--> (3) CHANGE-TRACKING: change-tracking: before calling extension_finish_config [ LINUXSOURCEDIR='linux-kernel-worktree/7.1__x86__amd64' ]
+--> (3) INFO: Configuration prepared for BOARD build [ uefi-x86.conf ]
+--> (3) EXT: Repeat Build Options (early) [ ./compile.sh build BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_ENVIRONMENT=xfce DESKTOP_TIER=mid EXPERT=yes KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow RELEASE=trixie ]
+------------------------------------------------------------------------------------------------------------
+### check_dir_for_mount_options.log 
+--> (3) INFO: Checked directory OK for mount options [ /home/user/Downloads/Armbian.Build.2026/.tmp ('main temporary dir') ]
+------------------------------------------------------------------------------------------------------------
+### prepare_host_noninteractive.log 
+--> (3) INFO: Preparing [ host ]
+--> (3) INFO: Adding package to 'host_dependencies' [ python3-setuptools ]
+--> (3) INFO: Python2 not available on host release 'forky' [ ancient u-boot versions might/will fail to build ]
+--> (3) COMMAND: update-ccache-symlinks
+--> (3) INFO: Syncing clock [ host ]
+--> (3) COMMAND: ntpdate pool.ntp.org
+   2026-07-14 09:09:48.411690 (+0700) -0.000376 +/- 0.010596 pool.ntp.org 202.28.116.236 s1 no-leap
+--> (3) CACHEHIT: Native arch build [ target amd64 on host amd64 ]
+--> (3) INFO: checking [ arch-test for 'amd64' ]
+--> (3) COMMAND: arch-test amd64
+   amd64: ok
+------------------------------------------------------------------------------------------------------------
+### aggregate_packages.log 
+--> (3) INFO: Aggregating packages [ rootfs ]
+--> (3) INFO: Python3 version [ 3.13.14 - 'Python 3.13.14' ]
+--> (3) INFO: pip3 version [ 26.1.2 ]
+--> (3) INFO: Using cached pip packages for Python tools [ dd3475d176d17966485f30703a7eda825365e87b52d495542823c5a256e7fdad ]
+--> (3) COMMAND: [...shortened...] /usr/bin/python3 /home/user/Downloads/Armbian.Build.2026/lib/tools/aggregation.py
+   Summary: Aggregation: debootstrap: 5; rootfs: 99; image: 16; apt-sources: 0; hash: c8e5de65390f6e6e
+--> (3) COMMAND: rm -f /home/user/Downloads/Armbian.Build.2026/.tmp/work-bca877e2-2ec1-4569-a862-0bf71da89ada/tmp.8mIFkOLXA2
+------------------------------------------------------------------------------------------------------------
+### clean_deprecated_mountpoints.log 
+--> (3) INFO: artifact [ kernel :: kernel() ]
+------------------------------------------------------------------------------------------------------------
+### artifact_prepare_version.log 
+--> (3) INFO: Producing new & caching [ GIT_INFO_KERNEL ]
+--> (3) INFO: Fetching SHA1 of 'branch' 'refs/heads/linux-7.1.y' [ https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git ]
+--> (4) INFO: SHA1 of branch refs/heads/linux-7.1.y [ '199c9959d3a9b53f346c221757fc7ac507fbac50' ]
+--> (4) INFO: User patches directory for kernel [ /home/user/Downloads/Armbian.Build.2026/userpatches/kernel/archive/uefi-x86-7.1 ]
+--> (4) INFO: Using kernel config file [ config/kernel/linux-uefi-x86-edge.config ]
+--> (4) INFO: Disabling eBPF and BTF info for kernel [ as requested by KERNEL_BTF=no ]
+------------------------------------------------------------------------------------------------------------
+### artifact_reversion_for_deployment.log 
+--> (4) INFO: Reversioning package [ re-version 'kernel-x86-edge(deb-tar)::7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a' to '26.08.0-trunk' ]
+--> (4) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs
+--> (5) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb
+--> (5) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs
+--> (5) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/linux-headers-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb
+--> (5) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs
+--> (5) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/linux-libc-dev-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb
+--> (5) INFO: artifact [ full_firmware :: full_firmware() ]
+------------------------------------------------------------------------------------------------------------
+### artifact_prepare_version.log 
+--> (5) INFO: Producing new & caching [ GIT_INFO_ARMBIAN_FIRMWARE ]
+--> (5) INFO: Fetching SHA1 of 'branch' 'refs/heads/master' [ https://github.com/armbian/firmware ]
+--> (5) INFO: SHA1 of branch refs/heads/master [ '617ccae735b1bff23b2d90ee711786ed42b8dc18' ]
+--> (5) INFO: Producing new & caching [ GIT_INFO_MAINLINE_FIRMWARE ]
+--> (5) INFO: Fetching SHA1 of 'branch' 'refs/heads/main' [ https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git ]
+--> (5) INFO: SHA1 of branch refs/heads/main [ '2c35b1ed46f661baaf14b08cebb9201ca802f939' ]
+------------------------------------------------------------------------------------------------------------
+### artifact_reversion_for_deployment.log 
+--> (6) INFO: Reversioning package [ re-version 'armbian-firmware-full(deb)::1-SA617c-SM2c35-B96c8-R448a' to '26.08.0-trunk' ]
+--> (6) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs
+--> (6) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb
+--> (6) INFO: artifact [ armbian-base-files :: armbian-base-files() ]
+------------------------------------------------------------------------------------------------------------
+### artifact_prepare_version.log 
+--> (6) INFO: Found upstream base-files package filename [ base-files_13.8+deb13u6_amd64.deb ]
+--> (6) INFO: Found base-files upstream package version [ 13.8+deb13u6 ]
+------------------------------------------------------------------------------------------------------------
+### artifact_reversion_for_deployment.log 
+--> (6) INFO: Reversioning package [ re-version 'armbian-base-files-trixie-amd64(deb)::1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa' to '26.08.0-trunk-13.8+deb13u6-trixie' ]
+--> (6) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs/extra/trixie-utils
+--> (6) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/extra/trixie-utils/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb
+--> (6) INFO: artifact [ armbian-zsh :: armbian-zsh() ]
+------------------------------------------------------------------------------------------------------------
+### artifact_prepare_version.log 
+--> (6) INFO: Producing new & caching [ GIT_INFO_ARMBIAN_ZSH ]
+--> (6) INFO: Fetching SHA1 of 'commit' 'bfeeda1491b5366aa5798a86cf6f3621536b171c' [ https://github.com/ohmyzsh/ohmyzsh ]
+--> (6) INFO: SHA1 of commit bfeeda1491b5366aa5798a86cf6f3621536b171c [ 'bfeeda1491b5366aa5798a86cf6f3621536b171c' ]
+------------------------------------------------------------------------------------------------------------
+### artifact_reversion_for_deployment.log 
+--> (6) INFO: Reversioning package [ re-version 'armbian-zsh(deb)::1-SAbfee-B07a9-R448a' to '26.08.0-trunk' ]
+--> (6) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs
+--> (6) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb
+--> (6) INFO: artifact [ armbian-plymouth-theme :: armbian-plymouth-theme() ]
+------------------------------------------------------------------------------------------------------------
+### artifact_reversion_for_deployment.log 
+--> (6) INFO: Reversioning package [ re-version 'armbian-plymouth-theme(deb)::1-B5bd9-R448a' to '26.08.0-trunk' ]
+--> (6) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs
+--> (6) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb
+--> (6) INFO: artifact [ armbian-bsp-cli :: armbian-bsp-cli() ]
+------------------------------------------------------------------------------------------------------------
+### artifact_reversion_for_deployment.log 
+--> (7) INFO: Reversioning package [ re-version 'armbian-bsp-cli-uefi-x86-edge-grub(deb-tar)::1-PC6d58-Vf249-Hdbe2-B2632-R4c4d' to '26.08.0-trunk' ]
+--> (7) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/output/debs
+--> (7) COMMAND: touch /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb
+--> (7) TARGET-STARTED: Building image [ uefi-x86 ]
+--> (7) INFO: Checking for rootfs cache [ edge uefi-x86 trixie xfce mid no ]
+--> (7) INFO: artifact [ rootfs :: rootfs() ]
+------------------------------------------------------------------------------------------------------------
+### artifact_prepare_version.log 
+--> (7) INFO: rootfs version [ packages_hash: 'c8e5de65390f-H6eccde-Bc08fea' cache_type: 'xfce-desktop-mid' rootfs_cache_id: 'c8e5de65390f-H6eccde-Bc08fea' ]
+------------------------------------------------------------------------------------------------------------
+### artifact_is_available_in_remote_cache.log 
+--> (7) INFO: Getting ORAS manifest [ ORAS manifest from ghcr.io/armbian/os/rootfs-amd64-trixie-xfce-desktop-mid:202607-c8e5de65390f-H6eccde-Bc08fea ]
+--> (8) INFO: Artifact is available in remote cache [ ghcr.io/armbian/os/rootfs-amd64-trixie-xfce-desktop-mid:202607-c8e5de65390f-H6eccde-Bc08fea - 'rootfs-amd64-trixie-xfce-desktop-mid - 202607-c8e5de65390f-H6eccde-Bc08fea - arch "amd64" release "trixie" type "xfce-desktop-mid" cache_id "c8e5de65390f-H6eccde-Bc08fea" desktop_environment "xfce" desktop_tier "mid" configng_desktops "none" - type: tar.zst' ]
+------------------------------------------------------------------------------------------------------------
+### artifact_obtain_from_remote_cache.log 
+--> (8) INFO: Obtaining artifact from remote cache [ ghcr.io/armbian/os/rootfs-amd64-trixie-xfce-desktop-mid:202607-c8e5de65390f-H6eccde-Bc08fea into rootfs-amd64-trixie-xfce-desktop-mid_202607-c8e5de65390f-H6eccde-Bc08fea.tar.zst ]
+--> (8) COMMAND: mkdir -p /home/user/Downloads/Armbian.Build.2026/cache/rootfs/rootfs-amd64-trixie-xfce-desktop-mid_202607-c8e5de65390f-H6eccde-Bc08fea.tar.zst.oras.pull.tmp
+   Pulled [registry] ghcr.io/armbian/os/rootfs-amd64-trixie-xfce-desktop-mid:202607-c8e5de65390f-H6eccde-Bc08fea
+   Digest: sha256:72b4eb9f52497622e60cff1705780dc30477c336de7da37083021ab80850666d
+--> (136) COMMAND: mv /home/user/Downloads/Armbian.Build.2026/cache/rootfs/rootfs-amd64-trixie-xfce-desktop-mid_202607-c8e5de65390f-H6eccde-Bc08fea.tar.zst.oras.pull.tmp/rootfs-amd64-trixie-xfce-desktop-mid_202607-c8e5de65390f-H6eccde-Bc08fea.tar.zst /home/user/Downloads/Armbian.Build.2026/cache/rootfs
+--> (136) COMMAND: rm -rf /home/user/Downloads/Armbian.Build.2026/cache/rootfs/rootfs-amd64-trixie-xfce-desktop-mid_202607-c8e5de65390f-H6eccde-Bc08fea.tar.zst.oras.pull.tmp
+------------------------------------------------------------------------------------------------------------
+### unpack_artifact_from_local_cache.log 
+--> (136) CACHEHIT: artifact [ obtained from remote cache: rootfs-amd64-trixie-xfce-desktop-mid 202607-c8e5de65390f-H6eccde-Bc08fea ]
+------------------------------------------------------------------------------------------------------------
+### artifact_reversion_for_deployment.log 
+--> (136) INFO: Reversioning package [ re-version 'rootfs-amd64-trixie-xfce-desktop-mid(tar.zst)::202607-c8e5de65390f-H6eccde-Bc08fea' to '26.08.0-trunk' ]
+------------------------------------------------------------------------------------------------------------
+### prepare_rootfs_build_params_and_trap.log 
+--> (136) COMMAND: rm -rfv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada
+--> (136) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada /home/user/Downloads/Armbian.Build.2026/cache/rootfs /home/user/Downloads/Armbian.Build.2026/output/images
+   mkdir: created directory '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada'
+   mkdir: created directory '/home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada'
+--> (136) INFO: Using tmpfs for rootfs build [ RAM available: 7321MiB > 6000MiB estimated ]
+------------------------------------------------------------------------------------------------------------
+### extract_rootfs_artifact.log 
+--> (136) INFO: Extracting 202607-c8e5de65390f-H6eccde-Bc08fea [ 0 days old ]
+--> (141) COMMAND: rm -v /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/resolv.conf
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/resolv.conf'
+--> (141) COMMAND: echo nameserver 1.1.1.1 > /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/resolv.conf
+--> (141) INFO: Adding Armbian repository and authentication key [ image-early :: /etc/apt/sources.list.d/armbian.sources ]
+--> (141) INFO: Disabling Armbian repo [ amd64-trixie :: skip:no when:image-early ]
+------------------------------------------------------------------------------------------------------------
+### install_distribution_specific_trixie.log 
+--> (141) INFO: Applying distribution specific tweaks for [ trixie ]
+--> (141) DEBINSTALL: Installing: /home/user/Downloads/Armbian.Build.2026/output/debs/extra/trixie-utils/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb [ base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb ]
+--> (141) COMMAND: cp -pv /home/user/Downloads/Armbian.Build.2026/output/debs/extra/trixie-utils/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb
+   '/home/user/Downloads/Armbian.Build.2026/output/debs/extra/trixie-utils/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb'
+--> (141) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+   mkdir: created directory '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists'
+--> (141) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (141) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (141) COMMAND: DEBIAN_FRONTEND=noninteractive ARMBIAN_IMAGE_BUILD_BOOTFS_TYPE=unset apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 -o APT::Clean-Installed=0 --no-install-recommends --allow-downgrades install /root/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb
+   (Reading database ... 127148 files and directories currently installed.)
+   Preparing to unpack .../base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb ...
+   Unpacking base-files (26.08.0-trunk-13.8+deb13u6-trixie) over (26.5.1-13.8+deb13u5-trixie) ...
+   Setting up base-files (26.08.0-trunk-13.8+deb13u6-trixie) ...
+   Installing new version of config file /etc/debian_version ...
+   Processing triggers for cracklib-runtime (2.9.6-5.2+b1) ...
+   Processing triggers for man-db (2.13.1-1) ...
+--> (143) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (143) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (143) INFO: Using systemd-resolved [ for DNS management ]
+------------------------------------------------------------------------------------------------------------
+### install_distribution_agnostic.log 
+--> (143) COMMAND: dpkg-reconfigure -f noninteractive tzdata
+   
+   Current default time zone: 'Etc/UTC'
+   Local time is now:      Tue Jul 14 02:12:08 UTC 2026.
+   Universal Time is now:  Tue Jul 14 02:12:08 UTC 2026.
+   
+--> (143) INFO: Setting root password
+--> (143) COMMAND: ( echo '1234' ; echo '1234' ; ) | passwd root
+   New password: Retype new password: passwd: password updated successfully
+--> (143) INFO: Temporarily disabling [ initramfs-tools hook for kernel ]
+--> (143) COMMAND: chmod -v -x /etc/kernel/postinst.d/initramfs-tools
+   mode of '/etc/kernel/postinst.d/initramfs-tools' changed from 0755 (rwxr-xr-x) to 0644 (rw-r--r--)
+--> (143) INFO: Updating [ apt package lists ]
+--> (143) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (143) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (143) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (143) COMMAND: DEBIAN_FRONTEND=noninteractive apt-get -y -q -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 update
+   Hit:1 http://deb.debian.org/debian trixie InRelease
+   Hit:2 http://deb.debian.org/debian trixie-updates InRelease
+   Hit:3 http://deb.debian.org/debian trixie-backports InRelease
+   Get:4 https://dl.google.com/linux/chrome-stable/deb stable InRelease [1825 B]
+   Get:5 https://dl.google.com/linux/chrome-stable/deb stable/main amd64 Packages [1218 B]
+   Hit:6 http://github.armbian.com/configng stable InRelease
+   Hit:7 http://security.debian.org trixie-security InRelease
+   Fetched 3043 B in 1s (5817 B/s)
+   Reading package lists...
+--> (144) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (144) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (144) INFO: Installing AGGREGATED_PACKAGES_IMAGE packages [ firmware-sof-signed chrony network-manager network-manager-openvpn netplan.io network-manager-gnome network-manager-ssh network-manager-vpnc efibootmgr efivar cloud-initramfs-growroot busybox os-prober grub-efi-amd64-bin grub-pc-bin grub-pc ]
+--> (144) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (144) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (144) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (144) COMMAND: DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 --no-install-recommends --dry-run install firmware-sof-signed chrony network-manager network-manager-openvpn netplan.io network-manager-gnome network-manager-ssh network-manager-vpnc efibootmgr efivar cloud-initramfs-growroot busybox os-prober grub-efi-amd64-bin grub-pc-bin grub-pc 2>&1 | { grep --line-buffered -v -e '^Conf ' -e '^Inst ' || true; }
+--> (145) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (145) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (145) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (145) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (145) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (145) COMMAND: DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 --no-install-recommends --download-only install firmware-sof-signed chrony network-manager network-manager-openvpn netplan.io network-manager-gnome network-manager-ssh network-manager-vpnc efibootmgr efivar cloud-initramfs-growroot busybox os-prober grub-efi-amd64-bin grub-pc-bin grub-pc
+--> (145) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (145) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (145) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (145) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (145) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (145) COMMAND: DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 --no-install-recommends install firmware-sof-signed chrony network-manager network-manager-openvpn netplan.io network-manager-gnome network-manager-ssh network-manager-vpnc efibootmgr efivar cloud-initramfs-growroot busybox os-prober grub-efi-amd64-bin grub-pc-bin grub-pc
+   Preconfiguring packages ...
+   Selecting previously unselected package chrony.
+   (Reading database ... 127148 files and directories currently installed.)
+   Preparing to unpack .../00-chrony_4.6.1-3+deb13u2_amd64.deb ...
+   Unpacking chrony (4.6.1-3+deb13u2) ...
+   Selecting previously unselected package firmware-sof-signed.
+   Preparing to unpack .../01-firmware-sof-signed_2025.01-1_all.deb ...
+   Unpacking firmware-sof-signed (2025.01-1) ...
+   Selecting previously unselected package gettext-base.
+   Preparing to unpack .../02-gettext-base_0.23.1-2_amd64.deb ...
+   Unpacking gettext-base (0.23.1-2) ...
+   Selecting previously unselected package busybox.
+   Preparing to unpack .../03-busybox_1%3a1.37.0-6+b8_amd64.deb ...
+   Unpacking busybox (1:1.37.0-6+b8) ...
+   Selecting previously unselected package cloud-guest-utils.
+   Preparing to unpack .../04-cloud-guest-utils_0.33-1_all.deb ...
+   Unpacking cloud-guest-utils (0.33-1) ...
+   Selecting previously unselected package genisoimage.
+   Preparing to unpack .../05-genisoimage_9%3a1.1.11-4_amd64.deb ...
+   Unpacking genisoimage (9:1.1.11-4) ...
+   Selecting previously unselected package libaio1t64:amd64.
+   Preparing to unpack .../06-libaio1t64_0.3.113-8+b1_amd64.deb ...
+   Unpacking libaio1t64:amd64 (0.3.113-8+b1) ...
+   Selecting previously unselected package liburing2:amd64.
+   Preparing to unpack .../07-liburing2_2.9-1_amd64.deb ...
+   Unpacking liburing2:amd64 (2.9-1) ...
+   Selecting previously unselected package qemu-utils.
+   Preparing to unpack .../08-qemu-utils_1%3a10.0.11+ds-0+deb13u1_amd64.deb ...
+   Unpacking qemu-utils (1:10.0.11+ds-0+deb13u1) ...
+   Selecting previously unselected package cloud-image-utils.
+   Preparing to unpack .../09-cloud-image-utils_0.33-1_all.deb ...
+   Unpacking cloud-image-utils (0.33-1) ...
+   Selecting previously unselected package cloud-utils.
+   Preparing to unpack .../10-cloud-utils_0.33-1_all.deb ...
+   Unpacking cloud-utils (0.33-1) ...
+   Selecting previously unselected package cloud-initramfs-growroot.
+   Preparing to unpack .../11-cloud-initramfs-growroot_0.18.debian14_all.deb ...
+   Unpacking cloud-initramfs-growroot (0.18.debian14) ...
+   Selecting previously unselected package libefivar1t64:amd64.
+   Preparing to unpack .../12-libefivar1t64_38-3.1+b1_amd64.deb ...
+   Unpacking libefivar1t64:amd64 (38-3.1+b1) ...
+   Selecting previously unselected package libefiboot1t64:amd64.
+   Preparing to unpack .../13-libefiboot1t64_38-3.1+b1_amd64.deb ...
+   Unpacking libefiboot1t64:amd64 (38-3.1+b1) ...
+   Selecting previously unselected package efibootmgr.
+   Preparing to unpack .../14-efibootmgr_18-2_amd64.deb ...
+   Unpacking efibootmgr (18-2) ...
+   Selecting previously unselected package libefisec1t64:amd64.
+   Preparing to unpack .../15-libefisec1t64_38-3.1+b1_amd64.deb ...
+   Unpacking libefisec1t64:amd64 (38-3.1+b1) ...
+   Selecting previously unselected package efivar.
+   Preparing to unpack .../16-efivar_38-3.1+b1_amd64.deb ...
+   Unpacking efivar (38-3.1+b1) ...
+   Selecting previously unselected package grub-common.
+   Preparing to unpack .../17-grub-common_2.12-9+deb13u2_amd64.deb ...
+   Unpacking grub-common (2.12-9+deb13u2) ...
+   Selecting previously unselected package grub-efi-amd64-unsigned.
+   Preparing to unpack .../18-grub-efi-amd64-unsigned_2.12-9+deb13u2_amd64.deb ...
+   Unpacking grub-efi-amd64-unsigned (2.12-9+deb13u2) ...
+   Selecting previously unselected package grub-efi-amd64-bin.
+   Preparing to unpack .../19-grub-efi-amd64-bin_2.12-9+deb13u2_amd64.deb ...
+   Unpacking grub-efi-amd64-bin (2.12-9+deb13u2) ...
+   Selecting previously unselected package grub2-common.
+   Preparing to unpack .../20-grub2-common_2.12-9+deb13u2_amd64.deb ...
+   Unpacking grub2-common (2.12-9+deb13u2) ...
+   Selecting previously unselected package grub-pc-bin.
+   Preparing to unpack .../21-grub-pc-bin_2.12-9+deb13u2_amd64.deb ...
+   Unpacking grub-pc-bin (2.12-9+deb13u2) ...
+   Selecting previously unselected package grub-pc.
+   Preparing to unpack .../22-grub-pc_2.12-9+deb13u2_amd64.deb ...
+   Unpacking grub-pc (2.12-9+deb13u2) ...
+   Selecting previously unselected package libayatana-ido3-0.4-0:amd64.
+   Preparing to unpack .../23-libayatana-ido3-0.4-0_0.10.4-1_amd64.deb ...
+   Unpacking libayatana-ido3-0.4-0:amd64 (0.10.4-1) ...
+   Selecting previously unselected package libayatana-indicator3-7:amd64.
+   Preparing to unpack .../24-libayatana-indicator3-7_0.9.4-1+b1_amd64.deb ...
+   Unpacking libayatana-indicator3-7:amd64 (0.9.4-1+b1) ...
+   Selecting previously unselected package libayatana-appindicator3-1.
+   Preparing to unpack .../25-libayatana-appindicator3-1_0.5.94-1_amd64.deb ...
+   Unpacking libayatana-appindicator3-1 (0.5.94-1) ...
+   Selecting previously unselected package libnma-common.
+   Preparing to unpack .../26-libnma-common_1.10.6-5_all.deb ...
+   Unpacking libnma-common (1.10.6-5) ...
+   Selecting previously unselected package libnma0:amd64.
+   Preparing to unpack .../27-libnma0_1.10.6-5_amd64.deb ...
+   Unpacking libnma0:amd64 (1.10.6-5) ...
+   Selecting previously unselected package libpkcs11-helper1t64:amd64.
+   Preparing to unpack .../28-libpkcs11-helper1t64_1.30.0-1+b1_amd64.deb ...
+   Unpacking libpkcs11-helper1t64:amd64 (1.30.0-1+b1) ...
+   Selecting previously unselected package nm-connection-editor.
+   Preparing to unpack .../29-nm-connection-editor_1.36.0-3+b1_amd64.deb ...
+   Unpacking nm-connection-editor (1.36.0-3+b1) ...
+   Selecting previously unselected package network-manager-applet.
+   Preparing to unpack .../30-network-manager-applet_1.36.0-3+b1_amd64.deb ...
+   Unpacking network-manager-applet (1.36.0-3+b1) ...
+   Selecting previously unselected package network-manager-gnome.
+   Preparing to unpack .../31-network-manager-gnome_1.36.0-3+b1_amd64.deb ...
+   Unpacking network-manager-gnome (1.36.0-3+b1) ...
+   Selecting previously unselected package openvpn.
+   Preparing to unpack .../32-openvpn_2.6.14-1+deb13u3_amd64.deb ...
+   Unpacking openvpn (2.6.14-1+deb13u3) ...
+   Selecting previously unselected package network-manager-openvpn.
+   Preparing to unpack .../33-network-manager-openvpn_1.12.3-1~deb13u1_amd64.deb ...
+   Unpacking network-manager-openvpn (1.12.3-1~deb13u1) ...
+   Selecting previously unselected package sshpass.
+   Preparing to unpack .../34-sshpass_1.10-0.1_amd64.deb ...
+   Unpacking sshpass (1.10-0.1) ...
+   Selecting previously unselected package network-manager-ssh.
+   Preparing to unpack .../35-network-manager-ssh_1.2.11-1.1+b1_amd64.deb ...
+   Unpacking network-manager-ssh (1.2.11-1.1+b1) ...
+   Selecting previously unselected package vpnc-scripts.
+   Preparing to unpack .../36-vpnc-scripts_0.1~git20220510-1_all.deb ...
+   Unpacking vpnc-scripts (0.1~git20220510-1) ...
+   Selecting previously unselected package vpnc.
+   Preparing to unpack .../37-vpnc_0.5.3+git20241220-2_amd64.deb ...
+   Unpacking vpnc (0.5.3+git20241220-2) ...
+   Selecting previously unselected package network-manager-vpnc.
+   Preparing to unpack .../38-network-manager-vpnc_1.4.0-2_amd64.deb ...
+   Unpacking network-manager-vpnc (1.4.0-2) ...
+   Selecting previously unselected package os-prober.
+   Preparing to unpack .../39-os-prober_1.83_amd64.deb ...
+   Unpacking os-prober (1.83) ...
+   Setting up genisoimage (9:1.1.11-4) ...
+   Setting up chrony (4.6.1-3+deb13u2) ...
+   Creating config file /etc/chrony/chrony.conf with new version
+   Creating config file /etc/chrony/chrony.keys with new version
+   dpkg-statoverride: warning: --update given but /var/log/chrony does not exist
+   Running in chroot, ignoring request.
+   invoke-rc.d: policy-rc.d denied execution of start.
+   Created symlink '/etc/systemd/system/chronyd.service' -> '/usr/lib/systemd/system/chrony.service'.
+   Created symlink '/etc/systemd/system/multi-user.target.wants/chrony.service' -> '/usr/lib/systemd/system/chrony.service'.
+   Setting up libefivar1t64:amd64 (38-3.1+b1) ...
+   Setting up firmware-sof-signed (2025.01-1) ...
+   Setting up gettext-base (0.23.1-2) ...
+   Setting up libayatana-ido3-0.4-0:amd64 (0.10.4-1) ...
+   Setting up sshpass (1.10-0.1) ...
+   Setting up libefisec1t64:amd64 (38-3.1+b1) ...
+   Setting up busybox (1:1.37.0-6+b8) ...
+   Setting up network-manager-ssh (1.2.11-1.1+b1) ...
+   Setting up libnma-common (1.10.6-5) ...
+   Setting up libaio1t64:amd64 (0.3.113-8+b1) ...
+   Setting up libefiboot1t64:amd64 (38-3.1+b1) ...
+   Setting up vpnc-scripts (0.1~git20220510-1) ...
+   Setting up libpkcs11-helper1t64:amd64 (1.30.0-1+b1) ...
+   Setting up liburing2:amd64 (2.9-1) ...
+   Setting up libayatana-indicator3-7:amd64 (0.9.4-1+b1) ...
+   Setting up cloud-guest-utils (0.33-1) ...
+   Setting up efibootmgr (18-2) ...
+   Setting up openvpn (2.6.14-1+deb13u3) ...
+   Created symlink '/etc/systemd/system/multi-user.target.wants/openvpn.service' -> '/usr/lib/systemd/system/openvpn.service'.
+   Setting up vpnc (0.5.3+git20241220-2) ...
+   Setting up efivar (38-3.1+b1) ...
+   Setting up grub-common (2.12-9+deb13u2) ...
+   Created symlink '/etc/systemd/system/multi-user.target.wants/grub-common.service' -> '/usr/lib/systemd/system/grub-common.service'.
+   Created symlink '/etc/systemd/system/suspend.target.wants/grub-common.service' -> '/usr/lib/systemd/system/grub-common.service'.
+   Created symlink '/etc/systemd/system/hibernate.target.wants/grub-common.service' -> '/usr/lib/systemd/system/grub-common.service'.
+   Created symlink '/etc/systemd/system/hybrid-sleep.target.wants/grub-common.service' -> '/usr/lib/systemd/system/grub-common.service'.
+   Created symlink '/etc/systemd/system/suspend-then-hibernate.target.wants/grub-common.service' -> '/usr/lib/systemd/system/grub-common.service'.
+   Setting up os-prober (1.83) ...
+   Setting up libayatana-appindicator3-1 (0.5.94-1) ...
+   Setting up qemu-utils (1:10.0.11+ds-0+deb13u1) ...
+   Setting up network-manager-vpnc (1.4.0-2) ...
+   Setting up network-manager-openvpn (1.12.3-1~deb13u1) ...
+   Setting up grub-efi-amd64-unsigned (2.12-9+deb13u2) ...
+   Setting up grub2-common (2.12-9+deb13u2) ...
+   Setting up cloud-image-utils (0.33-1) ...
+   Setting up grub-pc-bin (2.12-9+deb13u2) ...
+   Setting up grub-pc (2.12-9+deb13u2) ...
+   Creating config file /etc/default/grub with new version
+   Setting up grub-efi-amd64-bin (2.12-9+deb13u2) ...
+   Setting up cloud-utils (0.33-1) ...
+   Setting up cloud-initramfs-growroot (0.18.debian14) ...
+   Processing triggers for libc-bin (2.41-12+deb13u3) ...
+   Processing triggers for man-db (2.13.1-1) ...
+   Processing triggers for libglib2.0-0t64:amd64 (2.84.4-3~deb13u3) ...
+   Processing triggers for dbus (1.16.2-2) ...
+   Processing triggers for mailcap (3.74) ...
+   Processing triggers for desktop-file-utils (0.28-1) ...
+   Processing triggers for initramfs-tools (0.148.4) ...
+   Processing triggers for hicolor-icon-theme (0.18-2) ...
+   Setting up libnma0:amd64 (1.10.6-5) ...
+   Setting up nm-connection-editor (1.36.0-3+b1) ...
+   Setting up network-manager-applet (1.36.0-3+b1) ...
+   Setting up network-manager-gnome (1.36.0-3+b1) ...
+   Processing triggers for libc-bin (2.41-12+deb13u3) ...
+--> (149) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (149) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (149) INFO: Extension: net-network-manager: Enabling Network-Manager
+--> (149) COMMAND: systemctl enable systemd-resolved.service
+--> (149) COMMAND: systemctl disable NetworkManager-wait-online.service
+--> (149) INFO: Configuring [ NetworkManager and Netplan ]
+--> (149) COMMAND: cp -v /home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/netplan/00-default-use-network-manager.yaml /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/netplan/
+   '/home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/netplan/00-default-use-network-manager.yaml' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/netplan/00-default-use-network-manager.yaml'
+--> (149) COMMAND: cp -v /home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/NetworkManager/00-armbian-readme.conf /home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/NetworkManager/zz-10-override-wifi-random-mac-disable.conf /home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/NetworkManager/zz-20-override-wifi-powersave-disable.conf /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/NetworkManager/conf.d/
+   '/home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/NetworkManager/00-armbian-readme.conf' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/NetworkManager/conf.d/00-armbian-readme.conf'
+   '/home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/NetworkManager/zz-10-override-wifi-random-mac-disable.conf' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/NetworkManager/conf.d/zz-10-override-wifi-random-mac-disable.conf'
+   '/home/user/Downloads/Armbian.Build.2026/extensions/network/config-nm/NetworkManager/zz-20-override-wifi-powersave-disable.conf' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/NetworkManager/conf.d/zz-20-override-wifi-powersave-disable.conf'
+   mode of '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/netplan/00-default-use-network-manager.yaml' retained as 0600 (rw-------)
+--> (149) DEBINSTALL: Installing: /home/user/Downloads/Armbian.Build.2026/output/debs/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb [ linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb ]
+--> (149) COMMAND: cp -pv /home/user/Downloads/Armbian.Build.2026/output/debs/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb
+   '/home/user/Downloads/Armbian.Build.2026/output/debs/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb'
+--> (150) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (150) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (150) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (150) COMMAND: DEBIAN_FRONTEND=noninteractive ARMBIAN_IMAGE_BUILD_BOOTFS_TYPE=unset apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 -o APT::Clean-Installed=0 --no-install-recommends  install /root/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb
+   Selecting previously unselected package linux-image-edge-x86.
+   (Reading database ... 129408 files and directories currently installed.)
+   Preparing to unpack .../linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb ...
+   Armbian 'linux-image-edge-x86' for '7.1.3-edge-x86': 'preinst' starting.
+   Armbian 'linux-image-edge-x86' for '7.1.3-edge-x86': 'preinst' finishing.
+   Unpacking linux-image-edge-x86 (26.08.0-trunk) ...
+   Setting up linux-image-edge-x86 (26.08.0-trunk) ...
+   Armbian 'linux-image-edge-x86' for '7.1.3-edge-x86': 'postinst' starting.
+   Automatic installation of modules for kernel 7.1.3-edge-x86 was skipped since the kernel headers for this kernel do not seem to be installed.
+   Armbian: update last-installed kernel symlink to 'Image'...
+   '/boot/Image' -> 'vmlinuz-7.1.3-edge-x86'
+   Armbian: Debian compat: linux-update-symlinks install 7.1.3-edge-x86 boot/vmlinuz-7.1.3-edge-x86
+   I: /vmlinuz.old is now a symlink to boot/vmlinuz-7.1.3-edge-x86
+   I: /initrd.img.old is now a symlink to boot/initrd.img-7.1.3-edge-x86
+   I: /vmlinuz is now a symlink to boot/vmlinuz-7.1.3-edge-x86
+   I: /initrd.img is now a symlink to boot/initrd.img-7.1.3-edge-x86
+   Armbian 'linux-image-edge-x86' for '7.1.3-edge-x86': 'postinst' finishing.
+--> (154) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (154) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (154) DEBINSTALL: Installing: /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb [ armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb ]
+--> (154) COMMAND: cp -pv /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb
+   '/home/user/Downloads/Armbian.Build.2026/output/debs/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb'
+--> (154) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (154) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (154) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (154) COMMAND: DEBIAN_FRONTEND=noninteractive ARMBIAN_IMAGE_BUILD_BOOTFS_TYPE=unset apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 -o APT::Clean-Installed=0 --no-install-recommends  install /root/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb
+   Selecting previously unselected package armbian-firmware-full.
+   (Reading database ... 136397 files and directories currently installed.)
+   Preparing to unpack .../armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb ...
+   Unpacking armbian-firmware-full (26.08.0-trunk) ...
+   Setting up armbian-firmware-full (26.08.0-trunk) ...
+--> (163) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (163) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (163) DEBINSTALL: Installing: /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb [ armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb ]
+--> (163) COMMAND: cp -pv /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb
+   '/home/user/Downloads/Armbian.Build.2026/output/debs/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb'
+--> (163) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (163) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (163) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (163) COMMAND: DEBIAN_FRONTEND=noninteractive ARMBIAN_IMAGE_BUILD_BOOTFS_TYPE=unset apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 -o APT::Clean-Installed=0 --no-install-recommends  install /root/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb
+   Selecting previously unselected package fping.
+   (Reading database ... 144365 files and directories currently installed.)
+   Preparing to unpack .../archives/fping_5.1-1_amd64.deb ...
+   Unpacking fping (5.1-1) ...
+   Selecting previously unselected package libfdt1:amd64.
+   Preparing to unpack .../libfdt1_1.7.2-2+b1_amd64.deb ...
+   Unpacking libfdt1:amd64 (1.7.2-2+b1) ...
+   Selecting previously unselected package device-tree-compiler.
+   Preparing to unpack .../device-tree-compiler_1.7.2-2+b1_amd64.deb ...
+   Unpacking device-tree-compiler (1.7.2-2+b1) ...
+   Selecting previously unselected package armbian-bsp-cli-uefi-x86-edge-grub.
+   Preparing to unpack .../armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb ...
+   Armbian 'armbian-bsp-cli-uefi-x86-edge-grub' for '1-PC6d58-Vf249-Hdbe2-B2632-R4c4d': 'preinst' starting.
+   grep: /etc/sysctl.conf: No such file or directory
+   Armbian 'armbian-bsp-cli-uefi-x86-edge-grub' for '1-PC6d58-Vf249-Hdbe2-B2632-R4c4d': 'preinst' finishing.
+   Unpacking armbian-bsp-cli-uefi-x86-edge-grub (26.08.0-trunk) ...
+   Setting up libfdt1:amd64 (1.7.2-2+b1) ...
+   Setting up device-tree-compiler (1.7.2-2+b1) ...
+   Setting up fping (5.1-1) ...
+   Setting up armbian-bsp-cli-uefi-x86-edge-grub (26.08.0-trunk) ...
+   Armbian 'armbian-bsp-cli-uefi-x86-edge-grub' for '1-PC6d58-Vf249-Hdbe2-B2632-R4c4d': 'postinst' starting.
+   Armbian 'armbian-bsp-cli-uefi-x86-edge-grub' for '1-PC6d58-Vf249-Hdbe2-B2632-R4c4d': 'postinst' finishing.
+   Processing triggers for libc-bin (2.41-12+deb13u3) ...
+   Processing triggers for man-db (2.13.1-1) ...
+   Processing triggers for initramfs-tools (0.148.4) ...
+--> (165) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (165) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (165) DEBINSTALL: Installing: /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb [ armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb ]
+--> (165) COMMAND: cp -pv /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb
+   '/home/user/Downloads/Armbian.Build.2026/output/debs/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb'
+--> (165) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (165) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (165) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (165) COMMAND: DEBIAN_FRONTEND=noninteractive ARMBIAN_IMAGE_BUILD_BOOTFS_TYPE=unset apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 -o APT::Clean-Installed=0 --no-install-recommends  install /root/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb
+   Selecting previously unselected package zsh-common.
+   (Reading database ... 144533 files and directories currently installed.)
+   Preparing to unpack .../zsh-common_5.9-8_all.deb ...
+   Unpacking zsh-common (5.9-8) ...
+   Selecting previously unselected package zsh.
+   Preparing to unpack .../zsh_5.9-8+b23_amd64.deb ...
+   Unpacking zsh (5.9-8+b23) ...
+   Selecting previously unselected package tmux.
+   Preparing to unpack .../archives/tmux_3.5a-3_amd64.deb ...
+   Unpacking tmux (3.5a-3) ...
+   Selecting previously unselected package armbian-zsh.
+   Preparing to unpack .../armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb ...
+   Unpacking armbian-zsh (26.08.0-trunk) ...
+   Setting up zsh-common (5.9-8) ...
+   Setting up zsh (5.9-8+b23) ...
+   Setting up tmux (3.5a-3) ...
+   Setting up armbian-zsh (26.08.0-trunk) ...
+   Processing triggers for man-db (2.13.1-1) ...
+   Processing triggers for debianutils (5.23.2) ...
+--> (168) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (168) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (168) DEBINSTALL: Installing: /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb [ armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb ]
+--> (168) COMMAND: cp -pv /home/user/Downloads/Armbian.Build.2026/output/debs/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb
+   '/home/user/Downloads/Armbian.Build.2026/output/debs/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb'
+--> (168) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (168) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (168) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (168) COMMAND: DEBIAN_FRONTEND=noninteractive ARMBIAN_IMAGE_BUILD_BOOTFS_TYPE=unset apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 -o APT::Clean-Installed=0 --no-install-recommends  install /root/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb
+   Selecting previously unselected package armbian-plymouth-theme.
+   (Reading database ... 147575 files and directories currently installed.)
+   Preparing to unpack .../armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb ...
+   Unpacking armbian-plymouth-theme (26.08.0-trunk) ...
+   Setting up armbian-plymouth-theme (26.08.0-trunk) ...
+   update-initramfs: deferring update (trigger activated)
+   Processing triggers for initramfs-tools (0.148.4) ...
+--> (169) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (169) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (169) COMMAND: rm -fv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-bsp-cli-uefi-x86-edge-grub_26.08.0-trunk_amd64__1-PC6d58-Vf249-Hdbe2-B2632-R4c4d.deb'
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-firmware-full_26.08.0-trunk_all__1-SA617c-SM2c35-B96c8-R448a.deb'
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-plymouth-theme_26.08.0-trunk_all__1-B5bd9-R448a.deb'
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/armbian-zsh_26.08.0-trunk_all__1-SAbfee-B07a9-R448a.deb'
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/base-files_26.08.0-trunk-13.8+deb13u6-trixie_amd64__1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa.deb'
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/root/linux-image-edge-x86_26.08.0-trunk_amd64__7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a.deb'
+--> (170) COMMAND: cp -v /home/user/Downloads/Armbian.Build.2026/packages/blobs/splash/armbian-u-boot.bmp /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/boot/boot.bmp
+   '/home/user/Downloads/Armbian.Build.2026/packages/blobs/splash/armbian-u-boot.bmp' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/boot/boot.bmp'
+--> (170) INFO: Enabling Armbian services [ systemd ]
+--> (170) COMMAND: systemctl --no-reload enable armbian-firstrun.service
+   Created symlink '/etc/systemd/system/multi-user.target.wants/armbian-firstrun.service' -> '/usr/lib/systemd/system/armbian-firstrun.service'.
+--> (170) COMMAND: systemctl --no-reload enable armbian-zram-config.service
+--> (170) COMMAND: systemctl --no-reload enable armbian-hardware-optimize.service
+--> (170) COMMAND: systemctl --no-reload enable armbian-ramlog.service
+   Created symlink '/etc/systemd/system/sysinit.target.wants/armbian-ramlog.service' -> '/usr/lib/systemd/system/armbian-ramlog.service'.
+--> (170) COMMAND: systemctl --no-reload enable armbian-resize-filesystem.service
+   Created symlink '/etc/systemd/system/basic.target.wants/armbian-resize-filesystem.service' -> '/usr/lib/systemd/system/armbian-resize-filesystem.service'.
+--> (170) COMMAND: systemctl --no-reload enable armbian-hardware-monitor.service
+--> (170) COMMAND: systemctl --no-reload enable armbian-led-state.service
+--> (170) COMMAND: chown root:messagebus /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+--> (170) COMMAND: chmod u+s /usr/lib/dbus-1.0/dbus-daemon-launch-helper
+------------------------------------------------------------------------------------------------------------
+### customize_image.log 
+--> (170) INFO: Disabling Armbian services that are not needed for UEFI [ uefi-x86 ]
+--> (170) COMMAND: systemctl disable armbian-hardware-monitor.service || true
+   Removed '/etc/systemd/system/basic.target.wants/armbian-hardware-monitor.service'.
+--> (170) COMMAND: systemctl disable armbian-hardware-optimize.service || true
+   Removed '/etc/systemd/system/basic.target.wants/armbian-hardware-optimize.service'.
+--> (170) COMMAND: systemctl disable armbian-led-state.service || true
+   Removed '/etc/systemd/system/basic.target.wants/armbian-led-state.service'.
+--> (170) INFO: Calling image customization script [ customize-image.sh ]
+--> (170) COMMAND: /tmp/customize-image.sh trixie x86 uefi-x86 yes amd64
+--> (170) INFO: Adding Armbian repository and authentication key [ image-late :: /etc/apt/sources.list.d/armbian.sources ]
+------------------------------------------------------------------------------------------------------------
+### post_repo_apt_update.log 
+--> (170) INFO: Updating APT package lists [ after customization ]
+--> (170) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (170) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (170) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (170) COMMAND: DEBIAN_FRONTEND=noninteractive apt-get -y -q -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 update
+   Hit:1 http://github.armbian.com/configng stable InRelease
+   Hit:2 http://security.debian.org trixie-security InRelease
+   Hit:3 http://deb.debian.org/debian trixie InRelease
+   Hit:4 https://dl.google.com/linux/chrome-stable/deb stable InRelease
+   Hit:5 http://deb.debian.org/debian trixie-updates InRelease
+   Hit:6 http://deb.debian.org/debian trixie-backports InRelease
+   Hit:7 http://mirrors.tuna.tsinghua.edu.cn/armbian trixie InRelease
+   Reading package lists...
+--> (173) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (173) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+------------------------------------------------------------------------------------------------------------
+### post_armbian_repo_customize_image.log 
+--> (173) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (173) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (173) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (173) COMMAND: DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 --no-install-recommends install armbian-config
+--> (173) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (173) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+------------------------------------------------------------------------------------------------------------
+### apt_purge_unneeded_packages_and_clean_apt_caches.log 
+--> (173) INFO: No longer needed packages [ purge ]
+--> (173) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (173) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (173) COMMAND: mount --bind /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (173) COMMAND: DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o Dpkg::Use-Pty=0 -o APT::Get::List-Cleanup=0 autoremove
+--> (173) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/cache/apt
+--> (173) COMMAND: umount /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+--> (173) COMMAND: apt-get clean
+--> (173) COMMAND: rm -rf /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+------------------------------------------------------------------------------------------------------------
+### apt_lists_copy_from_host_to_image_and_update.log 
+--> (173) INFO: Copying host-side apt list cache into image [ apt-get update and clean image-side ]
+--> (173) COMMAND: mkdir -pv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists
+   mkdir: created directory '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists'
+--> (174) COMMAND: cp -pr /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/apt.armbian.com_dists_trixie_InRelease /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/apt.armbian.com_dists_trixie_main_binary-all_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/apt.armbian.com_dists_trixie_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/apt.armbian.com_dists_trixie_trixie-desktop_binary-all_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/apt.armbian.com_dists_trixie_trixie-desktop_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/apt.armbian.com_dists_trixie_trixie-utils_binary-all_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/apt.armbian.com_dists_trixie_trixie-utils_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/auxfiles /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_contrib_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_contrib_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_contrib_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_contrib_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_InRelease /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_main_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_main_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_main_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free-firmware_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free-firmware_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free-firmware_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free-firmware_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-backports_non-free_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_contrib_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_contrib_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_contrib_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_contrib_dep11_Components-amd64.yml.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_contrib_dep11_icons-48x48.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_contrib_dep11_icons-64x64.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_contrib_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_InRelease /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_main_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_main_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_main_dep11_Components-amd64.yml.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_main_dep11_icons-48x48.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_main_dep11_icons-64x64.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_main_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free_dep11_Components-amd64.yml.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free_dep11_icons-48x48.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free_dep11_icons-64x64.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free-firmware_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free-firmware_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free-firmware_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free-firmware_dep11_Components-amd64.yml.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free-firmware_dep11_icons-48x48.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free-firmware_dep11_icons-64x64.tar.gz /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free-firmware_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie_non-free_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-updates_InRelease /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-updates_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-updates_main_Contents-all.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-updates_main_Contents-amd64.lz4 /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/deb.debian.org_debian_dists_trixie-updates_main_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/dl.google.com_linux_chrome-stable_deb_dists_stable_InRelease /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/dl.google.com_linux_chrome-stable_deb_dists_stable_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/github.armbian.com_configng_dists_stable_InRelease /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/github.armbian.com_configng_dists_stable_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/lock /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/partial /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/ppa.launchpad.net_graphics-drivers_ppa_ubuntu_dists_focal_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/ppa.launchpad.net_graphics-drivers_ppa_ubuntu_dists_focal_main_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/ppa.launchpad.net_graphics-drivers_ppa_ubuntu_dists_focal_Release /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/security.debian.org_dists_trixie-security_InRelease /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/security.debian.org_dists_trixie-security_main_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/security.debian.org_dists_trixie-security_main_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/security.debian.org_dists_trixie-security_non-free-firmware_binary-amd64_Packages /home/user/Downloads/Armbian.Build.2026/cache/aptcache/lists/trixie-amd64/security.debian.org_dists_trixie-security_non-free-firmware_i18n_Translation-en /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/var/lib/apt/lists/
+--> (174) INFO: After copying host-side cache into image [ 73 files ]
+--> (174) INFO: Updating apt lists in image [ apt-get update and clean ]
+--> (174) COMMAND: apt-get -y -o APT::Get::List-Cleanup=1 -o APT::Clean-Installed=1 update
+   Hit:1 http://deb.debian.org/debian trixie InRelease
+   Hit:2 http://github.armbian.com/configng stable InRelease
+   Hit:3 http://deb.debian.org/debian trixie-updates InRelease
+   Hit:4 http://security.debian.org trixie-security InRelease
+   Hit:5 http://deb.debian.org/debian trixie-backports InRelease
+   Hit:6 https://dl.google.com/linux/chrome-stable/deb stable InRelease
+   Hit:7 http://mirrors.tuna.tsinghua.edu.cn/armbian trixie InRelease
+   Reading package lists...
+--> (175) COMMAND: apt-get -y -o APT::Get::List-Cleanup=1 -o APT::Clean-Installed=1 clean
+--> (175) INFO: After updating and cleaning image apt list cache [ 47 files ]
+------------------------------------------------------------------------------------------------------------
+### list_installed_packages.log 
+--> (175) COMMAND: dpkg --get-selections | grep -v deinstall | awk '{print $1}' | cut -f1 -d':'
+--> (175) INFO: Image installed package hash [ ✅ base-files = 1-trixie-1armbian1-Bb095-U13.8--deb13u6-R55fa ]
+--> (175) INFO: Image installed package hash [ ✅ linux-image-edge-x86 = 7.1.3-S199c-D398d-Pb77c-Cc7ab-H9736-HK01ba-Vf5f1-B5272-R448a ]
+--> (175) INFO: Image installed package hash [ ✅ armbian-zsh = 1-SAbfee-B07a9-R448a ]
+--> (175) INFO: Image installed package hash [ ✅ armbian-plymouth-theme = 1-B5bd9-R448a ]
+--> (175) INFO: Image installed package hash [ ✅ armbian-firmware-full = 1-SA617c-SM2c35-B96c8-R448a ]
+--> (175) INFO: Image installed package hash [ ✅ armbian-bsp-cli-uefi-x86-edge-grub = 1-PC6d58-Vf249-Hdbe2-B2632-R4c4d ]
+------------------------------------------------------------------------------------------------------------
+### post_debootstrap_tweaks.log 
+--> (175) COMMAND: rm -fv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/resolv.conf
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/resolv.conf'
+--> (175) COMMAND: ln -s /run/systemd/resolve/stub-resolv.conf /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/resolv.conf
+--> (175) COMMAND: rm -fv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/sbin/initctl /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/sbin/start-stop-daemon
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/sbin/initctl'
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/sbin/start-stop-daemon'
+--> (175) COMMAND: dpkg-divert --quiet --local --rename --remove /sbin/initctl
+--> (175) COMMAND: dpkg-divert --quiet --local --rename --remove /sbin/start-stop-daemon
+--> (175) COMMAND: rm -fv /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/usr/sbin/policy-rc.d
+   removed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/usr/sbin/policy-rc.d'
+------------------------------------------------------------------------------------------------------------
+### umount_chroot_sdcard.log 
+--> (175) INFO: Unmounting [ /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada ]
+--> (175) COMMAND: grep -E '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/(dev|proc|sys|tmp)' /proc/mounts || true
+--> (175) COMMAND: rm -rf /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/run/user/0
+--> (176) INFO: Actual rootfs size [ 6312MiB ]
+--> (176) WARNING: Rootfs post-tweaks size is larger than estimated tmpfs size [ 6312MiB > 6000MiB ]
+------------------------------------------------------------------------------------------------------------
+### prepare_partitions.log 
+--> (176) INFO: Preparing image file for rootfs [ uefi-x86 trixie ]
+--> (176) INFO: e2fsprogs version [ 1.47.4 supports orphan_file ]
+--> (176) INFO: Current rootfs size [ 6312 MiB ]
+--> (176) INFO: Creating blank image for rootfs [ truncate: 8880 MiB ]
+--> (176) COMMAND: truncate --size=8880M /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw
+--> (176) INFO: Creating partitions [ root: ext4 ]
+--> (176) COMMAND: sfdisk --sector-size 512 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw
+   Checking that no-one is using this disk right now ... OK
+   
+   Disk /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw: 8.67 GiB, 9311354880 bytes, 18186240 sectors
+   Units: sectors of 1 * 512 = 512 bytes
+   Sector size (logical/physical): 512 bytes / 512 bytes
+   I/O size (minimum/optimal): 512 bytes / 512 bytes
+   
+   >>> Script header accepted.
+   >>> Created a new GPT disklabel (GUID: B3A725BE-6253-4281-AD04-BFBA5FA8AB82).
+   /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw1: Created a new partition 1 of type 'BIOS boot' and of size 4 MiB.
+   /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw2: Created a new partition 2 of type 'EFI System' and of size 260 MiB.
+   /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw3: Created a new partition 3 of type 'Linux root (x86-64)' and of size 8.4 GiB.
+   /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw4: Done.
+   
+   New situation:
+   Disklabel type: gpt
+   Disk identifier: B3A725BE-6253-4281-AD04-BFBA5FA8AB82
+   
+   Device                                                                                         Start      End  Sectors Size Type
+   /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw1   8192    16383     8192   4M BIOS boot
+   /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw2  16384   548863   532480 260M EFI System
+   /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw3 548864 18184191 17635328 8.4G Linux root (x86-64)
+   
+   The partition table has been altered.
+--> (176) INFO: Allocated loop device [ LOOP=/dev/loop0 ]
+--> (176) COMMAND: partprobe /dev/loop0
+--> (176) INFO: Creating rootfs [ ext4 on /dev/loop0p3 ]
+--> (176) COMMAND: mkfs.ext4 -q -m 2 -O ^orphan_file -L armbi_root /dev/loop0p3
+--> (176) COMMAND: tune2fs -o journal_data_writeback /dev/loop0p3
+   tune2fs 1.47.4 (6-Mar-2025)
+--> (176) INFO: Mounting rootfs [ /dev/loop0p3 (UUID=0517b80d-2870-4cc9-b036-7cb647dacc95) ]
+--> (176) COMMAND: mount /dev/loop0p3 /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/
+--> (176) COMMAND: cat /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/etc/fstab
+   UUID=0517b80d-2870-4cc9-b036-7cb647dacc95 / ext4 defaults,commit=120,errors=remount-ro 0 1
+--> (176) INFO: Creating EFI partition [ FAT32 /boot/efi on /dev/loop0p2 label armbi_efi ]
+--> (176) COMMAND: mkfs.fat -F32 -n ARMBI_EFI /dev/loop0p2
+   mkfs.fat 4.2 (2021-01-31)
+--> (176) COMMAND: mount /dev/loop0p2 /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/boot/efi
+------------------------------------------------------------------------------------------------------------
+### create_image_from_sdcard_rootfs.log 
+--> (177) INFO: Copying files via rsync to [ / (MOUNT root) ]
+--> (177) COMMAND: rsync -aHWh -X --exclude=/boot --exclude=/dev/* --exclude=/proc/* --exclude=/run/* --exclude=/tmp/* --exclude=/sys/* --exclude="/home/*" --info=progress0,stats1 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/ /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/
+   
+   sent 6.60G bytes  received 2.27M bytes  377.21M bytes/sec
+   total size is 6.59G  speedup is 1.00
+--> (195) INFO: Copying files to [ /boot (MOUNT /boot) ]
+--> (195) COMMAND: rsync -aHWXh --info=progress0,stats1 /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada/boot /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada
+   
+   sent 28.48M bytes  received 164 bytes  56.96M bytes/sec
+   total size is 28.47M  speedup is 1.00
+--> (197) CACHEHIT: initrd cache hit [ initrd.img-7.1.3-edge-x86-eb38399fcbd00776973a36b6935b21f9 ]
+--> (197) COMMAND: cp -v /home/user/Downloads/Armbian.Build.2026/cache/initrd/initrd.img-7.1.3-edge-x86-eb38399fcbd00776973a36b6935b21f9 /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/boot/initrd.img-7.1.3-edge-x86
+   '/home/user/Downloads/Armbian.Build.2026/cache/initrd/initrd.img-7.1.3-edge-x86-eb38399fcbd00776973a36b6935b21f9' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/boot/initrd.img-7.1.3-edge-x86'
+--> (197) COMMAND: /usr/bin/run-parts -a 7.1.3-edge-x86 -a /boot/initrd.img-7.1.3-edge-x86 /etc/initramfs/post-update.d/
+--> (198) INFO: Re-enabling [ initramfs-tools hook for kernel ]
+--> (198) COMMAND: chmod -v +x /etc/kernel/postinst.d/initramfs-tools
+   mode of '/etc/kernel/postinst.d/initramfs-tools' changed from 0644 (rw-r--r--) to 0755 (rwxr-xr-x)
+--> (198) INFO: Unmounting [ /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada ]
+--> (199) COMMAND: grep -E '/home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/(dev|proc|sys|tmp)' /proc/mounts || true
+--> (199) COMMAND: rm -rf /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/run/user/0
+--> (199) INFO: Free SD cache [ 43% ]
+--> (199) INFO: Mount point [ 84% ]
+--> (199) INFO: Extension: grub: Configuring GRUB [ UEFI GRUB; SERIALCON=tty1 ]
+--> (199) INFO: Extension: grub: GRUB EFI kernel cmdline [ cmdline ' console=tty1 splash plymouth.ignore-serial-consoles i915.force_probe=*' distro=Armbian timeout=3 ]
+--> (199) INFO: Extension: grub: Installing bootloader [ GRUB ]
+--> (199) INFO: Extension: grub: Installing GRUB BIOS... [ i386-pc device /dev/loop0 ]
+--> (199) COMMAND: grub-install --target=i386-pc /dev/loop0
+   Installing for i386-pc platform.
+   Installation finished. No error reported.
+--> (204) INFO: Extension: grub: Installing GRUB EFI... [ x86_64-efi ]
+--> (204) COMMAND: grub-install --target=x86_64-efi --efi-directory=/boot/efi --no-nvram --removable
+   Installing for x86_64-efi platform.
+   Installation finished. No error reported.
+--> (207) COMMAND: mkdir -pv /dev/disk/by-uuid/"$(grub-probe --target=fs_uuid /)" || true
+   mkdir: cannot create directory '/dev/disk/by-uuid/0517b80d-2870-4cc9-b036-7cb647dacc95': File exists
+--> (207) COMMAND: mkdir -pv /dev/disk/by-uuid/"$(grub-probe --target=fs_uuid /boot)" || true
+   mkdir: cannot create directory '/dev/disk/by-uuid/0517b80d-2870-4cc9-b036-7cb647dacc95': File exists
+--> (207) INFO: Extension: grub: Creating GRUB config... [ grub-mkconfig ]
+--> (207) COMMAND: update-grub
+   Generating grub configuration file ...
+   Found background image: /usr/share/images/desktop-base/desktop-grub.png
+   Found linux image: /boot/vmlinuz-7.1.3-edge-x86
+   Found initrd image: /boot/initrd.img-7.1.3-edge-x86
+   Warning: os-prober will not be executed to detect other bootable partitions.
+   Systems on them will not be added to the GRUB boot configuration.
+   Check GRUB_DISABLE_OS_PROBER documentation entry.
+   Adding boot menu entry for UEFI Firmware Settings ...
+   done
+--> (208) INFO: Extension: grub: GRUB config sanity check passed [ no '/dev' found in grub.cfg ]
+--> (208) INFO: Unmounting [ /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada ]
+--> (208) COMMAND: grep -E '/home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/(dev|proc|sys|tmp)' /proc/mounts || true
+--> (208) COMMAND: rm -rf /home/user/Downloads/Armbian.Build.2026/.tmp/mount-bca877e2-2ec1-4569-a862-0bf71da89ada/run/user/0
+--> (208) INFO: Unmounting recursively [ MOUNT - be patient ]
+--> (208) INFO: Freeing loop device [ /dev/loop0 ]
+--> (208) COMMAND: mv -v /home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw /home/user/Downloads/Armbian.Build.2026/.tmp/image-bca877e2-2ec1-4569-a862-0bf71da89ada/Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img
+   renamed '/home/user/Downloads/Armbian.Build.2026/.tmp/rootfs-bca877e2-2ec1-4569-a862-0bf71da89ada.raw' -> '/home/user/Downloads/Armbian.Build.2026/.tmp/image-bca877e2-2ec1-4569-a862-0bf71da89ada/Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img'
+--> (208) INFO: Done building [ Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img ]
+--> (208) INFO: Compression host [ nproc=8 (cap=16) loadavg=2.70/1.08/1.04 MemTotal=15785MB MemAvail=5522MB ]
+--> (208) INFO: Compression resource share [ active_xz/zstd=0 -> threads=8, budget=3313MB; pick xz=-6 zstd=-19 ]
+--> (208) INFO: Compression xz level walk [ -9:5392MB>budget skip; -6:752MB<=budget OK ]
+--> (208) INFO: Compression input [ 1 file(s), 8880MB total ]
+--> (208) INFO: Compressed [ Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img: 8880MB -> 8880MB (100%), 1s, 8880 MB/s ]
+--> (208) INFO: SHA256 calculating [ Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img ]
+--> (217) INFO: Fast-moving file to output/images [ -> Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img (8.68GiB) ]
+--> (217) COMMAND: mv /home/user/Downloads/Armbian.Build.2026/.tmp/image-bca877e2-2ec1-4569-a862-0bf71da89ada/Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img /home/user/Downloads/Armbian.Build.2026/output/images
+--> (217) INFO: Fast-moving file to output/images [ -> Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img.sha (142.00B) ]
+--> (217) COMMAND: mv /home/user/Downloads/Armbian.Build.2026/.tmp/image-bca877e2-2ec1-4569-a862-0bf71da89ada/Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img.sha /home/user/Downloads/Armbian.Build.2026/output/images
+--> (217) INFO: Fast-moving file to output/images [ -> Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img.txt (19.27KiB) ]
+--> (217) COMMAND: mv /home/user/Downloads/Armbian.Build.2026/.tmp/image-bca877e2-2ec1-4569-a862-0bf71da89ada/Armbian-unofficial_26.08.0-trunk_Uefi-x86_trixie_edge_7.1.3_xfce_desktop.img.txt /home/user/Downloads/Armbian.Build.2026/output/images
+--> (217) INFO: Unmounting recursively [ SDCARD rootfs finished - be patient ]
+--> (217) TARGET-REACHED: Done building image [ uefi-x86 ]
+------------------------------------------------------------------------------------------------------------
+### runtime_total.log 
+--> (217) INFO: Runtime [ 3:34 min ]
+------------------------------------------------------------------------------------------------------------
+### repeat_build_options.log 
+--> (217) EXT: Repeat Build Options [ ./compile.sh build BOARD=uefi-x86 BRANCH=edge BUILD_DESKTOP=yes BUILD_MINIMAL=no DESKTOP_ENVIRONMENT=xfce DESKTOP_TIER=mid EXPERT=yes KERNEL_BTF=no KERNEL_CONFIGURE=no KERNEL_GIT=shallow RELEASE=trixie ]
+--> (217) INFO: Cleaning up [ please wait for cleanups to finish ]
+------------------------------------------------------------------------------------------------------------
