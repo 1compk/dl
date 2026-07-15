@@ -55,7 +55,7 @@ jobs:
           lscpu | grep -E "Model name|CPU\(s\):"
           sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget f2fs-tools
+            mtools rsync grub-common e2fsprogs lvm2 pv wget
           
           sudo modprobe f2fs        
           sudo truncate -s $iMageSize /mnt.img
@@ -65,7 +65,7 @@ jobs:
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.f2fs -f -a 1 -o 10 /dev/github/runner
+          sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
 
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
