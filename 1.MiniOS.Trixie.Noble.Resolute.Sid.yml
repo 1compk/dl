@@ -39,7 +39,7 @@ jobs:
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
             mtools rsync grub-common e2fsprogs lvm2 pv wget
           
-          sudo modprobe f2fs
+          #sudo modprobe f2fs
           sudo truncate -s $iMageSize /mnt.img
           sudo truncate -s $iMageSize /root.img
           Loop1=$(sudo losetup --find --show /mnt.img)
