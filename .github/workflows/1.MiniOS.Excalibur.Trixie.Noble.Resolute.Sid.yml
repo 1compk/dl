@@ -1,0 +1,78 @@
+name: 1. MiniOS GLXFice Excalibur Noble Resolute Sid Trixie
+
+on:
+  schedule:
+    - cron: '0 0 */1 * *' # Run every Days
+  workflow_dispatch:
+
+env:
+  TZ: Etc/GMT-7
+  iMageSize: 50GiB
+  MainDir: /builder
+
+  BuildSource: zMiniOS.SkyLine.2026.tar.xz
+  BuildDir: MiniOS.SkyLine.2026
+  BaseVersion: Lastest
+  CustomVersion: SkyLine Edition 2026 GLXFice
+
+jobs:
+  build:
+    name: MiniOS-${{ matrix.release }}
+    runs-on: ${{ matrix.board == 'uefi-x86' && 'ubuntu-26.04' || 'ubuntu-26.04-arm' }}
+    timeout-minutes: 600
+    strategy:
+      fail-fast: false
+      matrix:
+        release: [ excalibur, noble, resolute, sid, trixie ]
+        board: [ uefi-x86 ]
+        include:
+          - { release: excalibur, Custom: false }
+          - { release: noble, Custom: false }
+          - { release: resolute, Custom: false }
+          - { release: sid, Custom: false }
+          - { release: trixie, Custom: false }
+
+    steps:
+      - name: Prepare | Init & LVM
+        run: |
+          lscpu | grep -E "Model name|CPU\(s\):"
+          sudo timedatectl set-timezone "${TZ}"
+          sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
+            mtools rsync grub-common e2fsprogs lvm2 pv wget
+          
+          #sudo modprobe f2fs
+          sudo truncate -s $iMageSize /mnt.img
+          sudo truncate -s $iMageSize /root.img
+          Loop1=$(sudo losetup --find --show /mnt.img)
+          Loop2=$(sudo losetup --find --show /root.img)
+          sudo pvcreate $Loop1 $Loop2
+          sudo vgcreate github $Loop1 $Loop2
+          sudo lvcreate -n runner -l 100%FREE github
+          sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 /dev/github/runner
+
+          sudo mkdir -p $MainDir
+          sudo mount /dev/github/runner $MainDir
+          sudo chown -R runner:runner $MainDir
+          df -Th
+
+      - name: Prepare | Source Code
+        working-directory: /builder
+        run: |
+          git clone --depth 1 --single-branch --no-tags https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
+          wget -nv "https://github.com/1compk/minios/releases/download/live/${{ env.BuildSource }}"
+          tar -xf "${{ env.BuildSource }}"
+
+      - name: Build | Compile
+        working-directory: /builder/${{ env.BuildDir }}
+        run: |
+          sudo chown -R root:root /builder/${{ env.BuildDir }}
+          sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
+
+      - name: Upload | ISO
+        uses: actions/upload-artifact@v7
+        with:
+          name: MiniOS-${{ matrix.release }}-${{ github.run_id }}
+          path: /builder/${{ env.BuildDir }}/build/iso/*.iso
+          retention-days: 30
+          archive: false
+          if-no-files-found: error
