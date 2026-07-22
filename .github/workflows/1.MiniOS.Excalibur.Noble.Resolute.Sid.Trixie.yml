@@ -59,7 +59,7 @@ jobs:
         working-directory: /builder
         run: |
           git clone --depth 1 --single-branch --no-tags https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
-          wget -nv "https://github.com/1compk/minios/releases/download/live/${{ env.BuildSource }}"
+          wget -nv "https://github.com/1compk/minios/releases/download/dl/${{ env.BuildSource }}"
           tar -xf "${{ env.BuildSource }}"
 
       - name: Build | Compile
