@@ -246,8 +246,8 @@ create_mbr_partitions() {
   sudo umount "$p2" 2>/dev/null || true
   #sudo mkfs.btrfs -fv -s 4K -n 16K -O no-holes "$p2" || die "mkfs.btrfs failed on $p2"
   #sudo mkfs.f2fs -f -a 1 -o 10 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p2" || die "mkfs.f2fs failed on $p2"
-  #sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
-  sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 -n size=64k -l size=64m,lazy-count=1 "$p2" || die "mkfs.xfs failed on $p2"
+  sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
+  #sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 -n size=64k -l size=64m,lazy-count=1 "$p2" || die "mkfs.xfs failed on $p2"
 
   sudo sync
   sudo partprobe "$disk" || true
