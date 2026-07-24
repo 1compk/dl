@@ -307,7 +307,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     if: ${{ github.event.repository.owner.id == github.event.sender.id }}
 
     steps:
@@ -320,8 +320,6 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: |
           sudo -E apt-get -y install $(curl -fsSL https://ophub.org/ubuntu2404-build-armbian-depends)
-          sudo swapoff -a
-          sudo rm -f /swapfile /mnt/swapfile
           sudo -E systemctl daemon-reload
           sudo -E apt-get clean
           sudo -E timedatectl set-timezone "${TZ:-Etc/GMT-7}"
@@ -332,17 +330,19 @@ jobs:
 
       - name: Create virtual disk for extended storage
         run: |
+          lscpu | grep -E "Model name|CPU\(s\):"
           mnt_size=$(expr $(df -h /mnt | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 1)
           root_size=$(expr $(df -h / | tail -1 | awk '{print $4}' | sed 's/[[:alpha:]]//g' | sed 's/\..*//') - 4)
-          sudo truncate -s 120G /mnt/mnt.img
-          sudo truncate -s 120G /root.img
+          sudo truncate -s 50G /mnt/mnt.img
+          sudo truncate -s 50G /root.img
           sudo losetup /dev/loop6 /mnt/mnt.img
           sudo losetup /dev/loop7 /root.img
           sudo pvcreate /dev/loop6
           sudo pvcreate /dev/loop7
           sudo vgcreate github /dev/loop6 /dev/loop7
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -i sparse=0 -b size=4096 /dev/github/runner
+          sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 \
+            -n size=64k -l size=64m,lazy-count=1 /dev/github/runner
           sudo mkdir -p /builder
           sudo mount /dev/github/runner /builder
           sudo chown -R runner:runner /builder
