@@ -119,7 +119,7 @@ flash_image() {
   echo "Flashing complete."
 }
 
-# New Function: Wipe disk using wipefs and dd zero-fill
+# Wipe disk using wipefs and dd zero-fill
 wipe_disk_completely() {
   list_disks
   read -rp "Enter target disk to WIPE completely (e.g., sdb or /dev/sdb): " disk_in
@@ -136,8 +136,7 @@ wipe_disk_completely() {
   sudo wipefs -a "$disk"
 
   echo "Step 2: Zero-filling the disk using dd (This may take a while depending on disk size)..."
-  # bs=4M เพื่อความรวดเร็วในการเขียน และใส่ status=progress เพื่อดูความเร็วเมกะไบต์ต่อวินาที
-  sudo dd if=/dev/zero of="$disk" bs=4M status=progress conv=fdatasync || echo "Note: dd finished or reached the end of the device."
+  sudo dd if=/dev/zero of="$disk" bs=3M status=progress conv=fsync || echo "Note: dd finished or reached the end of the device."
 
   echo "Refreshing partition table state..."
   rescan_and_settle "$disk"
@@ -149,8 +148,10 @@ wipe_disk_completely() {
 create_gpt_partitions() {
   local disk=$1
 
-  echo "Opening GParted to let you clear/unmount partitions for $disk"
-  run_partitioner "gparted $disk"
+  #echo "Opening GParted to let you clear/unmount partitions for $disk"
+  #run_partitioner "gparted $disk"
+  echo "Unmounting any active partitions on $disk..."
+  sudo umount "${disk}"* 2>/dev/null || true
 
   echo "Creating GPT label on $disk"
   sudo wipefs -a "$disk"
@@ -182,7 +183,7 @@ create_gpt_partitions() {
   wait_for_part "$p2" 10 || true
   wait_for_part "$p3" 10 || true
 
-  echo "Formatting partitions: $p2 as FAT32 and $p3 as ext4"
+  echo "Formatting partitions: $p2 and $p3"
   sudo umount "$p2" 2>/dev/null || true
   sudo mkfs.vfat -F 32 -a -s 8 -I "$p2"
   sudo sync
@@ -190,7 +191,10 @@ create_gpt_partitions() {
   sudo udevadm settle || true
 
   sudo umount "$p3" 2>/dev/null || true
-  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p3" || die "mkfs.ext4 failed on $p3"
+  #sudo mkfs.btrfs -fv -s 4K -n 32K -O no-holes "$p3" || die "mkfs.btrfs failed on $p3"
+  #sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
+  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
+  #sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 -n size=64k -l size=64m,lazy-count=1 "$p3" || die "mkfs.xfs failed on $p3"
 
   sudo sync
   sudo partprobe "$disk" || true
@@ -204,8 +208,10 @@ create_gpt_partitions() {
 create_mbr_partitions() {
   local disk=$1
 
-  echo "Opening GParted to let you clear/unmount partitions for $disk"
-  run_partitioner "gparted $disk"
+  #echo "Opening GParted to let you clear/unmount partitions for $disk"
+  #run_partitioner "gparted $disk"
+  echo "Unmounting any active partitions on $disk..."
+  sudo umount "${disk}"* 2>/dev/null || true
 
   echo "Creating MBR (msdos) label on $disk"
   sudo wipefs -a "$disk"
@@ -236,9 +242,12 @@ create_mbr_partitions() {
   sudo umount "$p1" 2>/dev/null || true
   sudo mkfs.vfat -F 32 -a -s 8 -I "$p1"
   
-  echo "Formatting $p2 as ext4"
+  echo "Formatting $p2"
   sudo umount "$p2" 2>/dev/null || true
-  sudo mkfs.ext4 -F -O "^has_journal,sparse_super" -m 0 "$p2" || die "mkfs.ext4 failed on $p2"
+  #sudo mkfs.btrfs -fv -s 4K -n 16K -O no-holes "$p2" || die "mkfs.btrfs failed on $p2"
+  #sudo mkfs.f2fs -f -a 1 -o 10 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p2" || die "mkfs.f2fs failed on $p2"
+  #sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
+  sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 -n size=64k -l size=64m,lazy-count=1 "$p2" || die "mkfs.xfs failed on $p2"
 
   sudo sync
   sudo partprobe "$disk" || true
