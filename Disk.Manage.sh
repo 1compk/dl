@@ -102,14 +102,14 @@ flash_image() {
 
   if [[ "$image" == *.xz ]]; then
     if command -v xzcat >/dev/null 2>&1; then
-      sudo xzcat "$image" | sudo dd of="$target" bs=3M status=progress conv=fsync
+      sudo xzcat "$image" | sudo dd of="$target" bs=4K status=progress conv=fsync
     elif command -v 7z >/dev/null 2>&1; then
-      sudo 7z x -so "$image" | sudo dd of="$target" bs=3M status=progress conv=fsync
+      sudo 7z x -so "$image" | sudo dd of="$target" bs=4K status=progress conv=fsync
     else
       die "No xzcat or 7z available."
     fi
   elif [[ "$image" == *.img || "$image" == *.iso || "$image" == *.raw ]]; then
-    sudo dd if="$image" of="$target" bs=3M status=progress conv=fsync
+    sudo dd if="$image" of="$target" bs=4K status=progress conv=fsync
   else
     die "Unsupported image type."
   fi
@@ -136,7 +136,7 @@ wipe_disk_completely() {
   sudo wipefs -a "$disk"
 
   echo "Step 2: Zero-filling the disk using dd (This may take a while depending on disk size)..."
-  sudo dd if=/dev/zero of="$disk" bs=3M status=progress conv=fsync || echo "Note: dd finished or reached the end of the device."
+  sudo dd if=/dev/zero of="$disk" bs=4K count=100 status=progress conv=fsync || echo "Note: dd finished or reached the end of the device."
 
   echo "Refreshing partition table state..."
   rescan_and_settle "$disk"
