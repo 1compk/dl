@@ -15,7 +15,7 @@ echo ""
 
 # 2. Get Source ISO (Original Bootable ISO)
 while true; do
-    read -p "[1] Enter Source ISO path (Original Bootable): " SourceISO
+    read -p " Enter Source ISO path (Original Bootable): " SourceISO
     if [ -f "$SourceISO" ]; then
         break
     else
@@ -25,7 +25,7 @@ done
 
 # 3. Get Edited ISO (Modified via ISO Master)
 while true; do
-    read -p "[2] Enter Edited ISO path (Modified Content): " EditISO
+    read -p " Enter Edited ISO path (Modified Content): " EditISO
     if [ -f "$EditISO" ]; then
         # Check if Edited ISO is the same as Source ISO
         if [ "$SourceISO" == "$EditISO" ]; then
@@ -38,10 +38,14 @@ while true; do
     fi
 done
 
-# Automatically define the final output path (appends -fixed.iso)
+# --- [ บรรทัดที่แก้ไขใหม่เพื่อดึงวันที่ปัจจุบัน ] ---
+CURRENT_DATE=$(date +"%d.%m.%Y")
 DIR_PATH=$(dirname "$EditISO")
 FILE_NAME=$(basename "$EditISO" .iso)
-FinalISO="${DIR_PATH}/${FILE_NAME}-fixed.iso"
+
+# ผลลัพธ์จะได้ชื่อไฟล์เป็น: ชื่อไฟล์เดิม-26.07.2026.iso
+FinalISO="${DIR_PATH}/${FILE_NAME}-${CURRENT_DATE}.iso"
+# --------------------------------------------------
 
 # 4. Process Confirmation Summary
 clear
@@ -86,4 +90,3 @@ else
     echo ""
     echo "[-] Process cancelled by user."
 fi
-
