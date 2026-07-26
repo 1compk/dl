@@ -25,14 +25,14 @@ jobs:
       matrix:
         release: [ forky, resolute, trixie ]
         board: [ aml-s9xx-box, uefi-x86 ]
-        type: [ CLi, GLXFice ]
+        type: [ CLi, LXFice ]
 
         exclude:
-          # ===== (No CLi GLXFice) =====
-          #- { board: uefi-x86, release: trixie, type: GLXFice }
+          # ===== (No CLi LXFice) =====
+          #- { board: uefi-x86, release: trixie, type: LXFice }
           - { board: aml-s9xx-box, type: CLi }
           - { release: forky, type: CLi }
-          - { release: resolute, type: GLXFice }
+          - { release: resolute, type: LXFice }
 
         include:
           # ===== (Build CLi) =====
@@ -42,8 +42,8 @@ jobs:
             config_name: ""
             revision: Lastest
 
-          # ===== (Build GLXFice) =====
-          - type: GLXFice
+          # ===== (Build LXFice) =====
+          - type: LXFice
             desktop: yes
             environment: xfce
             config_name: config_base
@@ -65,7 +65,7 @@ jobs:
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=256m,lazy-count=1 /dev/github/runner
+          sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 /dev/github/runner
 
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
