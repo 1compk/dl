@@ -1,92 +1,59 @@
 #!/bin/bash
+# MiniOS ISO Smart Updater (Simple)
 
-clear
-echo "=================================================="
-echo "    ISO Boot Repair Tool using xorriso"
-echo "=================================================="
+set -e
+
+# Check dependencies
+if ! command -v xorriso &> /dev/null; then
+    echo "Error: xorriso not found. Install libisoburn."
+    exit 1
+fi
+
+ls -1 *iso
+# Get inputs
+read -p "Source ISO path: " SOURCE_ISO
+[ -f "$SOURCE_ISO" ] || { echo "Error: File not found"; exit 1; }
+
+ls -1
+read -p "Update directory path: " UPDATE_DIR
+[ -d "$UPDATE_DIR" ] || { echo "Error: Directory not found"; exit 1; }
+
+read -p "File to delete (optional, press Enter to skip): " FILE_TO_DELETE
+
+ls -1 *.iso
+CURRENT_DATE=$(date +"%H%M.%d.%m.%Y")
+read -p "Output ISO path (default: MiniOS-Patched-${CURRENT_DATE}.iso): " OUTPUT_ISO
+OUTPUT_ISO="${OUTPUT_ISO:-MiniOS-Patched-${CURRENT_DATE}.iso}"
+
+# Confirmation
+echo ""
+echo "Source ISO: $SOURCE_ISO"
+echo "Update Dir: $UPDATE_DIR"
+[ -n "$FILE_TO_DELETE" ] && echo "Delete: $FILE_TO_DELETE"
+echo "Output ISO: $OUTPUT_ISO"
 echo ""
 
-# 1. List available .iso files in the current directory
-echo "[+] Available ISO files in this directory:"
-echo "--------------------------------------------------"
-ls -1 *.iso 2>/dev/null || echo "(No .iso files found in this directory. You can type full path manually.)"
-echo "--------------------------------------------------"
+read -p "Proceed? (y/n): " confirm
+[ "$confirm" = "y" ] || [ "$confirm" = "Y" ] || { echo "Cancelled."; exit 0; }
+
+# Build xorriso command
+CMD="xorriso -indev '$SOURCE_ISO'"
+
+if [ -n "$FILE_TO_DELETE" ]; then
+    CMD="$CMD -rm '$FILE_TO_DELETE' --"
+fi
+
+CMD="$CMD -boot_image any keep -boot_image any partition_offset=16 -outdev '$OUTPUT_ISO' -overwrite on -update_r '$UPDATE_DIR' / -commit"
+
+# Execute
 echo ""
+echo "Processing ISO..."
+eval "$CMD"
 
-# 2. Get Source ISO (Original Bootable ISO)
-while true; do
-    read -p " Enter Source ISO path (Original Bootable): " SourceISO
-    if [ -f "$SourceISO" ]; then
-        break
-    else
-        echo "[-] Error: File '$SourceISO' not found. Please try again."
-    fi
-done
-
-# 3. Get Edited ISO (Modified via ISO Master)
-while true; do
-    read -p " Enter Edited ISO path (Modified Content): " EditISO
-    if [ -f "$EditISO" ]; then
-        # Check if Edited ISO is the same as Source ISO
-        if [ "$SourceISO" == "$EditISO" ]; then
-            echo "[!] Warning: Edited ISO should not be the same as Source ISO."
-            continue
-        fi
-        break
-    else
-        echo "[-] Error: File '$EditISO' not found. Please try again."
-    fi
-done
-
-# --------------------------------------------------
-CURRENT_DATE=$(date +"%d.%m.%Y")
-DIR_PATH=$(dirname "$EditISO")
-FILE_NAME=$(basename "$EditISO" .iso)
-
-# --------------------------------------------------
-FinalISO="${DIR_PATH}/${FILE_NAME}-${CURRENT_DATE}.iso"
-# --------------------------------------------------
-
-# 4. Process Confirmation Summary
-clear
-echo "=================================================="
-echo "          PROCESS CONFIRMATION SUMMARY"
-echo "=================================================="
-echo "Source ISO (Extracting Boot Sector):"
-echo "   -> $SourceISO"
-echo ""
-echo "Edited ISO (Using Modded Content):"
-echo "   -> $EditISO"
-echo ""
-echo "Final Output ISO (Bootable Result):"
-echo "   -> $FinalISO"
-echo "=================================================="
-echo ""
-
-# Ask for confirmation before execution
-read -p "[?] Do you want to start the repair process? (y/n): " confirm
-
-if [[ "$confirm" =~ ^[Yy]$ ]]; then
-    echo ""
-    echo "[*] Injecting bootloader and compiling new ISO via xorriso..."
-    
-    # Execute xorriso command
-    xorriso -indev "$SourceISO" \
-            -dev "$EditISO" \
-            -outdev "$FinalISO" \
-            -boot_image any keep
-            
-    if [ $? -eq 0 ]; then
-        echo ""
-        echo "--------------------------------------------------"
-        echo "[+] ISO Boot Repair Successful!"
-        echo "[+] Fixed ISO saved at: $FinalISO"
-        echo "--------------------------------------------------"
-    else
-        echo ""
-        echo "[-] Error: Something went wrong during xorriso execution."
-    fi
+if [ -f "$OUTPUT_ISO" ] && [ -s "$OUTPUT_ISO" ]; then
+    echo "Success! ISO created: $OUTPUT_ISO"
+    ls -lh "$OUTPUT_ISO"
 else
-    echo ""
-    echo "[-] Process cancelled by user."
+    echo "Error: Failed to create ISO"
+    exit 1
 fi
