@@ -25,14 +25,14 @@ jobs:
       matrix:
         release: [ forky, resolute, trixie ]
         board: [ aml-s9xx-box, uefi-x86 ]
-        type: [ CLi, LXFice ]
+        type: [ CLi, GLXFice ]
 
         exclude:
-          # ===== (No CLi LXFice) =====
-          #- { board: uefi-x86, release: trixie, type: LXFice }
+          # ===== (No CLi GLXFice) =====
+          #- { board: uefi-x86, release: trixie, type: GLXFice }
           - { board: aml-s9xx-box, type: CLi }
           - { release: forky, type: CLi }
-          - { release: resolute, type: LXFice }
+          - { release: resolute, type: GLXFice }
 
         include:
           # ===== (Build CLi) =====
@@ -42,8 +42,8 @@ jobs:
             config_name: ""
             revision: Lastest
 
-          # ===== (Build LXFice) =====
-          - type: LXFice
+          # ===== (Build GLXFice) =====
+          - type: GLXFice
             desktop: yes
             environment: xfce
             config_name: config_base
