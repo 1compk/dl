@@ -2,9 +2,7 @@
 
 CurrentTime=$(date +"%H%M.%d%m%Y")
 DefaultName="MiniOS.Rebuild.${CurrentTime}.iso"
-
-# Get output filename from user
-#read -p "Enter ISO output filename: " iSOName
+PERCHIMG="resizeme.img"
 
 # Set default name if input is empty
 if [ -z "$iSOName" ]; then
@@ -16,7 +14,7 @@ if [[ ! "$iSOName" =~ \.iso$ ]]; then
     iSOName="${iSOName}.iso"
 fi
 
-echo "Building $iSOName..."
+echo "Building $iSOName... (Output will be saved to parent directory)"
 
 # Run xorriso
 xorriso \
@@ -37,11 +35,15 @@ xorriso \
     -e "minios/boot/grub/efi32.img" \
     -no-emul-boot \
     --isohybrid-mbr "minios/boot/grub/i386-pc/boot_hybrid.img" \
-    -append_partition 2 0x83 "resizeme.img" \
+    -append_partition 2 0x83 "$PERCHIMG" \
     -partition_cyl_align on \
     -partition_offset 16 \
     -part_like_isohybrid \
+    -hide "$PERCHIMG" \
+    -hide-joliet "$PERCHIMG" \
+    -hide "$(basename "$0")" \
+    -hide-joliet "$(basename "$0")" \
     -graft-points /=. \
-    -output "$iSOName"
+    -output "../$iSOName"
 
-echo "Done!"
+echo "Done! Your ISO is ready at ../$iSOName"
