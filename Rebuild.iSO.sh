@@ -41,7 +41,7 @@ xorriso \
     -partition_cyl_align on \
     -partition_offset 16 \
     -part_like_isohybrid \
-    -graft-points . \
+    -graft-points /=. \
     -output "$iSOName"
 
 echo "Done!"
