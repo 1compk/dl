@@ -4,7 +4,7 @@ CurrentTime=$(date +"%H%M.%d%m%Y")
 DefaultName="MiniOS.Rebuild.${CurrentTime}.iso"
 
 # Get output filename from user
-read -p "Enter ISO output filename: " iSOName
+#read -p "Enter ISO output filename: " iSOName
 
 # Set default name if input is empty
 if [ -z "$iSOName" ]; then
@@ -41,8 +41,7 @@ xorriso \
     -partition_cyl_align on \
     -partition_offset 16 \
     -part_like_isohybrid \
-    -graft-points "minios/config.conf" \
-    . \
+    -graft-points . \
     -output "$iSOName"
 
 echo "Done!"
