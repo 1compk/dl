@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือการแก้ไข initramfs.img สำหรับ MiniOS (F2FS)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        .step {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        .step-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        pre {
+            background: #23272a;
+            color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            background: #e0e0e0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        .warning {
+            background-color: #ffe6e6;
+            border-left: 5px solid #c0392b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .highlight {
+            color: #e67e22;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🛠️ คู่มือแก้ไข initramfs.img เพื่อรองรับ F2FS</h1>
+    <p>ทำตามขั้นตอนเหล่านี้บน Linux เครื่องอื่น (เช่น Ubuntu/Debian) เพื่อแตกไฟล์ ยัดโมดูล F2FS และแพ็กกลับคืน</p>
+
+    <div class="warning">
+        <strong>⚠️ ข้อควรระวัง:</strong> การทำขั้นตอนเหล่านี้จำเป็นต้องใช้สิทธิ์ <code>sudo</code> เพื่อรักษาความเป็นเจ้าของไฟล์ (File Permissions) ในระบบจำลองให้ถูกต้อง มิฉะนั้นระบบที่บูทใหม่อาจจะพังได้
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step">
+        <div class="step-title">ขั้นตอนที่ 1: เตรียมพื้นที่ทำงานและคัดลอกไฟล์</div>
+        <p>สร้างโฟลเดอร์สำหรับทำงาน คัดลอกไฟล์ <code>initramfs.img</code> เดิมมาไว้ที่นี่</p>
+        <pre><code># สร้างโฟลเดอร์สำหรับแตกไฟล์
+mkdir ~/workspace_initramfs
+cd ~/workspace_initramfs
+
+# คัดลอกไฟล์ initramfs ของ MiniOS มาที่นี่ (แก้พาธต้นทางให้ตรงกับของคุณ)
+cp /path/to/your/initramfs.img .</code></pre>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+        <div class="step-title">ขั้นตอนที่ 2: แตกไฟล์ initramfs (Decompress)</div>
+        <p>สร้างโฟลเดอร์ปลายทางแล้วทำการแตกไฟล์อิมเมจออกมาด้วยคำสั่ง <code>cpio</code></p>
+        <pre><code>mkdir extract
+cd extract
+
+# แตกไฟล์ (กรณีส่วนใหญ่เป็น gzip)
+zcat ../initramfs.img | sudo cpio -idmv
+
+# หมายเหตุ: หากสั่ง zcat แล้วเออร์เรอร์ ให้ลองเปลี่ยนเป็น xzcat หรือ lz4cat ตามลำดับ</code></pre>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+        <div class="step-title">ขั้นตอนที่ 3: เพิ่มไดรเวอร์ F2FS (f2fs.ko)</div>
+        <p>นำไฟล์ไดรเวอร์ <code>f2fs.ko</code> ที่คอมไพล์ตรงกับเวอร์ชัน Kernel ของคุณ ไปวางในพาธโมดูลระบบ</p>
+        <pre><code># ตรวจสอบโครงสร้างโฟลเดอร์เวอร์ชัน Kernel ในโปรเจกต์ก่อน โดยพิมพ์:
+ls usr/lib/modules/
+
+# สร้างโฟลเดอร์เก็บไดรเวอร์ (แทนที่ [KERNEL_VERSION] ด้วยเลขเวอร์ชันที่พบ)
+sudo mkdir -p usr/lib/modules/[KERNEL_VERSION]/kernel/fs/f2fs/
+
+# คัดลอกไฟล์ไดรเวอร์เข้าไป (รวมถึง libcrc32c.ko ถ้าในระบบยังไม่มี)
+sudo cp /path/to/f2fs.ko usr/lib/modules/[KERNEL_VERSION]/kernel/fs/f2fs/</code></pre>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+        <div class="step-title">ขั้นตอนที่ 4: สั่งให้ระบบโหลดโมดูล F2FS ตอนบูท</div>
+        <p>เปิดไฟล์สคริปต์หลักในการเริ่มต้นระบบ (มักเป็นไฟล์ชื่อ <code>init</code> อยู่ที่ Root ของโฟลเดอร์ที่แตกออกมา)</p>
+        <pre><code># เปิดไฟล์ init ด้วยโปรแกรมแก้ไขข้อความ
+sudo nano init</code></pre>
+        <p>ค้นหาจุดที่มีการสั่ง <code>modprobe</code> หรือ <code>insmod</code> แล้วเพิ่มคำสั่งโหลด f2fs ลงไปด้านบน ก่อนที่ระบบจะสั่ง mount พาร์ทิชัน:</p>
+        <pre><code># เพิ่มบรรทัดนี้ลงในตำแหน่งที่เหมาะสมในไฟล์ init
+modprobe libcrc32c
+modprobe f2fs</code></pre>
+        <p><em>(กด <code>Ctrl + O</code> เพื่อบันทึก และ <code>Ctrl + X</code> เพื่อออกจาก nano)</em></p>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step">
+        <div class="step-title">ขั้นตอนที่ 5: บีบอัดและแพ็กไฟล์กลับคืน (Recompress)</div>
+        <p>เมื่อแก้ไขเสร็จแล้ว ให้ทำการสั่งแพ็กไฟล์ทั้งหมดกลับไปเป็นอิมเมจตัวใหม่</p>
+        <pre><code># ตรวจสอบว่ายังอยู่ในโฟลเดอร์ extract จากนั้นรันคำสั่งแพ็กไฟล์
+sudo find . | cpio -H newc -o | gzip -9 > ../initramfs_f2fs.img</code></pre>
+        <p>คุณจะได้ไฟล์ <span class="highlight">initramfs_f2fs.img</span> อยู่ในโฟลเดอร์ <code>~/workspace_initramfs</code> นำไฟล์นี้ไปเปลี่ยนชื่อแทนที่ไฟล์เดิมในแฟลชไดรฟ์หรือสื่อบันทึกข้อมูลของ MiniOS ได้เลยครับ</p>
+    </div>
+
+</body>
+</html>
+
