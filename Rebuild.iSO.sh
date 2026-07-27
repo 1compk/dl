@@ -39,8 +39,6 @@ xorriso \
     -partition_cyl_align on \
     -partition_offset 16 \
     -part_like_isohybrid \
-    -hide "$PERCHIMG" \
-    -hide-joliet "$PERCHIMG" \
     -hide "$(basename "$0")" \
     -hide-joliet "$(basename "$0")" \
     -graft-points /=. \
