@@ -27,7 +27,7 @@ if [[ ! -d "$iSODiR" ]]; then
 fi
 iSODiR="$(cd "$iSODiR" && pwd)"
 
-ISO="${iSODiR}/MiniOS-Build-$(date +%H%M.%d%m%Y).iso"
+ISO="${iSODiR}/MiniOS-Build-$(date +%H%M%S.%d%m%Y).iso"
 
 trap "rm -f '$PERCHIMG'" EXIT
 
