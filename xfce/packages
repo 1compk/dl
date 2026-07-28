@@ -115,7 +115,8 @@ nala
 nemo
 nemo-data
 nemo-fileroller
-network-manager-gnome
+network-manager-applet
+nm-connection-editor
 ntfs-3g
 openprinting-ppds
 orca
