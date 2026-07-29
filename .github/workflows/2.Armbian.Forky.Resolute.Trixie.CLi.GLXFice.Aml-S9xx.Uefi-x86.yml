@@ -65,7 +65,7 @@ jobs:
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 /dev/github/runner
+          sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" /dev/github/runner
 
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
