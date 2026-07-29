@@ -9,7 +9,7 @@ die() { echo "ERROR: $*" >&2; exit 1; }
 list_disks() {
   echo
   echo "Available block devices:"
-  lsblk -a -p -o NAME,TYPE,TRAN,SIZE,MODEL | grep -Ev "loop|ram" || true
+  lsblk -a -p -o NAME,TYPE,TRAN,SIZE,MODEL | grep -Ev "ram" || true
   echo
 }
 
@@ -89,6 +89,7 @@ rescan_and_settle() {
   sudo sync || true
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
+  sudo systemctl daemon-reload || true
   sleep 1
 }
 
@@ -116,6 +117,7 @@ flash_image() {
 
   # Ensure writes flushed
   sudo sync
+  sudo systemctl daemon-reload || true
   echo "Flashing complete."
 }
 
@@ -130,6 +132,7 @@ wipe_disk_completely() {
   confirm_action "$disk"
 
   echo "Unmounting any active partitions on $disk..."
+  sudo sync
   sudo umount "${disk}"* 2>/dev/null || true
 
   echo "Step 1: Wiping signatures using wipefs..."
@@ -140,6 +143,7 @@ wipe_disk_completely() {
 
   echo "Refreshing partition table state..."
   rescan_and_settle "$disk"
+
   echo "Disk $disk has been completely wiped successfully."
 }
 
@@ -151,6 +155,7 @@ create_gpt_partitions() {
   #echo "Opening GParted to let you clear/unmount partitions for $disk"
   #run_partitioner "gparted $disk"
   echo "Unmounting any active partitions on $disk..."
+  sudo sync
   sudo umount "${disk}"* 2>/dev/null || true
 
   echo "Creating GPT label on $disk"
@@ -164,41 +169,43 @@ create_gpt_partitions() {
   echo "Creating EFI partition (8MiB-1008MiB) FAT32"
   sudo parted -s "$disk" mkpart efi fat32 8MiB 1008MiB
 
-  echo "Creating Linux partition (1008MiB to 100%) ext4"
-  sudo parted -s "$disk" mkpart ext4 ext4 1008MiB 100%
+  echo "Creating Linux partition (1008MiB to 103459MiB) f2fs"
+  sudo parted -s "$disk" mkpart f2fs f2fs 1008MiB 103459MiB
 
-  # Rescan and wait
-  sudo sync
-  sudo partprobe "$disk" || true
-  sudo udevadm settle || true
+  echo "Creating Linux partition (103459MiB to 100%) ext4"
+  sudo parted -s "$disk" mkpart ext4 ext4 103459MiB 100%
+
+  echo "Refreshing partition table state..."
   rescan_and_settle "$disk"
 
-  local p1 p2 p3
+  local p1 p2 p3 p4
   p1=$(get_part_name "$disk" 1)
   p2=$(get_part_name "$disk" 2)
   p3=$(get_part_name "$disk" 3)
+  p4=$(get_part_name "$disk" 4)
 
   # Wait for partition nodes
   wait_for_part "$p1" 10 || true
   wait_for_part "$p2" 10 || true
   wait_for_part "$p3" 10 || true
+  wait_for_part "$p4" 10 || true
 
-  echo "Formatting partitions: $p2 and $p3"
+  echo "Formatting partitions: $p2, $p3, $p4"
   sudo umount "$p2" 2>/dev/null || true
-  sudo mkfs.vfat -F 32 -a -s 8 -I "$p2"
+  sudo mkfs.vfat -F 32 -a -I "$p2"
   sudo sync
   sudo partprobe "$disk" || true
   sudo udevadm settle || true
 
   sudo umount "$p3" 2>/dev/null || true
+  sudo umount "$p4" 2>/dev/null || true
   #sudo mkfs.btrfs -fv -s 4K -n 32K -O no-holes "$p3" || die "mkfs.btrfs failed on $p3"
-  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 "$p3" || die "mkfs.xfs failed on $p3"
-  #sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
+  sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
+  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
 
-  sudo sync
-  sudo partprobe "$disk" || true
-  sudo udevadm settle || true
+  echo "Refreshing partition table state..."
+  rescan_and_settle "$disk"
 
   echo "Partitions created and formatted."
   echo "Partitions on $disk:"
@@ -211,6 +218,7 @@ create_mbr_partitions() {
   #echo "Opening GParted to let you clear/unmount partitions for $disk"
   #run_partitioner "gparted $disk"
   echo "Unmounting any active partitions on $disk..."
+  sudo sync
   sudo umount "${disk}"* 2>/dev/null || true
 
   echo "Creating MBR (msdos) label on $disk"
@@ -226,9 +234,7 @@ create_mbr_partitions() {
   echo "Creating Linux partition (1008MiB to 100%) ext4"
   sudo parted -s "$disk" mkpart primary ext4 1008MiB 100%
 
-  sudo sync
-  sudo partprobe "$disk" || true
-  sudo udevadm settle || true
+  echo "Refreshing partition table state..."
   rescan_and_settle "$disk"
 
   local p1 p2
@@ -249,9 +255,8 @@ create_mbr_partitions() {
   sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 -n size=64k -l size=64m,lazy-count=1 "$p2" || die "mkfs.xfs failed on $p2"
 
-  sudo sync
-  sudo partprobe "$disk" || true
-  sudo udevadm settle || true
+  echo "Refreshing partition table state..."
+  rescan_and_settle "$disk"
 
   echo "Partitions created and formatted successfully."
   echo "Final Partition Layout on $disk:"
@@ -259,20 +264,13 @@ create_mbr_partitions() {
 }
 
 mount_efi() {
-  local disk=$1
-  local efnum=$2
-  local mount_point=$3
+  local part=$(get_part_name "$1" "$2")
 
-  local part
-  part=$(get_part_name "$disk" "$efnum")
+  [[ -b "$part" ]] || die "EFI partition $part does not exist."
 
-  if [[ ! -b "$part" ]]; then die "EFI partition $part does not exist."; fi
-
-  sudo mkdir -p "$mount_point"
+  sudo mkdir -p "$3"
   sudo umount "$part" 2>/dev/null || true
-  sudo mount "$part" "$mount_point"
-  sudo sync
-  echo "Mounted $part -> $mount_point"
+  sudo mount "$part" "$3" && echo "Mounted $part -> $3"
 }
 
 install_grub() {
@@ -289,7 +287,9 @@ install_grub() {
   echo "Installing GRUB (BIOS i386-pc) to $disk"
   sudo grub-install --target=i386-pc "$disk" --boot-directory="$efi_mount/efi" --removable --recheck --force || echo "BIOS grub-install returned non-zero"
 
+  echo "Unmounting any active partitions on $disk..."
   sudo sync
+  sudo umount "${disk}"* 2>/dev/null || true
   echo "GRUB installation attempted. Verify success messages above."
 }
 
@@ -370,6 +370,7 @@ install_grub_only() {
 
   mount_efi "$disk" "$efnum" "$mountp"
   install_grub "$disk" "$mountp"
+
   echo "GRUB-only installation attempted."
 }
 
