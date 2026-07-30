@@ -70,9 +70,9 @@ confirm_action() {
   local target=$1
   echo
   echo "Selected: $target"
-  echo "THIS WILL ERASE DATA. Type y to proceed:"
+  echo "Confirm your target . Type y to proceed:"
   read -rn1 -p "> " c; echo
-  [[ "$c" == "y" ]] || die "Aborted by user."
+  [[ "$c" =~ ^[Yy]$ ]] || { echo "Aborted by user. Returning..."; main; }
 }
 
 # GUI partitioner runner
@@ -103,14 +103,14 @@ flash_image() {
 
   if [[ "$image" == *.xz ]]; then
     if command -v xzcat >/dev/null 2>&1; then
-      sudo xzcat "$image" | sudo dd of="$target" bs=4K status=progress conv=fsync
+      sudo xzcat "$image" | sudo dd of="$target" bs=4K status=progress conv=fdatasync
     elif command -v 7z >/dev/null 2>&1; then
-      sudo 7z x -so "$image" | sudo dd of="$target" bs=4K status=progress conv=fsync
+      sudo 7z x -so "$image" | sudo dd of="$target" bs=4K status=progress conv=fdatasync
     else
       die "No xzcat or 7z available."
     fi
   elif [[ "$image" == *.img || "$image" == *.iso || "$image" == *.raw ]]; then
-    sudo dd if="$image" of="$target" bs=4K status=progress conv=fsync
+    sudo dd if="$image" of="$target" bs=4K status=progress conv=fdatasync
   else
     die "Unsupported image type."
   fi
@@ -121,30 +121,37 @@ flash_image() {
   echo "Flashing complete."
 }
 
-# Wipe disk using wipefs and dd zero-fill
+# Wipe disk using wipefs or blkdiscard based on storage type
 wipe_disk_completely() {
   list_disks
   read -rp "Enter target disk to WIPE completely (e.g., sdb or /dev/sdb): " disk_in
-  local disk
-  disk=$(normalize_device "$disk_in")
+  local disk=$(normalize_device "$disk_in")
   
-  echo "WARNING: This will completely wipe all partition tables and fill the drive with zeros!"
-  confirm_action "$disk"
+  echo "WARNING: This will completely wipe all partition tables!"
+  confirm_action "$disk" || return
 
-  echo "Unmounting any active partitions on $disk..."
+  echo "Unmounting partitions on $disk..."
   sudo sync
   sudo umount "${disk}"* 2>/dev/null || true
 
-  echo "Step 1: Wiping signatures using wipefs..."
-  sudo wipefs -a "$disk"
+  # Detect device type and wipe accordingly
+  if [[ "$disk" =~ (nvme|mmcblk) ]] || [[ $(cat "/sys/block/${disk##*/}/queue/rotational" 2>/dev/null) -eq 0 ]]; then
+    echo "SSD detected. Using blkdiscard..."
+    sudo blkdiscard -f "$disk" || echo "Warning: blkdiscard not supported."
+  else
+    echo "HDD detected. Using wipefs..."
+    sudo wipefs -a "$disk"
+  fi
 
-  echo "Step 2: Zero-filling the disk using dd (This may take a while depending on disk size)..."
-  sudo dd if=/dev/zero of="$disk" bs=4K count=500 status=progress conv=fsync || echo "Note: dd finished or reached the end of the device."
+  echo "Success: Disk $disk has been completely wiped."
 
-  echo "Refreshing partition table state..."
-  rescan_and_settle "$disk"
-
-  echo "Disk $disk has been completely wiped successfully."
+  # Optional secondary wipe with dd command
+  read -rn1 -p "Wipe again with DD command for extra security? (y/n): " use_dd; echo
+  if [[ "$use_dd" =~ ^[Yy]$ ]]; then
+    echo "Wiping $disk with DD command (this may take a while)..."
+    sudo dd if=/dev/zero of="$disk" bs=4K conv=fdatasync status=progress
+    echo "Success: Disk $disk has been completely wiped."
+  fi
 }
 
 # Partitioning, formatting, grub functions
@@ -152,8 +159,6 @@ wipe_disk_completely() {
 create_gpt_partitions() {
   local disk=$1
 
-  #echo "Opening GParted to let you clear/unmount partitions for $disk"
-  #run_partitioner "gparted $disk"
   echo "Unmounting any active partitions on $disk..."
   sudo sync
   sudo umount "${disk}"* 2>/dev/null || true
@@ -215,8 +220,6 @@ create_gpt_partitions() {
 create_mbr_partitions() {
   local disk=$1
 
-  #echo "Opening GParted to let you clear/unmount partitions for $disk"
-  #run_partitioner "gparted $disk"
   echo "Unmounting any active partitions on $disk..."
   sudo sync
   sudo umount "${disk}"* 2>/dev/null || true
@@ -297,13 +300,10 @@ create_gpt_disk() {
   list_disks
   read -rp "Enter target disk (e.g., sdb or /dev/sdb): " disk_in
   disk=$(normalize_device "$disk_in")
-  confirm_action "$disk"
+  confirm_action "$disk" || return
   create_gpt_partitions "$disk"
 
-  confirm_action "$disk"
-  read -rp "Enter EFI partition number (default 2): " efnum
-  efnum=${efnum:-2}
-
+  local efnum=2
   sep=$(get_part_sep "$disk")
   read -rp "Enter mount point for EFI (default /mnt/${disk##*/}${sep}${efnum}): " mountp
   if [[ -z "$mountp" ]]; then
@@ -323,13 +323,11 @@ create_mbr_disk() {
   list_disks
   read -rp "Enter target disk (e.g., sdb or /dev/sdb): " disk_in
   disk=$(normalize_device "$disk_in")
-  confirm_action "$disk"
+  confirm_action "$disk" || return
   
   create_mbr_partitions "$disk"
 
-  confirm_action "$disk"
   local efnum=1
-  
   sep=$(get_part_sep "$disk")
   read -rp "Enter mount point for Boot/EFI (default /mnt/${disk##*/}${sep}${efnum}): " mountp
   if [[ -z "$mountp" ]]; then
@@ -359,11 +357,7 @@ install_grub_only() {
   read -rp "Enter EFI partition number to mount (e.g., 2): " efnum
 
   sep=$(get_part_sep "$disk")
-  read -rp "Enter mount point for EFI (default /mnt/${disk##*/}${sep}${efnum}): " mountp
-  if [[ -z "$mountp" ]]; then
-    mountp="/mnt/${disk##*/}${sep}${efnum}"
-    echo "Using default: $mountp"
-  fi
+  mountp="/mnt/${disk##*/}${sep}${efnum}"
 
   part=$(get_part_name "$disk" "$efnum")
   wait_for_part "$part" 15 || echo "Proceeding even though $part may not exist yet"
@@ -413,7 +407,7 @@ main() {
         list_disks
         read -rp "Enter target device (e.g., sdb or /dev/sdb): " t
         target=$(normalize_device "$t")
-        confirm_action "$target"
+        confirm_action "$target" || return
         run_partitioner "gparted $target"
         ls
         read -rp "Enter Linux image path (.img or .xz): " img
@@ -425,12 +419,12 @@ main() {
         list_disks
         read -rp "Enter target device for partitioning (e.g., sdb or /dev/sdb): " t
         target=$(normalize_device "$t")
-        confirm_action "$target"
+        confirm_action "$target" || return
         run_partitioner "gparted $target"
         list_disks
         read -rp "Enter partition to flash (e.g., sdb1 or /dev/sdb1): " p
         part=$(normalize_device "$p")
-        confirm_action "$part"
+        confirm_action "$part" || return
         ls
         read -rp "Enter Windows image path (.img or .xz): " img
         flash_image "$img" "$part"
