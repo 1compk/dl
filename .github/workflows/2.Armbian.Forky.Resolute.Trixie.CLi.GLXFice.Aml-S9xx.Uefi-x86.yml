@@ -55,7 +55,7 @@ jobs:
           lscpu | grep -E "Model name|CPU\(s\):"
           sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-            mtools rsync grub-common e2fsprogs lvm2 pv wget
+           mtools rsync grub-common e2fsprogs lvm2 pv wget
           
           #sudo modprobe f2fs        
           sudo truncate -s $iMageSize /mnt.img
@@ -65,7 +65,8 @@ jobs:
           sudo pvcreate $Loop1 $Loop2
           sudo vgcreate github $Loop1 $Loop2
           sudo lvcreate -n runner -l 100%FREE github
-          sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" /dev/github/runner
+          sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" \
+           /dev/github/runner
 
           sudo mkdir -p $MainDir
           sudo mount /dev/github/runner $MainDir
@@ -76,7 +77,8 @@ jobs:
         working-directory: /builder
         run: |          
           if [ "${{ matrix.desktop }}" = "yes" ]; then
-            git clone --branch v26.2.0-trunk.844 --depth 1 --single-branch --no-tags https://github.com/armbian/build.git ${{ env.BuildDir }}
+            git clone --branch v26.2.0-trunk.844 --depth 1 --single-branch --no-tags \
+             https://github.com/armbian/build.git ${{ env.BuildDir }}
             cd ${{ env.BuildDir }}
             
             PackagesDir="config/desktop/trixie/environments/xfce/config_base"
@@ -92,7 +94,8 @@ jobs:
             cd /builder/${{ env.BuildDir }}
 
           else
-            git clone --depth 1 --single-branch --no-tags https://github.com/armbian/build.git ${{ env.BuildDir }}
+            git clone --depth 1 --single-branch --no-tags \
+             https://github.com/armbian/build.git ${{ env.BuildDir }}
             cd ${{ env.BuildDir }}
           fi
 
