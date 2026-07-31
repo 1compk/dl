@@ -1,42 +1,30 @@
 #!/bin/bash
 set -e
 
-# Get inputs from user
-ls -1
-read -p "Enter source directory (default: Current Location): " SourceDiR
-SourceDiR="${SourceDiR:-.}"
-
-read -p "Enter output ISO directory (default: Parent of SourceDir): " iSODiR
-
-# Validate and resolve source directory
-if [[ ! -d "$SourceDiR" ]]; then
-    echo "Error: Source directory '$SourceDiR' not found"
-    exit 1
-fi
-SourceDiR="$(cd "$SourceDiR" && pwd)"
-
-# Set ISO path with default to parent directory
+# Configuration
 LIVEKITNAME="minios"
 PERCHIMG="resizeme.img"
-iSODiR="${iSODiR:-$(dirname "$SourceDiR")}"
 
-# Validate and resolve ISO directory
-if [[ ! -d "$iSODiR" ]]; then
-    echo "Error: ISO directory '$iSODiR' not found"
-    exit 1
-fi
-iSODiR="$(cd "$iSODiR" && pwd)"
+# Get user inputs
+ls -1
+read -p "Enter source directory (default: current): " Source
+Source=$(realpath "${Source:-.}")
 
-ISO="${iSODiR}/MiniOS-Build-$(date +%H%M%S.%d%m%Y).iso"
+read -p "Enter output ISO directory (default: parent): " iSODir
+iSODir=$(realpath "${iSODir:-$(dirname "$Source")}")
 
-trap "rm -f '$PERCHIMG'" EXIT
+# Validate directories
+[[ ! -d "$Source" ]] && echo "Error: Source not found" && exit 1
+[[ ! -d "$iSODir" ]] && echo "Error: iSO dir not found" && exit 1
 
-echo "Building ISO from: $SourceDiR"
-echo "Output file: $ISO"
+iSOFile="${iSODir}/Rebuild-$(basename "$PWD").iso"
 
-# Create persistence image
-dd if=/dev/zero of="$PERCHIMG" bs=1 count=0 seek=128k
-sudo mkfs.ext2 -b 1024 -L resizeme "$PERCHIMG"
+echo "Building ISO from: $Source"
+echo "Output file: $iSOFile"
+
+# Create Persistence Image
+sudo dd if=/dev/zero of="$PERCHIMG" bs=1k count=0 seek=128
+sudo mkfs.ext2 -F -b 1024 -L resizeme "$PERCHIMG"
 
 # Create ISO
 xorriso --as mkisofs \
@@ -50,6 +38,7 @@ xorriso --as mkisofs \
   --isohybrid-mbr "${LIVEKITNAME}/boot/grub/i386-pc/boot_hybrid.img" \
   -isohybrid-gpt-basdat -append_partition 2 0x83 "$PERCHIMG" \
   -partition_cyl_align on -partition_offset 16 -part_like_isohybrid \
-  -output "$ISO" "$SourceDiR"
+  -output "$iSOFile" "$Source"
 
-echo "ISO created: $ISO"
+echo "ISO created: $iSOFile"
+sync

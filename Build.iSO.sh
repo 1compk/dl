@@ -2,16 +2,14 @@
 set -e
 
 # Configuration
-SourceDiR="${SourceDiR:-.}"
 LIVEKITNAME="minios"
-ISO="../MiniOS-Rebuild-$(date +%H%M%S.%d%m%Y).iso"
 PERCHIMG="resizeme.img"
-
-trap "rm -f '$PERCHIMG'" EXIT
+SourceDiR="${SourceDiR:-.}"
+ISO="../Rebuild-$(basename "$PWD").iso"
 
 # Create persistence image
-dd if=/dev/zero of="$PERCHIMG" bs=1k count=128
-sudo mkfs.ext2 -b 1024 -L resizeme "$PERCHIMG"
+sudo dd if=/dev/zero of="$PERCHIMG" bs=1k count=0 seek=128
+sudo mkfs.ext2 -F -b 1024 -L resizeme "$PERCHIMG"
 
 # Create ISO
 xorriso --as mkisofs \
@@ -23,10 +21,9 @@ xorriso --as mkisofs \
   -eltorito-alt-boot -e "${LIVEKITNAME}/boot/grub/efi64.img" -no-emul-boot \
   -eltorito-alt-boot -e "${LIVEKITNAME}/boot/grub/efi32.img" -no-emul-boot \
   --isohybrid-mbr "${LIVEKITNAME}/boot/grub/i386-pc/boot_hybrid.img" \
-  -append_partition 2 0x83 "$PERCHIMG" \
-  -appended_part_as_gpt \
-  -iso_mbr_part_type 0xee \
-  -partition_cyl_align off -partition_offset 16 \
+  -isohybrid-gpt-basdat -append_partition 2 0x83 "$PERCHIMG" \
+  -partition_cyl_align on -partition_offset 16 -part_like_isohybrid \
   -output "$ISO" "$SourceDiR"
 
 echo "ISO created: $ISO"
+sync
