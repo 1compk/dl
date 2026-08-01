@@ -87,6 +87,12 @@ jobs:
             wget -nv "https://github.com/1compk/dl/raw/dl/xfce/packages"
             cd /builder/${{ env.BuildDir }}
 
+            ExtensionsDir="extensions/network"
+            cd $PackagesDir
+            rm -rf net-network-manager.sh
+            wget -nv "https://github.com/1compk/dl/raw/dl/xfce/net-network-manager.sh"
+            cd /builder/${{ env.BuildDir }}
+
             NvidiaDir="config/optional/architectures/amd64/_config/desktop/trixie/environments/_all_environments/sources/apt"
             cd $NvidiaDir
             rm -rf nvidia-drivers.source
