@@ -10,7 +10,7 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildSource: zArmbian.Build.2026.tar.xz
+  BuildSource: Armbian.Build.v26.2.0-trunk.844.fix.tar.xz
   BuildDir: zArmbian.Build.2026
   UefiVersion: 26.5.1
   BoxVersion: Lastest
@@ -79,18 +79,8 @@ jobs:
           if [ "${{ matrix.desktop }}" = "yes" ]; then
             git clone --branch v26.2.0-trunk.844 --depth 1 --single-branch --no-tags \
              https://github.com/armbian/build.git ${{ env.BuildDir }}
-            cd ${{ env.BuildDir }}
-            
-            PackagesDir="config/desktop/trixie/environments/xfce/config_base"
-            cd $PackagesDir
-            rm -rf packages
-            wget -nv "https://github.com/1compk/dl/raw/dl/xfce/packages"
-            cd /builder/${{ env.BuildDir }}
-
-            NvidiaDir="config/optional/architectures/amd64/_config/desktop/trixie/environments/_all_environments/sources/apt"
-            cd $NvidiaDir
-            rm -rf nvidia-drivers.source
-            wget -nv "https://github.com/1compk/dl/raw/dl/xfce/nvidia-drivers.source"
+            wget -nv "https://github.com/1compk/dl/releases/download/dl/${{ env.BuildSource }}"
+            tar -xf ${{ env.BuildSource }}
             cd /builder/${{ env.BuildDir }}
 
           else
