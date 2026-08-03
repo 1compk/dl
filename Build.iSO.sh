@@ -8,7 +8,7 @@ SourceDiR="${SourceDiR:-.}"
 ISO="../Rebuild-$(basename "$PWD").iso"
 
 # Create persistence image
-sudo dd if=/dev/zero of="$PERCHIMG" bs=1k count=0 seek=128
+dd if=/dev/zero of="$PERCHIMG" bs=1k count=0 seek=128
 sudo mkfs.ext2 -F -b 1024 -L resizeme "$PERCHIMG"
 
 # Create ISO
