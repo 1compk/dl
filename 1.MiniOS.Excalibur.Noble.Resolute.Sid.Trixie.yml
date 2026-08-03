@@ -23,14 +23,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ excalibur, noble, resolute, sid, trixie ]
+        release: [ excalibur, trixie, sid, noble, resolute ]
         board: [ uefi-x86 ]
         include:
           - { release: excalibur, Custom: false }
+          - { release: trixie, Custom: false }
+          - { release: sid, Custom: false }
           - { release: noble, Custom: false }
           - { release: resolute, Custom: false }
-          - { release: sid, Custom: false }
-          - { release: trixie, Custom: false }
 
     steps:
       - name: Prepare | Init & LVM
