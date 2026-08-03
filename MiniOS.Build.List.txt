@@ -1,0 +1,86 @@
+sudo parted -s /dev/sdx resizepart x 100%
+sudo resize2fs /dev/sdx
+sudo mkfs.btrfs -L persistence -fv -s 4K -n 16K -O no-holes /dev/sdx
+sudo partprobe /dev/sdx
+sudo systemctl restart udisks2.service
+
+
+update_resolv_conf() {
+    current_function
+
+    local DIR_PATH="${1}"
+    local RESOLV_PATH="${DIR_PATH}/etc/resolv.conf"
+    local BACKUP_PATH="${RESOLV_PATH}.bak"
+    return 0
+}
+
+
+LIVE_USER_PASSWORD_CRYPTED='${LIVE_ROOT_PASSWORD_CRYPTED}'
+LIVE_ROOT_PASSWORD_CRYPTED='${LIVE_ROOT_PASSWORD_CRYPTED}'
+
+LIVE_LOCALES="en_US.UTF-8"
+LIVE_TIMEZONE="Etc/GMT-7"
+LIVE_KEYBOARD_MODEL="pc105"
+LIVE_KEYBOARD_LAYOUTS="us,th"
+LIVE_KEYBOARD_OPTIONS="grp:toggle,grp_led:scroll"
+LIVE_KEYBOARD_VARIANTS=",tis"
+
+
+BOOT_SETTINGS="verbose"
+
+local CHOOSE_SESSION_DISK="Choose session disk during startup"
+
+LABEL asksessiondisk
+MENU LABEL ${CHOOSE_SESSION_DISK}
+KERNEL /${LIVEKITNAME}/boot/${VMLINUZNAME}
+APPEND vga=788 initrd=/${LIVEKITNAME}/boot/${INITRFSNAME} ${DEFAULT_SETTINGS} ${BOOT_SETTINGS} perchdir=askdisk locales=${LOCALE_UTF}$([ -n "${TIMEZONE}" ] && echo " timezone=${TIMEZONE}")$([ -n "${KEYBOARD}" ] && echo " keyboard-layouts=${KEYBOARD}")
+
+
+set timeout=5
+
+set loading=\$"Loading kernel and ramdisk..."
+set choosesessiondisk=\$"Choose session disk during startup"
+set ZeR09=\$"1Computer.PK Grub Boot Menu"
+
+export choosesessiondisk
+export ZeR09
+
+menuentry "\$choosesessiondisk" --class switchdisk {
+    echo \$loading
+    search --set -f /${LIVEKITNAME}/boot/${VMLINUZNAME}
+    set gfxpayload=\$gfxpayload
+    linux /${LIVEKITNAME}/boot/${VMLINUZNAME} ${DEFAULT_SETTINGS} ${BOOT_SETTINGS} perchdir=askdisk locales=\$lang_utf \$extra_params
+    initrd /${LIVEKITNAME}/boot/${INITRFSNAME}
+}
+menuentry "\$ZeR09" --class ZeR09 {
+    echo \$loading
+    set gfxpayload=\$gfxpayload
+    echo Searching... /minios/boot/grub/1compk.cfg
+    search --set -f /minios/boot/grub/1compk.cfg
+
+    echo Loading...
+configfile /minios/boot/grub/1compk.cfg
+}
+
+
+menuentry "Choose session disk during startup" --class switchdisk {
+    echo \$message
+    search --set -f /${LIVEKITNAME}/boot/${VMLINUZNAME}
+    set gfxpayload=\$gfxpayload
+    linux /${LIVEKITNAME}/boot/${VMLINUZNAME} ${DEFAULT_SETTINGS} ${BOOT_SETTINGS} perchdir=askdisk
+    initrd /${LIVEKITNAME}/boot/${INITRFSNAME}
+}
+menuentry "1Computer.PK Grub Boot Menu" --class ZeR09 {
+    echo \$message
+    echo Searching... /minios/boot/grub/1compk.cfg
+    search --set -f /minios/boot/grub/1compk.cfg
+
+    echo Loading...
+configfile /minios/boot/grub/1compk.cfg
+}
+
+    PERCHIMG="resizeme.img"
+
+    # Prepare persistence image
+    dd if=/dev/zero of="${PERCHIMG}" bs=1k count=0 seek=128
+    mkfs.ext2 -F -b 1024 -L resizeme "${PERCHIMG}"
