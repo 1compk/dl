@@ -47,3 +47,4 @@ rm -f "$PERCHIMG" 2>/dev/null || true
 
 echo "ISO created successfully: $ISO"
 sync
+exit

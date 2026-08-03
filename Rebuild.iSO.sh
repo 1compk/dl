@@ -42,3 +42,4 @@ xorriso --as mkisofs \
 
 echo "ISO created: $iSOFile"
 sync
+exit
