@@ -31,7 +31,7 @@ get_part_name() {
 
 # Wait for a block device node to appear
 wait_for_part() {
-  local part="$1" timeout="${2:-30}" waited=0
+  local part="$1" timeout="${2:-10}" waited=0
   while [[ ! -b "$part" && $waited -lt $((timeout * 2)) ]]; do
     sleep 0.5
     waited=$((waited + 1))
@@ -132,8 +132,8 @@ create_gpt_partitions() {
     mkpart bios 4MiB 8MiB \
     set 1 bios_grub on \
     mkpart efi fat32 8MiB 268MiB \
-    mkpart f2fs f2fs 268MiB 102719MiB \
-    mkpart ext4 ext4 102719MiB 100%
+    mkpart ext4 ext4 268MiB 100%
+    #mkpart ext4 ext4 102719MiB 100%
 
   rescan_and_settle "$disk"
 
@@ -141,15 +141,16 @@ create_gpt_partitions() {
   p1=$(get_part_name "$disk" 1)
   p2=$(get_part_name "$disk" 2)
   p3=$(get_part_name "$disk" 3)
-  p4=$(get_part_name "$disk" 4)
+  #p4=$(get_part_name "$disk" 4)
 
   wait_for_part "$p2" 10
   wait_for_part "$p3" 10
-  wait_for_part "$p4" 10
+  #wait_for_part "$p4" 10
 
   sudo mkfs.vfat -F 32 -I -a "$p2"
-  sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
-  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
+  #sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
+  #sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
+  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
   #sudo mkfs.btrfs -fv -s 4K -n 32K -O no-holes "$p3" || die "mkfs.btrfs failed on $p3"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 "$p3" || die "mkfs.xfs failed on $p3"
 
