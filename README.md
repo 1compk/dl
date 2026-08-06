@@ -64,13 +64,13 @@ Install Grub bootloader :
 
 lsblk = /dev/sdX > mount = /mnt/sdX
 
-#Grub-Install gonna Create "/efi/grub" Files > /efi/grub/grub.cfg :
+#Grub-Install gonna Create "/EFI/boot/bootx64.efi" File > /EFI/boot/grub.cfg :
 
-sudo grub-install --target=i386-pc /dev/nvme0n1 --boot-directory=/media/user/5B75-9E67/efi --removable
+sudo grub-install --target=x86_64-efi --boot-directory=/media/user/sdxx/EFI --efi-directory=/media/user/sdxx --removable
 
-#Grub-Install gonna Create "/efi/boot/bootx64.efi" File > /efi/boot/grub.cfg :
+#Grub-Install gonna Create "/EFI/grub" Files > /EFI/grub/grub.cfg :
 
-sudo grub-install --target=x86_64-efi --efi-directory=/media/user/5B75-9E67 --boot-directory=/media/user/5B75-9E67/efi --removable
+sudo grub-install --target=i386-pc --boot-directory=/media/user/sdxx/EFI /dev/sdx --recheck --force
 
 ==================================================================
 
