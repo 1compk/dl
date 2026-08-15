@@ -83,14 +83,14 @@ flash_image() {
 
   if [[ "$image" == *.xz ]]; then
     if command -v xzcat >/dev/null 2>&1; then
-      sudo xzcat "$image" | sudo dd of="$target" bs=4k status=progress conv=fdatasync
+      sudo xzcat "$image" | sudo dd of="$target" bs=4k seek=2048 status=progress conv=fdatasync
     elif command -v 7z >/dev/null 2>&1; then
-      sudo 7z x -so "$image" | sudo dd of="$target" bs=4k status=progress conv=fdatasync
+      sudo 7z x -so "$image" | sudo dd of="$target" bs=4k seek=2048 status=progress conv=fdatasync
     else
       die "Neither xzcat nor 7z is installed."
     fi
   elif [[ "$image" =~ \.(img|iso|raw)$ ]]; then
-    sudo dd if="$image" of="$target" bs=4k status=progress conv=fdatasync
+    sudo dd if="$image" of="$target" bs=4k seek=2048 status=progress conv=fdatasync
   else
     die "Unsupported image extension."
   fi
@@ -131,9 +131,9 @@ create_gpt_partitions() {
     mklabel gpt \
     mkpart bios 4MiB 8MiB \
     set 1 bios_grub on \
-    mkpart efi fat32 8MiB 268MiB \
-    mkpart ext4 ext4 268MiB 100%
-    #mkpart ext4 ext4 102719MiB 100%
+    mkpart efi fat32 8MiB 128MiB \
+    mkpart ext4 ext4 128MiB 102719MiB \
+    mkpart ext4 ext4 102719MiB 100%
 
   rescan_and_settle "$disk"
 
@@ -141,16 +141,16 @@ create_gpt_partitions() {
   p1=$(get_part_name "$disk" 1)
   p2=$(get_part_name "$disk" 2)
   p3=$(get_part_name "$disk" 3)
-  #p4=$(get_part_name "$disk" 4)
+  p4=$(get_part_name "$disk" 4)
 
   wait_for_part "$p2" 10
   wait_for_part "$p3" 10
-  #wait_for_part "$p4" 10
+  wait_for_part "$p4" 10
 
   sudo mkfs.vfat -F 32 -I -a "$p2"
-  #sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
-  #sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
-  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
+  sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
+  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
+  #sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
   #sudo mkfs.btrfs -fv -s 4K -n 32K -O no-holes "$p3" || die "mkfs.btrfs failed on $p3"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 "$p3" || die "mkfs.xfs failed on $p3"
 
@@ -165,9 +165,9 @@ create_mbr_partitions() {
   sudo wipefs -a "$disk"
   sudo parted -s "$disk" \
     mklabel msdos \
-    mkpart primary fat32 8MiB 268MiB \
+    mkpart primary fat32 8MiB 128MiB \
     set 1 boot on \
-    mkpart primary ext4 268MiB 100%
+    mkpart primary ext4 128MiB 100%
 
   rescan_and_settle "$disk"
 
