@@ -1,4 +1,4 @@
-name: 1. MiniOS GLXFice Excalibur Noble Resolute Sid Trixie 
+name: 1. MiniOS LXFice Excalibur Noble Resolute Sid Trixie 
 
 on:
   schedule:
@@ -10,6 +10,7 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
+  BuildDL: https://github.com/1compk/minios/releases/download/dl/zMiniOS.SkyLine.2026.tar.xz
   BuildSource: zMiniOS.SkyLine.2026.tar.xz
   BuildDir: MiniOS.SkyLine.2026
   BaseVersion: Lastest
@@ -23,14 +24,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ excalibur, trixie, sid, noble, resolute ]
+        release: [ sid, noble, trixie, resolute, excalibur ]
         board: [ uefi-x86 ]
         include:
-          - { release: excalibur, Custom: false }
-          - { release: trixie, Custom: false }
           - { release: sid, Custom: false }
           - { release: noble, Custom: false }
+          - { release: trixie, Custom: false }
           - { release: resolute, Custom: false }
+          - { release: excalibur, Custom: false }
 
     steps:
       - name: Prepare | Init & LVM
@@ -61,7 +62,7 @@ jobs:
         run: |
           git clone --depth 1 --single-branch --no-tags \
            https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
-          wget -nv "https://github.com/1compk/minios/releases/download/dl/${{ env.BuildSource }}"
+          wget -nv "${{ env.BuildDL }}"
           tar -xf "${{ env.BuildSource }}"
 
       - name: Build | Compile
