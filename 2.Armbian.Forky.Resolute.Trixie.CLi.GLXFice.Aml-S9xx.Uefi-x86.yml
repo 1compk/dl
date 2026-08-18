@@ -10,6 +10,7 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
+  BuildDL: https://github.com/1compk/dl/releases/download/dl/Armbian.Build.v26.2.0-trunk.844.fix.tar.xz
   BuildSource: Armbian.Build.v26.2.0-trunk.844.fix.tar.xz
   BuildDir: zArmbian.Build.2026
   UefiVersion: 26.5.1
@@ -23,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ forky, resolute, trixie ]
+        release: [ resolute, trixie ]
         board: [ aml-s9xx-box, uefi-x86 ]
         type: [ CLi, LXFice ]
 
@@ -31,7 +32,7 @@ jobs:
           # ===== (No CLi LXFice) =====
           #- { board: uefi-x86, release: trixie, type: LXFice }
           - { board: aml-s9xx-box, type: CLi }
-          - { release: forky, type: CLi }
+          #- { release: forky, type: CLi }
           - { release: resolute, type: LXFice }
 
         include:
@@ -79,7 +80,7 @@ jobs:
           if [ "${{ matrix.desktop }}" = "yes" ]; then
             git clone --branch v26.2.0-trunk.844 --depth 1 --single-branch --no-tags \
              https://github.com/armbian/build.git ${{ env.BuildDir }}
-            wget -nv "https://github.com/1compk/dl/releases/download/dl/${{ env.BuildSource }}"
+            wget -nv "${{ env.BuildDL }}"
             tar -xf ${{ env.BuildSource }}
             cd /builder/${{ env.BuildDir }}
 
