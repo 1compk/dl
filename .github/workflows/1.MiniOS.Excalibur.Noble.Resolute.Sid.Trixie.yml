@@ -2,7 +2,7 @@ name: 1. MiniOS LXFice Excalibur Noble Resolute Sid Trixie
 
 on:
   schedule:
-    - cron: '0 0 */1 * *' # Run every Days
+    - cron: '0 0 */2 * *' # Run every 2 Days
   workflow_dispatch:
 
 env:
@@ -10,9 +10,9 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildDL: https://github.com/1compk/minios/releases/download/dl/zMiniOS.SkyLine.2026.tar.xz
-  BuildSource: zMiniOS.SkyLine.2026.tar.xz
-  BuildDir: MiniOS.SkyLine.2026
+  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.Build.08.2026.tar.xz
+  BuildSource: zMiniOS.Build.08.2026.tar.xz
+  BuildDir: MiniOS.Build.2026
   BaseVersion: Lastest
   CustomVersion: SkyLine Edition 2026 GLXFice
 
@@ -39,7 +39,7 @@ jobs:
           lscpu | grep -E "Model name|CPU\(s\):"
           sudo timedatectl set-timezone "${TZ}"
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-           mtools rsync grub-common e2fsprogs lvm2 pv wget
+           mtools rsync grub-common e2fsprogs lvm2 pv wget gettext
           
           #sudo modprobe f2fs
           sudo truncate -s $iMageSize /mnt.img
@@ -60,7 +60,7 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          git clone --depth 1 --single-branch --no-tags \
+          #git clone --depth 1 --single-branch --no-tags \
            https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
           wget -nv "${{ env.BuildDL }}"
           tar -xf "${{ env.BuildSource }}"
