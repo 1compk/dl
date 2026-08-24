@@ -60,8 +60,6 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          #git clone --depth 1 --single-branch --no-tags \
-           https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
           wget -nv "${{ env.BuildDL }}"
           tar -xf "${{ env.BuildSource }}"
 
