@@ -12,7 +12,7 @@ env:
 
   BuildDL: https://github.com/1compk/minios/releases/download/dl/MiniOS.Build.25.08.2026.tar.xz
   BuildSource: MiniOS.Build.25.08.2026.tar.xz
-  BuildDir: MiniOS.SkyLine.2026
+  BuildDir: MiniOS.Build.2026
   BaseVersion: Lastest
   CustomVersion: SkyLine Edition 2026 GLXFice
 
