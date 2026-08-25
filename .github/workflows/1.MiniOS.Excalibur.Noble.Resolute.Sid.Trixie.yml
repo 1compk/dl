@@ -10,8 +10,8 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.Build.08.2026.tar.xz
-  BuildSource: zMiniOS.Build.08.2026.tar.xz
+  BuildDL: https://github.com/1compk/dl/releases/download/dl/MiniOS.Build.25.08.2026.tar.xz
+  BuildSource: MiniOS.Build.25.08.2026.tar.xz
   BuildDir: MiniOS.Build.2026
   BaseVersion: Lastest
   CustomVersion: SkyLine Edition 2026 GLXFice
