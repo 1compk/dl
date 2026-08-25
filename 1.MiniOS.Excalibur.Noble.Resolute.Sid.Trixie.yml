@@ -72,7 +72,7 @@ jobs:
         run: |
           sudo chown -R root:root /builder/${{ env.BuildDir }}
           sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce \
-           -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib livekit
+           -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
       - name: Upload | ISO
         uses: actions/upload-artifact@v7
