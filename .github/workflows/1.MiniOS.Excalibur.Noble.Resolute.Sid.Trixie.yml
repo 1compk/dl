@@ -10,11 +10,11 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.Build.25.08.2026.tar.xz
-  BuildSource: zMiniOS.Build.25.08.2026.tar.xz
-  BuildDir: MiniOS.Build.2026
+  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.SkyLine.28.08.2026.tar.xz
+  BuildSource: zMiniOS.SkyLine.28.08.2026.tar.xz
+  BuildDir: MiniOS.SkyLine.2026
   BaseVersion: Lastest
-  CustomVersion: SkyLine Edition 2026 GLXFice
+  CustomVersion: SkyLine Edition 2026 LXFice
 
 jobs:
   build:
@@ -58,6 +58,8 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
+          git clone --depth 1 --single-branch --no-tags \
+           https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
           wget -nv "${{ env.BuildDL }}"
           tar -xf "${{ env.BuildSource }}"
 
@@ -66,7 +68,7 @@ jobs:
         run: |
           sudo chown -R root:root /builder/${{ env.BuildDir }}
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
-           mtools rsync grub-common e2fsprogs lvm2 pv wget gettext gpgv \
+           mtools rsync grub-common e2fsprogs lvm2 pv wget gettext gpgv musl \
            shim-signed grub-efi-amd64-bin grub-efi-amd64-signed musl-tools gcc-multilib
 
           sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce \
@@ -79,4 +81,13 @@ jobs:
           path: /builder/${{ env.BuildDir }}/build/iso/*.iso
           retention-days: 30
           archive: false
+          if-no-files-found: error
+
+      - name: Upload | Sb Files
+        uses: actions/upload-artifact@v7
+        with:
+          name: MiniOS-SB-Files-${{ matrix.release }}-${{ github.run_id }}
+          path: /builder/${{ env.BuildDir }}/build/*${{ matrix.release }}*/image/minios/*.sb
+          retention-days: 30
+          archive: true
           if-no-files-found: error
