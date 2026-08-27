@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ resolute, trixie ]
+        release: [ resolute, trixie, sid ]
         board: [ aml-s9xx-box, uefi-x86 ]
         type: [ CLi, LXFice ]
 
@@ -32,7 +32,7 @@ jobs:
           # ===== (No CLi LXFice) =====
           #- { board: uefi-x86, release: trixie, type: LXFice }
           - { board: aml-s9xx-box, type: CLi }
-          #- { release: forky, type: CLi }
+          - { release: sid, type: LXFice }
           - { release: resolute, type: LXFice }
 
         include:
