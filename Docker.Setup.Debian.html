@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คู่มือการติดตั้ง Docker บน Debian 13 (Trixie)</title>
+    <!-- นำเข้า Tailwind CSS เพื่อความสวยงามและอ่านง่าย -->
+    <script src="https://tailwindcss.com"></script>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+        code, pre { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen pb-12">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r border-b border-gray-200 bg-white py-10 shadow-sm mb-8">
+        <div class="max-w-4xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">ใบความรู้ประกอบการเรียน</span>
+                <h1 class="text-3xl font-extrabold text-gray-900 mt-2 tracking-tight">ขั้นตอนการติดตั้ง Docker บน Debian 13 (Trixie)</h1>
+                <p class="text-gray-500 mt-1">วิธีการติดตั้ง Docker Engine และ Docker Compose ผ่าน Official Repository อย่างถูกวิธี</p>
+            </div>
+            <div class="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-lg border border-gray-200">
+                <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-sm font-medium text-gray-700">OS: Debian Trixie</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4">
+        
+        <!-- ข้อควรจำก่อนเริ่ม -->
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl mb-8 shadow-sm">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-bold text-amber-800">คำแนะนำสำหรับนักเรียน</h3>
+                    <p class="text-sm text-amber-700 mt-1">คำสั่งทั้งหมดจำเป็นต้องใช้สิทธิ์ผู้ดูแลระบบ (<span class="font-semibold">root</span>) หรือรันผ่านคำสั่ง <span class="font-semibold">sudo</span> โปรดตรวจสอบให้แน่ใจว่าเครื่องคอมพิวเตอร์เชื่อมต่ออินเทอร์เน็ตอยู่ก่อนเริ่มทำตามขั้นตอน</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Steps -->
+        <div class="space-y-6">
+
+            <!-- สเต็ป 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="flex items-center justify-center bg-blue-600 text-white rounded-full w-7 h-7 text-sm font-bold">1</span>
+                    <h2 class="text-xl font-bold text-gray-800">ลบ Docker เวอร์ชันเก่าออกจากระบบ</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">ป้องกันปัญหาไฟล์ระบบชนกัน โดยลบแพ็กเกจเดิมที่อาจติดมากับดิสโทรออกก่อน</p>
+                <div class="bg-gray-900 rounded-xl p-4 overflow-x-auto relative group">
+                    <pre class="text-sm text-emerald-400"><code>sudo apt remove docker docker-engine docker.io containerd runc</code></pre>
+                </div>
+            </div>
+
+            <!-- สเต็ป 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="flex items-center justify-center bg-blue-600 text-white rounded-full w-7 h-7 text-sm font-bold">2</span>
+                    <h2 class="text-xl font-bold text-gray-800">อัปเดตดัชนีแพ็กเกจและติดตั้ง Dependencies</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">ติดตั้งเครื่องมือจำเป็นสำหรับการดาวน์โหลดและยืนยันคีย์ความปลอดภัยจากเครือข่าย</p>
+                <div class="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                    <pre class="text-sm text-emerald-400"><code>sudo apt update
+sudo apt install -y ca-certificates curl gnupg</code></pre>
+                </div>
+            </div>
+
+            <!-- สเต็ป 3 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="flex items-center justify-center bg-blue-600 text-white rounded-full w-7 h-7 text-sm font-bold">3</span>
+                    <h2 class="text-xl font-bold text-gray-800">เพิ่ม Docker's Official GPG Key</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">เป็นการลงทะเบียนคีย์สำหรับเข้ารหัส เพื่อให้ระบบตรวจสอบได้ว่าเป็นแพ็กเกจแท้จาก Docker จริงๆ</p>
+                <div class="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                    <pre class="text-sm text-emerald-400"><code>sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://docker.com | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg</code></pre>
+                </div>
+            </div>
+
+            <!-- สเต็ป 4 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="flex items-center justify-center bg-blue-600 text-white rounded-full w-7 h-7 text-sm font-bold">4</span>
+                    <h2 class="text-xl font-bold text-gray-800">เพิ่ม Docker Repository สำหรับ Debian Trixie</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">สั่งเพิ่มแหล่งดาวน์โหลดซอฟต์แวร์ของ Docker ลงในระบบ APT โดยคำสั่งนี้จะตรวจจับสถาปัตยกรรมเครื่องและโค้ดเนมให้อัตโนมัติ</p>
+                <div class="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                    <pre class="text-sm text-emerald-400"><code>echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://docker.com \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null</code></pre>
+                </div>
+            </div>
+
+            <!-- สเต็ป 5 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="flex items-center justify-center bg-blue-600 text-white rounded-full w-7 h-7 text-sm font-bold">5</span>
+                    <h2 class="text-xl font-bold text-gray-800">ติดตั้ง Docker Engine และ Compose Plugin</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">อัปเดตรายการซอฟต์แวร์ใหม่อีกครั้ง จากนั้นรันคำสั่งดาวน์โหลดตัวโปรแกรมหลักของ Docker และเครื่องมือ Compose</p>
+                <div class="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                    <pre class="text-sm text-emerald-400"><code>sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></pre>
+                </div>
+            </div>
+
+            <!-- สเต็ป 6 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="flex items-center justify-center bg-blue-600 text-white rounded-full w-7 h-7 text-sm font-bold">6</span>
+                    <h2 class="text-xl font-bold text-gray-800">ทดสอบรันคอนเทนเนอร์แรก</h2>
+                </div>
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed">พิมพ์คำสั่งนี้เพื่อดึงคอนเทนเนอร์ขนาดจิ๋วมาทดสอบระบบ หากขึ้นคำว่า "Hello from Docker!" แสดงว่าติดตั้งเสร็จสมบูรณ์</p>
+                <div class="bg-gray-900 rounded-xl p-4 overflow-x-auto">
+                    <pre class="text-sm text-emerald-400"><code>sudo docker run hello-world</code></pre>
+                </div>
+            </div>
+
+            <!-- ทริกเสริมสำหรับนักเรียน -->
+            <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl shadow-sm">
+                <div class="flex items-center gap-2 mb-2">
+                    <h3 class="text-lg font-bold text-blue-900">💡 ทริกเด็ด: ใช้งาน Docker โดยไม่ต้องพิมพ์ sudo</h3>
+                </div>
+                <p class="text-blue-800 text-sm leading-relaxed mb-4">โดยปกติระบบจะล็อกไม่ให้ผู้ใช้ธรรมดารันคอนเทนเนอร์ ถ้านักเรียนไม่อยากพิมพ์ <code class="bg-blue-100 px-1 py-0.5 rounded font-bold">sudo</code> ทุกครั้ง ให้พิมพ์คำสั่งด้านล่างนี้</p>
+                <div class="bg-gray-900 rounded-xl p-4 overflow-x-auto mb-4">
+                    <pre class="text-sm text-emerald-400"><code>sudo usermod -aG docker $USER</code></pre>
+                </div>
+                <p class="text-blue-800 text-xs font-medium">* หลังจากรันคำสั่งนี้แล้ว ให้นักเรียนล็อกเอาต์ออกจากเครื่อง (หรือปิด Terminal) แล้วเปิดใหม่เพื่อให้สิทธิ์อัปเดตทำงาน</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto px-4 mt-12 text-center text-xs text-gray-400">
+
