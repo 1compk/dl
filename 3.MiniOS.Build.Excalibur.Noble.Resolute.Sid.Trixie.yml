@@ -69,7 +69,7 @@ jobs:
            mtools rsync grub-common e2fsprogs lvm2 pv wget gettext gpgv musl \
            shim-signed grub-efi-amd64-bin grub-efi-amd64-signed musl-tools gcc-multilib
 
-          sudo -E ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce \
+          sudo -E bash ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce \
            -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
       - name: Upload | ISO
