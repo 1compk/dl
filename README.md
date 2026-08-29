@@ -1,4 +1,4 @@
-<img width="1280" height="720" alt="MiniOS.SS.RV413" src="https://github.com/1compk/dl/raw/dl/MiniOS.SkyLine.ChromeBook.png"/>
+<img width="1280" height="720" alt="MiniOS.SkyLine.ChromeBook" src="https://github.com/1compk/dl/raw/dl/MiniOS.SkyLine.ChromeBook.png"/>
 
 MiniOS Download : https://github.com/1compk/minios/releases
 
