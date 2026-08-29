@@ -1,4 +1,4 @@
-<img width="800" height="600" alt="MiniOS.SS.RV413" src="https://github.com/1compk/minios/raw/dl/MiniOS.SkyLine.2026.Fastfetch.SS.RV413.png" />
+<img width="800" height="600" alt="MiniOS.SS.RV413" src="https://github.com/1compk/dl/raw/dl/MiniOS.SkyLine.ChromeBook.png"/>
 
 
 MiniOS Download : https://github.com/1compk/minios/releases
