@@ -3,7 +3,7 @@
 # Copyright (C) 2021 https://github.com/ophub/amlogic-s9xxx-armbian
 #==========================================================================
 
-name: Build Armbian from official images
+name: 5. OPHub Build Armbian from official images
 
 on:
   repository_dispatch:
@@ -387,8 +387,8 @@ jobs:
           # Resolve the Armbian image download URL
           armbian_url="${{ inputs.armbian_url }}"
           if  [[ -z "${armbian_url}" ]]; then
-              armbian_site="https://armbian.tnahosting.net/dl/odroidn2/archive/"
-              armbian_name="Armbian.*noble.*.img.xz"
+              armbian_site="https://mirror.twds.com.tw/armbian-dl/uefi-x86/archive/"
+              armbian_name="Armbian.*resolute.*.img.xz"
               armbian_file=$(curl -s "${armbian_site}" | grep -oE "${armbian_name}" | head -n 1)
               if [[ -n "${armbian_file}" ]]; then
                   armbian_url="${armbian_site}${armbian_file}"
