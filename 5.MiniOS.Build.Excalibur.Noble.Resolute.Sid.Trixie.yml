@@ -1,4 +1,4 @@
-name: 5. MiniOS i386 Build LXFice Excalibur Noble Resolute Sid Trixie 
+name: 5. MiniOS i386 Build LXFice Excalibur Bookworm Trixie 
 
 on:
   schedule:
@@ -24,13 +24,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ trixie, excalibur ]
+        release: [ trixie, bookworm, excalibur ]
         board: [ uefi-x86 ]
         include:
           #- { release: sid, Custom: false }
           #- { release: noble, Custom: false }
           - { release: trixie, Custom: false }
-          #- { release: resolute, Custom: false }
+          - { release: bookworm, Custom: false }
           - { release: excalibur, Custom: false }
 
     steps:
