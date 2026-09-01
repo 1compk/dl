@@ -1,4 +1,4 @@
-name: 3. MiniOS Build LXFice Excalibur Noble Resolute Sid Trixie 
+name: 5. MiniOS i386 Build LXFice Excalibur Noble Resolute Sid Trixie 
 
 on:
   schedule:
@@ -10,9 +10,9 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.Build.01.09.2026.tar.xz
-  BuildSource: zMiniOS.Build.01.09.2026.tar.xz
-  BuildDir: MiniOS.Build.2026
+  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.Build.i386.01.09.2026.tar.xz
+  BuildSource: zMiniOS.Build.i386.01.09.2026.tar.xz
+  BuildDir: MiniOS.Build.i386.2026
   BaseVersion: Lastest
   CustomVersion: SkyLine Edition 2026 LXFice
 
@@ -24,13 +24,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        release: [ sid, noble, trixie, resolute, excalibur ]
+        release: [ trixie, excalibur ]
         board: [ uefi-x86 ]
         include:
-          - { release: sid, Custom: false }
-          - { release: noble, Custom: false }
+          #- { release: sid, Custom: false }
+          #- { release: noble, Custom: false }
           - { release: trixie, Custom: false }
-          - { release: resolute, Custom: false }
+          #- { release: resolute, Custom: false }
           - { release: excalibur, Custom: false }
 
     steps:
@@ -69,7 +69,7 @@ jobs:
            mtools rsync grub-common e2fsprogs lvm2 pv wget gettext gpgv musl \
            shim-signed grub-efi-amd64-bin grub-efi-amd64-signed musl-tools gcc-multilib
 
-          sudo -E bash ./minios-cmd -d ${{ matrix.release }} -a amd64 -de xfce \
+          sudo -E bash ./minios-cmd -d ${{ matrix.release }} -a i386 -de xfce \
            -pv standard -c zstd -l en_US -tz "${TZ}" -kl -ib dracut
 
       - name: Upload | ISO
