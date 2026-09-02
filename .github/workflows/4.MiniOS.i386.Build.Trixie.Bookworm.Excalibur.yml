@@ -1,4 +1,4 @@
-name: 3. MiniOS i386 Build LXFice Trixie Bookworm Excalibur
+name: 4. MiniOS i386 Build LXFice Trixie Bookworm Excalibur
 
 on:
   schedule:
