@@ -84,7 +84,7 @@ jobs:
            shim-signed grub-efi-amd64-bin grub-efi-amd64-signed musl-tools gcc-multilib
 
           sudo -E bash ./minios-cmd -d ${{ matrix.release }} -a ${{ matrix.arch }} -de xfce \
-           -pv standard -c zstd -l en_US -tz "${TZ}" -dkms -kl -ib dracut
+           -pv standard -c zstd -l en_US -tz "${TZ}" -ib dracut
 
       - name: Upload | ISO
         uses: actions/upload-artifact@v7
