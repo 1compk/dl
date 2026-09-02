@@ -1,4 +1,4 @@
-name: 1. MiniOS x864 SkyLine LXFice Sid Noble Trixie Resolute Excalibur
+name: 1. MiniOS x864 Build LXFice Sid Noble Trixie Resolute Excalibur
 
 on:
   schedule:
@@ -10,9 +10,9 @@ env:
   iMageSize: 50GiB
   MainDir: /builder
 
-  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.SkyLine.01.09.2026.tar.xz
-  BuildSource: zMiniOS.SkyLine.01.09.2026.tar.xz
-  BuildDir: MiniOS.SkyLine.2026
+  BuildDL: https://github.com/1compk/dl/releases/download/dl/zMiniOS.Build.01.09.2026.tar.xz
+  BuildSource: zMiniOS.Build.01.09.2026.tar.xz
+  BuildDir: MiniOS.Build.2026
   BaseVersion: Lastest
   CustomVersion: SkyLine Edition 2026 LXFice
   FirefoxDir: linux-live/scripts/03-gui-base/rootcopy-postinstall/opt/
@@ -58,8 +58,6 @@ jobs:
       - name: Prepare | Source Code
         working-directory: /builder
         run: |
-          git clone --depth 1 --single-branch --no-tags \
-           https://github.com/minios-linux/minios-live.git ${{ env.BuildDir }}
           wget -nv "${{ env.BuildDL }}"
           tar -xf "${{ env.BuildSource }}"
 
