@@ -3,23 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คู่มือการดึง DTB จากกล่อง Android TV ผ่าน ADB</title>
+    <title>วิธีดึง DTB จากกล่อง Android TV ผ่าน ADB (บน Linux Trixie)</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, system-ui;
             line-height: 1.6;
-            background-color: #f4f7f6;
             color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+            background-color: #f9f9f9;
         }
         h1 {
             color: #2c3e50;
@@ -29,116 +22,120 @@
         h2 {
             color: #2980b9;
             margin-top: 30px;
+            border-left: 4px solid #2980b9;
+            padding-left: 10px;
         }
-        .step {
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 0 4px 4px 0;
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 15px;
         }
         .step-title {
             font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-        code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #ecf0f1;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #c0392b;
-            font-size: 0.95em;
+            color: #333;
         }
         pre {
-            background: #2d3748;
-            color: #f7fafc;
+            background-color: #2d3748;
+            color: #fff;
             padding: 15px;
             border-radius: 6px;
             overflow-x: auto;
-            margin: 10px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e53e3e;
+            font-size: 0.9em;
         }
         pre code {
-            background: none;
-            color: #f7fafc;
+            background-color: transparent;
             padding: 0;
+            color: #a3e635;
         }
-        .highlight {
-            color: #f6e05e;
-            font-weight: bold;
-        }
-        .tip {
-            background: #e8f4fd;
-            border-left: 4px solid #2ecc71;
+        .note {
+            background-color: #fffaf0;
+            border-left: 4px solid #dd6b20;
             padding: 15px;
-            margin-top: 20px;
-            border-radius: 4px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .tab-container {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
     <h1>วิธีดึง DTB จากกล่อง Android TV ผ่าน ADB (บน Linux Trixie)</h1>
-    <p>คู่มือนี้จะช่วยคุณดึงไฟล์ Device Tree Blob (DTB) จากกล่อง Android TV โดยตรงผ่านสาย USB หรือ Wi-Fi และแปลงเป็นซอร์สโค้ด (DTS) เพื่ออ่านโครงสร้างฮาร์ดแวร์</p>
+    
+    <p>Device Tree Blob (DTB) เป็นไฟล์สำคัญที่ใช้บอกระบบปฏิบัติการว่าฮาร์ดแวร์ในกล่องมีอะไรบ้าง บทความนี้จะแนะนำขั้นตอนการดึงไฟล์ DTB ออกมาจากกล่อง Android TV โดยใช้เครื่องมือ ADB บนระบบปฏิบัติการ <strong>Debian 13 (Trixie)</strong> ทั้งแบบต่อสาย USB และแบบไร้สายในวงแลนเดียวกัน</p>
 
-    <h2>เตรียมความพร้อมที่ฝั่งกล่อง Android TV</h2>
-    <div class="step">
-        <div class="step-title">เปิดใช้งาน USB Debugging</div>
-        <ul>
-            <li>ไปที่กล่อง Android TV &gt; <strong>การตั้งค่า (Settings)</strong> &gt; <strong>ค่ากำหนดอุปกรณ์ (Device Preferences)</strong> &gt; <strong>เกี่ยวกับ (About)</strong></li>
-            <li>กดที่คำว่า <strong>หมายเลขบิวด์ (Build Number)</strong> ซ้ำๆ 7 ครั้ง จนระบบขึ้นว่าคุณเป็นนักพัฒนาซอฟต์แวร์แล้ว</li>
-            <li>ย้อนกลับมาที่เมนูก่อนหน้า เข้าไปที่ <strong>ตัวเลือกสำหรับนักพัฒนาซอฟต์แวร์ (Developer Options)</strong> แล้วเปิดใช้งาน <strong>การดีบัก USB (USB Debugging)</strong></li>
-        </ul>
+    <div class="note">
+        <strong>ข้อควรจำ:</strong> กล่อง Android TV ของคุณต้องเปิดใช้งาน <strong>USB Debugging</strong> (การแก้ไขข้อบกพร่อง USB) ในเมนูนักพัฒนาซอฟต์แวร์เรียบร้อยแล้ว
     </div>
 
-    <h2>ขั้นตอนการทำบน Linux Trixie (Debian 13)</h2>
+    <h2>ขั้นตอนที่ 1: ติดตั้ง ADB บน Linux Trixie</h2>
+    <p>เปิด Terminal บน Linux แล้วอัปเดตระบบพร้อมติดตั้งเครื่องมือ <code>adb</code></p>
+    <pre><code>sudo apt update && sudo apt install adb -y</code></pre>
 
-    <div class="step">
-        <div class="step-title">ขั้นตอนที่ 1: ติดตั้งเครื่องมือที่จำเป็น</div>
-        <p>เปิด Terminal บน Linux Trixie แล้วใช้คำสั่งนี้เพื่อติดตั้งเครื่องมือเชื่อมต่อและเครื่องมือแปลงไฟล์:</p>
-        <pre><code>sudo apt update
-sudo apt install adb device-tree-compiler source-highlight -y</code></pre>
+    <h2>ขั้นตอนที่ 2: เลือกวิธีเชื่อมต่อกับกล่อง Android TV</h2>
+    <p>เลือกทำวิธีใดวิธีหนึ่ง (แบบ A หรือ แบบ B) ตามความสะดวกของคุณ:</p>
+
+    <div class="tab-container">
+        <h3>แบบ A: เชื่อมต่อด้วยสาย USB (เสถียรที่สุด)</h3>
+        <ol>
+            <li>ใช้สาย USB (มักจะเป็นสาย USB-A to USB-A หรือตามพอร์ตของกล่อง) เชื่อมต่อระหว่างคอมพิวเตอร์ Linux กับกล่อง Android TV</li>
+            <li>เช็คว่าระบบมองเห็นกล่องหรือไม่ โดยใช้คำสั่ง:
+                <pre><code>adb devices</code></pre>
+            </li>
+            <li><em>*ตรวจสอบหน้าจอทีวีเพื่อกด "ยอมรับ/Allow" ให้คอมพิวเตอร์เข้าถึงสิทธิ์ USB Debugging</em> หากสำเร็จจะขึ้นสถานะ <code>device</code> ท้ายชื่ออุปกรณ์</li>
+        </ol>
     </div>
 
-    <div class="step">
-        <div class="step-title">ขั้นตอนที่ 2: เชื่อมต่อ ADB กับกล่อง</div>
-        <p>หากเชื่อมต่อผ่านสาย USB ให้เสียบสายได้เลย หรือหากเชื่อมต่อผ่าน Wi-Fi ให้ใช้คำสั่งระบุ IP ของกล่อง:</p>
-        <pre><code>adb connect <span class="highlight">192.168.1.XXX</span>   # เปลี่ยนเป็น IP ของกล่องคุณ
-adb devices                     # เช็คสถานะการเชื่อมต่อ (ต้องขึ้น device)</code></pre>
-        <p><em>*อย่าลืมกด "ยอมรับการเชื่อมต่อ (Allow)" ที่หน้าจอทีวีหากมีป๊อปอัปเด้งขึ้นมา</em></p>
+    <div class="tab-container">
+        <h3>แบบ B: เชื่อมต่อผ่านวงแลน (Wi-Fi / Ethernet)</h3>
+        <ol>
+            <li>หาหมายเลข IP Address ของกล่อง Android TV จากเมนูตั้งค่าเครือข่ายในทีวี</li>
+            <li>สั่งเชื่อมต่อผ่านระบบเน็ตเวิร์ก (เปลี่ยน <code>192.168.1.XXX</code> เป็น IP จริงของกล่องคุณ):
+                <pre><code>adb connect 192.168.1.XXX:5555</code></pre>
+            </li>
+            <li><em>*ตรวจสอบหน้าจอทีวีเพื่อกด "ยอมรับ/Allow" ให้คอมพิวเตอร์เข้าถึงสิทธิ์การเชื่อมต่อเช่นกัน</em></li>
+        </ol>
     </div>
 
-    <div class="step">
-        <div class="step-title">ขั้นตอนที่ 3: รันสคริปต์ดึงและแปลงไฟล์อัตโนมัติ</div>
-        <p>คัดลอกกลุ่มคำสั่งด้านล่างนี้ไปวางใน Terminal เพื่อทำการดึงไฟล์ แปลงเป็นซอร์สโค้ด และจัดฟอร์แมตให้อ่านง่าย:</p>
-        <pre><code># 1. ดึงไฟล์ไบนารี fdt จากกล่องมาที่คอมพิวเตอร์
-adb pull /sys/firmware/fdt ./extracted_dtb.dtb
+    <h2>ขั้นตอนที่ 3: ค้นหาและดึงไฟล์ DTB ออกมา</h2>
+    <ol>
+        <li>
+            <span class="step-title">ตรวจสอบพาร์ทิชันหรือตำแหน่งของ DTB</span>
+            <p>โดยทั่วไปในระบบ Android TV ไฟล์ FDT (Flattened Device Tree) จะถูก map ไว้ที่ระบบไฟล์จำลอง ลองใช้คำสั่งตรวจสอบ:</p>
+            <pre><code>adb shell ls -l /sys/firmware/fdt</code></pre>
+        </li>
+        <li>
+            <span class="step-title">ดึงไฟล์ DTB ออกมายังคอมพิวเตอร์ Linux</span>
+            <p>หากเครื่องเจอไฟล์ในขั้นตอนก่อนหน้า ให้สั่งคัดลอกไฟล์มาเก็บไว้ในโฟลเดอร์ปัจจุบันของคอมพิวเตอร์ โดยตั้งชื่อไฟล์ใหม่ว่า <code>extracted_dtb.dtb</code></p>
+            <pre><code>adb pull /sys/firmware/fdt ./extracted_dtb.dtb</code></pre>
+        </li>
+    </ol>
 
-# 2. แปลงไฟล์ไบนารีเป็นซอร์สโค้ดข้อความ (.dts)
-dtc -I dtb -O dts -o android_box.dts extracted_dtb.dtb
-
-# 3. แปลงซอร์สโค้ดให้เป็นหน้าเว็บ HTML ที่แยกสีโค้ดให้อ่านง่าย
-source-highlight -i android_box.dts -o view_devicetree.html -s dts --out-format=html</code></pre>
-    </div>
-
-    <div class="step">
-        <div class="step-title">ขั้นตอนที่ 4: เปิดอ่านโครงสร้างฮาร์ดแวร์</div>
-        <p>เมื่อรันเสร็จแล้ว คุณจะได้ไฟล์ใหม่ชื่อ <code>view_devicetree.html</code> โผล่ขึ้นมา ให้สั่งเปิดอ่านผ่านเว็บเบราว์เซอร์ด้วยคำสั่งนี้:</p>
-        <pre><code>xdg-open view_devicetree.html</code></pre>
-    </div>
-
-    <div class="tip">
-        <strong>💡 คำแนะนำเพิ่มเติมสำหรับการอ่านโค้ด:</strong><br>
-        เมื่อเปิดไฟล์ <code>view_devicetree.html</code> บนเบราว์เซอร์ขึ้นมาแล้ว คุณสามารถกด <code>Ctrl + F</code> เพื่อค้นหาพาร์ตฮาร์ดแวร์ที่ต้องการได้ทันที เช่น:
-        <ul>
-            <li>ค้นหาคำว่า <code>model =</code> หรือ <code>compatible =</code> เพื่อดูข้อมูลรุ่นและชิปเซ็ตที่บอร์ดรองรับ</li>
-            <li>ค้นหาคำว่า <code>wireless-wlan</code> หรือ <code>wifi</code> เพื่อดูการตั้งค่าชิป Wi-Fi</li>
-            <li>ค้นหาคำว่า <code>status = "okay"</code> เพื่อดูว่าอุปกรณ์ส่วนไหนในกล่องถูกเปิดใช้งานอยู่บ้าง</li>
-        </ul>
-    </div>
-</div>
+    <h2>ขั้นตอนที่ 4: แปลงไฟล์เพื่อตรวจสอบความถูกต้อง (ทางเลือก)</h2>
+    <p>คุณสามารถติดตั้งเครื่องมือ <code>device-tree-compiler</code> บน Linux Trixie เพื่อแปลงไฟล์โครงสร้างฮาร์ดแวร์จาก Binary (DTB) ให้กลับมาเป็น Text (DTS) เพื่อเปิดอ่านด้วย Text Editor ทั่วไปได้</p>
+    <pre><code>sudo apt install device-tree-compiler -y
+dtc -I dtb -O dts -o extracted_dtb.dts extracted_dtb.dtb</code></pre>
+    <p>เมื่อรันเสร็จแล้ว คุณจะได้ไฟล์ <code>extracted_dtb.dts</code> ซึ่งเปิดดูรายละเอียดฮาร์ดแวร์ด้านในได้ทันที</p>
 
 </body>
 </html>
-
