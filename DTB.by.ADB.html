@@ -69,6 +69,13 @@
             margin: 20px 0;
             border-radius: 0 6px 6px 0;
         }
+        .warning-box {
+            background-color: #fff5f5;
+            border-left: 4px solid #e53e3e;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
         .tab-container {
             background: #fff;
             padding: 15px;
@@ -98,7 +105,7 @@
     <div class="tab-container">
         <h3>แบบ A: เชื่อมต่อด้วยสาย USB (เสถียรที่สุด)</h3>
         <ol>
-            <li>ใช้สาย USB (มักจะเป็นสาย USB-A to USB-A หรือตามพอร์ตของกล่อง) เชื่อมต่อระหว่างคอมพิวเตอร์ Linux กับกล่อง Android TV</li>
+            <li>ใช้สาย USB เชื่อมต่อระหว่างคอมพิวเตอร์ Linux กับกล่อง Android TV</li>
             <li>เช็คว่าระบบมองเห็นกล่องหรือไม่ โดยใช้คำสั่ง:
                 <pre><code>adb devices</code></pre>
             </li>
@@ -131,6 +138,30 @@
         </li>
     </ol>
 
+    <div class="warning-box">
+        <strong>⚠️ วิธีกู้คืนในกรณีที่หาไฟล์ /sys/firmware/fdt ไม่เจอ</strong><br>
+        ในกล่อง Android TV บางรุ่น (โดยเฉพาะรุ่นใหม่ๆ หรือ Android เวอร์ชันสูง) ระบบอาจจะไม่ได้ map ไฟล์ไว้ที่โครงสร้างโฟลเดอร์ดังกล่าว คุณจำเป็นต้องดึงจากพาร์ทิชัน (Partition) โดยตรงแทน ซึ่งทำได้ 2 วิธีดังนี้:
+        
+        <h3>วิธีที่ 1: ดึงจาก dtb partition โดยตรง (แนะนำ)</h3>
+        <p>1. ค้นหาพาร์ทิชันที่ชื่อว่า dtb ในเครื่องโดยเปิด adb shell เข้าไปดูบล็อกอุปกรณ์:</p>
+        <pre><code>adb shell "ls -l /dev/block/by-name/ | grep -i dtb"</code></pre>
+        <p>2. หากพบพาร์ทิชัน (เช่น บล็อกชี้ไปที่ <code>/dev/block/mmcblk0pXX</code>) ให้ใช้คำสั่ง <code>dd</code> เพื่อ Dump พาร์ทิชันนั้นออกมาไว้ในสโตเรจชั่วคราวของกล่อง:</p>
+        <pre><code>adb shell "su -c 'dd if=/dev/block/by-name/dtb of=/data/local/tmp/dtb.img'"</code></pre>
+        <p>3. ดึงไฟล์ที่ Dump ออกมามายังฝั่งคอมพิวเตอร์ Linux:</p>
+        <pre><code>adb pull /data/local/tmp/dtb.img ./extracted_dtb.dtb</code></pre>
+
+        <h3>วิธีที่ 2: ดึงจาก boot partition (กรณีไม่มีแยกพาร์ทิชัน dtb)</h3>
+        <p>หากไม่มีพาร์ทิชันแยก ส่วนใหญ่ไฟล์ DTB จะถูกรวม (Append) อยู่ท้ายไฟล์ Kernel ภายในพาร์ทิชัน boot</p>
+        <p>1. ทำการ Dump พาร์ทิชัน boot ออกมา:</p>
+        <pre><code>adb shell "su -c 'dd if=/dev/block/by-name/boot of=/data/local/tmp/boot.img'"</code></pre>
+        <p>2. ดึงไฟล์ boot.img กลับมายังคอมพิวเตอร์ Linux:</p>
+        <pre><code>adb pull /data/local/tmp/boot.img ./boot.img</code></pre>
+        <p>3. บน Linux Trixie ให้ติดตั้งเครื่องมือถอดแยกพาร์ทิชัน Android Boot และทำการแตกไฟล์ออกเพื่อหาไฟล์ <code>dtb</code> ด้านใน:</p>
+        <pre><code>sudo apt install abootimg -y
+abootimg -x boot.img</code></pre>
+        <p><em>*ตรวจสอบไฟล์ที่ได้ในโฟลเดอร์ จะมีไฟล์ที่เป็นไฟล์ DTB ถูกแยกออกมาให้ใช้งาน</em></p>
+    </div>
+
     <h2>ขั้นตอนที่ 4: แปลงไฟล์เพื่อตรวจสอบความถูกต้อง (ทางเลือก)</h2>
     <p>คุณสามารถติดตั้งเครื่องมือ <code>device-tree-compiler</code> บน Linux Trixie เพื่อแปลงไฟล์โครงสร้างฮาร์ดแวร์จาก Binary (DTB) ให้กลับมาเป็น Text (DTS) เพื่อเปิดอ่านด้วย Text Editor ทั่วไปได้</p>
     <pre><code>sudo apt install device-tree-compiler -y
@@ -139,3 +170,4 @@ dtc -I dtb -O dts -o extracted_dtb.dts extracted_dtb.dtb</code></pre>
 
 </body>
 </html>
+
