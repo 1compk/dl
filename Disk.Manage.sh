@@ -131,9 +131,9 @@ create_gpt_partitions() {
     mklabel gpt \
     mkpart bios 4MiB 8MiB \
     set 1 bios_grub on \
-    mkpart efi fat32 8MiB 113MiB \
-    mkpart f2fs ext4 113MiB 102564MiB \
-    mkpart ext4 ext4 102564MiB 100%
+    mkpart efi fat32 8MiB 136MiB \
+    mkpart f2fs ext4 136MiB 102587MiB \
+    mkpart ext4 ext4 102587MiB 100%
 
   rescan_and_settle "$disk"
 
@@ -166,9 +166,9 @@ create_mbr_partitions() {
   sudo wipefs -a "$disk"
   sudo parted -s "$disk" \
     mklabel msdos \
-    mkpart primary fat32 8MiB 113MiB \
+    mkpart primary fat32 8MiB 136MiB \
     set 1 boot on \
-    mkpart primary ext4 113MiB 100%
+    mkpart primary ext4 136MiB 100%
 
   rescan_and_settle "$disk"
 
