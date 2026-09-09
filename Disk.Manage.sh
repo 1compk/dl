@@ -131,9 +131,9 @@ create_gpt_partitions() {
     mklabel gpt \
     mkpart bios 4MiB 8MiB \
     set 1 bios_grub on \
-    mkpart efi fat32 8MiB 128MiB \
-    mkpart ext4 ext4 128MiB 102719MiB \
-    mkpart ext4 ext4 102719MiB 100%
+    mkpart efi fat32 8MiB 113MiB \
+    mkpart f2fs ext4 113MiB 102564MiB \
+    mkpart ext4 ext4 102564MiB 100%
 
   rescan_and_settle "$disk"
 
@@ -147,9 +147,10 @@ create_gpt_partitions() {
   wait_for_part "$p3" 10
   wait_for_part "$p4" 10
 
-  sudo mkfs.vfat -F 32 -I -a "$p2"
+  sudo mkfs.vfat -F 32 "$p2"
   sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
-  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
+  sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p4" || die "mkfs.f2fs failed on $p4"
+  #sudo mkfs.ext4 -F -b 4096 -m 1 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
   #sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
   #sudo mkfs.btrfs -fv -s 4K -n 32K -O no-holes "$p3" || die "mkfs.btrfs failed on $p3"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 "$p3" || die "mkfs.xfs failed on $p3"
@@ -165,9 +166,9 @@ create_mbr_partitions() {
   sudo wipefs -a "$disk"
   sudo parted -s "$disk" \
     mklabel msdos \
-    mkpart primary fat32 8MiB 128MiB \
+    mkpart primary fat32 8MiB 113MiB \
     set 1 boot on \
-    mkpart primary ext4 128MiB 100%
+    mkpart primary ext4 113MiB 100%
 
   rescan_and_settle "$disk"
 
@@ -180,8 +181,8 @@ create_mbr_partitions() {
 
   sudo mkfs.vfat -F 32 -I -a "$p1"
   #sudo mkfs.btrfs -fv -s 4K -n 16K -O no-holes "$p2" || die "mkfs.btrfs failed on $p2"
-  #sudo mkfs.f2fs -f -a 1 -o 10 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p2" || die "mkfs.f2fs failed on $p2"
-  sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
+  sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p2" || die "mkfs.f2fs failed on $p2"
+  #sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 -n size=64k -l size=64m,lazy-count=1 "$p2" || die "mkfs.xfs failed on $p2"
 
   rescan_and_settle "$disk"
