@@ -1,0 +1,4 @@
+deb https://mirrors.xtom.sg/ubuntu/ resolute main restricted universe multiverse
+deb https://mirrors.xtom.sg/ubuntu/ resolute-updates main restricted universe multiverse
+deb https://mirrors.xtom.sg/ubuntu/ resolute-backports main restricted universe multiverse
+deb https://mirrors.xtom.sg/ubuntu/ resolute-security main restricted universe multiverse
