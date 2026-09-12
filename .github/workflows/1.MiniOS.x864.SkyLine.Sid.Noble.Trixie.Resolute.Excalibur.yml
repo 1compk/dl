@@ -78,6 +78,7 @@ jobs:
       - name: Build | Compile
         working-directory: /builder/${{ env.BuildDir }}
         run: |
+          sudo apt-get update
           sudo chown -R root:root /builder/${{ env.BuildDir }}
           sudo apt-get install -y debootstrap squashfs-tools xz-utils xorriso \
            mtools rsync grub-common e2fsprogs lvm2 pv wget gettext gpgv musl \
