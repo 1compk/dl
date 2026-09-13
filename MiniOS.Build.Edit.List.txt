@@ -6,7 +6,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart udisks2.service
 
 
-#minioslib
+#/linux-live/minioslib
 #edit :
 
     beowulf | chimaera | daedalus | excalibur)
@@ -80,6 +80,8 @@ APPEND vga=788 initrd=/${LIVEKITNAME}/boot/${INITRFSNAME} ${DEFAULT_SETTINGS} ${
 
 set timeout=5
 
+search --set -f 
+
 
 #add :
 
@@ -144,7 +146,7 @@ configfile /minios/boot/grub/1compk.cfg
 
 
 
-#/initramfs/dracut-mos/90minios/module-setup.sh
+#/linux-live/initramfs/dracut-mos/90minios/module-setup.sh
 
 #edit :
 
