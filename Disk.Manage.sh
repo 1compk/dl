@@ -22,7 +22,7 @@ normalize_device() {
 # Get partition device name handling nvme/mmcblk naming
 get_part_name() {
   local disk="$1" part_num="$2"
-  if [[ "$disk" =~ (nvme|mmcblk) ]]; then
+  if [[ "$disk" =~ (loop|nvme|mmcblk) ]]; then
     echo "${disk}p${part_num}"
   else
     echo "${disk}${part_num}"
@@ -83,14 +83,14 @@ flash_image() {
 
   if [[ "$image" == *.xz ]]; then
     if command -v xzcat >/dev/null 2>&1; then
-      sudo xzcat "$image" | sudo dd of="$target" bs=4k seek=2048 status=progress conv=fdatasync
+      sudo xzcat "$image" | sudo dd of="$target" bs=4k status=progress conv=fdatasync
     elif command -v 7z >/dev/null 2>&1; then
-      sudo 7z x -so "$image" | sudo dd of="$target" bs=4k seek=2048 status=progress conv=fdatasync
+      sudo 7z x -so "$image" | sudo dd of="$target" bs=4k status=progress conv=fdatasync
     else
       die "Neither xzcat nor 7z is installed."
     fi
   elif [[ "$image" =~ \.(img|iso|raw)$ ]]; then
-    sudo dd if="$image" of="$target" bs=4k seek=2048 status=progress conv=fdatasync
+    sudo dd if="$image" of="$target" bs=4k status=progress conv=fdatasync
   else
     die "Unsupported image extension."
   fi
@@ -132,8 +132,8 @@ create_gpt_partitions() {
     mkpart bios 4MiB 8MiB \
     set 1 bios_grub on \
     mkpart efi fat32 8MiB 136MB \
-    mkpart ext4 ext4 136MB 100GB \
-    mkpart ext4 ext4 100GB 100%
+    mkpart f2fs f2fs 136MB 100GB \
+    mkpart f2fs f2fs 100GB 100%
 
   rescan_and_settle "$disk"
 
@@ -148,12 +148,14 @@ create_gpt_partitions() {
   wait_for_part "$p4" 10
 
   sudo mkfs.vfat -F 32 "$p2"
-  #sudo mkfs.f2fs -f -a 1 -o 0 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p3" || die "mkfs.f2fs failed on $p3"
-  sudo mkfs.f2fs -f -a 1 -o 1 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p4" || die "mkfs.f2fs failed on $p4"
-  #sudo mkfs.ext4 -F -b 4096 -m 1 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
-  sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
+  sudo mkfs.f2fs -f -a 1 -o 0 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum,compression "$p3" || die "mkfs.f2fs failed on $p3"
+  sudo mkfs.f2fs -f -a 1 -o 0 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum,compression "$p4" || die "mkfs.f2fs failed on $p4"
+  #sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p3" || die "mkfs.ext4 failed on $p3"
+  #sudo mkfs.ext4 -F -b 4096 -m 0 -O "has_journal,sparse_super,dir_index" "$p4" || die "mkfs.ext4 failed on $p4"
   #sudo mkfs.btrfs -fv -s 4K -n 32K -O no-holes "$p3" || die "mkfs.btrfs failed on $p3"
+  #sudo mkfs.btrfs -fv -s 4K -n 32K -O no-holes "$p4" || die "mkfs.btrfs failed on $p4"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 "$p3" || die "mkfs.xfs failed on $p3"
+  #sudo mkfs.xfs -f -s size=4096 -b size=4096 -n size=64k -l size=64m,lazy-count=1 "$p4" || die "mkfs.xfs failed on $p4"
 
   rescan_and_settle "$disk"
   sudo parted -s "$disk" print
@@ -181,8 +183,8 @@ create_mbr_partitions() {
 
   sudo mkfs.vfat -F 32 -I -a "$p1"
   #sudo mkfs.btrfs -fv -s 4K -n 16K -O no-holes "$p2" || die "mkfs.btrfs failed on $p2"
-  #sudo mkfs.f2fs -f -a 1 -o 0 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum "$p2" || die "mkfs.f2fs failed on $p2"
-  sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
+  sudo mkfs.f2fs -f -a 1 -o 0 -O extra_attr,flexible_inline_xattr,inode_checksum,sb_checksum,compression "$p2" || die "mkfs.f2fs failed on $p2"
+  #sudo mkfs.ext4 -F -b 4096 -m 0 -E stride=2,stripe-width=2 -O "^has_journal,sparse_super,dir_index" "$p2" || die "mkfs.ext4 failed on $p2"
   #sudo mkfs.xfs -f -s size=4096 -b size=4096 -d agcount=2 -m reflink=0 -n size=64k -l size=64m,lazy-count=1 "$p2" || die "mkfs.xfs failed on $p2"
 
   rescan_and_settle "$disk"
@@ -206,10 +208,10 @@ install_grub() {
   [[ -d "$efi_mount" ]] || die "Mountpoint $efi_mount missing."
 
   echo "Installing UEFI GRUB..."
-  sudo grub-install --target=x86_64-efi --boot-directory="$efi_mount/EFI" --efi-directory="$efi_mount" --removable || true
+  sudo grub-install --target=x86_64-efi --boot-directory="$efi_mount/minios/boot/EFI" --efi-directory="$efi_mount/minios/boot" --removable || true
 
   echo "Installing BIOS GRUB..."
-  sudo grub-install --target=i386-pc --boot-directory="$efi_mount/EFI" "$disk" --recheck --force || true
+  sudo grub-install --target=i386-pc --boot-directory="$efi_mount/minios/boot/EFI" "$disk" --recheck --force || true
 
   unmount_target "$disk"
 }
